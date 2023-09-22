@@ -5,12 +5,14 @@
 [React & Express Templates](https://github.com/gary-jipp/shell-react-express)
 
 ## Installation
-Ignore the severity vulnerabilities warnings and errors.
+Run this commands at the base project directory. Please ignore the severity vulnerabilities warnings and errors. 
 ```
 cd server-express && npm install && cd ../client-react && npm install && npm audit fix
 ```
 
 ## Run the Development
+Run this commands at the base project directory.
+
 Terminal 1
 ```
 cd server-express && npm run local
