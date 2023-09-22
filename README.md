@@ -4,13 +4,14 @@
 
 [React & Express Templates](https://github.com/gary-jipp/shell-react-express)
 
-# Development
+## Installation
 ```
-cd server-express
-npm install
-npm run local
+cd server-express && npm install
+cd client-react && npm install
+```
 
-cd client-react
-npm install
-npm start
+## Run the Development
+```
+cd server-express && npm run local
+cd client-react && npm start
 ```
