@@ -1,0 +1,39 @@
+.App {
+  margin: 1em;
+}
+
+h4 {
+  padding: 0px;
+  margin: 0.2em;
+}
+
+h4:empty:before {
+  content: "\200b"; /* unicode zero width space character */
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 5px;
+  margin: 2px;
+  width: 21em;
+  background-color: #eee;
+}
+
+li a {
+  color: grey;
+}
+
+li:hover {
+  background-color: darkolivegreen;
+  color: white;
+}
+
+li:hover a {
+  color: white;
+}
+
+
