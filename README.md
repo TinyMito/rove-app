@@ -4,6 +4,11 @@ TBA project name and description
 [Project Meeting Notes](https://docs.google.com/spreadsheets/d/1eOtHMSj9CnSQIP8-XRW3La719-ND_kLdhUTcGedrTxQ)
 
 ## Installation
+Make sure you're on Node 16
+```
+nvm install 16
+nvm alias default 16
+```
 Run this commands at the base project directory. Please ignore the severity vulnerabilities warnings and errors. 
 ```
 cd server-express && npm install && cd ../client-react && npm install && npm audit fix
