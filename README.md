@@ -13,11 +13,11 @@ cd server-express && npm install && cd ../client-react && npm install && npm aud
 ## Run the Development
 Run this commands at the base project directory.
 
-Terminal 1
+Terminal 1 to start the API / Database Server
 ```
 cd server-express && npm run local
 ```
-Terminal 2
+Terminal 2 to start the client frontend.
 ```
 cd client-react && npm start
 ```
