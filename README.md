@@ -1,8 +1,7 @@
 # final-project
+TBA project name and description
 
 [Project Meeting Notes](https://docs.google.com/spreadsheets/d/1eOtHMSj9CnSQIP8-XRW3La719-ND_kLdhUTcGedrTxQ)
-
-
 
 ## Installation
 Run this commands at the base project directory. Please ignore the severity vulnerabilities warnings and errors. 
@@ -38,5 +37,8 @@ For stretch / optional / extra feature branch
 extra/enter-title-here
 ```
 
-## Source
+## Testing
+Cypress?
+
+## Sources
 [React & Express Templates](https://github.com/gary-jipp/shell-react-express)
