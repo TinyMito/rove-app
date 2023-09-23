@@ -1,6 +1,9 @@
 import 'App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Navbar from './Components/Navbar'
+import Hero from './Components/Hero'
+
 
 export default function App() {
   const [status, setStatus] = useState({});
@@ -16,15 +19,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1>Hello React World</h1>
-
-      <section>
-        {!status.error &&
-          <>API Version: <code>{status.version}</code></>}
-        {status.error &&
-          <>API Error: <code>{status.error}</code></>}
-      </section>
-    </div>
+    <Navbar />,
+    <Hero />
   );
 }
