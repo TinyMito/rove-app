@@ -4,40 +4,41 @@
 
 .App {
   margin: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h4 {
-  padding: 0px;
-  margin: 0.2em;
+.search-container {
+  width:3000px;
+  display: flex;
+  flex-direction: column;  
 }
 
-h4:empty:before {
-  content: "\200b"; /* unicode zero width space character */
+.dropdown {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
+.dropdown:empty {
+  border:none
 }
 
-li {
-  padding: 5px;
-  margin: 2px;
-  width: 21em;
-  background-color: #eee;
+.dropdown-row {
+  cursor:pointer;
+  text-align: start;
+  margin: 2px 0
 }
 
-li a {
-  color: grey;
+.search-inner {
+  display: flex;
 }
 
-li:hover {
-  background-color: darkolivegreen;
-  color: white;
+input {
+  border: solid gray 1px;
+  margin: 0.5em;
+  width:500px
 }
-
-li:hover a {
-  color: white;
-}
-
-

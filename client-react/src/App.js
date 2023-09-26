@@ -1,9 +1,10 @@
 import 'App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Navbar from './Components/Navbar'
-import Hero from './Components/Hero'
-
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Autocomplete from './components/Autocomplete'
+import Google from './components/Google'
 
 export default function App() {
   const [status, setStatus] = useState({});
@@ -19,7 +20,9 @@ export default function App() {
   }, []);
 
   return (
-    <Navbar />,
-    <Hero />
+   /*  <Navbar />,
+    <Hero /> */
+    /* <Autocomplete /> */
+   <Google />
   );
 }
