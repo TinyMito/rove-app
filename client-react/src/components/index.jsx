@@ -1,8 +1,8 @@
-import 'App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
-export default function App() {
+export default function Home() {
   const [status, setStatus] = useState({});
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="Home">
       <h1>Hello React World</h1>
 
       <section>
@@ -25,6 +25,11 @@ export default function App() {
         {status.error &&
           <>API Error: <code>{status.error}</code></>}
       </section>
+      
+      <div>
+        <Link to="dev">Developer</Link>
+      </div>
+
     </div>
   );
 }
