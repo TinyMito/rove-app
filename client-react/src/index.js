@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client'; // React ^18
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Temporary
 import './index.scss';
-import Home from "./components"; // Temporary
+import Home from "./components";
+import Schedule from "./components/Schedule";
 import Developer from "./components/DevCss"; // Temporary
 
 const rootElement = document.getElementById('root'); // React ^18
