@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Autocomplete from './components/Autocomplete'
 import Google from './components/Google'
+import Suggestion from './components/Suggestions'
 
 export default function App() {
   const [status, setStatus] = useState({});
@@ -23,6 +24,7 @@ export default function App() {
    /*  <Navbar />,
     <Hero /> */
     /* <Autocomplete /> */
-   <Google />
+   /* <Google /> */
+   <Suggestion />
   );
 }
