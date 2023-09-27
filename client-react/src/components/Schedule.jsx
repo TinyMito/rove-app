@@ -1,5 +1,3 @@
-import EditIcon from '@mui/icons-material/Edit';
-
 export default function Schedule() {
   return (
     <div>
