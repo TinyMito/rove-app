@@ -8,8 +8,18 @@ VALUES
   (6, 'David', 'Wilson', 'traveler6', 'traveler6@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
   (7, 'Laura', 'Turner', 'traveler7', 'traveler7@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
   (8, 'Chris', 'Anderson', 'traveler8', 'traveler8@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  (9, 'User9', 'LastName9', 'traveler9', 'traveler9@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  (10, 'User10', 'LastName10', 'traveler10', 'traveler10@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+  (9, 'Alice', 'Johnson', 'traveler9', 'traveler9@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (10, 'Bob', 'Smith', 'traveler10', 'traveler10@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (11, 'Charlie', 'Brown', 'traveler11', 'traveler11@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (12, 'David', 'Wilson', 'traveler12', 'traveler12@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (13, 'Eva', 'Davis', 'traveler13', 'traveler13@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (14, 'Frank', 'Turner', 'traveler14', 'traveler14@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (15, 'Grace', 'Anderson', 'traveler15', 'traveler15@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (16, 'Harrison', 'Smith', 'traveler16', 'traveler16@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (17, 'Isabella', 'Wilson', 'traveler17', 'traveler17@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (18, 'Jack', 'Johnson', 'traveler18', 'traveler18@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (19, 'Katherine', 'Brown', 'traveler19', 'traveler19@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+  (20, 'Liam', 'Smith', 'traveler20', 'traveler20@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
 
 
 INSERT INTO destinations (id, city_name, thumbnail_img_url, cover_photo_url)
@@ -23,7 +33,17 @@ VALUES
   (7, 'London', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv'),
   (8, 'San Francisco', 'https://tinyurl.com/tem82t2x', 'https://tinyurl.com/tem82t2x'),
   (9, 'Istanbul', 'https://tinyurl.com/yddp4kpx', 'https://tinyurl.com/yddp4kpx'),
-  (10, 'Dubai', 'https://tinyurl.com/ye78akpk', 'https://tinyurl.com/ye78akpk');
+  (10, 'Dubai', 'https://tinyurl.com/ye78akpk', 'https://tinyurl.com/ye78akpk'),
+    (11, 'Los Angeles', 'https://tinyurl.com/yb33qds2', 'https://tinyurl.com/yk6x8e45'),
+  (12, 'Miami', 'https://tinyurl.com/yezsfavd', 'https://tinyurl.com/34b8xf6k'),
+  (13, 'Berlin', 'https://tinyurl.com/yek3q3u5', 'https://tinyurl.com/5wbk2mw8'),
+  (14, 'Mumbai', 'https://tinyurl.com/yd7njncm', 'https://tinyurl.com/yu7yxn3w'),
+  (15, 'Toronto', 'https://tinyurl.com/yg8k63pm', 'https://tinyurl.com/3u9jh63y'),
+  (16, 'Las Vegas', 'https://tinyurl.com/yh8w7m3d', 'https://tinyurl.com/2bm6zy5j'),
+  (17, 'Amsterdam', 'https://tinyurl.com/yytw78c4', 'https://tinyurl.com/jf6yww8y'),
+  (18, 'Cape Town', 'https://tinyurl.com/4ztsaj4f', 'https://tinyurl.com/yyq9sr2a'),
+  (19, 'Singapore', 'https://tinyurl.com/ykxnm8u2', 'https://tinyurl.com/3b9x7b6s'),
+  (20, 'Rio de Janeiro', 'https://tinyurl.com/4xrj5zuj', 'https://tinyurl.com/2f6c2wbd');
 
 INSERT INTO places (id, destination_id, place_name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
@@ -36,7 +56,17 @@ VALUES
   (7, 7, 'Big Ben', 'Big Ben, Buckingham Palace, and Tower Bridge.', 4, 'https://tinyurl.com/8n7vs55j', 'https://tinyurl.com/53cehvyx', 'https://maps.app.goo.gl/Gyq4gGB8pWV9R1Gu7'),
   (8, 8, 'Golden Gate Bridge', 'Golden Gate Bridge, Alcatraz Island, and Fishermans Wharf.', 4, 'https://tinyurl.com/2hdd5wwr', 'https://tinyurl.com/ykxhwe6a', 'https://maps.app.goo.gl/7W1RpQHmrxyiR5Vv7'),
   (9, 9, 'Hagia Sophia', 'Hagia Sophia, Blue Mosque, and Grand Bazaar.', 5, 'https://tinyurl.com/39t2a49d', 'https://tinyurl.com/2km3vb2n', 'https://maps.app.goo.gl/ubGqaQgnYDpPGWfF7'),
-  (10, 10, 'Burj Khalifa', 'Burj Khalifa, Palm Jumeirah, and Dubai Mall.', 5, 'https://tinyurl.com/4k83fbss', 'https://tinyurl.com/m3rmrkaj', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9');
+  (10, 10, 'Burj Khalifa', 'Burj Khalifa, Palm Jumeirah, and Dubai Mall.', 5, 'https://tinyurl.com/4k83fbss', 'https://tinyurl.com/m3rmrkaj', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9'),
+    (11, 11, 'Hollywood Walk of Fame', 'Famous for the stars on the sidewalk and movie history.', 4, 'https://tinyurl.com/yb33qds2', 'https://tinyurl.com/yk6x8e45', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
+  (12, 12, 'South Beach', 'Beautiful beaches, nightlife, and art deco architecture.', 4, 'https://tinyurl.com/yezsfavd', 'https://tinyurl.com/34b8xf6k', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
+  (13, 13, 'Brandenburg Gate', 'Iconic neoclassical monument and symbol of reunification.', 5, 'https://tinyurl.com/yek3q3u5', 'https://tinyurl.com/5wbk2mw8', 'https://maps.app.goo.gl/YbEDLhwKW1w8xfB89'),
+  (14, 14, 'Gateway of India', 'Historic arch monument overlooking the Arabian Sea.', 4, 'https://tinyurl.com/yd7njncm', 'https://tinyurl.com/yu7yxn3w', 'https://maps.app.goo.gl/2TfvjAUfjS3NHxLu5'),
+  (15, 15, 'CN Tower', 'Landmark tower with a glass floor and stunning views.', 5, 'https://tinyurl.com/yg8k63pm', 'https://tinyurl.com/3u9jh63y', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
+  (16, 16, 'The Strip', 'Famous boulevard known for its resorts and casinos.', 5, 'https://tinyurl.com/53t3jwsp', 'https://tinyurl.com/3zcz3znt', 'https://maps.app.goo.gl/dJ6TUUzxW4Uc2jjR7'),
+  (17, 17, 'Rijksmuseum', 'National museum with Dutch Golden Age paintings.', 4, 'https://tinyurl.com/8n7vs55j', 'https://tinyurl.com/53cehvyx', 'https://maps.app.goo.gl/Gyq4gGB8pWV9R1Gu7'),
+  (18, 18, 'Table Mountain', 'Iconic flat-topped mountain with hiking trails.', 4, 'https://tinyurl.com/2hdd5wwr', 'https://tinyurl.com/ykxhwe6a', 'https://maps.app.goo.gl/7W1RpQHmrxyiR5Vv7'),
+  (19, 19, 'Gardens by the Bay', 'Futuristic park with Supertree Grove and Flower Dome.', 5, 'https://tinyurl.com/39t2a49d', 'https://tinyurl.com/2km3vb2n', 'https://maps.app.goo.gl/ubGqaQgnYDpPGWfF7'),
+  (20, 20, 'Christ the Redeemer', 'Iconic statue atop Corcovado mountain.', 5, 'https://tinyurl.com/4xrj5zuj', 'https://tinyurl.com/2f6c2wbd', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9');
 
 INSERT INTO trips (id, place_id, destination_id, user_id, start_date, end_date, start_time, end_time)
 VALUES
@@ -46,22 +76,17 @@ VALUES
   (4, 4, 1, 1, '2023-10-01', '2023-10-03', '2023-10-03 07:00:00', '2023-10-03 08:00:00'),
   (5, 5, 1, 1, '2023-10-01', '2023-10-03', '2023-10-03 08:00:00', '2023-10-03 10:00:00'),
   (6, 6, 1, 1, '2023-10-01', '2023-10-03', '2023-10-03 10:00:00', '2023-10-03 12:00:00'),
-
   (7, 7, 2, 2, '2023-11-15', '2023-11-22', '2023-11-15 09:00:00', '2023-11-15 11:00:00'),
   (8, 8, 2, 2, '2023-11-15', '2023-11-22', '2023-11-15 11:00:00', '2023-11-15 12:00:00'),
   (9, 9, 2, 2, '2023-11-15', '2023-11-22', '2023-11-15 12:00:00', '2023-11-15 14:00:00'),
-
   (10, 10, 3, 3, '2023-01-05', '2024-01-15', '2023-11-16 11:00:00', '2023-11-16 12:00:00'),
-
   (11, 1, 1, 4, '2023-10-01', '2023-10-03', '2023-10-01 08:00:00', '2023-10-01 09:00:00'),
   (12, 2, 1, 4, '2023-10-01', '2023-10-03', '2023-10-01 09:00:00', '2023-10-01 10:00:00'),
   (13, 3, 1, 4, '2023-10-01', '2023-10-03', '2023-10-02 10:00:00', '2023-10-02 10:00:00'),
   (14, 4, 1, 4, '2023-10-01', '2023-10-03', '2023-10-03 07:00:00', '2023-10-03 08:00:00'),
   (15, 5, 1, 4, '2023-10-01', '2023-10-03', '2023-10-03 08:00:00', '2023-10-03 10:00:00'),
   (16, 6, 1, 4, '2023-10-01', '2023-10-03', '2023-10-03 10:00:00', '2023-10-03 12:00:00'),
-
   (17, 7, 2, 5, '2023-11-15', '2023-11-22', '2023-11-15 09:00:00', '2023-11-15 11:00:00'),
   (18, 8, 2, 5, '2023-11-15', '2023-11-22', '2023-11-15 11:00:00', '2023-11-15 12:00:00'),
   (19, 9, 2, 5, '2023-11-15', '2023-11-22', '2023-11-15 12:00:00', '2023-11-15 14:00:00'),
-
   (20, 10, 3, 6, '2023-01-05', '2024-01-15', '2023-11-16 11:00:00', '2023-11-16 12:00:00');
