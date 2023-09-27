@@ -1,3 +1,5 @@
+import Button from '@mui/material/Button';
+
 export default function DevCss() {
   return (
     <div className="DevCss">
@@ -18,10 +20,14 @@ export default function DevCss() {
       <h5>Heading 5</h5>
 
       <input type="text" placeholder="Text Input"/>
-      <button><i className="bi bi-floppy2-fill"></i> Save</button>
-      <button><i className="bi bi-pencil-square"></i> Edit</button>
-      <button><i className="bi bi-trash3"></i> Delete</button>
-      
+
+      <span>
+      <Button variant="contained">Hello world</Button>
+      <Button variant="contained"><i className="bi bi-floppy2-fill"></i> Save</Button>
+      <Button variant="contained"><i className="bi bi-pencil-square"></i> Edit</Button>
+      <Button variant="contained"><i className="bi bi-trash3"></i> Delete</Button>
+      </span>
+
       <form>
           <label htmlFor="textfield">Text Field:</label>
           <input type="text" id="textfield" name="textfield"/>
