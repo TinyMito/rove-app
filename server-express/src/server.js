@@ -16,6 +16,7 @@ app.use(express.static(public));
 app.get("/api/status", (req, res) => {
   res.json({ version: "1.01" });
   // lightbnb example. I was using AJAX to get request In this case, use Axios
+  // follow the Scheduler.
 });
 
 app.use(function (req, res) {
