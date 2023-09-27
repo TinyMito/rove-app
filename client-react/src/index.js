@@ -7,6 +7,7 @@ import {
   Link,
 } from "react-router-dom";
 import App from "App";
+import Schedule from "component/schedule";
 import './index.css';
 // import React from 'react';
 // import ReactDOM from 'react-dom';
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
     element: <div>Example</div>,
   },
   {
-    path: "schedule_day",
+    path: "schedule",
     element: <Schedule />,
   },
 ]);
