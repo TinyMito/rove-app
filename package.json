@@ -18,5 +18,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "react-places-autocomplete": "^7.3.0"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.19.2"
+  }
 }
