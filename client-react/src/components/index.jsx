@@ -29,7 +29,6 @@ export default function Home() {
       <div>
         <Link to="dev">Developer</Link>
       </div>
-
     </div>
   );
 }
