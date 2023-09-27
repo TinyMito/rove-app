@@ -1,9 +1,3 @@
-import 'styles/_layout.scss';
-import 'styles/_font.scss';
-import 'styles/_button.scss';
-import 'styles/_form.scss';
-import "bootstrap-icons/font/bootstrap-icons.css";
-
 export default function DevCss() {
   return (
     <div className="DevCss">
@@ -24,49 +18,49 @@ export default function DevCss() {
       <h5>Heading 5</h5>
 
       <input type="text" placeholder="Text Input"/>
-      <button><i class="bi bi-floppy2-fill"></i> Save</button>
-      <button><i class="bi bi-pencil-square"></i> Edit</button>
-      <button><i class="bi bi-trash3"></i> Delete</button>
+      <button><i className="bi bi-floppy2-fill"></i> Save</button>
+      <button><i className="bi bi-pencil-square"></i> Edit</button>
+      <button><i className="bi bi-trash3"></i> Delete</button>
       
       <form>
-          <label for="textfield">Text Field:</label>
+          <label htmlFor="textfield">Text Field:</label>
           <input type="text" id="textfield" name="textfield"/>
           
-          <label for="textarea">Text Area:</label>
+          <label htmlFor="textarea">Text Area:</label>
           <textarea id="textarea" name="textarea" rows="4"></textarea>
           
-          <label for="dropdown">Dropdown:</label>
+          <label htmlFor="dropdown">Dropdown:</label>
           <select id="dropdown" name="dropdown">
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
           </select>
           
-          <label for="checkbox">Checkbox:</label>
+          <label htmlFor="checkbox">Checkbox:</label>
           <div>
-              <label for="checkbox1">
+              <label htmlFor="checkbox1">
                   <input type="checkbox" id="checkbox1" name="checkbox" value="checkbox1"/> Checkbox 1
               </label>
           </div>
           <div>
-              <label for="checkbox2">
+              <label htmlFor="checkbox2">
                   <input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2"/> Checkbox 2
               </label>
           </div>
           
           <label>Radio Buttons:</label>
           <div>
-              <label for="radio1">
+              <label htmlFor="radio1">
                   <input type="radio" id="radio1" name="radio" value="radio1"/> Radio 1
               </label>
           </div>
           <div>
-              <label for="radio2">
+              <label htmlFor="radio2">
                   <input type="radio" id="radio2" name="radio" value="radio2"/> Radio 2
               </label>
           </div>
           <div>
-              <label for="radio3">
+              <label htmlFor="radio3">
                   <input type="radio" id="radio3" name="radio" value="radio3"/> Radio 3
               </label>
           </div>
