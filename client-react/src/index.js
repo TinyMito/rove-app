@@ -11,7 +11,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={ <Home/> } />
-      <Route path="/dev" element={ <Developer/> } /> {/* Temporary using BrowserRoute for Dev purpose (not SPA compliance) */ }
+      <Route path="/schedule" element={ <Schedule /> } />
+      <Route path="/dev" element={ <Developer/> } /> // Temporary
     </Routes>
   </BrowserRouter>
 );
