@@ -12,10 +12,11 @@ export default function Schedule() {
 
       <section className="itinerary_day">
         <div className="add">
-          <i class="bi bi-plus"></i>
+          <a ><i class="bi bi-plus"></i></a>
         </div>
 
         <div className="place_card_thumbnail">
+          <i class="bi bi-record-fill"></i>
           <h3>Fairmont Hotel</h3>
 
           <section className="time">
@@ -54,7 +55,7 @@ export default function Schedule() {
 
           <section className="time">
             <div className="travel_time_direction">
-              <i class="bi bi-car-front"></i>
+              <i className="bi bi-car-front"></i>
               <div>10 min </div> 
               <a>Direction</a>
             </div>
