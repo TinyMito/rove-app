@@ -14,10 +14,11 @@ app.use(express.static(public));
 // Do Not make a route for "/" or it will override public
 
 app.get("/api/status", (req, res) => {
-  res.json({version: "1.01"});
+  res.json({ version: "1.01" });
+  // lightbnb example. I was using AJAX to get request In this case, use Axios
 });
 
-app.use(function(req, res) {
+app.use(function (req, res) {
   res.status(404);
 });
 
