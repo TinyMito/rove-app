@@ -14,7 +14,6 @@ CREATE TABLE users (
 
 CREATE TABLE destinations (
   id SERIAL PRIMARY KEY,
-  trip_id INT REFERENCES trips(id),
   city_name VARCHAR(255) NOT NULL,
   thumbnail_img_url VARCHAR(255),
   description TEXT,
@@ -24,7 +23,6 @@ CREATE TABLE destinations (
 
 CREATE TABLE trips (
   id SERIAL PRIMARY KEY,
-  destination_id INT REFERENCES destinations(id),
   user_id INT REFERENCES users(id),
   description TEXT,
   number_of_travelers INT,
