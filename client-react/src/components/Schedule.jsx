@@ -12,8 +12,8 @@ import Timeline from "./Itinerary/Timeline"
 
 export default function Schedule() {
 
-  const [checkInDate, setCheckInDate] = useState(null) 
-  const [checkOutDate, setCheckOutDate] = useState(null) 
+  const [startDate, setStartDate] = useState(null) 
+  const [endDate, setEndDate] = useState(null) 
 
   return (
     <div>
@@ -24,10 +24,10 @@ export default function Schedule() {
       {/* <Date Range Picker/> */}
       <h3 className="travel_dates">
         <CalendarPop
-          checkInDate={checkInDate}
-          setCheckInDate={setCheckInDate}
-          checkOutDate={checkOutDate}
-          setCheckOutDate={setCheckOutDate}
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate}
+          setEndDate={setEndDate}
         />
       </h3>
       {/* pagination */}

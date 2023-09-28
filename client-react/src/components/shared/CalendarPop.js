@@ -10,15 +10,17 @@ export default function CalendarPop(prop) {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={['DatePicker']}>
         <DatePicker
-          label="Check In"
-          value={prop.checkInDate}
-          onChange={(newValue) => prop.setCheckInDate(newValue)} />
+          label="Start Date"
+          // must receive the date as props from before
+          value={prop.startDate}
+          onChange={(newValue) => prop.setStartDate(newValue)} />
         {/* convert the newvalue JS date object to string value. */}
 
         <DatePicker
-          label="Check Out"
-          value={prop.checkOutDate}
-          onChange={(newValue) => prop.setCheckOutDate(newValue)} />
+          label="End Date"
+          // must receive the date as props from before
+          value={prop.endDate}
+          onChange={(newValue) => prop.setEndDate(newValue)} />
 
       </DemoContainer>
     </LocalizationProvider>
