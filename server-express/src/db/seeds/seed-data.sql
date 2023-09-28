@@ -11,12 +11,12 @@ VALUES
 
 INSERT INTO destinations (id, trip_id, city_name, thumbnail_img_url, description, cover_photo_url, google_map_link)
 VALUES
-  (1, 'Paris', 'https://tinyurl.com/ye2ym57h', 'Explore the romantic streets of Paris.', 'https://tinyurl.com/2fb7f766', 'https://maps.app.goo.gl/via6CBNFybrTL3dr5'),
-  (2, 'New York City', 'https://tinyurl.com/yckkds9a', 'Experience the city that never sleeps.', 'https://tinyurl.com/3mt4rh38', 'https://maps.app.goo.gl/kwkCYkZU75DPWnM99'),
-  (3, 'Tokyo', 'https://tinyurl.com/4yraz3ej', 'Discover the vibrant culture of Tokyo.', 'https://tinyurl.com/4yraz3ej', 'https://maps.app.goo.gl/dJ6TUUzxW4Uc2jjR7'),
-  (4, 'Barcelona', 'https://tinyurl.com/bdf7js4z', 'Enjoy the beauty of Barcelona.', 'https://tinyurl.com/bdf7js4z', 'https://maps.app.goo.gl/zADMYcvGYywZiLSZ9'),
-  (5, 'Sydney', 'https://tinyurl.com/3xcpeaar', 'Explore the stunning Sydney Harbour.', 'https://tinyurl.com/3xcpeaar', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
-  (6, 'Rome', 'https://tinyurl.com/y37nmhjz', 'Walk through the history of Rome.', 'https://tinyurl.com/y37nmhjz', 'https://maps.google.com/rome'),
+  (1, 1, 'Paris', 'https://tinyurl.com/ye2ym57h', 'Explore the romantic streets of Paris.', 'https://tinyurl.com/2fb7f766', 'https://maps.app.goo.gl/via6CBNFybrTL3dr5'),
+  (2, 2, 'New York City', 'https://tinyurl.com/yckkds9a', 'Experience the city that never sleeps.', 'https://tinyurl.com/3mt4rh38', 'https://maps.app.goo.gl/kwkCYkZU75DPWnM99'),
+  (3, 3, 'Tokyo', 'https://tinyurl.com/4yraz3ej', 'Discover the vibrant culture of Tokyo.', 'https://tinyurl.com/4yraz3ej', 'https://maps.app.goo.gl/dJ6TUUzxW4Uc2jjR7'),
+  (4, 4, 'Barcelona', 'https://tinyurl.com/bdf7js4z', 'Enjoy the beauty of Barcelona.', 'https://tinyurl.com/bdf7js4z', 'https://maps.app.goo.gl/zADMYcvGYywZiLSZ9'),
+  (5, 5, 'Sydney', 'https://tinyurl.com/3xcpeaar', 'Explore the stunning Sydney Harbour.', 'https://tinyurl.com/3xcpeaar', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
+  (6, 6, 'Rome', 'https://tinyurl.com/y37nmhjz', 'Walk through the history of Rome.', 'https://tinyurl.com/y37nmhjz', 'https://maps.google.com/rome'),
   (7, 7, 'London', 'https://tinyurl.com/apzdatcv', 'Experience British charm in London.', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/vYy42yvMKybyrZpz9'),
   (8, 8, 'San Francisco', 'https://tinyurl.com/tem82t2x', 'Explore the Bay Area.', 'https://tinyurl.com/tem82t2x', 'https://maps.app.goo.gl/ShV4Znyp2GrbCazY6');
 
