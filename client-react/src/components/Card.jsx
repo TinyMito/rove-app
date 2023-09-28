@@ -1,4 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+
+import './Card.css'
 
 export default function Suggestion() {
   const [data, setData] = useState([]);
@@ -9,24 +16,34 @@ export default function Suggestion() {
       .then((photos) => {
         setData(photos);
       });
-  }, []); 
+  }, []);
 
   return (
-    <div className='App'>
+    <div>
       <h1>Photo Gallery</h1>
-      <div className='photo-list'>
-        {data.slice(0, 8).map((photo) => (
-          <div key={photo.id} className='photo-item'>
-            <img src={photo.thumbnailUrl} alt={photo.title} />
-            <p>ID: {photo.id}</p>
-            <p>Title: {photo.title}</p>
-            <p>Description: {photo.albumId}</p>
-            <a href={photo.url} target='_blank' rel='noopener noreferrer'>
-              View Full Image
-            </a>
+        <div className='App'>
+          <div className='photo-list'>
+            {data.slice(0, 8).map((photo) => (
+              <Card sx={{maxWidth: 345}}key={photo.id} className='photo-item'>
+                <CardMedia
+                  component='img'
+                  alt={photo.title}
+                  height='300'
+                  image={photo.thumbnailUrl}
+                />
+                <CardContent>
+                  <Typography variant='h6'>{photo.title}</Typography>
+                  <Typography variant='body2' color='text.secondary'>
+                    ID: {photo.id}
+                  </Typography>
+                  <Typography variant='body2' color='text.secondary'>
+                    Album ID: {photo.albumId}
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
     </div>
   );
 }
