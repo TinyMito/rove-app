@@ -22,7 +22,6 @@ import ScheduleCard from './ScheduleCard';
 export default function () {
 
   return (
-
     <Timeline
       sx={{
         [`& .${timelineOppositeContentClasses.root}`]: {
