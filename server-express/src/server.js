@@ -5,6 +5,8 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const { getUser } =require ("./db/queries/queries.js")
+
 // Database connection configuration
 const dbConfig = {
   host: process.env.DB_HOST || 'localhost',
@@ -30,6 +32,17 @@ app.get("/api/status", (req, res) => {
   res.json({ version: "1.01" });
   // lightbnb example. I was using AJAX to get request In this case, use Axios
   // follow the Scheduler.
+});
+
+//route to get users information from the query search provided in the queries folder
+app.get('/users', async (req, res) => {
+  try {
+    const users = await getUser(); // Fetch user data using your getUser function
+    res.json(users); // Send the fetched data as a JSON response
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 app.use(function (req, res) {
