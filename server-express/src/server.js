@@ -32,6 +32,36 @@ app.get("/api/status", (req, res) => {
   // follow the Scheduler.
 });
 
+app.get("/api/destinations", async (req, res) => {
+  try {
+    const destinations = await db.any('select * from destinations');
+    res.json(destinations);
+  } catch (error) {
+    console.error('Error fetching destinations:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get("/api/trips", async (req, res) => {
+  try {
+    const trips = await db.any('select * from trips');
+    res.json(trips);
+  } catch (error) {
+    console.error('Error fetching trips:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get("/api/users", async (req, res) => {
+  try {
+    const users = await db.any('select * from users');
+    res.json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 app.use(function (req, res) {
   res.status(404);
 });
