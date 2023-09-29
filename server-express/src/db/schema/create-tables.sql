@@ -22,6 +22,7 @@ CREATE TABLE destinations (
 CREATE TABLE places (
   id SERIAL PRIMARY KEY,
   destination_id INT NOT NULL,
+  place_name TEXT,
   description TEXT,
   rating INTEGER,
   thumbnail_img_url VARCHAR(255),
@@ -36,5 +37,6 @@ CREATE TABLE trips (
   user_id INT REFERENCES users(id),
   start_date DATE,
   end_date DATE,
-  time TIMESTAMP
+  start_time TIMESTAMP NOT NULL,
+  end_time TIMESTAMP NOT NULL
 );
