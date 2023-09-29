@@ -36,4 +36,6 @@ CREATE TABLE trip_destination (
   id SERIAL PRIMARY KEY,
   trip_id INT REFERENCES trips(id),
   destination_id INT REFERENCES destinations(id)
+  -- start_time TIMESTAMP,
+  -- end_time TIMESTAMP
 );
