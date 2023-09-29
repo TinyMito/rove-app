@@ -8,12 +8,32 @@ import Stack from '@mui/material/Stack';
 import CalendarPop from "./shared/CalendarPop";
 
 // Timeline
-import Timeline from "./Itinerary/Timeline"
+import ScheduleTimeLine from "./Itinerary/ScheduleTimeLine"
 
-export default function Schedule() {
+const hardCodedDayObj = [
+  {
+    siteName: 'Stanley Park',
+    note: 'A historic hotel in Vancouver.'
+  },
+  {
+    siteName: 'Fairmont Hotel',
+    note: 'A historic hotel in Vancouver.'
+  },
+]
 
+
+export default function Schedule(props) {
+  
   const [startDate, setStartDate] = useState(null) 
   const [endDate, setEndDate] = useState(null) 
+
+  const [tripObj, setTripObj] = useState(null)
+  const hardCodedTripObj = {
+    '2023-09-28': hardCodedDayObj
+  }
+  // Use class instead of state object. easier to access.
+
+  const [dayObj, setDayObj] = useState(hardCodedDayObj)
 
   return (
     <div>
@@ -42,7 +62,10 @@ export default function Schedule() {
         </div>
 
 
-        <Timeline/>
+        <ScheduleTimeLine
+          dayObj={dayObj}
+
+        />
 
       </section>
       </div>
