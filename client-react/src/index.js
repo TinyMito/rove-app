@@ -5,7 +5,7 @@ import { baseCss } from './styles/baseStyles';
 import './index.scss';
 
 import Application from './components/Application';
-import Schedule from './components/Schedule';
+import { Schedule } from './components/Schedule/Schedule';
 import Developer from './components/DevCss'; // Temporary
 import Google from './components/Autocomplete';
 import Suggestion from './components/Card';
@@ -15,14 +15,13 @@ const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
 root.render(
   <BrowserRouter>
-    <Global styles={ baseCss } />
+    <Global styles={baseCss} />
     <Routes>
-      <Route path="/" element={ <Application/> } />
-      <Route path="/schedule" element={ <Schedule /> } />
-      <Route path="/dev" element={ <Developer/> } /> // Temporary
-      <Route path="/google" element={ <Google />} />
-      <Route path="/card" element={ <Suggestion />} />
-      <Route path="/detail/:id" element={ <Detail />} />
+      <Route path="/" element={<Application />} />
+      <Route path="/schedule" element={<Schedule />} />
+      <Route path="/dev" element={<Developer />} /> // Temporary
+      <Route path="/google" element={<Google />} />
+      <Route path="/card" element={<Suggestion />} />
     </Routes>
   </BrowserRouter>
 );

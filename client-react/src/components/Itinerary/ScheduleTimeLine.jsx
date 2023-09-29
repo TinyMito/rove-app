@@ -18,8 +18,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import ScheduleCard from './ScheduleCard';
-
-export default function ScheduleTimeLine() {
+export const ScheduleTimeLine = () => {
 
   return (
     <Timeline
@@ -29,7 +28,7 @@ export default function ScheduleTimeLine() {
         },
       }}
     >
-      dayObj.map()
+      
       {/* Item 1 */}
       <TimelineItem>
         <TimelineOppositeContent color="textSecondary">
