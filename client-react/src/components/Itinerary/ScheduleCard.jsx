@@ -8,19 +8,19 @@ import Typography from '@mui/material/Typography';
 
 export default function () {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 500 }}>
       <CardMedia
         component="img"
         alt="stanley park"
-        height="300"
+        height="500"
         image="https://tinyurl.com/ta4kmc28"
       />
 
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h3" component="div" >
           Stanley Park
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="h5" color="text.secondary">
           A beautiful park in the middle of Vancouver downtown.
           <span />
           <a><i className="bi bi-pencil" /></a>
@@ -28,8 +28,8 @@ export default function () {
       </CardContent>
 
       <CardActions>
-        <Button size="small"><i className="bi bi-map"></i></Button>
-        <Button size="small"><i className="bi bi-trash"></i></Button>
+        <Button size="large"><i className="bi bi-map"></i></Button>
+        <Button size="large"><i className="bi bi-trash"></i></Button>
       </CardActions>
     </Card>
   )

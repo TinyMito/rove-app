@@ -5,7 +5,7 @@ import { baseCss } from './styles/baseStyles';
 import './index.scss';
 
 import Application from './components/Application';
-import Schedule from './components/Schedule';
+import { Schedule } from './components/Schedule/Schedule';
 import Developer from './components/DevCss'; // Temporary
 import Google from './components/Autocomplete';
 import Suggestion from './components/Card';
