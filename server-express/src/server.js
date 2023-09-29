@@ -96,9 +96,21 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
+// Get ALL places
+app.get("/api/places", async (req, res) => {
+  try {
+    const places = await db.any('select * from places');
+    res.json(places);
+  } catch (error) {
+    console.error ('Error fetching places:', error);
+    res.status(500).json({ error: 'Internal server error' })
+  }
+})
+
 app.use(function (req, res) {
   res.status(404);
 });
+
 
 // Listen for incoming requests
 app.listen(PORT, () => {
