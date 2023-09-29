@@ -22,7 +22,7 @@ root.render(
       <Route path="/dev" element={ <Developer/> } /> // Temporary
       <Route path="/google" element={ <Google />} />
       <Route path="/card" element={ <Suggestion />} />
-      <Route path="/detail" element={ <Detail />} />
+      <Route path="/detail/:id" element={ <Detail />} />
     </Routes>
   </BrowserRouter>
 );
