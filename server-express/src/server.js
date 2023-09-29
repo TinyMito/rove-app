@@ -32,6 +32,7 @@ app.get("/api/status", (req, res) => {
   // follow the Scheduler.
 });
 
+// Get all destinations
 app.get("/api/destinations", async (req, res) => {
   try {
     const destinations = await db.any('select * from destinations');
@@ -42,6 +43,25 @@ app.get("/api/destinations", async (req, res) => {
   }
 });
 
+// Get SINGLE destination
+app.get("/api/destination/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const destination = await db.oneOrNone('select * from destinations where id = $1', [id]);
+
+    if (destination) {
+      res.json(destination);
+    } else {
+      res.status(404).json({ error: 'Destination not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching destination by ID:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Get ALL trips
 app.get("/api/trips", async (req, res) => {
   try {
     const trips = await db.any('select * from trips');
@@ -52,6 +72,7 @@ app.get("/api/trips", async (req, res) => {
   }
 });
 
+// Get ALL users
 app.get("/api/users", async (req, res) => {
   try {
     const users = await db.any('select * from users');
