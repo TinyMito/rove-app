@@ -27,7 +27,11 @@ export const Schedule = (props) => {
   const [dayObj, setDayObj] = useState(hardCodedDayObj)
 
   const { data } = useTimeLine({date:dates[day - 1]})
-  console.log(data);
+  console.log('data[0]', data[0]);
+  console.log('data.length', data.length);
+
+  // const startDateStr = data[0].start_date
+  // const endDateStr = date[0].end_date
 
   return (
     <div>
@@ -49,7 +53,7 @@ export const Schedule = (props) => {
         )
       })}
       <h3 className="travel_dates">
-       
+       {/* {startDateStr} - {endDateStr} */}
       </h3>
       {/* pagination */}
       
