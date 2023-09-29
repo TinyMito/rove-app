@@ -11,11 +11,11 @@ export default function Suggestion() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('api/users')
+    fetch('api/places')
       .then((response) => response.json())
-      .then((users) => {
-        setData(users);
-        console.log('users:', users)
+      .then((places) => {
+        setData(places);
+        console.log('places:', places)
       });
   }, []);
 
@@ -24,21 +24,20 @@ export default function Suggestion() {
       <h1>Photo Gallery</h1>
         <div className='App'>
           <div className='photo-list'>
-            {data.slice(0, 8).map((users) => (
-              <Card sx={{maxWidth: 345}}key={users.id} className='photo-item'>
+            {data.slice(0, 8).map((places) => (
+              <Card sx={{maxWidth: 345}}key={places.id} className='photo-item'>
                 <CardMedia
                   component='img'
-                
                   height='300'
-                  image={users.profile_thumbnail_img}
+                  image={places.profile_thumbnail_img}
                 />
                 <CardContent>
-                  <Typography variant='h6'>{users.name}</Typography>
+                  <Typography variant='h6'>{places.name}</Typography>
                   <Typography variant='body2' color='text.secondary'>
-                    Name: {users.name}
+                    Name: {places.destination_id}
                   </Typography>
                   <Typography variant='body2' color='text.secondary'>
-                    Description: {users.profile_information}
+                    Description: {places.description}
                   </Typography>
                 </CardContent>
               </Card>
