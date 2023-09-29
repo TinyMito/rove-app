@@ -11,7 +11,7 @@ export default function Suggestion() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('/users')
+    fetch('api/users')
       .then((response) => response.json())
       .then((users) => {
         setData(users);
