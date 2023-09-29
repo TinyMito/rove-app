@@ -11,10 +11,11 @@ export default function Suggestion() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/photos')
+    fetch('/users')
       .then((response) => response.json())
-      .then((photos) => {
-        setData(photos);
+      .then((users) => {
+        setData(users);
+        console.log('users:', users)
       });
   }, []);
 
@@ -23,21 +24,21 @@ export default function Suggestion() {
       <h1>Photo Gallery</h1>
         <div className='App'>
           <div className='photo-list'>
-            {data.slice(0, 8).map((photo) => (
-              <Card sx={{maxWidth: 345}}key={photo.id} className='photo-item'>
+            {data.slice(0, 8).map((users) => (
+              <Card sx={{maxWidth: 345}}key={users.id} className='photo-item'>
                 <CardMedia
                   component='img'
-                  alt={photo.title}
+                
                   height='300'
-                  image={photo.thumbnailUrl}
+                  image={users.profile_thumbnail_img}
                 />
                 <CardContent>
-                  <Typography variant='h6'>{photo.title}</Typography>
+                  <Typography variant='h6'>{users.name}</Typography>
                   <Typography variant='body2' color='text.secondary'>
-                    ID: {photo.id}
+                    Name: {users.name}
                   </Typography>
                   <Typography variant='body2' color='text.secondary'>
-                    Album ID: {photo.albumId}
+                    Description: {users.profile_information}
                   </Typography>
                 </CardContent>
               </Card>
