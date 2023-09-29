@@ -19,7 +19,7 @@ import Typography from '@mui/material/Typography';
 
 import ScheduleCard from './ScheduleCard';
 
-export default function () {
+export default function ScheduleTimeLine() {
 
   return (
     <Timeline
@@ -29,6 +29,7 @@ export default function () {
         },
       }}
     >
+      dayObj.map()
       {/* Item 1 */}
       <TimelineItem>
         <TimelineOppositeContent color="textSecondary">
@@ -71,6 +72,8 @@ export default function () {
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 A historic hotel in Vancouver.
+                { }
+                {/* dayObj[1].siteExplanation I need to loop .map*/}
                 <span />
                 <a><i className="bi bi-pencil" /></a>
               </Typography>
@@ -87,7 +90,7 @@ export default function () {
       {/* Item 3 */}
       <TimelineItem>
         <TimelineOppositeContent color="textSecondary">
-          12:00 am
+          11:00 am
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot />
