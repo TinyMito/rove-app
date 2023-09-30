@@ -10,38 +10,37 @@ const dbQuery = function (query) {
 
 const activitiesQuery =
   `SELECT
-    A.id AS activity_id,
-    A.place_id AS place_id,
-    A.user_id,
-    A.trip_id,
-    A.date,
-    A.start_time,
-    A.end_time, 
+    T.id AS trip_id,
+    T.place_id AS place_id,
+    T.user_id,
+    T.schedule_id,
+    T.date,
+    T.start_time,
+    T.end_time, 
     P.description AS place_description,
     P.thumbnail_img_url,
     P.cover_photo_url,
     P.google_map_link
   FROM
-    activities A
+    trips T
   JOIN
     places P
-      ON A.place_id = P.id
+      ON T.place_id = P.id
   WHERE
-    A.trip_id = $1
+    T.schedule_id = $1
     AND
-    A.date = $2
+    T.date = $2
   ORDER BY
-    A.start_time;`;
+    T.start_time;`;
 
-const getAllDayActivities = (tripId, date) => {
+const getAllDayActivities = (scheduleId, date) => {
   const query = {
     string: activitiesQuery,
-    params: [tripId, date],
+    params: [scheduleId, date],
   };
   return dbQuery(query);
 };
 
 module.exports = {
   getAllDayActivities,
-
 };
