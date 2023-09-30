@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllDayActivities } = require("../db/queries/activities");
+const { getAllDayActivities } = require("../db/queries/trips");
 
 router.get("/", (req, res) => {
   res.json({ test: 'ok' });
