@@ -26,18 +26,10 @@ const public = path.join(cwd, '..', 'public');
 console.log("public dir: ", public);
 app.use(express.static(public));
 
-// Do Not make a route for "/" or it will override public
-
 // Routes
 const tripRoutes = require("./routes/tripRoutes");
 
 app.use("/api/trips", tripRoutes);
-
-app.get("/api/status", (req, res) => {
-  res.json({ version: "1.01" });
-  // lightbnb example. I was using AJAX to get request In this case, use Axios
-  // follow the Scheduler.
-});
 
 //route to get users information from the query search provided in the queries folder
 app.get('/users', async (req, res) => {
