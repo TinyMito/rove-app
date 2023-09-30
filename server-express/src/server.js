@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const { getUser } =require ("./db/queries/queries.js")
+const { getUser } = require("./db/queries/queries.js")
 
 // Database connection configuration
 const dbConfig = {
@@ -27,6 +27,11 @@ console.log("public dir: ", public);
 app.use(express.static(public));
 
 // Do Not make a route for "/" or it will override public
+
+// Routes
+const scheduleRoutes = require("./routes/scheduleRoutes");
+
+app.use("/schedule", scheduleRoutes);
 
 app.get("/api/status", (req, res) => {
   res.json({ version: "1.01" });
@@ -102,7 +107,7 @@ app.get("/api/places", async (req, res) => {
     const places = await db.any('select * from places');
     res.json(places);
   } catch (error) {
-    console.error ('Error fetching places:', error);
+    console.error('Error fetching places:', error);
     res.status(500).json({ error: 'Internal server error' })
   }
 })
