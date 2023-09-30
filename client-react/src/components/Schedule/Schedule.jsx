@@ -3,7 +3,7 @@ import { useTimeLine } from './useTimeLine';
 
 // Pagination
 import Pagination from '@mui/material/Pagination';
-
+import { Days } from './Days';
 
 // Timeline
 import { ScheduleTimeLine } from "../Itinerary/ScheduleTimeLine"
@@ -30,9 +30,12 @@ export const Schedule = (props) => {
   console.log('data[0]', data[0]);
   console.log('data.length', data.length);
 
-  // const startDateStr = data[0].start_date
-  // const endDateStr = date[0].end_date
+  const startDateStr = data[0]?.start_date;
+  const endDateStr = data[0]?.end_date;
 
+  const handleSetDay = (event, selectedDay) => {
+    setDay(selectedDay);
+  }
   return (
     <div>
       <title >Vancouver</title>
@@ -41,19 +44,13 @@ export const Schedule = (props) => {
       <h1 className="trip_location">Vancouver</h1>
      
       <h3>Day</h3>
-      {dates.map((date, index) => {
-        return (
-          <button
-          onClick={() => {
-            setDay(index + 1)
-          }}
-          >
-          {index + 1}
-          </button>
-        )
-      })}
+        <Days  
+          daysCount={dates.length} 
+          handleChange={handleSetDay} 
+          currentDay={day}
+        />
       <h3 className="travel_dates">
-       {/* {startDateStr} - {endDateStr} */}
+       {startDateStr ? `${startDateStr} - ${endDateStr}` :  'Loading...'}
       </h3>
       {/* pagination */}
       
@@ -72,7 +69,7 @@ export const Schedule = (props) => {
         <div>
           { data.map((elem)=> {
             return (
-              <div>
+              <div key={elem.id}>
                 {elem.id},
                 {elem.place_id},
                 {elem.destination_id},
