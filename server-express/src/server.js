@@ -26,18 +26,10 @@ const public = path.join(cwd, '..', 'public');
 console.log("public dir: ", public);
 app.use(express.static(public));
 
-// Do Not make a route for "/" or it will override public
-
 // Routes
 const tripRoutes = require("./routes/tripRoutes");
 
 app.use("/api/trips", tripRoutes);
-
-app.get("/api/status", (req, res) => {
-  res.json({ version: "1.01" });
-  // lightbnb example. I was using AJAX to get request In this case, use Axios
-  // follow the Scheduler.
-});
 
 //route to get users information from the query search provided in the queries folder
 app.get('/users', async (req, res) => {
@@ -50,47 +42,26 @@ app.get('/users', async (req, res) => {
   }
 });
 
-// Get all destinations
-app.get("/api/destinations", async (req, res) => {
-  try {
-    const destinations = await db.any('select * from destinations');
-    res.json(destinations);
-  } catch (error) {
-    console.error('Error fetching destinations:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+// Get Trips for User ID
+app.get("/api/user-trips/:id", async (req, res) => {
+  const id = req.params.id;
 
-// Get ALL activities
-app.get("/api/activities", async (req, res) => {
   try {
-    const trips = await db.any('select * from activities');
-    res.json(trips);
+    const trips = await db.manyOrNone(`
+      SELECT *
+      FROM schedules 
+      JOIN users ON users.id = trips.user_id
+      JOIN destinations ON destinations.id = trips.destination_id
+      WHERE trips.user_id = $1
+    ;`, [id]);
+    if (trips) {
+      res.json(trips);
+    } else {
+      res.status(404).json({ error: 'Trips not found for user' });
+    }
   } catch (error) {
-    console.error('Error fetching activities:', error);
+    console.error('Error fetching trips by user ID:', error);
     res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// Get ALL users
-app.get("/api/users", async (req, res) => {
-  try {
-    const users = await db.any('select * from users');
-    res.json(users);
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// Get ALL places
-app.get("/api/places", async (req, res) => {
-  try {
-    const places = await db.any('select * from places');
-    res.json(places);
-  } catch (error) {
-    console.error('Error fetching places:', error);
-    res.status(500).json({ error: 'Internal server error' })
   }
 })
 
@@ -99,7 +70,7 @@ app.get("/api/destination/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const destination = await db.oneOrNone('select * from destinations where id = $1', [id]);
+    const destination = await db.oneOrNone('SELECT * FROM destinations WHERE id = $1;', [id]);
     if (destination) {
       res.json(destination);
     } else {
@@ -111,12 +82,12 @@ app.get("/api/destination/:id", async (req, res) => {
   }
 });
 
-// Get ID place
+// Get ID place for detail component
 app.get("/api/place/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const place = await db.oneOrNone('select * from places where id = $1', [id]);
+    const place = await db.oneOrNone('SELECT * FROM places WHERE id = $1;', [id]);
     if (place) {
       res.json(place);
     } else {
@@ -131,7 +102,6 @@ app.get("/api/place/:id", async (req, res) => {
 app.use(function (req, res) {
   res.status(404);
 });
-
 
 // Listen for incoming requests
 app.listen(PORT, () => {
