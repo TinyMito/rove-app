@@ -32,11 +32,21 @@ CREATE TABLE places (
 
 CREATE TABLE trips (
   id SERIAL PRIMARY KEY,
+  start_date Date,
+  end_date Date,
+  user_id INT REFERENCES users(id)
+  destination_id INT REFERENCES destinations (id)
+);
+
+CREATE TABLE visits (
+  id SERIAL PRIMARY KEY,
   place_id INT REFERENCES places(id),
   destination_id INT REFERENCES destinations(id),
   user_id INT REFERENCES users(id),
   start_date DATE,
   end_date DATE,
   start_time TIMESTAMP NOT NULL,
-  end_time TIMESTAMP NOT NULL
+  end_time TIMESTAMP NOT NULL,
+  schedule_id INT REFERENCES schedules(id)
 );
+
