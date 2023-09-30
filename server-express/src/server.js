@@ -56,24 +56,6 @@ app.get("/api/destinations", async (req, res) => {
   }
 });
 
-// Get SINGLE destination
-app.get("/api/destination/:id", async (req, res) => {
-  const id = req.params.id;
-
-  try {
-    const destination = await db.oneOrNone('select * from destinations where id = $1', [id]);
-
-    if (destination) {
-      res.json(destination);
-    } else {
-      res.status(404).json({ error: 'Destination not found' });
-    }
-  } catch (error) {
-    console.error('Error fetching destination by ID:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
 // Get ALL trips
 app.get("/api/trips", async (req, res) => {
   try {
@@ -106,6 +88,40 @@ app.get("/api/places", async (req, res) => {
     res.status(500).json({ error: 'Internal server error' })
   }
 })
+
+// Get ID destination
+app.get("/api/destination/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const destination = await db.oneOrNone('select * from destinations where id = $1', [id]);
+    if (destination) {
+      res.json(destination);
+    } else {
+      res.status(404).json({ error: 'Destination not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching destination by ID:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Get ID place
+app.get("/api/place/:id", async (req, res) => {
+  const id = req.params.id;
+  
+  try {
+    const place = await db.oneOrNone('select * from places where id = $1', [id]);
+    if (place) {
+      res.json(place);
+    } else {
+      res.status(404).json({ error: 'Place not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching place by ID:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 app.use(function (req, res) {
   res.status(404);
