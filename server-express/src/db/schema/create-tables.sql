@@ -34,7 +34,7 @@ CREATE TABLE places (
   google_map_link VARCHAR(255)
 );
 
-CREATE TABLE trips (
+CREATE TABLE schedules (
   id SERIAL PRIMARY KEY,
   start_date Date,
   end_date Date,
@@ -42,12 +42,12 @@ CREATE TABLE trips (
   destination_id INT REFERENCES destinations(id)
 );
 
-CREATE TABLE activities (
+CREATE TABLE trips (
   id SERIAL PRIMARY KEY,
   place_id INT REFERENCES places(id),
   destination_id INT REFERENCES destinations(id),
   user_id INT REFERENCES users(id),
-  trip_id INT REFERENCES trips(id),
+  schedule_id INT REFERENCES schedules(id),
   date VARCHAR(10),
   start_time VARCHAR(5),
   end_time VARCHAR(5)

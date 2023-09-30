@@ -68,7 +68,7 @@ VALUES
   (3, 'Gardens by the Bay', 'Futuristic park with Supertree Grove and Flower Dome.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ubGqaQgnYDpPGWfF7'),
   (8, 'Christ the Redeemer', 'Iconic statue atop Corcovado mountain.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9');
 
-INSERT INTO trips (start_date, end_date, user_id, destination_id)
+INSERT INTO schedules (start_date, end_date, user_id, destination_id)
 VALUES
   ('2023-10-01', '2023-10-03', 1, 1),
   ('2023-11-15', '2023-11-22', 2, 7),
@@ -78,7 +78,7 @@ VALUES
   ('2023-01-05', '2024-01-15', 6, 8);
 
 
-INSERT INTO activities (place_id, destination_id, user_id, trip_id, date, start_time, end_time)
+INSERT INTO trips (place_id, destination_id, user_id, schedule_id, date, start_time, end_time)
 VALUES
 -- trip 1
   (1, 1, 1, 1, '2023-10-01', '08:00', '09:00'),
