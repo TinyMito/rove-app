@@ -31,7 +31,7 @@ export default function GoogleAutocomplete() {
   };
 
   return (
-    <div className="App">
+    <div className="body">
       <PlacesAutocomplete
         value={address}
         onChange={setAddress}
