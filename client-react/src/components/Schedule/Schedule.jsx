@@ -6,7 +6,7 @@ import Pagination from '@mui/material/Pagination';
 import { Days } from './Days';
 
 // Timeline
-import { ScheduleTimeLine } from "../Itinerary/ScheduleTimeLine"
+import { ScheduleTimeLine } from "./ScheduleTimeLine"
 
 const hardCodedDayObj = [
   {
