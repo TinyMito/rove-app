@@ -1,7 +1,9 @@
-DROP TABLE IF EXISTS trips CASCADE;
-DROP TABLE IF EXISTS places CASCADE;
-DROP TABLE IF EXISTS destinations CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS destinations CASCADE;
+DROP TABLE IF EXISTS places CASCADE;
+DROP TABLE IF EXISTS trips CASCADE;
+DROP TABLE IF EXISTS activities CASCADE;
+
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -12,17 +14,19 @@ CREATE TABLE users (
   profile_thumbnail_img VARCHAR(255)
 );
 
+-- destinations = cities
 CREATE TABLE destinations (
   id SERIAL PRIMARY KEY,
-  city_name VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
   thumbnail_img_url VARCHAR(255),
   cover_photo_url VARCHAR(255)
 );
 
+-- places you can go to in the city
 CREATE TABLE places (
   id SERIAL PRIMARY KEY,
   destination_id INT NOT NULL,
-  place_name TEXT,
+  name TEXT,
   description TEXT,
   rating INTEGER,
   thumbnail_img_url VARCHAR(255),
@@ -30,13 +34,22 @@ CREATE TABLE places (
   google_map_link VARCHAR(255)
 );
 
+CREATE TABLE schedules (
+  id SERIAL PRIMARY KEY,
+  start_date Date,
+  end_date Date,
+  user_id INT REFERENCES users(id),
+  destination_id INT REFERENCES destinations(id)
+);
+
 CREATE TABLE trips (
   id SERIAL PRIMARY KEY,
   place_id INT REFERENCES places(id),
   destination_id INT REFERENCES destinations(id),
   user_id INT REFERENCES users(id),
-  start_date DATE,
-  end_date DATE,
-  start_time TIMESTAMP NOT NULL,
-  end_time TIMESTAMP NOT NULL
+  schedule_id INT REFERENCES schedules(id),
+  date VARCHAR(10),
+  start_time VARCHAR(5),
+  end_time VARCHAR(5)
 );
+
