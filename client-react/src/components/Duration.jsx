@@ -27,14 +27,18 @@ export default function Duration() {
     return 0;
   };
 
+  const formatToDDMMYYYY = (date) => {
+    return date.toLocaleDateString("en-GB");
+  };
+
   // handle the "Continue" button click
   const handleContinueClick = async () => {
     if (startDate && endDate) {
       try {
         // Create an object with the trip duration data
         const tripData = {
-          startDate,
-          endDate,
+          startDate: formatToDDMMYYYY(startDate),
+          endDate: formatToDDMMYYYY(endDate),
         };
 
         // Send the trip duration data to the server

@@ -9,7 +9,7 @@ async function insertTripDuration(startDate, endDate) {
 
     // Sanitize the data using parameterized queries
     const query = `
-      INSERT INTO trips (start_date, end_date)
+      INSERT INTO schedules (start_date, end_date)
       VALUES ($1, $2)
       RETURNING id; -- Return the ID of the newly inserted record
     `;
