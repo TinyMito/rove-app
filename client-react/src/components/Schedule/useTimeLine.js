@@ -108,6 +108,14 @@ export const useTimeLine = ({ date }) => {
     setData(mockData[date])
   }, [date]);
 
+  useEffect(() => {
+    fetch('http://localhost:8080/api/schedules', {
+      mode: 'no-cors'
+    })
+      .then((response) => {
+        console.log(response);
+      })
+  }, []);
   return {
     data
   };

@@ -31,7 +31,7 @@ app.use(express.static(public));
 // Routes
 const scheduleRoutes = require("./routes/scheduleRoutes");
 
-app.use("/schedule", scheduleRoutes);
+app.use("/api/schedules", scheduleRoutes);
 
 app.get("/api/status", (req, res) => {
   res.json({ version: "1.01" });
