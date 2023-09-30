@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const { getUser } =require ("./db/queries/queries.js")
+const { getUser } = require("./db/queries/queries.js")
 
 // Database connection configuration
 const dbConfig = {
@@ -27,6 +27,11 @@ console.log("public dir: ", public);
 app.use(express.static(public));
 
 // Do Not make a route for "/" or it will override public
+
+// Routes
+const tripRoutes = require("./routes/tripRoutes");
+
+app.use("/api/trips", tripRoutes);
 
 app.get("/api/status", (req, res) => {
   res.json({ version: "1.01" });
@@ -56,13 +61,13 @@ app.get("/api/destinations", async (req, res) => {
   }
 });
 
-// Get ALL trips
-app.get("/api/trips", async (req, res) => {
+// Get ALL activities
+app.get("/api/activities", async (req, res) => {
   try {
-    const trips = await db.any('select * from trips');
+    const trips = await db.any('select * from activities');
     res.json(trips);
   } catch (error) {
-    console.error('Error fetching trips:', error);
+    console.error('Error fetching activities:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -84,7 +89,7 @@ app.get("/api/places", async (req, res) => {
     const places = await db.any('select * from places');
     res.json(places);
   } catch (error) {
-    console.error ('Error fetching places:', error);
+    console.error('Error fetching places:', error);
     res.status(500).json({ error: 'Internal server error' })
   }
 })
@@ -109,7 +114,7 @@ app.get("/api/destination/:id", async (req, res) => {
 // Get ID place
 app.get("/api/place/:id", async (req, res) => {
   const id = req.params.id;
-  
+
   try {
     const place = await db.oneOrNone('select * from places where id = $1', [id]);
     if (place) {
