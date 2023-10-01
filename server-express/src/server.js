@@ -29,7 +29,8 @@ app.use(express.static(public));
 // Routes
 //const tripRoutes = require("./routes/tripRoutes");
 
-app.use("/api/trips", require("./routes/tripRoutes"));
+app.use("/api/trip", require("./routes/tripRoutes"));
+app.use("/api/schedule", require("./routes/scheduleRoutes"));
 app.use("/api/place", require("./routes/placeRoutes"));
 
 //route to get users information from the query search provided in the queries folder
