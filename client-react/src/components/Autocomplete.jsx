@@ -46,7 +46,7 @@ export default function GoogleAutocomplete() {
             <p>Suggestion Results:</p>
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
-              {suggestions.map((suggestion) => {
+              {suggestions.map((suggestion, index) => {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
                   : 'suggestion-item';
@@ -66,6 +66,7 @@ export default function GoogleAutocomplete() {
                     };
                 return (
                   <div
+                    key={index} // Because of browser warning: Each child in a list should have a unique "key" prop.
                     {...getSuggestionItemProps(suggestion, {
                       className,
                       style,
