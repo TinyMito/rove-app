@@ -1,7 +1,6 @@
 const db = require('../connection');
 
 const dbQuery = function (query) {
-  console.log(`Query: ${query.string}`);
   return (
     db.query(query.string, query.params)
       .then(res => res.rows)

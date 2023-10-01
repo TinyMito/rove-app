@@ -97,12 +97,11 @@ export const useTimeLine = ({ id, date }) => {
   // useEffect(() => {
   //   setData(mockData[date])
   // }, [date]);
-
   useEffect(() => {
     // Use an async function to fetch data and handle the response
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/trips/${id}?date=${date}`, {
+        const response = await fetch(`http://localhost:8080/api/trip/${id}?date=${date}`, {
           mode: 'no-cors'
         });
 

@@ -1,18 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllDayActivities } = require("../db/queries/trip");
+const { getDestinationNDates } = require("../db/queries/schedule");
 
 router.get("/", (req, res) => {
   res.json({ test: 'ok' });
 });
 
-// "trip/:id"
+// "schedule/:id"
 router.get("/:id", async (req, res) => {
-  const { date } = req.query; // from the user
   const { id } = req.params;
 
-  getAllDayActivities(id, date)
+  getDestinationNDates(id)
     .then((response) => {
       res.json(response);
     });
