@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   res.json({ test: 'ok' });
 });
 
-// "schedules/:id"
+// "trips/:id"
 router.get("/:id", async (req, res) => {
   const { date } = req.query; // from the user
   const { id } = req.params;

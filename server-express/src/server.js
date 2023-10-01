@@ -30,7 +30,6 @@ app.use(express.static(public));
 
 // Routes
 const tripRoutes = require("./routes/tripRoutes");
-
 app.use("/api/trips", tripRoutes);
 
 app.get("/api/status", (req, res) => {

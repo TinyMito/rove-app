@@ -1,16 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-
-/////////////////////////MOCK DATA///////////////////////////////// 
-// CREATE TABLE trips (
-//   id SERIAL PRIMARY KEY,
-//   place_id INT REFERENCES places(id),
-//   destination_id INT REFERENCES destinations(id),
-//   user_id INT REFERENCES users(id),
-//   start_date DATE,
-//   end_date DATE,
-//   time TIMESTAMP
-// );
+// mock data
 const mockData = {
   '2023-09-28': [
     {
@@ -101,23 +91,42 @@ const mockData = {
 };
 /////////////////////////////////////////////////////////
 
-export const useTimeLine = ({ date }) => {
+export const useTimeLine = ({ id, date }) => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    setData(mockData[date])
-  }, [date]);
+  // useEffect(() => {
+  //   setData(mockData[date])
+  // }, [date]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/schedules', {
-      mode: 'no-cors'
-    })
-      .then((response) => {
-        console.log(response);
-      })
-  }, []);
-  return {
-    data
-  };
+    // Use an async function to fetch data and handle the response
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/api/trips/${id}?date=${date}`, {
+          mode: 'no-cors'
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const jsonData = await response.json();
+        setData(jsonData); // update the state with the fetched data
+      } catch (error) {
+        console.error('Error fetching data');
+      }
+    }
+    fetchData(); // call the fetchData function
+  }, [id, date])
+  return { data };
 };
+
+  // .then((response) => {
+  //       console.log(response);
+  //     })
+  // }, []);
+  // return {
+  //   data
+  // };
+
 
