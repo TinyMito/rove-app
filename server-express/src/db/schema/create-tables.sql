@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS destinations CASCADE;
 DROP TABLE IF EXISTS places CASCADE;
+DROP TABLE IF EXISTS schedules CASCADE;
 DROP TABLE IF EXISTS trips CASCADE;
-DROP TABLE IF EXISTS activities CASCADE;
 
 
 CREATE TABLE users (
@@ -36,8 +36,8 @@ CREATE TABLE places (
 
 CREATE TABLE schedules (
   id SERIAL PRIMARY KEY,
-  start_date Date,
-  end_date Date,
+  start_date VARCHAR(10),
+  end_date VARCHAR(10),
   user_id INT REFERENCES users(id),
   destination_id INT REFERENCES destinations(id)
 );
