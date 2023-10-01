@@ -9,19 +9,17 @@ export default function Detail() {
   // Get url id parameter
   const { id } = useParams();
   const [place, setPlace] = useState({});
-  const [rating, setRating] = useState(0);
 
    // Responsive Design for Mobile
   const isMobile = useMediaQuery('(min-width:800px)');
   const cardMaxWidth = isMobile ? 600 : 'auto';
 
   useEffect(() => {
-    const apiPlace = `/api/place/${id}`;
+    const apiUser = `/api/user/${id}`;
 
-    axios.get(apiPlace)
+    axios.get(apiUser)
       .then((res) => {
         setPlace(res.data);
-        setRating(res.data.rating || 0);
       })
       .catch((err) => {
         setPlace({ error: err.message });
@@ -56,7 +54,6 @@ export default function Detail() {
         <Grid item xs={12} md={4}>
           <Typography align="left" variant="body2" color="text.secondary">
             <Typography component="legend">Google Review Stars:</Typography>
-            <Rating name="read-only" value={rating} readOnly />
           </Typography>
         </Grid>
       </Grid>

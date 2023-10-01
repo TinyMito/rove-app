@@ -4,7 +4,7 @@ const router = express.Router();
 const { getPlace } = require("../db/queries/place");
 
 router.get("/", (req, res) => {
-  res.status(400).json({ message: "Data processed successfully" });
+  res.status(400).json({ message: "=> /api/place/:id" });
 });
 
 router.get("/:id", async (req, res) => {
