@@ -20,8 +20,8 @@ export default function Detail() {
 
     axios.get(apiPlace)
       .then((res) => {
-        setPlace(res.data);
-        setRating(res.data.rating || 0);
+        setPlace(res.data[0]);
+        setRating(res.data[0].rating || 0);
       })
       .catch((err) => {
         setPlace({ error: err.message });
@@ -33,7 +33,7 @@ export default function Detail() {
       <Grid container spacing={5}>
         <Grid item xs={12} md={8}>
           <Typography sx={{ padding: '20px 0px' }} align="left" gutterBottom variant="h5" component="div">
-            {place.place_name}
+            {place.name}
           </Typography>
         </Grid>
         <Grid item xs={12} md={4}>
