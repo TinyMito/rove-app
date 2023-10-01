@@ -7,7 +7,7 @@ const dbQuery = function (query) {
   );
 };
 
-const activitiesQuery =
+const tripsQuery =
   `SELECT
     T.id AS trip_id,
     T.place_id AS place_id,
@@ -32,14 +32,14 @@ const activitiesQuery =
   ORDER BY
     T.start_time;`;
 
-const getAllDayActivities = (scheduleId, date) => {
+const getAllDayTrips = (scheduleId, date) => {
   const query = {
-    string: activitiesQuery,
+    string: tripsQuery,
     params: [scheduleId, date],
   };
   return dbQuery(query);
 };
 
 module.exports = {
-  getAllDayActivities,
+  getAllDayTrips,
 };
