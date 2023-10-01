@@ -36,8 +36,8 @@ CREATE TABLE places (
 
 CREATE TABLE schedules (
   id SERIAL PRIMARY KEY,
-  start_date Date,
-  end_date Date,
+  start_date VARCHAR(10),
+  end_date VARCHAR(10),
   user_id INT REFERENCES users(id),
   destination_id INT REFERENCES destinations(id)
 );
