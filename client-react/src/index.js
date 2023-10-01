@@ -39,6 +39,8 @@ root.render(
         <Route path="/place/:id" element={<Place />} />
         <Route path="/user/:id" element={<User />} />
         <Route path="/dev" element={<Dev />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegistrationForm />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
