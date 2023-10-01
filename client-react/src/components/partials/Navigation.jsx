@@ -1,17 +1,20 @@
+import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
+import appIcon from '../../assets/images/logo.png';
+import userIcon from '../../assets/images/avatar.png';
+import '../../styles/Navigation.scss';
 
 export default function Navigation() {
-
   return (
     <div className="Navigation">
-      <div>
-        <Button fullWidth={true} sx={{ color: '#CBDCFC', fontSize: '5em', marginBottom: '1em' }} href="/user/1" size="small"><i className="bi bi-person-circle"></i></Button>
-        <Button fullWidth={true} sx={{ color: '#CBDCFC', fontSize: '5em' }} href="/" size="small"><i className="bi bi-house-fill"></i></Button>
-        <Button fullWidth={true} sx={{ color: '#CBDCFC', fontSize: '5em' }} href="/survey" size="small"><i className="bi bi-suitcase2-fill"></i></Button>
-        <Button fullWidth={true} sx={{ color: '#CBDCFC',fontSize: '5em' }} href="/schedule/1" size="small"><i className="bi bi-calendar2-week-fill"></i></Button>
-        <Button fullWidth={true} sx={{ color: '#CBDCFC',fontSize: '5em' }} href="/place/1" size="small">1</Button>
-        <Button fullWidth={true} sx={{ color: '#CBDCFC',fontSize: '5em' }} href="/google" size="small">2</Button>
-        <Button fullWidth={true} sx={{ color: '#CBDCFC',fontSize: '5em' }} href="/duration" size="small">3</Button>
+      <div className="navFlex">
+        <Link className="navBtnStyle" to="/"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
+        {/*<i className="bi bi-person-circle"></i>*/}
+        <Link className="navBtnStyle userBtnStyle" to="/user/1"><img className="userIconStyle" src={userIcon} alt="Avatar" /></Link>
+        <Link className="navBtnStyle" to="/duration"><i className="bi bi-suitcase2"></i></Link>
+        <Link className="navBtnStyle" to="/schedule/1"><i className="bi bi-calendar-week"></i></Link>
+        <Link className="navBtnStyle" to="/map"><i className="bi bi-geo-alt"></i></Link>
+        <Link className="navBtnStyle" to="/dev"><i className="bi bi-code-slash"></i></Link>
       </div>
     </div>
   );

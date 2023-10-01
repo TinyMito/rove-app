@@ -14,7 +14,8 @@ export default function (prop) {
     thumbnail_img_url, 
     cover_photo_url, 
     google_map_link,
-    name  
+    name,
+    user_note  
   } = prop
 
   return (

@@ -5,38 +5,60 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
+
+import MyTrips from './MyTrips';
+
 export default function Detail() {
   // Get url id parameter
   const { id } = useParams();
-  const [place, setPlace] = useState({});
+  const [ trips, setTrips ] = useState([]);
 
-  // Responsive Design for Mobile
-  //const isMobile = useMediaQuery('(min-width:800px)');
-  //const cardMaxWidth = isMobile ? 600 : 'auto';
+  console.log("JSON",trips)
+
+  const page_heading = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+    borderBottom: '5px solid #71B1F8',
+  };
 
   useEffect(() => {
     const apiUser = `/api/user/${id}`;
 
     axios.get(apiUser)
       .then((res) => {
-        setPlace(res.data);
+        setTrips(res.data);
       })
       .catch((err) => {
-        setPlace({ error: err.message });
+        setTrips({ error: err.message });
       });
   }, [id]);
   
   return (
+    <div className="box">
+    <div className="flex-row">
+        <Navigation />
+        <div className="flex-column">
+          <Header />
+
     <div className="body">
-      <Card sx={{ padding: '0px 20px'}}>
-        <Grid container spacing={5}>
-          <Grid item xs={12} md={8}>
-            <Typography sx={{ padding: '20px 0px' }} align="left" gutterBottom variant="h5" component="div">
-              {place.place_name}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Card>
+      <h1>Welcome {trips.first_name} {trips.last_name}!</h1>
+      <div style={page_heading}><h1>Trip Suggestion</h1></div>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+
+      </div>
+      <div style={page_heading}><h1>My Schedule</h1></div>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {trips.map((trip) => (
+          <MyTrips key={trip.id} trips={trip}/>
+        ))}
+      </div>
+    </div>
+
+    </div>
+    </div>
     </div>
   );
 }

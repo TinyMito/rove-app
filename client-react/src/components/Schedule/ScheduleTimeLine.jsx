@@ -1,3 +1,5 @@
+import { useState, useCallback } from 'react';
+
 // Timeline
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -23,71 +25,172 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ScheduleCard from './ScheduleCard';
+import Detail from '../Place/Place';
 
-export const ScheduleTimeLine = (prop) => {
-const { data } = prop
-console.log('data', data)
+// Modal
+import ModalDelete from './ModalDelete';
+import ModalPlace from './ModalPlace';
+import TimePicker from './TimePicker';
+
+
+const defaultDeleteModalProps = {
+  isOpen: false,
+  tripId: undefined
+};
+
+const defaultPlaceModalProps = {
+  isOpen: false,
+  placeId: undefined
+};
+
+const changeTimeSchedule = {
+  //
+};
+
+const timeSchedule = {
+  display: 'flex',
+  flexDirection: 'column',
+  verticalAlign: 'middle'
+}
+
+export const ScheduleTimeLine = (props) => {
+
+  const { data, deleteTrip, handleFetchTrips, updateTrip } = props
+
+  const [deleteModalProps, setDeleteModalProps] = useState(defaultDeleteModalProps);
+  const [darkBGClass, setDarkBGClass] = useState('');
+
+  const handleDeleteModalOpen = useCallback((tripId) => {
+    setDarkBGClass('darkBG');
+    setDeleteModalProps({
+      isOpen: true,
+      tripId
+    });
+  }, []);
+
+  const handleDeleteModalClose = useCallback(() => {
+    setDarkBGClass('');
+    setDeleteModalProps(defaultDeleteModalProps)
+  }, []);
+
+
+  const handleDelete = useCallback(() => {
+    if (deleteModalProps.tripId) {
+      deleteTrip(deleteModalProps.tripId);
+    }  
+  }, [deleteModalProps.tripId]);
+
+  
+  const [placeModalProps, setPlaceModalProps] = useState(defaultPlaceModalProps);
+  const handlePlaceCardOpen = (placeId) => {
+    setPlaceModalProps({
+      isOpen: true,
+      placeId
+    });
+  };
+  const handlePlaceCardClose = () => {
+    setPlaceModalProps(defaultPlaceModalProps);
+  };
 
 
   return (
-    <Timeline
-      sx={{
-        [`& .${timelineOppositeContentClasses.root}`]: {
-          flex: 0.2,
-        },
-      }}
-    >
-      
-      {/* Item */}
-      {data.map((trip) => (
-      <TimelineItem 
-        key={trip.trip_id}
-        sx={{ padding: -1 }}
-      >
-        <TimelineOppositeContent color="textSecondary" sx={{ fontSize: 25 }}>
-          {trip.start_time}
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          {/* import schedule card */}
-          <Card sx={{ maxWidth: 800 }}>
-            <CardMedia
-              component="img"
-              alt={trip.name}
-              height="400"
-              image={trip.cover_photo_url}
+    <div className={darkBGClass}>
+      <Timeline
+        sx={{
+          [`& .${timelineOppositeContentClasses.root}`]: {
+            flex: 0.2,
+          },
+        }}
+        > 
+        {/* <div className='darkBG'/> */}
+        {deleteModalProps.isOpen && (
+          <>
+            <ModalDelete
+              handleOpen={handleDeleteModalOpen}
+              handleClose={handleDeleteModalClose}
+              handleConfirm={handleDelete}
+              confirmMessage={"Delete"}
             />
-
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {trip.name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-               {trip.place_description}
-                <span />
-                <a><i className="bi bi-pencil" /></a>
-              </Typography>
-            </CardContent>
-
-            <CardActions>
+          </>
+        )}
+        {placeModalProps.isOpen && (
+          <>
+            <ModalPlace
+              handleOpen={handlePlaceCardOpen}
+              handleClose={handlePlaceCardClose}
+              placeId={placeModalProps.place_id}
+            />
+          </>
+        )}
+        {/* Item */}
+        {data.map((trip) => (
+        <TimelineItem 
+          key={trip.trip_id}
+          sx={{ padding: -1 }}
+        >
+          <TimelineOppositeContent color="textSecondary" sx={{ fontSize: 25 }} >
+            <div style={timeSchedule}>
+            <TimePicker 
+              onSubmit={handleFetchTrips}
+              // style={changeTimeSchedule}
+              startTime={trip.start_time}
+              tripId={trip.trip_id}
+              updateTrip={updateTrip}
+            />
+            </div>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            {/* import schedule card */}
+            <Card sx={{ maxWidth: 800 }} className="card_schedule">
+              <CardMedia
+                component="img"
+                alt={trip.name}
+                height="400"
+                image={trip.cover_photo_url}              
+                style={{ cursor: 'pointer'}}
+                onClick={() => handlePlaceCardOpen(trip.place_id)}
+              />
               
-              <IconButton aria-label="mapIcon" size="large">
-                <MapOutlinedIcon />
-              </IconButton>
-              {/* <Button size="small"><i className="bi bi-trash"></i></Button> */}
-              <IconButton aria-label="delete" size="large">
-                <DeleteIcon />
-              </IconButton>
-            </CardActions>
-          </Card>
+              <CardContent className="card_content">
+                <Typography className="trip_name" gutterBottom variant="h4" component="div">
+                  {trip.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {trip.user_note}
+                  <span />
+                  <a><i className="bi bi-pencil" /></a>
+                </Typography>
+              </CardContent>
 
-        </TimelineContent>
-      </TimelineItem>
-      ))}
+              <CardActions className="card_actions">
+                
+                <IconButton className="icon_buttons" aria-label="mapIcon" size="large">
+                  <MapOutlinedIcon />
+                </IconButton>
+                {/* <Button size="small"><i className="bi bi-trash"></i></Button> */}
+                <IconButton 
+                  className="icon_buttons" 
+                  aria-label="delete" 
+                  size="large"
+                  onClick={() => {
+                    handleDeleteModalOpen(trip.trip_id);
+                  }} 
+                >
+                  <DeleteIcon/>
+                </IconButton>
+                
+              </CardActions>
+            </Card>
 
-    </Timeline>
+          </TimelineContent>
+        </TimelineItem>
+        ))}
+        
+      </Timeline>
+    </div>
   );
 };

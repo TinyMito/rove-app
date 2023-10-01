@@ -7,6 +7,7 @@ const dbQuery = function (query) {
   );
 };
 
+////////////////////////////Retrieve a schedule/////////////////////////////
 const destination =
   `SELECT
     S.id AS scheedule_id,
@@ -30,6 +31,23 @@ const getDestinationNDates = (scheduleId) => {
   return dbQuery(query);
 };
 
+////////////////////////////Delete a schedule/////////////////////////////
+const deleteAScheduleQuery = `
+  DELETE FROM schedules
+  WHERE id = $1
+`;
+
+const deleteASchedule = (scheduleId) => {
+  const query = {
+    string: deleteAScheduleQuery,
+    params: [scheduleId]
+  };
+  return dbQuery(query);
+};
+
+
+////////////////////////////Exports/////////////////////////////
 module.exports = {
-  getDestinationNDates
+  getDestinationNDates,
+  deleteASchedule
 };
