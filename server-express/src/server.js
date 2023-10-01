@@ -27,9 +27,10 @@ console.log("public dir: ", public);
 app.use(express.static(public));
 
 // Routes
-const tripRoutes = require("./routes/tripRoutes");
+//const tripRoutes = require("./routes/tripRoutes");
 
-app.use("/api/trips", tripRoutes);
+app.use("/api/trips", require("./routes/tripRoutes"));
+app.use("/api/place", require("./routes/placeRoutes"));
 
 //route to get users information from the query search provided in the queries folder
 app.get('/users', async (req, res) => {
@@ -43,7 +44,7 @@ app.get('/users', async (req, res) => {
 });
 
 // Get Trips for User ID
-app.get("/api/user-trips/:id", async (req, res) => {
+/* app.get("/api/user-trips/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -63,41 +64,7 @@ app.get("/api/user-trips/:id", async (req, res) => {
     console.error('Error fetching trips by user ID:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-})
-
-// Get ID destination
-app.get("/api/destination/:id", async (req, res) => {
-  const id = req.params.id;
-
-  try {
-    const destination = await db.oneOrNone('SELECT * FROM destinations WHERE id = $1;', [id]);
-    if (destination) {
-      res.json(destination);
-    } else {
-      res.status(404).json({ error: 'Destination not found' });
-    }
-  } catch (error) {
-    console.error('Error fetching destination by ID:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// Get ID place for detail component
-app.get("/api/place/:id", async (req, res) => {
-  const id = req.params.id;
-
-  try {
-    const place = await db.oneOrNone('SELECT * FROM places WHERE id = $1;', [id]);
-    if (place) {
-      res.json(place);
-    } else {
-      res.status(404).json({ error: 'Place not found' });
-    }
-  } catch (error) {
-    console.error('Error fetching place by ID:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+}) */
 
 app.use(function (req, res) {
   res.status(404);
