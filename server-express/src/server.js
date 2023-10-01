@@ -27,10 +27,9 @@ console.log("public dir: ", public);
 app.use(express.static(public));
 
 // Routes
-//const tripRoutes = require("./routes/tripRoutes");
-
 app.use("/api/trips", require("./routes/tripRoutes"));
 app.use("/api/place", require("./routes/placeRoutes"));
+app.use("/api/place", require("./routes/userRoutes"));
 
 //route to get users information from the query search provided in the queries folder
 app.get('/users', async (req, res) => {
