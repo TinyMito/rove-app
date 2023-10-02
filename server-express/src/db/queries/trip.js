@@ -32,7 +32,7 @@ const tripsQuery =
   ORDER BY
     T.start_time;`;
 
-const getAllDayTrips = (scheduleId, date) => {
+const getTripsByScheduleIdNDate = ({ scheduleId, date }) => {
   const query = {
     string: tripsQuery,
     params: [scheduleId, date],
@@ -41,5 +41,5 @@ const getAllDayTrips = (scheduleId, date) => {
 };
 
 module.exports = {
-  getAllDayTrips,
+  getTripsByScheduleIdNDate,
 };

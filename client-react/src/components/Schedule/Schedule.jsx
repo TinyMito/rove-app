@@ -24,14 +24,11 @@ const dates = ['2023-09-28', '2023-09-29', '2023-09-30'];
 export const Schedule = (props) => {
   
   const [day, setDay] = useState(1)
-  const [dayObj, setDayObj] = useState(hardCodedDayObj)
 
-  const { data } = useTimeLine({date:dates[day - 1]})
-  console.log('data[0]', data[0]);
-  console.log('data.length', data.length);
+  const { data } = useTimeLine({id: 1, date:'2023-10-01'})
 
-  const startDateStr = data[0]?.start_date;
-  const endDateStr = data[0]?.end_date;
+  const startDateStr = '2023-10-01' //data[0]?.start_date;
+  const endDateStr = '2023-10-03' //data[0]?.end_date;
 
   const handleSetDay = (event, selectedDay) => {
     setDay(selectedDay);
