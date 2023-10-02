@@ -1,30 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PlacesAutocomplete, {
   geocodeByAddress,
 } from 'react-places-autocomplete';
 
-import './Google.css'
+import { useNavigate } from 'react-router-dom';
+
+import './Google.css';
 
 export default function GoogleAutocomplete() {
-  
   const [address, setAddress] = useState('');
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
+  const [id, setId] = useState(null);
+  const [firstWordOfAddress, setFirstWordOfAddress] = useState('');
 
   const handleSelect = async (value) => {
     const result = await geocodeByAddress(value);
-    console.log(result);
 
     setAddress(value);
-    setSelectedSuggestion(result[0]); // Store the selected suggestion
+    setSelectedSuggestion(result[0]);
+    const placeId = result[0].formatted_address;
+    setId(placeId);
+
+    // Extract the first word from formatted_address
+    const firstWord = placeId.split(',')[0].toLowerCase().replace(/\s+/g, '-');
+    setFirstWordOfAddress(firstWord);
   };
 
-  
+  const navigate = useNavigate();
   const handleButtonClick = () => {
     if (selectedSuggestion) {
-      // Use the selected suggestion data as needed
       console.log('Selected Suggestion:', selectedSuggestion);
-
-      // You can perform additional actions with the selected suggestion here
+      if (firstWordOfAddress) {
+        navigate(`/cards/${firstWordOfAddress}`);
+      } else {
+        navigate('/card');
+      }
     }
   };
 
@@ -46,11 +56,10 @@ export default function GoogleAutocomplete() {
             <p>Suggestion Results:</p>
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
-              {suggestions.map((suggestion, index) => {
+              {suggestions.map((suggestion) => {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
                   : 'suggestion-item';
-                // inline style for demonstration purpose
                 const style = suggestion.active
                   ? {
                       backgroundColor: '#fafafa',
@@ -66,7 +75,6 @@ export default function GoogleAutocomplete() {
                     };
                 return (
                   <div
-                    key={index} // Because of browser warning: Each child in a list should have a unique "key" prop.
                     {...getSuggestionItemProps(suggestion, {
                       className,
                       style,
