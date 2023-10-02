@@ -102,17 +102,20 @@ export const useTimeLine = ({ id, date }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(`http://localhost:8080/api/trip/${id}?date=${date}`, {
-          mode: 'no-cors'
+          method: 'GET', // GET request to fetch schedule data
+          // mode: 'no-cors'
         });
 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
 
-        const jsonData = await response.json();
-        setData(jsonData); // update the state with the fetched data
+        const tripsData = await response.json();
+        setData(tripsData); // update the state with the fetched data
       } catch (error) {
-        console.error('Error fetching data');
+        console.error('Error fetching data for trips', error);
+        console.error('Response status:', response.status);
+        console.error('Response status text:', response.statusText);
       }
     }
     fetchData(); // call the fetchData function
