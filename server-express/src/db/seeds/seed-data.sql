@@ -32,7 +32,8 @@ VALUES
 ', 'avatar07.png'),
   ('Harrison', 'Smith', 'traveler16', 'traveler16@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar08.png'),
-  ('Isabella', 'Wilson', 'traveler17', 'traveler17@example.com', 'avatar01.png'),
+  ('Isabella', 'Wilson', 'traveler17', 'traveler17@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar01.png'),
   ('Jack', 'Johnson', 'traveler18', 'traveler18@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar02.png'),
   ('Katherine', 'Brown', 'traveler19', 'traveler19@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
