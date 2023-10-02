@@ -1,4 +1,4 @@
-INSERT INTO users (first_name, last_name, username, email, profile_thumbnail_img)
+INSERT INTO users (first_name, last_name, username, email, password, profile_thumbnail_img)
 VALUES
   ('John', 'Doe', 'traveler1', 'traveller1@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar01.png'),
