@@ -27,7 +27,10 @@ console.log("public dir: ", public);
 app.use(express.static(public));
 
 // Routes
-app.use("/api/trips", require("./routes/tripRoutes"));
+//const tripRoutes = require("./routes/tripRoutes");
+
+app.use("/api/trip", require("./routes/tripRoutes"));
+app.use("/api/schedule", require("./routes/scheduleRoutes"));
 app.use("/api/place", require("./routes/placeRoutes"));
 app.use("/api/user", require("./routes/userRoutes"));
 
