@@ -19,7 +19,8 @@ const tripsQuery =
     P.description AS place_description,
     P.thumbnail_img_url,
     P.cover_photo_url,
-    P.google_map_link
+    P.google_map_link,
+    P.name AS name
   FROM
     trips T
   JOIN
