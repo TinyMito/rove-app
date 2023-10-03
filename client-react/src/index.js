@@ -23,7 +23,7 @@ root.render(
       <Route path="/schedule/:id" element={<Schedule />} />
       <Route path="/dev" element={<Developer />} />
       <Route path="/google" element={<Google />} />
-      <Route path="/card" element={<Suggestion />} />
+      <Route path="/card/:location/:id" element={<Suggestion />} />
       <Route path="/duration" element={<Duration />} />
       <Route path="/place/:id" element={<Place />} />
       <Route path="/user/:id" element={<User />} />
