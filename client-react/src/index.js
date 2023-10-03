@@ -20,7 +20,7 @@ root.render(
     <Global styles={baseCss} />
     <Routes>
       <Route path="/" element={<Application />} />
-      <Route path="/schedule" element={<Schedule />} />
+      <Route path="/schedule/:id" element={<Schedule />} />
       <Route path="/dev" element={<Developer />} />
       <Route path="/google" element={<Google />} />
       <Route path="/card" element={<Suggestion />} />
