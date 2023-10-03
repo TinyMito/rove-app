@@ -2,36 +2,28 @@ import React, { useState } from 'react';
 import PlacesAutocomplete, {
   geocodeByAddress,
 } from 'react-places-autocomplete';
-
 import { useNavigate } from 'react-router-dom';
-
 import './Google.css';
 
 export default function GoogleAutocomplete() {
   const [address, setAddress] = useState('');
-  const [selectedSuggestion, setSelectedSuggestion] = useState(null);
-  const [id, setId] = useState(null);
-  const [firstWordOfAddress, setFirstWordOfAddress] = useState('');
+  const [locationInfo, setLocationInfo] = useState(null);
 
   const handleSelect = async (value) => {
     const result = await geocodeByAddress(value);
-
     setAddress(value);
-    setSelectedSuggestion(result[0]);
-    const placeId = result[0].formatted_address;
-    setId(placeId);
-
-    // Extract the first word from formatted_address
-    const firstWord = placeId.split(',')[0].toLowerCase().replace(/\s+/g, '-');
-    setFirstWordOfAddress(firstWord);
+    setLocationInfo(result[0]);
   };
+
+  const placeId = locationInfo?.place_id
+  const firstWord = locationInfo?.formatted_address?.split(',')[0].replace(/\s+/g, '-');
 
   const navigate = useNavigate();
   const handleButtonClick = () => {
-    if (selectedSuggestion) {
-      console.log('Selected Suggestion:', selectedSuggestion);
-      if (firstWordOfAddress) {
-        navigate(`/cards/${firstWordOfAddress}`);
+    if (locationInfo) {
+      console.log('Selected location info:', locationInfo);
+      if (placeId) {
+        navigate(`/card/${firstWord}/${placeId}`);
       } else {
         navigate('/card');
       }

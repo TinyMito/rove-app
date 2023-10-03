@@ -19,7 +19,8 @@ const tripsQuery =
     P.description AS place_description,
     P.thumbnail_img_url,
     P.cover_photo_url,
-    P.google_map_link
+    P.google_map_link,
+    P.name AS name
   FROM
     trips T
   JOIN
@@ -32,7 +33,7 @@ const tripsQuery =
   ORDER BY
     T.start_time;`;
 
-const getAllDayTrips = (scheduleId, date) => {
+const getTripsByScheduleIdNDate = ({ scheduleId, date }) => {
   const query = {
     string: tripsQuery,
     params: [scheduleId, date],
@@ -41,5 +42,5 @@ const getAllDayTrips = (scheduleId, date) => {
 };
 
 module.exports = {
-  getAllDayTrips,
+  getTripsByScheduleIdNDate,
 };

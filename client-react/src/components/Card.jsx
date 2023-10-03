@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { useParams } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -9,9 +9,11 @@ import './Card.css'
 
 export default function Suggestion() {
   const [data, setData] = useState([]);
-
+  
+  const { location, id } = useParams();
+  console.log(location, id)
   useEffect(() => {
-    fetch('api/places')
+    fetch(`/api/place/${id}`)
       .then((response) => response.json())
       .then((places) => {
         setData(places);
@@ -21,7 +23,7 @@ export default function Suggestion() {
 
   return (
     <div>
-      <h1>Photo Gallery</h1>
+      <h1>Photo Gallery - {location} </h1>
         <div className='App'>
           <div className='photo-list'>
             {data.slice(0, 8).map((places) => (
@@ -29,7 +31,7 @@ export default function Suggestion() {
                 <CardMedia
                   component='img'
                   height='300'
-                  image={places.profile_thumbnail_img}
+                  image={places.thumbnail_img_url}
                 />
                 <CardContent>
                   <Typography variant='h6'>{places.name}</Typography>

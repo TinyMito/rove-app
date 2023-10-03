@@ -1,58 +1,39 @@
-import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useTimeLine } from './useTimeLine';
-
-// Pagination
-import Pagination from '@mui/material/Pagination';
+import { useSchedule } from './useSchedule';
 import { Days } from './Days';
-
-// Timeline
 import { ScheduleTimeLine } from "./ScheduleTimeLine"
 
-const hardCodedDayObj = [
-  {
-    siteName: 'Stanley Park',
-    note: 'A historic hotel in Vancouver.'
-  },
-  {
-    siteName: 'Fairmont Hotel',
-    note: 'A historic hotel in Vancouver.'
-  },
-]
+import './Schedule.css';
 
-const dates = ['2023-09-28', '2023-09-29', '2023-09-30'];
 
 export const Schedule = (props) => {
-  
-  const [day, setDay] = useState(1)
-  const [dayObj, setDayObj] = useState(hardCodedDayObj)
+  const { id } = useParams();
+  const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
+  const { start_date, end_date } = schedule || {};
+  const { data } = useTimeLine({ id, date: dates[currentDay] });
 
-  const { data } = useTimeLine({date:dates[day - 1]})
-  console.log('data[0]', data[0]);
-  console.log('data.length', data.length);
 
-  const startDateStr = data[0]?.start_date;
-  const endDateStr = data[0]?.end_date;
-
-  const handleSetDay = (event, selectedDay) => {
-    setDay(selectedDay);
-  }
   return (
-    <div>
+    <div className="body">
       <title >Vancouver</title>
       <div id="root"></div>
 
-      <h1 className="trip_location">Vancouver</h1>
-     
-      <h3>Day</h3>
-        <Days  
-          daysCount={dates.length} 
-          handleChange={handleSetDay} 
-          currentDay={day}
-        />
-      <h3 className="travel_dates">
-       {startDateStr ? `${startDateStr} - ${endDateStr}` :  'Loading...'}
-      </h3>
-      {/* pagination */}
+      <div className="page_heading">
+        <h1 className="trip_location">Vancouver</h1>
+        <div className="schedule_heading">
+          <h2 style={{marginRight: 0.5 + 'em'}}>DAY:</h2>
+            <Days  
+              daysCount={totalDays} 
+              handleChange={handleSetDay} 
+              currentDay={currentDay + 1}
+            />
+        </div>
+      </div>
+      <h2 className="travel_dates">
+       {start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}
+      </h2>
+      
       
       <div className="timeline" />
 
@@ -61,27 +42,12 @@ export const Schedule = (props) => {
           <button><i className="bi bi-plus"></i></button>
         </div>
 
-
-        {/* <ScheduleTimeLine
-          dayObj={data}
-        /> */}
+    
+        <ScheduleTimeLine
+         data={data}
+         className="schedule_card"
+        />
         
-        <div>
-          { data.map((elem)=> {
-            return (
-              <div key={elem.id}>
-                {elem.id},
-                {elem.place_id},
-                {elem.destination_id},
-                {elem.start_date},
-                {elem.end_date},
-                {elem.start_time},
-                {elem.end_time}
-              </div>
-            )
-
-          })}
-        </div>
       </section>
       </div>
   );

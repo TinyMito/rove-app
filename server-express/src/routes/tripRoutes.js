@@ -1,22 +1,25 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllDayTrips } = require("../db/queries/trip");
+const { getTripsByScheduleIdNDate } = require("../db/queries/trip");
 
 router.get("/", (req, res) => {
-  res.json({ test: 'ok' });
-});
+  const { date, id, scheduleId } = req.query;
 
-// "trip/:id"
-router.get("/:id", async (req, res) => {
-  const { date } = req.query; // from the user
-  const { id } = req.params;
+  if (date && scheduleId) {
+    getTripsByScheduleIdNDate({ id, date, scheduleId })
+      .then((response) => {
+        res.status(200);
+        res.json(response);
+      })
+      .catch((error) => {
+        console.error('Error fetching data for trip/:id:', error);
+        res.status(500).json({ error: 'Internal server error' });
+      });
+  } else if (id) {
+    // db query only when trip id is given
 
-  getAllDayTrips(id, date)
-    .then((response) => {
-      res.json(response);
-    });
-
+  }
 });
 
 module.exports = router;
