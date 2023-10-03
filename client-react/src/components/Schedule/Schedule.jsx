@@ -1,38 +1,22 @@
-import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useTimeLine } from './useTimeLine';
+import { useSchedule } from './useSchedule';
 
-// Pagination
-import Pagination from '@mui/material/Pagination';
 import { Days } from './Days';
 
 // Timeline
 import { ScheduleTimeLine } from "./ScheduleTimeLine"
 
-const hardCodedDayObj = [
-  {
-    siteName: 'Stanley Park',
-    note: 'A historic hotel in Vancouver.'
-  },
-  {
-    siteName: 'Fairmont Hotel',
-    note: 'A historic hotel in Vancouver.'
-  },
-]
-
-const dates = ['2023-09-28', '2023-09-29', '2023-09-30'];
-
 export const Schedule = (props) => {
+  const { id } = useParams();
   
-  const [day, setDay] = useState(1)
+  const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
+  const { start_date, end_date } = schedule || {};
 
-  const { data } = useTimeLine({id: 1, date:'2023-10-01'})
+  const { data } = useTimeLine({ id, date: dates[currentDay] });
 
-  const startDateStr = '2023-10-01' //data[0]?.start_date;
-  const endDateStr = '2023-10-03' //data[0]?.end_date;
-
-  const handleSetDay = (event, selectedDay) => {
-    setDay(selectedDay);
-  }
+ 
+  
   return (
     <div>
       <title >Vancouver</title>
@@ -42,12 +26,12 @@ export const Schedule = (props) => {
      
       <h3>Day</h3>
         <Days  
-          daysCount={dates.length} 
+          daysCount={totalDays} 
           handleChange={handleSetDay} 
-          currentDay={day}
+          currentDay={currentDay}
         />
       <h3 className="travel_dates">
-       {startDateStr ? `${startDateStr} - ${endDateStr}` :  'Loading...'}
+       {start_date ? `${start_date} - ${end_date}` :  'Loading...'}
       </h3>
       {/* pagination */}
       
@@ -58,14 +42,15 @@ export const Schedule = (props) => {
           <button><i className="bi bi-plus"></i></button>
         </div>
 
-
-        {/* <ScheduleTimeLine
-          dayObj={data}
-        /> */}
+    
+        <ScheduleTimeLine
+         data={data}
+        />
         
-        <div>
+        {/* <div>
           { data.map((elem)=> {
             return (
+
               <div key={elem.id}>
                 {elem.id},
                 {elem.place_id},
@@ -75,10 +60,11 @@ export const Schedule = (props) => {
                 {elem.start_time},
                 {elem.end_time}
               </div>
+              
             )
 
           })}
-        </div>
+        </div> */}
       </section>
       </div>
   );
