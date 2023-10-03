@@ -54,7 +54,7 @@ console.log('data', data)
         </TimelineSeparator>
         <TimelineContent>
           {/* import schedule card */}
-          <Card sx={{ maxWidth: 800 }}>
+          <Card sx={{ maxWidth: 800 }} className="card_schedule">
             <CardMedia
               component="img"
               alt={trip.name}

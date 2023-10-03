@@ -59,6 +59,10 @@ h1 {
   outline: none !important;
 }
 
+.card_schedule {
+  padding-right: -1em !important;
+  margin-right: -4em !important;
+}
 .card_content {
   display: flex !important;
   flex-direction: column !important;
