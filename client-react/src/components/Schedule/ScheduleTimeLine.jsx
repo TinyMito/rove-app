@@ -62,24 +62,24 @@ console.log('data', data)
               image={trip.cover_photo_url}
             />
 
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+            <CardContent className="card_content">
+              <Typography className="trip_name" gutterBottom variant="h4" component="div">
                 {trip.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-               {trip.place_description}
+                {trip.place_description}
                 <span />
                 <a><i className="bi bi-pencil" /></a>
               </Typography>
             </CardContent>
 
-            <CardActions>
+            <CardActions className="card_actions">
               
-              <IconButton aria-label="mapIcon" size="large">
+              <IconButton className="icon_buttons" aria-label="mapIcon" size="large">
                 <MapOutlinedIcon />
               </IconButton>
               {/* <Button size="small"><i className="bi bi-trash"></i></Button> */}
-              <IconButton aria-label="delete" size="large">
+              <IconButton className="icon_buttons" aria-label="delete" size="large">
                 <DeleteIcon />
               </IconButton>
             </CardActions>

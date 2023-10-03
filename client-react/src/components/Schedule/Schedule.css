@@ -58,3 +58,27 @@ h1 {
 .MuiSvgIcon-root {
   outline: none !important;
 }
+
+.card_content {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.trip_name {
+  margin-left: 0.3em !important;
+}
+
+.card_actions {
+  margin-top: 0 !important;
+  margin-right: 1em !important;
+  margin-bottom: 1em !important;
+  margin-left: 1em !important;
+  display: flex !important;
+  justify-content: space-between !important;
+
+}
+
+.icon_buttons {
+  outline: none !important;
+  box-shadow: none !important;
+}
