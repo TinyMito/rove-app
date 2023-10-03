@@ -6,29 +6,39 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function () {
+export default function (prop) {
+  const { 
+    start_time, 
+    end_time, 
+    place_description, 
+    thumbnail_img_url, 
+    cover_photo_url, 
+    google_map_link,
+    name  
+  } = prop
+
   return (
-    <Card sx={{ maxWidth: 500 }}>
+    <Card sx={{ maxWidth: 800 }}>
       <CardMedia
         component="img"
         alt="stanley park"
-        height="500"
-        image="https://tinyurl.com/ta4kmc28"
+        height="800"
+        image={cover_photo_url}
       />
 
       <CardContent>
         <Typography gutterBottom variant="h3" component="div" >
-          Stanley Park
+          {name}
         </Typography>
         <Typography variant="h5" color="text.secondary">
-          A beautiful park in the middle of Vancouver downtown.
+          {place_description}
           <span />
           <a><i className="bi bi-pencil" /></a>
         </Typography>
       </CardContent>
 
       <CardActions>
-        <Button size="large"><i className="bi bi-map"></i></Button>
+        <a className="map_button"src={google_map_link} size="large"><i className="bi bi-map"></i></a>
         <Button size="large"><i className="bi bi-trash"></i></Button>
       </CardActions>
     </Card>

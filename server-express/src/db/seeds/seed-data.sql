@@ -47,9 +47,9 @@ VALUES
 
 INSERT INTO places (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
-  (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
-  (1, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
-  (1, 'Shinjuku', 'Shinjuku, Akihabara, and traditional tea ceremonies.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/YbEDLhwKW1w8xfB89'),
+  (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://shorturl.at/rBIU3', 'https://shorturl.at/ahHK2', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
+  (1, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://shorturl.at/gEWY1', 'https://shorturl.at/dDSV6', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
+  (1, 'Shinjuku', 'Shinjuku, Akihabara, and traditional tea ceremonies.', 5, 'https://shorturl.at/nT047', 'https://t.ly/Ee8ZY', 'https://maps.app.goo.gl/YbEDLhwKW1w8xfB89'),
   (1, 'Sagrada Familia', 'Sagrada Familia, Park Guell, and La Rambla.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/2TfvjAUfjS3NHxLu5'),
   (1, 'Sydney Opera House', 'Sydney Opera House, Bondi Beach, and Taronga Zoo.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
   (1, 'Colosseum', 'Colosseum, Roman Forum, and Vatican City.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/dJ6TUUzxW4Uc2jjR7'),
@@ -71,11 +71,11 @@ VALUES
 INSERT INTO schedules (start_date, end_date, user_id, destination_id)
 VALUES
   ('2023-10-01', '2023-10-03', 1, 1),
-  ('2023-11-15', '2023-11-22', 2, 7),
-  ('2023-01-05', '2024-01-15', 3, 10),
+  ('2023-11-15', '2023-11-15', 2, 7),
+  ('2024-01-15', '2024-01-15', 3, 10),
   ('2023-10-01', '2023-10-03', 4, 2),
-  ('2023-11-15', '2023-11-22', 5, 3),
-  ('2023-01-05', '2024-01-15', 6, 8);
+  ('2023-11-15', '2023-11-15', 5, 3),
+  ('2023-11-16', '2023-11-16', 6, 8);
 
 
 INSERT INTO trips (place_id, destination_id, user_id, schedule_id, date, start_time, end_time)
@@ -94,7 +94,7 @@ VALUES
   (9, 7, 2, 2, '2023-11-15', '12:00', '14:00'),
 
 -- trip 3
-  (10, 10, 3, 3, '2023-01-15', '11:00', '12:00'),
+  (10, 10, 3, 3, '2024-01-15', '11:00', '12:00'),
 
 -- trip 4
   (11, 2, 4, 4, '2023-10-01', '08:00', '09:00'),
@@ -109,4 +109,5 @@ VALUES
   (18, 3, 5, 5, '2023-11-15', '11:00', '12:00'),
   (19, 3, 5, 5, '2023-11-15', '12:00', '14:00'),
 
+-- trip 6
   (20, 8, 6, 6, '2023-11-16', '11:00', '12:00');

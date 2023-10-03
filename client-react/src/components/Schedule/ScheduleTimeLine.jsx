@@ -17,8 +17,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+// button
+import IconButton from '@mui/material/IconButton';
+import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 import ScheduleCard from './ScheduleCard';
-export const ScheduleTimeLine = () => {
+import "./Schedule.css";
+
+export const ScheduleTimeLine = (prop) => {
+const { data } = prop
+console.log('data', data)
+
 
   return (
     <Timeline
@@ -29,100 +39,55 @@ export const ScheduleTimeLine = () => {
       }}
     >
       
-      {/* Item 1 */}
-      <TimelineItem>
-        <TimelineOppositeContent color="textSecondary">
-          08:00 am
+      {/* Item */}
+      {data.map((trip) => (
+      <TimelineItem 
+        key={trip.trip_id}
+        sx={{ padding: -1 }}
+      >
+        <TimelineOppositeContent color="textSecondary" sx={{ fontSize: 25 }}>
+          {trip.start_time}
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-
           {/* import schedule card */}
-          <ScheduleCard />
-
-        </TimelineContent>
-      </TimelineItem>
-
-      {/* Item 2 */}
-      <TimelineItem>
-        <TimelineOppositeContent color="textSecondary">
-          10:00 am
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-
-        <TimelineContent>
-          <Card sx={{ maxWidth: 345 }}>
+          <Card sx={{ maxWidth: 800 }}>
             <CardMedia
               component="img"
-              alt="fairmont hotel"
-              height="300"
-              image="https://tinyurl.com/3jskbrps"
+              alt={trip.name}
+              height="400"
+              image={trip.cover_photo_url}
             />
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Fairmont Hotel
+                {trip.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                A historic hotel in Vancouver.
-                { }
-                {/* dayObj[1].siteExplanation I need to loop .map*/}
+               {trip.place_description}
                 <span />
                 <a><i className="bi bi-pencil" /></a>
               </Typography>
             </CardContent>
 
             <CardActions>
-              <Button size="small"><i className="bi bi-map"></i></Button>
-              <Button size="small"><i className="bi bi-trash"></i></Button>
+              
+              <IconButton aria-label="mapIcon" size="large">
+                <MapOutlinedIcon />
+              </IconButton>
+              {/* <Button size="small"><i className="bi bi-trash"></i></Button> */}
+              <IconButton aria-label="delete" size="large">
+                <DeleteIcon />
+              </IconButton>
             </CardActions>
           </Card>
+
         </TimelineContent>
       </TimelineItem>
-
-      {/* Item 3 */}
-      <TimelineItem>
-        <TimelineOppositeContent color="textSecondary">
-          11:00 am
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot />
-          {/* no connector here as is the last item */}
-        </TimelineSeparator>
-
-        <TimelineContent>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              alt="fairmont hotel"
-              height="300"
-              image="https://tinyurl.com/yz6en3pb"
-            />
-
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                English Bay
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                A scenic beach in downtown Vancouver visited by tourists from all over the world.
-                <span />
-                <a><i className="bi bi-pencil" /></a>
-              </Typography>
-            </CardContent>
-
-            <CardActions>
-              <Button size="small"><i className="bi bi-map"></i></Button>
-              <Button size="small"><i className="bi bi-trash"></i></Button>
-            </CardActions>
-          </Card>
-        </TimelineContent>
-      </TimelineItem>
+      ))}
 
     </Timeline>
   );
