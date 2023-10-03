@@ -2,7 +2,11 @@ import { createRoot } from 'react-dom/client'; // React ^18
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Temporary
 import { Global } from '@emotion/react';
 import { baseCss } from './styles/baseStyles';
-import './index.scss';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 import Application from './components/Application';
 import { Schedule } from './components/Schedule/Schedule';
