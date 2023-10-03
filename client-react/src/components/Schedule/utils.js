@@ -46,3 +46,9 @@ export const daysArray = (start_date, end_date) => {
 
   return formattedDates;
 }
+
+export const replaceSpacesWithPercent20 = (inputString) => {
+  // Use the replace method with a regular expression to replace spaces with "%20"
+  const resultString = inputString.replace(/ /g, '%20');
+  return resultString;
+}

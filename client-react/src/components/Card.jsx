@@ -4,11 +4,17 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 import './Card.css';
 import Modal from './Modal';
 
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../GlobalData';
+
 // Import Navigation & Header
 import Navigation from './partials/Navigation';
 import Header from './partials/Header';
 
 export default function Suggestion() {
+  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData } = globalData();
+
   const [placeData, setPlaceData] = useState(null);
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
   const { location, id } = useParams();
@@ -65,9 +71,9 @@ export default function Suggestion() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation />
+        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header />
+          <Header userName={userData.userName} />
           <div className="body">
             {/* Your codes start here */}
 
@@ -79,7 +85,7 @@ export default function Suggestion() {
               
               <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
            {/*      <Button sx={{ fontSize: '20px' }}> + </Button> */}
-           <Modal locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
+           <Modal scheduleId={userData.scheduleId} locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
                 <CardMedia
                   component='img'
                   height='300'

@@ -21,9 +21,14 @@ import Duration from './components/Survey/Duration';
 import User from './components/User/User';
 import Dev from './components/Dev';
 import Modal from './components/Modal'
+<<<<<<< HEAD
 import RegistrationForm from 'components/RegistrationForm';
 import LoginForm from 'components/LoginForm';
 import MapData from 'components/MapData';
+=======
+import RegistrationForm from 'components/User/RegistrationForm';
+import LoginForm from 'components/User/LoginForm';
+>>>>>>> main
 
 
 const rootElement = document.getElementById('root'); // React ^18

@@ -5,11 +5,17 @@ import PlacesAutocomplete, {
 import { useNavigate } from 'react-router-dom';
 import './Google.css';
 
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../GlobalData';
+
 // Import Navigation & Header
 import Navigation from './partials/Navigation';
 import Header from './partials/Header';
 
 export default function GoogleAutocomplete() {
+  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData } = globalData();
+
   const [address, setAddress] = useState('');
   const [locationInfo, setLocationInfo] = useState(null);
 
@@ -37,9 +43,9 @@ export default function GoogleAutocomplete() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation />
+        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header />
+          <Header userName={userData.userName} />
           <div className="body">
             {/* Your codes start here */}
 

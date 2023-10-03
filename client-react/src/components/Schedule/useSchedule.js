@@ -6,6 +6,7 @@ export const useSchedule = ({ id }) => {
   const [dates, setDates] = useState([]); // 
   const [currentDay, setCurrentDay] = useState(0);
   const [destination, setDestination] = useState('');
+  const [googleDestinationId, setGoogleDestinationId] = useState('');
 
   useEffect(() => {
     fetch(`/api/schedule/${id}`)
@@ -19,10 +20,12 @@ export const useSchedule = ({ id }) => {
         const start_date = newSchedule.start_date;
         const end_date = newSchedule.end_date;
         const destination_name = newSchedule.destination_name;
+        const google_destination_id = newSchedule.google_destination_id;
 
         // Pass start_date and end_date to daysArray
         setDates(daysArray(start_date, end_date));
         setDestination(destination_name);
+        setGoogleDestinationId(google_destination_id);
       });
   }, [id]);
 
@@ -30,6 +33,6 @@ export const useSchedule = ({ id }) => {
     setCurrentDay(dayIndex - 1);
   }, []);
 
-  return { schedule, dates, handleSetDay, currentDay, totalDays: dates.length, destination };
+  return { schedule, dates, handleSetDay, currentDay, totalDays: dates.length, destination, googleDestinationId };
 };
 

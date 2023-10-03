@@ -3,7 +3,7 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+
 
 //icons:
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
@@ -44,6 +44,7 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
         >
           <DemoContainer
             components={['TimePicker']}
+            className="timepicker-container"
           >
             <TimePicker 
               className="timepicker-clock-schedule"
