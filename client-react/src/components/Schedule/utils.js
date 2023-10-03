@@ -4,7 +4,7 @@ import { format, eachDayOfInterval } from 'date-fns';
 // format(date, format, [options])
 // Represent 11 January 2014 in middle-endian format:
 // '2023-10-01' 
-const dateString = '2023-10-01';
+// const dateString = '2023-10-01';
 
 function parseDate(dateString) {
   const parts = dateString.split('-');

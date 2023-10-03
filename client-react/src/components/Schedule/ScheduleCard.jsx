@@ -18,11 +18,11 @@ export default function (prop) {
   } = prop
 
   return (
-    <Card sx={{ maxWidth: 500 }}>
+    <Card sx={{ maxWidth: 800 }}>
       <CardMedia
         component="img"
         alt="stanley park"
-        height="500"
+        height="800"
         image={cover_photo_url}
       />
 

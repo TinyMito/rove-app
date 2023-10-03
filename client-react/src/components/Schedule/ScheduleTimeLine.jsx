@@ -23,6 +23,8 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ScheduleCard from './ScheduleCard';
+import "./Schedule.css";
+
 export const ScheduleTimeLine = (prop) => {
 const { data } = prop
 console.log('data', data)
@@ -41,8 +43,9 @@ console.log('data', data)
       {data.map((trip) => (
       <TimelineItem 
         key={trip.trip_id}
+        sx={{ padding: -1 }}
       >
-        <TimelineOppositeContent color="textSecondary">
+        <TimelineOppositeContent color="textSecondary" sx={{ fontSize: 25 }}>
           {trip.start_time}
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -51,11 +54,11 @@ console.log('data', data)
         </TimelineSeparator>
         <TimelineContent>
           {/* import schedule card */}
-          <Card sx={{ maxWidth: 345 }}>
+          <Card sx={{ maxWidth: 800 }}>
             <CardMedia
               component="img"
               alt={trip.name}
-              height="300"
+              height="400"
               image={trip.cover_photo_url}
             />
 
