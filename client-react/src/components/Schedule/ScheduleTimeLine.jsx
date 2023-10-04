@@ -26,8 +26,7 @@ import ScheduleCard from './ScheduleCard';
 import "./Schedule.css";
 
 export const ScheduleTimeLine = (prop) => {
-const { data } = prop
-console.log('data', data)
+const { data, deleteTrip } = prop
 
 
   return (
@@ -67,7 +66,7 @@ console.log('data', data)
                 {trip.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {trip.place_description}
+                {trip.user_note}
                 <span />
                 <a><i className="bi bi-pencil" /></a>
               </Typography>
@@ -79,8 +78,13 @@ console.log('data', data)
                 <MapOutlinedIcon />
               </IconButton>
               {/* <Button size="small"><i className="bi bi-trash"></i></Button> */}
-              <IconButton className="icon_buttons" aria-label="delete" size="large">
-                <DeleteIcon />
+              <IconButton 
+                className="icon_buttons" 
+                aria-label="delete" 
+                size="large"
+                onClick={() => deleteTrip(trip.trip_id)} 
+              >
+                <DeleteIcon/>
               </IconButton>
             </CardActions>
           </Card>

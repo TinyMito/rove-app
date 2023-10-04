@@ -7,6 +7,7 @@ const dbQuery = function (query) {
   );
 };
 
+//////////////////////////Retrieve trips///////////////////////////
 const tripsQuery =
   `SELECT
     T.id AS trip_id,
@@ -16,6 +17,7 @@ const tripsQuery =
     T.date,
     T.start_time,
     T.end_time, 
+    T.user_note AS user_note,
     P.description AS place_description,
     P.thumbnail_img_url,
     P.cover_photo_url,
@@ -36,11 +38,61 @@ const tripsQuery =
 const getTripsByScheduleIdNDate = ({ scheduleId, date }) => {
   const query = {
     string: tripsQuery,
-    params: [scheduleId, date],
+    params: [scheduleId, date]
   };
   return dbQuery(query);
 };
 
+///////////////////////////Delete a trip////////////////////////////
+const deleteATripQuery = `
+  DELETE FROM trips
+  WHERE id = $1;
+`;
+
+const deleteATripByTripId = ({ tripId }) => {
+  const query = {
+    string: deleteATripQuery,
+    params: [tripId]
+  };
+  return dbQuery(query);
+};
+
+///////////////////////Edit a trip's user_note//////////////////////
+const editUserNote = `
+  UPDATE trips
+  SET 
+    user_note = $1,
+    start_time = $2,
+    
+  WHERE id = $
+`;
+
+const updateUserNoteByTripId = ({ tripId }) => {
+  const query = {
+    string: editUserNote,
+    params: [tripId]
+  };
+  return dbQuery(query);
+};
+
+///////////////////////Edit a trip's start & end time//////////////////////
+const updateTripTimes = `
+
+`;
+
+const updateTrips = ({ tripId }) => {
+  const query = {
+    string: editUserNote,
+    params: [tripId]
+  };
+  return dbQuery(query);
+};
+
+
+////////////////////////////Exports////////////////////////////////
 module.exports = {
   getTripsByScheduleIdNDate,
+  deleteATripByTripId,
+  updateUserNoteByTripId,
+  updateTrips
 };

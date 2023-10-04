@@ -11,7 +11,7 @@ export const Schedule = (props) => {
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
-  const { data } = useTimeLine({ id, date: dates[currentDay] });
+  const { data, deleteTrip } = useTimeLine({ id, date: dates[currentDay] });
 
 
   return (
@@ -44,7 +44,8 @@ export const Schedule = (props) => {
 
     
         <ScheduleTimeLine
-         data={data}
+         data={data} 
+         deleteTrip={deleteTrip}
          className="schedule_card"
         />
         
