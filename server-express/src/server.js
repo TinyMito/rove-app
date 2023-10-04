@@ -4,6 +4,8 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const { getUser } = require("./db/queries/queries.js")
 
@@ -32,6 +34,7 @@ app.use(express.static(public));
 app.use("/api/trip", require("./routes/tripRoutes"));
 app.use("/api/schedule", require("./routes/scheduleRoutes"));
 app.use("/api/place", require("./routes/placeRoutes"));
+app.use("/api/duration", require("./routes/duration.js"));
 app.use("/api/user", require("./routes/userRoutes"));
 
 //route to get users information from the query search provided in the queries folder
