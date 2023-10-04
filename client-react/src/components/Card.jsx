@@ -62,10 +62,10 @@ export default function Suggestion() {
   }, [id]);
 
   return (
-    <div>
+    <div className="body">
       <h1>Nearby Attractions - {location}</h1>
       {nearbyAttractions.length > 0 ? (
-        <div className='App'>
+        <div>
           <div className='attractions-list'>
             {nearbyAttractions.slice(0,8).map((attraction, index) => (
               <Card sx={{ maxWidth: 345 }} key={index} className='attraction-item'>

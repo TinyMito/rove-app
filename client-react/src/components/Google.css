@@ -1,18 +1,3 @@
-html {
-  background-color: #fff;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  text-align: center;
-}
-
-body, #root, .page-wrapper {
-  height: 100%;
-  background-color: #fcfcfc;
-}
-
 .Demo__map-maker-icon {
   color: #FD6C6C;
 }
