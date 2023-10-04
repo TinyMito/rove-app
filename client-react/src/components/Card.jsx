@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-
+import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
 import './Card.css';
 
 export default function Suggestion() {
@@ -68,7 +64,9 @@ export default function Suggestion() {
         <div>
           <div className='attractions-list'>
             {nearbyAttractions.slice(0,8).map((attraction, index) => (
-              <Card sx={{ maxWidth: 345 }} key={index} className='attraction-item'>
+              
+              <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
+                <Button sx={{ fontSize: '20px' }}> + </Button>
                 <CardMedia
                   component='img'
                   height='300'
@@ -80,7 +78,7 @@ export default function Suggestion() {
                     Address: {attraction.vicinity}
                   </Typography>
                   <Typography variant='body2' color='text.secondary'>
-                    Rating: {attraction.rating}
+                  <Rating name="read-only" value={attraction.rating} readOnly />
                   </Typography>
                 </CardContent>
               </Card>
