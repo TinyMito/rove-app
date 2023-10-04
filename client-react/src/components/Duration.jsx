@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Duration.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Duration() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const navigate = useNavigate();
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -25,8 +28,31 @@ export default function Duration() {
   };
 
   // handle the "Continue" button click
-  const handleContinueClick = () => {
-    console.log("Continue button clicked!");
+  const handleContinueClick = async () => {
+    if (startDate && endDate) {
+      try {
+        // Create an object with the trip duration data
+        const tripData = {
+          startDate,
+          endDate,
+        };
+
+        // Send the trip duration data to the server
+        const response = await axios.post("/api/duration", tripData);
+
+        if (response.status === 200) {
+          console.log("Trip duration inserted successfully.");
+          // Redirect to the next page
+          navigate("/");
+        } else {
+          console.error("Failed to insert trip duration.");
+        }
+      } catch (error) {
+        console.error("Error inserting trip duration:", error);
+      }
+    } else {
+      console.error("Please select start and end dates.");
+    }
   };
 
   return (

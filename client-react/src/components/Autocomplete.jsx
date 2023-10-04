@@ -16,14 +16,14 @@ export default function GoogleAutocomplete() {
   };
 
   const placeId = locationInfo?.place_id
-  const firstWord = locationInfo?.formatted_address?.split(',')[0].replace(/\s+/g, '-');
+  const locationName = locationInfo?.formatted_address;
 
   const navigate = useNavigate();
   const handleButtonClick = () => {
     if (locationInfo) {
       console.log('Selected location info:', locationInfo);
       if (placeId) {
-        navigate(`/card/${firstWord}/${placeId}`);
+        navigate(`/card/${locationName}/${placeId}`);
       } else {
         navigate('/card');
       }
