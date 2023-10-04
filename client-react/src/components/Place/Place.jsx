@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export default function Detail() {
+export default function Detail({ onClose }) {
   // Get url id parameter
   const { id } = useParams();
   const [place, setPlace] = useState({});
@@ -30,6 +30,7 @@ export default function Detail() {
   
   return (
     <div className="body">
+      <button onClick={onClose}>Close Popup</button>
       <Card sx={{ padding: '0px 20px'}}>
         <Grid container spacing={5}>
           <Grid item xs={12} md={8}>

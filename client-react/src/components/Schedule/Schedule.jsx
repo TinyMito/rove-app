@@ -1,15 +1,27 @@
+import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useTimeLine } from './useTimeLine';
 import { useSchedule } from './useSchedule';
 import { Days } from './Days';
 import { ScheduleTimeLine } from "./ScheduleTimeLine"
+import Place from './../Place/Place';
 
 export const Schedule = (props) => {
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
   const { data } = useTimeLine({ id, date: dates[currentDay] });
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   const page_heading = {
     display: 'flex',
@@ -31,8 +43,40 @@ export const Schedule = (props) => {
     justifyContent: 'center'
   };
 
+  const overlay = {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%',
+    background: 'rgba(0, 0, 0, 0.5)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+
+  const placePopup = {
+    background: 'white',
+    padding: '20px',
+    borderRadius: '4px',
+    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)'
+
+  }
+
   return (
     <div className="body">
+
+      <div>
+      <button onClick={openPopup}>Open Popup</button>
+      {isPopupOpen && (
+        <div style={overlay}>
+          <div style={placePopup}>
+            <Place onClose={closePopup} />
+          </div>
+        </div>
+      )}
+    </div>
+
       <title >Vancouver</title>
       <div id="root"></div>
 

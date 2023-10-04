@@ -1,3 +1,4 @@
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client'; // React ^18
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Temporary
 import { Global } from '@emotion/react';
@@ -23,6 +24,7 @@ const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
 
 root.render(
+  <StrictMode>
   <BrowserRouter>
     <Global styles={baseCss} />
     <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -41,4 +43,5 @@ root.render(
       </div>
     </div>
   </BrowserRouter>
+  </StrictMode>
 );
