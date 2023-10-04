@@ -4,10 +4,12 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const { getUser } = require("./db/queries/queries.js")
 
-// Database connection configuration
+// Database connection configuration (TO REMOVE)
 const dbConfig = {
   host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT || 5432,
@@ -32,6 +34,8 @@ app.use(express.static(public));
 app.use("/api/trip", require("./routes/tripRoutes"));
 app.use("/api/schedule", require("./routes/scheduleRoutes"));
 app.use("/api/place", require("./routes/placeRoutes"));
+app.use("/api/duration", require("./routes/duration.js"));
+app.use("/api/user", require("./routes/userRoutes"));
 
 //route to get users information from the query search provided in the queries folder
 app.get('/users', async (req, res) => {
@@ -43,29 +47,6 @@ app.get('/users', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
-// Get Trips for User ID
-/* app.get("/api/user-trips/:id", async (req, res) => {
-  const id = req.params.id;
-
-  try {
-    const trips = await db.manyOrNone(`
-      SELECT *
-      FROM schedules 
-      JOIN users ON users.id = trips.user_id
-      JOIN destinations ON destinations.id = trips.destination_id
-      WHERE trips.user_id = $1
-    ;`, [id]);
-    if (trips) {
-      res.json(trips);
-    } else {
-      res.status(404).json({ error: 'Trips not found for user' });
-    }
-  } catch (error) {
-    console.error('Error fetching trips by user ID:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-}) */
 
 app.use(function (req, res) {
   res.status(404);

@@ -23,7 +23,6 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ScheduleCard from './ScheduleCard';
-import "./Schedule.css";
 
 export const ScheduleTimeLine = (prop) => {
 const { data, deleteTrip } = prop
