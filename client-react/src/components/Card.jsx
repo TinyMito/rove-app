@@ -22,7 +22,7 @@ export default function Suggestion() {
   }, []);
 
   return (
-    <div>
+    <div className="body">
       <h1>Photo Gallery - {location} </h1>
         <div className='App'>
           <div className='photo-list'>

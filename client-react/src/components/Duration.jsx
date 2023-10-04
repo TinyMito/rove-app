@@ -30,7 +30,7 @@ export default function Duration() {
   };
 
   return (
-    <div>
+    <div className="body">
       <h2>When are you traveling?</h2>
       <div className="date-picker-container">
         <div className="date-picker-label">
