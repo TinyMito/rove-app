@@ -6,7 +6,7 @@ export default function Home() {
     <div className="Home body">
       <h1>Hello React World</h1>
       <div>
-        <Link to="dev">Developer</Link>
+        <Link to="/">Developer</Link>
       </div>
     </div>
   );
