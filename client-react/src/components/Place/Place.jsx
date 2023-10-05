@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export default function Detail() {
+export default function Detail({ closePlaceCard }) {
   // Get url id parameter
   const { id } = useParams();
   const [place, setPlace] = useState({});
@@ -29,8 +29,9 @@ export default function Detail() {
   }, [id]);
   
   return (
-    <div className="body">
-      <Card sx={{ padding: '0px 20px'}}>
+    <div>
+      <button onClick={closePlaceCard}>Close Popup</button>
+      <Card sx={{ width: '800px', padding: '0px 20px'}}>
         <Grid container spacing={5}>
           <Grid item xs={12} md={8}>
             <Typography sx={{ padding: '20px 0px' }} align="left" gutterBottom variant="h5" component="div">
