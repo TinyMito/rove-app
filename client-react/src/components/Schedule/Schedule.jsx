@@ -8,6 +8,7 @@ import { ScheduleTimeLine } from "./ScheduleTimeLine"
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
+import Modal from './Modal'; // Add for delete modal
 import Place from '../Place/Place'; // Add for modal popup Place component
 
 export const Schedule = (props) => {
@@ -16,15 +17,27 @@ export const Schedule = (props) => {
   const { start_date, end_date } = schedule || {};
   const { data, deleteTrip } = useTimeLine({ id, date: dates[currentDay] });
 
-  /* useState for Modal */
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  // 1. GET and SET Trip ID for DELETION
+  const [tripId, setTripId] = useState();
 
-  const openPopup = () => {
-    setIsPopupOpen(true);
+  // useState for Modal 
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isCardOpen, setIsCardOpen] = useState(false);
+
+  const openDeleteConfirmation = () => {
+    setIsDeleteOpen(true);
   };
 
-  const closePopup = () => {
-    setIsPopupOpen(false);
+  const closeDeleteConfirmation = () => {
+    setIsDeleteOpen(false);
+  };
+
+  const openPlaceCard = () => {
+    setIsCardOpen(true);
+  };
+
+  const closePlaceCard = () => {
+    setIsCardOpen(false);
   };
 
   const page_heading = {
@@ -79,7 +92,9 @@ export const Schedule = (props) => {
          data={data} 
          deleteTrip={deleteTrip}
          className="schedule_card"
-         openPopup={openPopup} // Add by Kevin: pass useState openPopup to ScheduleTimeLine Component
+         openPlaceCard={openPlaceCard} // Add by Kevin: pass useState openCard to ScheduleTimeLine Component
+         openDeleteConfirmation={openDeleteConfirmation} // 2. Pass the Function into ScheduleTimeLine Delete Button
+         onTripId={setTripId} // 3. Get the tripId back from ScheduleTimeline.jsx
         />
  
       </section>
@@ -87,13 +102,24 @@ export const Schedule = (props) => {
 
     </div>
     </div>
-    {isPopupOpen && (
-      
-        <div className="overlay">{console.log("POPUP")}
-          <div className="placePopup">
-            <Place onClose={closePopup} />
-          </div>
+    {isDeleteOpen && (
+      <div className="overlay">
+        <div className="placePopup">
+          <Modal 
+            closeDeleteConfirmation={closeDeleteConfirmation} // 6. Pass the Function into Modal button
+            deleteTrip={deleteTrip} // 7. Pass the Function into Modal button as well for useTimeLine.js query
+            tripId={tripId} // 8. Pass the selected tripID to be delete into the Modal
+          />
         </div>
+      </div>
+    )}
+
+    {isCardOpen && (
+      <div className="overlay">
+        <div className="placePopup">
+          <Place closePlaceCard={closePlaceCard} />
+        </div>
+      </div>
     )}
     </>
   );
