@@ -25,9 +25,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ScheduleCard from './ScheduleCard';
 
 export const ScheduleTimeLine = (prop) => {
-const { data } = prop
-console.log('data', data)
-
+  const { data, openPopup } = prop // Kevin - add openPopup Modal
+  console.log('data', data)
 
   return (
     <Timeline
@@ -59,6 +58,8 @@ console.log('data', data)
               alt={trip.name}
               height="400"
               image={trip.cover_photo_url}
+              onClick={openPopup}
+              style={{ cursor: 'pointer' }}
             />
 
             <CardContent>
