@@ -13,13 +13,13 @@ export default function Detail() {
   
   return (
     <div className="box">
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <div className="flex-row">
         <Navigation />
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className="flex-column">
           <Header />
 
           <div className="body">
-            <h1>Component Example</h1>
+            <h1>TEST PAGE Example</h1>
             <h2>Header 2</h2>
             <h3>Example Layout see /components/Dev/</h3>
             <span>Normal Text - font size working in progress will be adjusted later.</span>
