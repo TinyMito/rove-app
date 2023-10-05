@@ -77,8 +77,7 @@ export const ScheduleTimeLine = (prop) => {
               component="img"
               alt={trip.name}
               height="400"
-              image={trip.cover_photo_url}
-              onClick={() => setIsOpen(true)}
+              image={trip.cover_photo_url}              
               style={{ cursor: 'pointer'}}
             />
             {isOpen && <Modal setIsOpen={setIsOpen} />}
@@ -105,7 +104,9 @@ export const ScheduleTimeLine = (prop) => {
                 size="large"
                 onClick={() => deleteTrip(trip.trip_id)} 
               >
-                <DeleteIcon/>
+                <DeleteIcon
+                  onClick={() => setIsOpen(true)}
+                />
               </IconButton>
             </CardActions>
           </Card>
