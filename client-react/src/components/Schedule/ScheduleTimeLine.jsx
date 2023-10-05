@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Timeline
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -23,10 +25,18 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ScheduleCard from './ScheduleCard';
+import Detail from '../Place/Place';
+
+// Modal
+import Modal from './Modal';
 
 export const ScheduleTimeLine = (prop) => {
-  const { data, openPopup } = prop // Kevin - add openPopup Modal
-  console.log('data', data)
+
+  const { data, deleteTrip, openPopup } = prop
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  console.log('deleteTripFunction', deleteTrip);
 
   return (
     <Timeline
@@ -36,7 +46,10 @@ export const ScheduleTimeLine = (prop) => {
         },
       }}
     >
-      
+      <div className={isOpen? 'darkBG': ''} />
+      <div>
+        {isOpen && <Modal setIsOpen={setIsOpen} />}'
+      </div>
       {/* Item */}
       {data.map((trip) => (
       <TimelineItem 
@@ -52,7 +65,7 @@ export const ScheduleTimeLine = (prop) => {
         </TimelineSeparator>
         <TimelineContent>
           {/* import schedule card */}
-          <Card sx={{ maxWidth: 800 }}>
+          <Card sx={{ maxWidth: 800 }} className="card_schedule">
             <CardMedia
               component="img"
               alt={trip.name}
@@ -61,27 +74,41 @@ export const ScheduleTimeLine = (prop) => {
               onClick={openPopup}
               style={{ cursor: 'pointer' }}
             />
-
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+            {isOpen && <Modal setIsOpen={setIsOpen} />}
+            <CardContent className="card_content">
+              <Typography className="trip_name" gutterBottom variant="h4" component="div">
                 {trip.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-               {trip.place_description}
+                {trip.user_note}
                 <span />
                 <a><i className="bi bi-pencil" /></a>
               </Typography>
             </CardContent>
 
-            <CardActions>
+            <CardActions className="card_actions">
               
-              <IconButton aria-label="mapIcon" size="large">
+              <IconButton className="icon_buttons" aria-label="mapIcon" size="large">
                 <MapOutlinedIcon />
               </IconButton>
               {/* <Button size="small"><i className="bi bi-trash"></i></Button> */}
-              <IconButton aria-label="delete" size="large">
-                <DeleteIcon />
+              <IconButton 
+                className="icon_buttons" 
+                aria-label="delete" 
+                size="large"
+                onClick={() => {
+                  setIsOpen(true);
+                }} 
+              >
+                <DeleteIcon/>
               </IconButton>
+              {isPopupOpen && (
+                <Modal 
+                  setIsOpen={closePopup} 
+                  deleteTrip={deleteTrip} 
+                  tripId={trip.trip_id} 
+                />
+              )}
             </CardActions>
           </Card>
 

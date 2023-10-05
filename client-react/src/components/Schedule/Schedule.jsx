@@ -14,7 +14,7 @@ export const Schedule = (props) => {
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
-  const { data } = useTimeLine({ id, date: dates[currentDay] });
+  const { data, deleteTrip } = useTimeLine({ id, date: dates[currentDay] });
 
   /* useState for Modal */
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -76,7 +76,8 @@ export const Schedule = (props) => {
         <Button fullWidth={true} sx={{ fontSize: '50px' }} href="#" size="small"><i className="bi bi-plus"></i></Button>
     
         <ScheduleTimeLine
-         data={data}
+         data={data} 
+         deleteTrip={deleteTrip}
          className="schedule_card"
          openPopup={openPopup} // Add by Kevin: pass useState openPopup to ScheduleTimeLine Component
         />
