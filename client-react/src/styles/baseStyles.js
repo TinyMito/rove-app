@@ -5,6 +5,7 @@ export const baseCss = css`
   body {
     font-size: 12px;
     color: #9399B4;
+    background-color: #fbfbfb;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
@@ -16,8 +17,7 @@ export const baseCss = css`
     align-items: center;
     height: 100vh;
     margin: 0;
-    padding-top: 5em;
-    padding-bottom: 5em;
+
   }
   
   h1 {
@@ -43,6 +43,8 @@ export const baseCss = css`
 
   /* -------------------------------- Layout Style */
   .box {
+    padding-top: 5em;
+    padding-bottom: 5em;
     filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
   }
 
@@ -67,7 +69,12 @@ export const baseCss = css`
     width: 1000px;
     border-top-right-radius: 3em;
     background: #4E97F5;
-    /*background: radial-gradient(circle, rgba(220,74,141,1) 0%, rgba(85,132,252,1) 100%);*/
+    background-image: url("../header.png");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: 450px auto;
+    background-origin: border-box;
     color: #FFF;
   }
 
