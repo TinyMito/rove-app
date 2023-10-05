@@ -1,13 +1,150 @@
 .app-slogan {
   font-size: 5em;
   font-weight: bold;
+  text-align: left;
+  padding: 40px;
   background: -webkit-linear-gradient(#71B1F8, #4B73DC);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  white-space: normal;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+}
+
+.plus {
+  font-size: 2em;
+}
+
+.app-summary {
+  font-size: 3.5em;
+  font-weight: bold;
+  text-align: left;
+  width: 600px;
+  padding: 20px;
+  background: -webkit-linear-gradient(#dfbcfc, #cc9cf4);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: normal;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
 }
 
 .app-logo {
   padding: 20px;
+  height: 256px;
   width: 256px;
   filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+}
+
+.app-summaryImage {
+  height: 400px;
+}
+
+.app-screenshot {
+  height: 450px;
+}
+
+.scrollBtn {
+  position: relative;
+  padding-top: 50px;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+.column-two {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.box-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-width: 768px;
+  height: 100vh;
+  background-color: #E7F1FA;
+  z-index: 0;
+}
+
+.box-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 100vh;
+  width: auto;
+  min-width: 768px;
+  min-height: 70vh;
+  background-color: #9661C2;
+  z-index: 2;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+}
+
+.box-three {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 100vh;
+  width: auto;
+  min-width: 768px;
+  background-color: #71B1F8;
+  z-index: 2;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+}
+
+.box-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 100vh;
+  width: auto;
+  min-width: 768px;
+  height: 200px;
+  background-color: #E7F1FA;
+  font-size: 1.7em;
+  color: #71B1F8;
+  z-index: 2;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+}
+
+@media (max-width: 1000px) {
+  .app-summaryImage {
+    height: 700px;
+  }
+
+  .app-summary {
+    font-size: 5em;
+    width: 700px;
+  }
+
+  .app-screenshot {
+    height: 600px;
+  }
+
+  .scrollBtn {
+    font-size: 3em;
+  }
+
+  .box-two {
+    padding-bottom: 50px;
+    flex-direction: column;
+  }
+
+  .box-three {
+    padding-top: 50px;
+    flex-direction: column;
+  }
+
+  .box-footer {
+    font-size: 3.5em;
+    padding: 50px;
+  }
 }
