@@ -47,6 +47,7 @@ export const baseCss = css`
   }
 
   .body {
+    border-bottom-right-radius: 3em;
     padding: 1em 5em;
     min-height: 800px;
     width: 1000px;
@@ -140,18 +141,19 @@ export const baseCss = css`
     }
 
     .body {
+      border-bottom-right-radius: 0;
       width: auto;
       min-width: 600px;
     }
 
     .Navigation {
-      border-top-left-radius: 0em;
-      border-bottom-left-radius: 0em;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   
     .Header {
       width: auto;
-      border-top-right-radius: 0em;
+      border-top-right-radius: 0;
     }
   }
 `
