@@ -25,18 +25,10 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ScheduleCard from './ScheduleCard';
-import Detail from '../Place/Place';
-
-// Modal
-import Modal from './Modal';
 
 export const ScheduleTimeLine = (prop) => {
 
-  const { data, deleteTrip, openPopup } = prop
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  console.log('deleteTripFunction', deleteTrip);
+  const { data, deleteTrip, onTripId, openPlaceCard, openDeleteConfirmation } = prop
 
   return (
     <Timeline
@@ -46,10 +38,7 @@ export const ScheduleTimeLine = (prop) => {
         },
       }}
     >
-      <div className={isOpen? 'darkBG': ''} />
-      <div>
-        {isOpen && <Modal setIsOpen={setIsOpen} />}'
-      </div>
+
       {/* Item */}
       {data.map((trip) => (
       <TimelineItem 
@@ -71,10 +60,10 @@ export const ScheduleTimeLine = (prop) => {
               alt={trip.name}
               height="400"
               image={trip.cover_photo_url}
-              onClick={openPopup}
+              onClick={openPlaceCard}
               style={{ cursor: 'pointer' }}
             />
-            {isOpen && <Modal setIsOpen={setIsOpen} />}
+
             <CardContent className="card_content">
               <Typography className="trip_name" gutterBottom variant="h4" component="div">
                 {trip.name}
@@ -91,24 +80,19 @@ export const ScheduleTimeLine = (prop) => {
               <IconButton className="icon_buttons" aria-label="mapIcon" size="large">
                 <MapOutlinedIcon />
               </IconButton>
-              {/* <Button size="small"><i className="bi bi-trash"></i></Button> */}
-              <IconButton 
-                className="icon_buttons" 
-                aria-label="delete" 
-                size="large"
-                onClick={() => {
-                  setIsOpen(true);
-                }} 
-              >
+
+                <IconButton 
+                  className="icon_buttons" 
+                  aria-label="delete" 
+                  size="large"
+                  onClick={() => {
+                    openDeleteConfirmation(true); // 4. Set to TRUE to open the MODAL in Schedule.jsx
+                    onTripId(trip.trip_id); // 5. Pass the selected tripID back to Schedule.jsx so you can pass into the Modal.jsx to trigger delete
+                  }} 
+                >
                 <DeleteIcon/>
               </IconButton>
-              {isPopupOpen && (
-                <Modal 
-                  setIsOpen={closePopup} 
-                  deleteTrip={deleteTrip} 
-                  tripId={trip.trip_id} 
-                />
-              )}
+              
             </CardActions>
           </Card>
 
