@@ -7,7 +7,7 @@ export default function Navigation() {
 
   const appIconStyle = {
     padding: '20px', 
-    width: '80px',
+    width: '65px',
     filter: 'drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5))'
   }
 
@@ -15,12 +15,12 @@ export default function Navigation() {
     padding: '20px', 
     width: '65px',
     filter: 'drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5))',
-    borderRadius: '1em'
+    borderRadius: '2em'
   }
 
   const navBtnStyle = {
     color: '#D8ECE6 !important', 
-    fontSize: '5em !important', 
+    fontSize: '3.5em !important', 
     background: 'none !important',
     '&:hover': {
       color: '#FFF !important',

@@ -38,10 +38,10 @@ export default function Detail() {
   
   return (
     <div className="box">
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
-    <Navigation />
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Header />
+    <div className="flex-row">
+        <Navigation />
+        <div className="flex-column">
+          <Header />
 
     <div className="body">
       <h1>Welcome {trips.first_name} {trips.last_name}!</h1>

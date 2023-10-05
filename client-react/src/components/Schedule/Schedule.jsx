@@ -35,14 +35,13 @@ export const Schedule = (props) => {
 
   return (
     <div className="box">
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
-    <Navigation />
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Header />
+    <div className="flex-row">
+        <Navigation />
+        <div className="flex-column">
+          <Header />
 
     <div className="body">
-      <title >Vancouver</title>
-      <div id="root"></div>
+
 
       <div style={page_heading}>
         <h1>Vancouver</h1>

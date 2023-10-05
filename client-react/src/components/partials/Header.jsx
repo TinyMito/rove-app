@@ -5,13 +5,13 @@ export default function Header() {
 
   const sloganStyle = {
     color: '#FFF',
-    maxWidth: '650px'
+    maxWidth: '400px'
   }
 
   return (
     <div className="Header">
       <div>
-        <h2 style={sloganStyle}>Welcome first_name</h2>
+        <h2 style={sloganStyle}>Welcome John</h2>
         <h1 style={sloganStyle}>It's time to pick your next travel destination!</h1>
       </div>
     </div>
