@@ -1,10 +1,9 @@
 import { css } from '@emotion/react'
 
-
 export const baseCss = css`
   /* -------------------------------- Base Styles */
   body {
-    font-size: 12px;
+    font-size: 13px;
     color: #9399B4;
     background-color: #E7F1FA;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -17,7 +16,7 @@ export const baseCss = css`
   }
   
   h1 {
-    font-size: 5em;
+    font-size: 3.5em;
     margin: 0;
     padding: 0.3em 0em;
     color: #71B1F8;
@@ -44,30 +43,42 @@ export const baseCss = css`
     filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
     display: flex;
     flex-direction: column;
-    justify-content: top;
+    /* justify-content: top; */
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
   }
 
   .body {
     border-bottom-right-radius: 3em;
-    padding: 1em 5em;
+    padding: 1em 3em;
     min-height: 800px;
-    width: 1000px;
+    width: 700px;
     background-color: #fbfbfb;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .Navigation {
     border-top-left-radius: 3em;
     border-bottom-left-radius: 3em;
-    width: 120px;
+    width: 100px;
     background-color: #4B73DC;
   }
 
   .Header {
     padding: 3em 5em 0em 5em;
     min-height: 300px;
-    width: 1000px;
+    max-width: 800px;
     border-top-right-radius: 3em;
     background: #4E97F5;
     background-image: url("../header.png");
@@ -77,11 +88,6 @@ export const baseCss = css`
     background-size: 450px auto;
     background-origin: border-box;
     color: #FFF;
-  }
-
-  .landing {
-    height: 100vh;
-    padding: 100px 10px;
   }
 
   /* -------------------------------- Modal Style */
@@ -132,9 +138,9 @@ export const baseCss = css`
     border-radius: 20px !important;
     outline: none !important;
     box-shadow: none !important;
-    font-size: 2.5em !important;
-    height: 60px !important;
-    width: 60px !important;
+    font-size: 2em !important;
+    height: 50px !important;
+    width: 50px !important;
   }
 
   .MuiTimeline-root {
@@ -145,18 +151,13 @@ export const baseCss = css`
     padding: 2em !important;
   }
 
-  @media (max-width: 1260px) {
-    body {
-      filter: drop-shadow(0rem 0rem 0rem rgba(80, 80, 80, 0.4));
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-
-    .body {
-      border-bottom-right-radius: 0;
-      width: auto;
-      min-width: 600px;
+  @media (max-width : 1000px) {
+    .box {
+      padding-top: unset;
+      padding-bottom: unset;
+      filter: unset;
+      flex-direction: unset;
+      align-items: unset;
     }
 
     .Navigation {
@@ -165,12 +166,15 @@ export const baseCss = css`
     }
   
     .Header {
-      width: auto;
       border-top-right-radius: 0;
+      width: auto;
     }
 
-    .landing {
-
+    .body {
+      border-bottom-right-radius: 0;
+      width: unset;
+      min-width: 600px;
     }
+
   }
 `
