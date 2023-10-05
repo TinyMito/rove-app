@@ -14,6 +14,7 @@ export const Schedule = (props) => {
   const { start_date, end_date } = schedule || {};
   const { data } = useTimeLine({ id, date: dates[currentDay] });
 
+  /* Open up overlay */
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -74,15 +75,15 @@ export const Schedule = (props) => {
     <div className="body">
 
       <div>
-      <button onClick={openPopup}>Open Popup</button>
-      {isPopupOpen && (
-        <div style={overlay}>
-          <div style={placePopup}>
-            <Place onClose={closePopup} />
+        <button onClick={openPopup}>Open Popup</button>
+        {isPopupOpen && (
+          <div style={overlay}>
+            <div style={placePopup}>
+              <Place onClose={closePopup} />
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
 
       <title >Vancouver</title>
       <div id="root"></div>

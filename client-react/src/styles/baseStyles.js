@@ -51,7 +51,7 @@ export const baseCss = css`
     border-top-left-radius: 3em;
     border-bottom-left-radius: 3em;
     width: 120px;
-    background-color: #1DAEA6;
+    background-color: #4B73DC;
   }
 
   .Header {
@@ -59,9 +59,9 @@ export const baseCss = css`
     min-height: 300px;
     width: 1000px;
     border-top-right-radius: 3em;
-    background: #8EDBCD;
+    background: #4E97F5;
     /*background: radial-gradient(circle, rgba(220,74,141,1) 0%, rgba(85,132,252,1) 100%);*/
-    color: #005861;
+    color: #FFF;
   }
 
   /* -------------------------------- Elements */
