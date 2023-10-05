@@ -5,6 +5,9 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
+
 export default function Detail() {
   // Get url id parameter
   const { id } = useParams();
@@ -27,6 +30,12 @@ export default function Detail() {
   }, [id]);
   
   return (
+    <>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <Navigation />
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Header />
+
     <div className="body">
       <Card sx={{ padding: '0px 20px'}}>
         <Grid container spacing={5}>
@@ -38,5 +47,9 @@ export default function Detail() {
         </Grid>
       </Card>
     </div>
+
+    </div>
+    </div>
+    </>
   );
 }
