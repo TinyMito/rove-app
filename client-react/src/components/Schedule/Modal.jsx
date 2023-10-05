@@ -1,7 +1,13 @@
+import React, { useCallback } from 'react';
 // import styles from './Modal.module.css';
 import { RiCloseLine } from "react-icons/ri";
 
-export default function Modal({ setIsOpen }) {
+
+const Modal = React.memo(({ tripId, deleteTrip, setIsOpen }) => {
+  const handleDelete = useCallback(() => {
+    setIsOpen(false);
+    deleteTrip(tripId);
+  }, [deleteTrip, setIsOpen, tripId]);
 
   const darkBG = {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -135,6 +141,8 @@ export default function Modal({ setIsOpen }) {
       },
     },
   };
+  console.log('deleteTrip in modal', deleteTrip);
+  console.log('tripId', tripId)
 
   return (
     <>
@@ -159,7 +167,7 @@ export default function Modal({ setIsOpen }) {
             <div style={actionsContainer}>
               <button 
                 style={deleteBtn}
-                onClick={() => setIsOpen(false)}
+                onClick={handleDelete}
               >
                 Delete 
               </button>
@@ -176,5 +184,6 @@ export default function Modal({ setIsOpen }) {
       </div>
     </>
   )
-};
+});
 
+export default Modal;

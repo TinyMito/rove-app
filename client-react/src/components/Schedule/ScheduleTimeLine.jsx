@@ -44,6 +44,7 @@ export const ScheduleTimeLine = (prop) => {
     setIsPopupOpen(false);
   };
 
+  console.log('deleteTripFunction', deleteTrip);
 
   return (
     <Timeline
@@ -102,12 +103,19 @@ export const ScheduleTimeLine = (prop) => {
                 className="icon_buttons" 
                 aria-label="delete" 
                 size="large"
-                onClick={() => deleteTrip(trip.trip_id)} 
+                onClick={() => {
+                  setIsOpen(true);
+                }} 
               >
-                <DeleteIcon
-                  onClick={() => setIsOpen(true)}
-                />
+                <DeleteIcon/>
               </IconButton>
+              {isPopupOpen && (
+                <Modal 
+                  setIsOpen={closePopup} 
+                  deleteTrip={deleteTrip} 
+                  tripId={trip.trip_id} 
+                />
+              )}
             </CardActions>
           </Card>
 
