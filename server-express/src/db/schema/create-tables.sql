@@ -40,6 +40,7 @@ CREATE TABLE schedules (
   end_date VARCHAR(10),
   user_id INT REFERENCES users(id),
   destination_id INT REFERENCES destinations(id)
+  google_place_id VARCHAR(255)
 );
 
 CREATE TABLE trips (
@@ -50,6 +51,7 @@ CREATE TABLE trips (
   schedule_id INT REFERENCES schedules(id),
   date VARCHAR(10),
   start_time VARCHAR(5),
-  end_time VARCHAR(5)
+  end_time VARCHAR(5),
+  user_note TEXT DEFAULT 'Write your own trip notes here!'
 );
 
