@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Timeline
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -23,9 +25,24 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ScheduleCard from './ScheduleCard';
+import Detail from '../Place/Place';
+
+// Modal
+import Modal from './Modal';
 
 export const ScheduleTimeLine = (prop) => {
-const { data, deleteTrip } = prop
+
+  const { data, deleteTrip } = prop
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
 
   return (
@@ -36,7 +53,10 @@ const { data, deleteTrip } = prop
         },
       }}
     >
-      
+      <div className={isOpen? 'darkBG': ''} />
+      <div>
+        {isOpen && <Modal setIsOpen={setIsOpen} />}'
+      </div>
       {/* Item */}
       {data.map((trip) => (
       <TimelineItem 
@@ -58,8 +78,10 @@ const { data, deleteTrip } = prop
               alt={trip.name}
               height="400"
               image={trip.cover_photo_url}
+              onClick={() => setIsOpen(true)}
+              style={{ cursor: 'pointer'}}
             />
-
+            {isOpen && <Modal setIsOpen={setIsOpen} />}
             <CardContent className="card_content">
               <Typography className="trip_name" gutterBottom variant="h4" component="div">
                 {trip.name}
