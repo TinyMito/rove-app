@@ -6,7 +6,7 @@ import userIcon from '../../assets/images/avatar.png';
 export default function Navigation() {
 
   const appIconStyle = {
-    padding: '20px', 
+    padding: '13px', 
     width: '65px',
     filter: 'drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5))'
   }
@@ -19,11 +19,11 @@ export default function Navigation() {
   }
 
   const navBtnStyle = {
-    color: '#D8ECE6 !important', 
+    color: '#E7F1FA !important', 
     fontSize: '3.5em !important', 
     background: 'none !important',
     '&:hover': {
-      color: '#FFF !important',
+      color: '#9DD82E !important',
       background: 'none !important'
     }
   };

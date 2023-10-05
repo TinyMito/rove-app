@@ -7,7 +7,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: normal;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(80, 80, 80, 0.35));
 }
 
 .plus {
@@ -24,14 +24,14 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: normal;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(80, 80, 80, 0.35));
 }
 
 .app-logo {
   padding: 20px;
   height: 256px;
   width: 256px;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(80, 80, 80, 0.35));
 }
 
 .app-summaryImage {
@@ -115,7 +115,7 @@
   filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .app-summaryImage {
     height: 700px;
   }
