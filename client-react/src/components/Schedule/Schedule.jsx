@@ -18,7 +18,7 @@ export const Schedule = (props) => {
     justifyContent: 'space-between',
     alignItems: 'baseline',
     color: 'rgb(58, 57, 57)',
-    borderBottom: '5px solid black',
+    borderBottom: '5px solid #71B1F8',
   };
 
   const schedule_heading = {
@@ -28,9 +28,9 @@ export const Schedule = (props) => {
   };
 
   const travel_dates = {
-    color: 'rgb(58, 57, 57)',
+    color: '#71B1F8',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'right'
   };
 
   return (

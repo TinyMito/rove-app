@@ -21,7 +21,7 @@ export default function Detail() {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'baseline',
-    borderBottom: '5px solid #E7F1FA',
+    borderBottom: '5px solid #71B1F8',
   };
 
   useEffect(() => {

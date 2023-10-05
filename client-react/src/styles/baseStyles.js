@@ -125,11 +125,16 @@ export const baseCss = css`
     outline: none !important;
   }
 
+  .MuiPagination-root {
+  }
+
   .MuiPaginationItem-root {
-    border-radius: 15px !important;
+    border-radius: 20px !important;
     outline: none !important;
     box-shadow: none !important;
-    font-size: 1.5em !important;
+    font-size: 2.5em !important;
+    height: 60px !important;
+    width: 60px !important;
   }
 
   .MuiTimeline-root {
