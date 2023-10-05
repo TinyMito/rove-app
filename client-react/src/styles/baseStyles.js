@@ -9,20 +9,22 @@ export const baseCss = css`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 80, 0.4));
+    filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
     display: flex;
-    flex-direction: column; /* Stack child elements vertically */
-    justify-content: top; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100vh; /* Take up the full viewport height */
-    margin: 0; /* Remove default margin */
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
     padding-top: 5em;
+    padding-bottom: 5em;
   }
 
   h1 {
     font-size: 5em;
     margin: 0;
     padding: 0.3em 0em;
+    color: #005861;
   }
 
   h2 {
@@ -49,7 +51,7 @@ export const baseCss = css`
     border-top-left-radius: 3em;
     border-bottom-left-radius: 3em;
     width: 120px;
-    background-color: #4A73DC;
+    background-color: #1DAEA6;
   }
 
   .Header {
@@ -57,16 +59,24 @@ export const baseCss = css`
     min-height: 300px;
     width: 1000px;
     border-top-right-radius: 3em;
-    background: rgb(220,74,141);
-    background: radial-gradient(circle, rgba(220,74,141,1) 0%, rgba(85,132,252,1) 100%);
-    color: #FFF;
+    background: #8EDBCD;
+    /*background: radial-gradient(circle, rgba(220,74,141,1) 0%, rgba(85,132,252,1) 100%);*/
+    color: #005861;
   }
 
   /* -------------------------------- Elements */
 
   .MuiButtonBase-root {
-    /*font-size: 5em !important;*/
     text-transform: none !important;
+    color: #FE8BAF !important;
+    background: #FEDEE4 !important;
+    border-radius: 0.5em !important;
+  }
+
+  .MuiButtonBase-root:hover {
+    text-transform: none !important;
+    color: #FEDEE4 !important;
+    background: #FE8BAF !important;
   }
 
   .MuiSvgIcon-root {

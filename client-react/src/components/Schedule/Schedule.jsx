@@ -5,7 +5,8 @@ import { useTimeLine } from './useTimeLine';
 import { useSchedule } from './useSchedule';
 import { Days } from './Days';
 import { ScheduleTimeLine } from "./ScheduleTimeLine"
-import Place from './../Place/Place';
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
 
 export const Schedule = (props) => {
   const { id } = useParams();
@@ -64,6 +65,12 @@ export const Schedule = (props) => {
   }
 
   return (
+    <>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <Navigation />
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Header />
+
     <div className="body">
 
       <div>
@@ -105,6 +112,10 @@ export const Schedule = (props) => {
         
       </section>
       </div>
+
+    </div>
+    </div>
+    </>
   );
 
 }
