@@ -10,8 +10,8 @@ export default function Header() {
   return (
     <div className="Header">
       <div>
-        <h2>Welcome -user_name-!</h2>
-        <h1 style={sloganStyle}>It's time to pick you next travel destination!</h1>
+        <h2 style={sloganStyle}>Welcome first_name</h2>
+        <h1 style={sloganStyle}>It's time to pick your next travel destination!</h1>
       </div>
     </div>
   );
