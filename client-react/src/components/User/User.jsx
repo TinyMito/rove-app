@@ -44,7 +44,7 @@ export default function Detail() {
     <Header />
 
     <div className="body">
-      <h1>Welcome {trips[0].first_name} {trips.last_name}!</h1>
+      <h1>Welcome {trips.first_name} {trips.last_name}!</h1>
       <div style={page_heading}><h1>Trip Suggestion</h1></div>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
 
