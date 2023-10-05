@@ -4,7 +4,8 @@ import { Button } from '@mui/material';
 export default function Header() {
 
   const sloganStyle = {
-    color: '#FFF'
+    color: '#FFF',
+    maxWidth: '650px'
   }
 
   return (
