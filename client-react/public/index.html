@@ -2,15 +2,14 @@
 <html lang="en">
   
   <head>
+    <script src="http://localhost:8097"></script>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta charset="utf-8" />
     <title>React App</title>
+    <script>var apiKey = '<%= process.env.REACT_APP_API_KEY %>';</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.REACT_APP_API_KEY %>&libraries=places"></script>
   </head>
-
   <body>
     <div id="root"></div>
-    <script>
-      var apiKey = '<%= process.env.REACT_APP_API_KEY %>';
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.REACT_APP_API_KEY %>&libraries=places"></script>
   </body>
 </html>
