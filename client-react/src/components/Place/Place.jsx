@@ -29,9 +29,9 @@ export default function Detail({ onClose }) {
   }, [id]);
   
   return (
-    <div className="body">
+    <div>
       <button onClick={onClose}>Close Popup</button>
-      <Card sx={{ padding: '0px 20px'}}>
+      <Card sx={{ width: '800px', padding: '0px 20px'}}>
         <Grid container spacing={5}>
           <Grid item xs={12} md={8}>
             <Typography sx={{ padding: '20px 0px' }} align="left" gutterBottom variant="h5" component="div">
