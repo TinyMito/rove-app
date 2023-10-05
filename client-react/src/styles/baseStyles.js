@@ -64,6 +64,28 @@ export const baseCss = css`
     color: #FFF;
   }
 
+  /* -------------------------------- Modal Style */
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+
+  .placePopup {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
   /* -------------------------------- Elements */
 
   .MuiButtonBase-root {
