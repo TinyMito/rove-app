@@ -19,7 +19,20 @@ export default function Detail() {
           <Header />
 
           <div className="body">
-            Example Layout
+            <h1>Component Example</h1>
+            <h2>Header 2</h2>
+            <h3>Example Layout see /components/Dev/</h3>
+            <span>Normal Text - font size working in progress will be adjusted later.</span>
+            
+            <div>
+              <Button sx={{ fontSize: '30px' }} href="#" size="large">Text Base Button</Button>
+            </div>
+
+            <div>
+              <Button sx={{ fontSize: '30px' }} href="#" size="large" disabled>Button Disabled</Button>
+            </div>
+
+            <Button fullWidth={true} sx={{ fontSize: '30px' }} href="#" size="large">Full Width</Button>
           </div>
 
         </div>
