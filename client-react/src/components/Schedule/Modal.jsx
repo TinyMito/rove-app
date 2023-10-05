@@ -2,11 +2,12 @@ import React, { useCallback } from 'react';
 // import styles from './Modal.module.css';
 import { RiCloseLine } from "react-icons/ri";
 
-const Modal = React.memo(({ tripId, deleteTrip, closeDeleteConfirmation }) => {
+
+const Modal = React.memo(({ tripId, deleteTrip, setIsOpen }) => {
   const handleDelete = useCallback(() => {
-    closeDeleteConfirmation(false);
+    setIsOpen(false);
     deleteTrip(tripId);
-  }, [deleteTrip, closeDeleteConfirmation, tripId]);
+  }, [deleteTrip, setIsOpen, tripId]);
 
   const darkBG = {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -147,7 +148,7 @@ const Modal = React.memo(({ tripId, deleteTrip, closeDeleteConfirmation }) => {
     <>
       <div
         styles={darkBG}
-        onClick={() => closeDeleteConfirmation(false)} />
+        onClick={() => setIsOpen(false)} />
       <div style={centered}>
         <div style={modal}>
           <div style={modalHeader}>
@@ -155,7 +156,7 @@ const Modal = React.memo(({ tripId, deleteTrip, closeDeleteConfirmation }) => {
           </div>
           <button 
             style={closeBtn}
-            onClick={() => closeDeleteConfirmation(false)}
+            onClick={() => setIsOpen(false)}
           >
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
@@ -166,13 +167,13 @@ const Modal = React.memo(({ tripId, deleteTrip, closeDeleteConfirmation }) => {
             <div style={actionsContainer}>
               <button 
                 style={deleteBtn}
-                onClick={() => handleDelete(tripId)} // tripId here from the map.
+                onClick={handleDelete}
               >
                 Delete 
               </button>
               <button
                 style={cancelBtn}
-                onClick={() => closeDeleteConfirmation(false)}
+                onClick={() => setIsOpen(false)}
               >
                 Cancel
               </button>
