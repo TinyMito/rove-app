@@ -30,7 +30,7 @@ export default function Detail() {
   }, [id]);
   
   return (
-    <>
+    <div className="box">
     <div style={{ display: 'flex', flexDirection: 'row' }}>
     <Navigation />
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -50,6 +50,6 @@ export default function Detail() {
 
     </div>
     </div>
-    </>
+    </div>
   );
 }

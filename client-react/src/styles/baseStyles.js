@@ -4,12 +4,12 @@ export const baseCss = css`
   /* -------------------------------- Base Styles */
   body {
     font-size: 12px;
+    color: #9399B4;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -19,27 +19,33 @@ export const baseCss = css`
     padding-top: 5em;
     padding-bottom: 5em;
   }
-
+  
   h1 {
     font-size: 5em;
     margin: 0;
     padding: 0.3em 0em;
-    color: #005861;
+    color: #71B1F8;
   }
 
   h2 {
     font-size: 2em;
     margin: 0;
     padding: 0.3em 0em;
+    color: #71B1F8;
   }
 
   h3 {
     font-size: 1.5em;
     margin: 0;
     padding: 0.3em 0em;
+    color: #71B1F8;
   }
 
   /* -------------------------------- Layout Style */
+  .box {
+    filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
+  }
+
   .body {
     padding: 1em 5em;
     min-height: 800px;
@@ -62,6 +68,11 @@ export const baseCss = css`
     background: #4E97F5;
     /*background: radial-gradient(circle, rgba(220,74,141,1) 0%, rgba(85,132,252,1) 100%);*/
     color: #FFF;
+  }
+
+  .landing {
+    display: block;
+    background-color: #fbfbfb;
   }
 
   /* -------------------------------- Modal Style */

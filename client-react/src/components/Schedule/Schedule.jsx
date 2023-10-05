@@ -34,7 +34,7 @@ export const Schedule = (props) => {
   };
 
   return (
-    <>
+    <div className="box">
     <div style={{ display: 'flex', flexDirection: 'row' }}>
     <Navigation />
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -72,7 +72,7 @@ export const Schedule = (props) => {
       </div>
       </div>
     </div>
-    </>
+    </div>
   );
 
 }
