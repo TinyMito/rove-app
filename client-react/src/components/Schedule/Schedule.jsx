@@ -8,13 +8,15 @@ import { ScheduleTimeLine } from "./ScheduleTimeLine"
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
+import Place from '../Place/Place'; // Add for modal popup Place component
+
 export const Schedule = (props) => {
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
   const { data } = useTimeLine({ id, date: dates[currentDay] });
 
-  /* Open up overlay */
+  /* useState for Modal */
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -45,46 +47,13 @@ export const Schedule = (props) => {
     justifyContent: 'center'
   };
 
-  const overlay = {
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    width: '100%',
-    height: '100%',
-    background: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-
-  const placePopup = {
-    background: 'white',
-    padding: '20px',
-    borderRadius: '4px',
-    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)'
-
-  }
-
   return (
     <>
     <div style={{ display: 'flex', flexDirection: 'row' }}>
     <Navigation />
     <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Header />
-
     <div className="body">
-
-      <div>
-        <button onClick={openPopup}>Open Popup</button>
-        {isPopupOpen && (
-          <div style={overlay}>
-            <div style={placePopup}>
-              <Place onClose={closePopup} />
-            </div>
-          </div>
-        )}
-      </div>
-
       <title >Vancouver</title>
       <div id="root"></div>
 
@@ -109,13 +78,22 @@ export const Schedule = (props) => {
         <ScheduleTimeLine
          data={data}
          className="schedule_card"
+         openPopup={openPopup} // Add by Kevin: pass useState openPopup to ScheduleTimeLine Component
         />
-        
+ 
       </section>
       </div>
 
     </div>
     </div>
+    {isPopupOpen && (
+      
+        <div className="overlay">{console.log("POPUP")}
+          <div className="placePopup">
+            <Place onClose={closePopup} />
+          </div>
+        </div>
+    )}
     </>
   );
 
