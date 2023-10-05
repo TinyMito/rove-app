@@ -9,22 +9,20 @@ export const baseCss = css`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
+    filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 80, 0.4));
     display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: top; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Take up the full viewport height */
+    margin: 0; /* Remove default margin */
     padding-top: 5em;
-    padding-bottom: 5em;
   }
 
   h1 {
     font-size: 5em;
     margin: 0;
     padding: 0.3em 0em;
-    color: #005861;
   }
 
   h2 {
@@ -51,7 +49,7 @@ export const baseCss = css`
     border-top-left-radius: 3em;
     border-bottom-left-radius: 3em;
     width: 120px;
-    background-color: #4B73DC;
+    background-color: #4A73DC;
   }
 
   .Header {
@@ -59,46 +57,16 @@ export const baseCss = css`
     min-height: 300px;
     width: 1000px;
     border-top-right-radius: 3em;
-    background: #4E97F5;
-    /*background: radial-gradient(circle, rgba(220,74,141,1) 0%, rgba(85,132,252,1) 100%);*/
+    background: rgb(220,74,141);
+    background: radial-gradient(circle, rgba(220,74,141,1) 0%, rgba(85,132,252,1) 100%);
     color: #FFF;
-  }
-
-  /* -------------------------------- Modal Style */
-
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 99;
-  }
-
-  .placePopup {
-    background: white;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
 
   /* -------------------------------- Elements */
 
   .MuiButtonBase-root {
+    /*font-size: 5em !important;*/
     text-transform: none !important;
-    color: #FE8BAF !important;
-    background: #FEDEE4 !important;
-    border-radius: 0.5em !important;
-  }
-
-  .MuiButtonBase-root:hover {
-    text-transform: none !important;
-    color: #FEDEE4 !important;
-    background: #FE8BAF !important;
   }
 
   .MuiSvgIcon-root {
