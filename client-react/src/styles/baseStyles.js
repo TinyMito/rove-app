@@ -1,23 +1,19 @@
 import { css } from '@emotion/react'
 
+
 export const baseCss = css`
   /* -------------------------------- Base Styles */
   body {
     font-size: 12px;
     color: #9399B4;
-    background-color: #fbfbfb;
+    background-color: #E7F1FA;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
-    height: 100vh;
+    padding: 0;
     margin: 0;
-
   }
   
   h1 {
@@ -46,6 +42,11 @@ export const baseCss = css`
     padding-top: 5em;
     padding-bottom: 5em;
     filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    height: 100vh;
   }
 
   .body {
@@ -79,8 +80,8 @@ export const baseCss = css`
   }
 
   .landing {
-    display: block;
-    background-color: #fbfbfb;
+    height: 100vh;
+    padding: 100px 10px;
   }
 
   /* -------------------------------- Modal Style */
@@ -109,15 +110,15 @@ export const baseCss = css`
 
   .MuiButtonBase-root {
     text-transform: none !important;
-    color: #FE8BAF !important;
-    background: #FEDEE4 !important;
+    color: #4B73DC !important;
+    background: #E7F1FA !important;
     border-radius: 0.5em !important;
   }
 
   .MuiButtonBase-root:hover {
     text-transform: none !important;
-    color: #FEDEE4 !important;
-    background: #FE8BAF !important;
+    color: #E7F1FA !important;
+    background: #71B1F8 !important;
   }
 
   .MuiSvgIcon-root {
@@ -161,6 +162,10 @@ export const baseCss = css`
     .Header {
       width: auto;
       border-top-right-radius: 0;
+    }
+
+    .landing {
+
     }
   }
 `

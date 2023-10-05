@@ -1,5 +1,5 @@
-# final-project
-TBA project name and description
+# Rove
+A Lighthouse Labs's Student Final Project...
 
 Team members please see [Project Wiki](https://github.com/TinyMito/final-project/wiki) section.
 
