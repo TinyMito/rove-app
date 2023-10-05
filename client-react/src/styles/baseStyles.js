@@ -121,16 +121,26 @@ export const baseCss = css`
   }
 
   @media (max-width: 1260px) {
-    .body {
-      max-width: 700px;
+    body {
+      filter: drop-shadow(0rem 0rem 0rem rgba(80, 80, 80, 0.4));
+      display: block;
+      margin: 0;
+      padding: 0;
     }
-  
+
+    .body {
+      width: auto;
+      min-width: 600px;
+    }
+
     .Navigation {
-      max-width: 100px;
+      border-top-left-radius: 0em;
+      border-bottom-left-radius: 0em;
     }
   
     .Header {
-      max-width: 700px;
+      width: auto;
+      border-top-right-radius: 0em;
     }
   }
 `
