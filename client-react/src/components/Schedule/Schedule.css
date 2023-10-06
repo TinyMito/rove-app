@@ -1,0 +1,33 @@
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: rgb(58, 57, 57);
+  border-bottom: 5px solid black;
+}
+
+.schedule-heading {
+  display: flex;
+  justify-content: flex-end; /* Use 'flex-end' instead of 'right' */
+  align-items: center;
+}
+
+.travel-dates {
+  color: rgb(58, 57, 57);
+  display: flex;
+  justify-content: center;
+}
+
+.modal-place-container {
+  width: 1000px;
+}
+
+.itinerary-day.no-overflow {
+ overflow: hidden;
+}
+
+@media (max-width: 1260px) {
+  .modal-place-container {
+    max-width: 700px;
+  }
+}
