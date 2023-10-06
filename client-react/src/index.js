@@ -8,6 +8,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import ScrollFix from "./ScrollFix";
 
 import Application from './components/Application';
 import { Schedule } from './components/Schedule/Schedule';
@@ -24,6 +25,7 @@ const root = createRoot(rootElement); // React ^18
 root.render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollFix />
       <Global styles={baseCss} />
         <Routes>
           <Route path="/" element={<Application />} />
