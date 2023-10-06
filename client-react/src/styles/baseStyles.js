@@ -126,7 +126,7 @@ export const baseCss = css`
   .MuiButtonBase-root:hover {
     text-transform: none !important;
     color: #E7F1FA !important;
-    background: #71B1F8 !important;
+    background: #9DD82E !important;
   }
 
   .MuiSvgIcon-root {
