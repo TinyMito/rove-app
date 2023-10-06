@@ -4,34 +4,31 @@ export const useTimeLine = ({ id, date }) => {
 
   const [data, setData] = useState([]);
 
+  const handleFetchTrips = useCallback(() => {
+    fetch(`/api/trip?scheduleId=${id}&date=${date}`)
+      .then((response) => response.json())
+      .then((response) => {
+        setData(response);
+      })
+      .catch((error) => {
+        console.error('Error fetching updated trip data:', error);
+      });
+  }, [id, date])
+
   useEffect(() => {
     if (date) {
-      fetch(`/api/trip?scheduleId=${id}&date=${date}`)
-        .then((response) => {
-          return response.json()
-        })
-        .then((response) => {
-          setData(response)
-        })
+      handleFetchTrips();
     }
   }, [id, date])
 
-  const deleteTrip = (tripId) => {
+  const deleteTrip = useCallback((tripId) => {
     fetch(`/api/trip/${tripId}`, {
       method: 'DELETE',
     })
       .then((response) => {
         console.log('response', response)
         if (response.status === 200) {
-          fetch(`/api/trip?scheduleId=${id}&date=${date}`)
-            .then((response) => response.json())
-            .then((response) => {
-              console.log('response', response)
-              setData(response);
-            })
-            .catch((error) => {
-              console.error('Error fetching updated trip data:', error);
-            });
+          handleFetchTrips();
         }
       })
       .catch((error) => {
@@ -40,9 +37,9 @@ export const useTimeLine = ({ id, date }) => {
       .catch((error) => {
         console.error('error', error);
       });
-  }
+  }, []);
 
 
-  return { data, deleteTrip };
+  return { data, deleteTrip, handleFetchTrips };
 };
 
