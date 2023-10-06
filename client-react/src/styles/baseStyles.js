@@ -42,7 +42,6 @@ export const baseCss = css`
   .box {
     padding-top: 3em;
     padding-bottom: 5em;
-    filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.4));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,6 +58,8 @@ export const baseCss = css`
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    border-radius: 2em;
+    box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
   }
 
   .flex-column {
@@ -119,7 +120,7 @@ export const baseCss = css`
     color: #9399B4 !important;
     background: #FFF !important;
     border-radius: 0.3em !important;
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(147, 153, 180, 0.35));
+    box-shadow: rgba(147, 153, 180, 0.35) 0px 0px 10px !important;
   }
 
   .MuiButtonBase-root:hover {
@@ -142,6 +143,7 @@ export const baseCss = css`
     font-size: 2em !important;
     height: 50px !important;
     width: 50px !important;
+    box-shadow: rgba(147, 153, 180, 0.35) 0px 0px 7px !important;
   }
 
   .MuiTimeline-root {
@@ -156,7 +158,7 @@ export const baseCss = css`
     .box {
       padding-top: unset;
       padding-bottom: unset;
-      filter: unset;
+      box-shadow: unset;
       flex-direction: unset;
       align-items: unset;
     }
