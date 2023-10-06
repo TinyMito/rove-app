@@ -5,9 +5,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export default function Detail({ closePlaceCard }) {
+export default function Detail(props) {
   // Get url id parameter
   const { id } = useParams();
+  const [placeId, setPlaceId] = useState(props.id || id);
   const [place, setPlace] = useState({});
   const [rating, setRating] = useState(0);
 
@@ -16,7 +17,7 @@ export default function Detail({ closePlaceCard }) {
   //const cardMaxWidth = isMobile ? 600 : 'auto';
 
   useEffect(() => {
-    const apiPlace = `/api/place/${id}`;
+    const apiPlace = `/api/place/${placeId}`;
 
     axios.get(apiPlace)
       .then((res) => {
@@ -29,9 +30,8 @@ export default function Detail({ closePlaceCard }) {
   }, [id]);
   
   return (
-    <div>
-      <button onClick={closePlaceCard}>Close Popup</button>
-      <Card sx={{ width: '800px', padding: '0px 20px'}}>
+    <div className={props.containerClassName || 'body'}>
+      <Card sx={{ padding: '0px 20px'}}>
         <Grid container spacing={5}>
           <Grid item xs={12} md={8}>
             <Typography sx={{ padding: '20px 0px' }} align="left" gutterBottom variant="h5" component="div">
@@ -41,7 +41,9 @@ export default function Detail({ closePlaceCard }) {
           <Grid item xs={12} md={4}>
             <CardActions >
               <Button fullWidth={true} sx={{ fontSize: '30px' }} href={place.google_map_link} size="small" target="_blank"><i className="bi bi-map"></i></Button>
-              <Button fullWidth={true} sx={{ fontSize: '30px' }} href="#" size="small"><i className="bi bi-calendar-plus"></i></Button>
+              {!props.hideAddTripButton && 
+                <Button fullWidth={true} sx={{ fontSize: '30px' }} href="#" size="small"><i className="bi bi-calendar-plus"></i></Button>
+              }
             </CardActions>
           </Grid>
         </Grid>
