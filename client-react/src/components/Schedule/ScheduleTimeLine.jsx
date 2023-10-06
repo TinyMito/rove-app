@@ -55,7 +55,7 @@ const timeSchedule = {
 
 export const ScheduleTimeLine = (props) => {
 
-  const { data, deleteTrip, handleFetchTrips } = props
+  const { data, deleteTrip, handleFetchTrips, updateTrip } = props
 
   const [deleteModalProps, setDeleteModalProps] = useState(defaultDeleteModalProps);
   const [darkBGClass, setDarkBGClass] = useState('');
@@ -135,6 +135,7 @@ export const ScheduleTimeLine = (props) => {
               // style={changeTimeSchedule}
               startTime={trip.start_time}
               tripId={trip.trip_id}
+              updateTrip={updateTrip}
             />
             </div>
           </TimelineOppositeContent>
