@@ -116,9 +116,10 @@ export const baseCss = css`
   .MuiButtonBase-root {
     font-size: 3em !important;
     text-transform: none !important;
-    color: #4B73DC !important;
-    background: #E7F1FA !important;
+    color: #9399B4 !important;
+    background: #FFF !important;
     border-radius: 0.3em !important;
+    filter: drop-shadow(0rem 0rem 0.5rem rgba(147, 153, 180, 0.35));
   }
 
   .MuiButtonBase-root:hover {
@@ -171,6 +172,7 @@ export const baseCss = css`
     .Navigation {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      min-width: 150px;
     }
   
     .Header {
