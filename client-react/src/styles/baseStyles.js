@@ -178,7 +178,7 @@ export const baseCss = css`
     .Header {
       border-top-right-radius: 0;
       width: auto;
-      min-height: 300px;
+      min-height: 320px;
       background-size: 450px auto;
     }
 
