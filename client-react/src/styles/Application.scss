@@ -1,13 +1,13 @@
 .app-slogan {
+  position: relative;
   font-size: 5em;
   font-weight: bold;
   text-align: left;
   padding: 40px;
-  background: -webkit-linear-gradient(#71B1F8, #4B73DC);
+  background-image: linear-gradient(135deg,#71B1F8 0%,#4B73DC 50%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: normal;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
 }
 
 .plus {
@@ -20,18 +20,19 @@
   text-align: left;
   width: 600px;
   padding: 20px;
-  background: -webkit-linear-gradient(#dfbcfc, #cc9cf4);
+  background-image: linear-gradient(135deg,#dfbcfc 0%,#cc9cf4 50%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: normal;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  text-shadow: rgba(80, 80, 80, 0.4) 0px 2px 20px;
 }
 
 .app-logo {
-  padding: 20px;
+  margin: 20px;
   height: 256px;
   width: 256px;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  border-radius: 4.5em;
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
 }
 
 .app-summaryImage {
@@ -44,7 +45,31 @@
 
 .scrollBtn {
   position: relative;
-  padding-top: 50px;
+  padding: 50px 200px;
+  font-size: 2em;
+  color: #4B73DC;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #9DD82E;
+  }
+}
+
+.enterBtn {
+  padding: 15px 20px 15px 25px;
+  margin: 15px;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #71B1F8;
+  background-color: #E7F1FA;
+  border-radius: 17px;
+  text-decoration: none;
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    background-color: #4B73DC;
+    color: #E7F1FA;
+  }
 }
 
 .centered-content {
@@ -55,6 +80,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
 }
 
 .box-one {
@@ -68,6 +94,8 @@
   min-width: 768px;
   height: 100vh;
   background-color: #E7F1FA;
+  background-image: url('../../public/background.png');
+  background-repeat: repeat;
   z-index: 0;
 }
 
@@ -82,7 +110,7 @@
   min-height: 70vh;
   background-color: #9661C2;
   z-index: 2;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
 }
 
 .box-three {
@@ -96,7 +124,7 @@
   min-width: 768px;
   background-color: #71B1F8;
   z-index: 2;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
 }
 
 .box-footer {
@@ -112,10 +140,18 @@
   font-size: 1.7em;
   color: #71B1F8;
   z-index: 2;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+  .app-logo {
+    margin: 20px;
+    height: 512px;
+    width: 512px;
+    border-radius: 9em;
+    box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+  }
+
   .app-summaryImage {
     height: 700px;
   }
@@ -131,6 +167,17 @@
 
   .scrollBtn {
     font-size: 3em;
+  }
+
+  .enterBtn {
+    padding: 25px 40px 30px 45px;
+    font-size: 7em;
+    font-weight: bold;
+    border-radius: 30px;
+  }
+
+  .column-two {
+    flex-direction: column;
   }
 
   .box-two {
