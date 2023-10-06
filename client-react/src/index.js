@@ -17,6 +17,7 @@ import Place from './components/Place/Place';
 import Duration from './components/Duration';
 import User from './components/User/User';
 import Dev from './components/Dev';
+import Modal from './components/Modal'
 
 const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
@@ -33,6 +34,7 @@ root.render(
           <Route path="/duration" element={<Duration />} />
           <Route path="/place/:id" element={<Place />} />
           <Route path="/user/:id" element={<User />} />
+          <Route path="/modal" element={<Modal />} />
           <Route path="/dev" element={<Dev />} />
         </Routes>
     </BrowserRouter>
