@@ -8,14 +8,14 @@
 
 .schedule-heading {
   display: flex;
-  justify-content: flex-end; /* Use 'flex-end' instead of 'right' */
-  align-items: center;
+  justify-content: right; /* Use 'flex-end' instead of 'right' */
+  align-items: right;
 }
 
 .travel-dates {
-  color: rgb(58, 57, 57);
   display: flex;
-  justify-content: center;
+  justify-content: right;
+  color: #71B1F8;
 }
 
 .modal-place-container {

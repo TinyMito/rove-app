@@ -5,6 +5,8 @@ import { useSchedule } from './useSchedule';
 import { Days } from './Days';
 import { ScheduleTimeLine } from "./ScheduleTimeLine";
 import './Schedule.css'; // Import the CSS file
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
 
 export const Schedule = (props) => {
   const { id } = useParams();
@@ -12,11 +14,38 @@ export const Schedule = (props) => {
   const { start_date, end_date } = schedule || {};
   const { data, deleteTrip } = useTimeLine({ id, date: dates[currentDay] });
 
+  const page_heading = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+    color: 'rgb(58, 57, 57)',
+    borderBottom: '5px solid black',
+  };
+
+  const schedule_heading = {
+    display: 'flex',
+    justifyContent: 'right',
+    alignItems: 'center'
+  };
+
+  const travel_dates = {
+    color: 'rgb(58, 57, 57)',
+    display: 'flex',
+    justifyContent: 'center'
+  };
+
   return (
+    <div className="box">
+    <div className="flex-row">
+        <Navigation />
+        <div className="flex-column">
+          <Header />
+
     <div className="body">
       <title >Vancouver</title>
       <div id="root"></div>
-      <div className="page-heading">
+
+      <div style={page_heading}>
         <h1>Vancouver</h1>
         <div className="schedule-heading">
           <h2 style={{ marginRight: '0.5em' }}>DAY:</h2>
@@ -42,6 +71,9 @@ export const Schedule = (props) => {
           className="schedule-card"
         />
       </section>
-    </div>
-  )
-};
+      </div>
+  );
+
+}
+
+// travel time - random math time give it 15min, 30min, 45min, etc.
