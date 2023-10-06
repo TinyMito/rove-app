@@ -20,11 +20,11 @@
   text-align: left;
   width: 600px;
   padding: 20px;
-  background: -webkit-linear-gradient(#dfbcfc, #cc9cf4);
+  background-image: linear-gradient(135deg,#dfbcfc 0%,#cc9cf4 50%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: normal;
-  text-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+  text-shadow: rgba(80, 80, 80, 0.4) 0px 2px 20px;
 }
 
 .app-logo {
@@ -94,6 +94,8 @@
   min-width: 768px;
   height: 100vh;
   background-color: #E7F1FA;
+  background-image: url('../../public/background.png');
+  background-repeat: repeat;
   z-index: 0;
 }
 
