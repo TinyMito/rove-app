@@ -7,7 +7,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: normal;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(80, 80, 80, 0.35));
 }
 
 .plus {
@@ -24,14 +24,14 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: normal;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(80, 80, 80, 0.35));
 }
 
 .app-logo {
   padding: 20px;
   height: 256px;
   width: 256px;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(80, 80, 80, 0.35));
 }
 
 .app-summaryImage {
@@ -44,7 +44,30 @@
 
 .scrollBtn {
   position: relative;
-  padding-top: 50px;
+  padding: 50px 200px;
+  font-size: 2em;
+  color: #4B73DC;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #9DD82E;
+  }
+}
+
+.enterBtn {
+  padding: 15px 20px 15px 25px;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #71B1F8;
+  background-color: #E7F1FA;
+  border-radius: 17px;
+  text-decoration: none;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    background-color: #4B73DC;
+    color: #E7F1FA;
+  }
 }
 
 .centered-content {
@@ -55,6 +78,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
 }
 
 .box-one {
@@ -115,7 +139,14 @@
   filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5));
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+  .app-logo {
+    padding: 20px;
+    height: 512px;
+    width: 512px;
+    filter: drop-shadow(0.1rem 0.1rem 2.0rem rgba(80, 80, 80, 0.25));
+  }
+
   .app-summaryImage {
     height: 700px;
   }
@@ -131,6 +162,17 @@
 
   .scrollBtn {
     font-size: 3em;
+  }
+
+  .enterBtn {
+    padding: 25px 40px 30px 45px;
+    font-size: 7em;
+    font-weight: bold;
+    border-radius: 30px;
+  }
+
+  .column-two {
+    flex-direction: column;
   }
 
   .box-two {

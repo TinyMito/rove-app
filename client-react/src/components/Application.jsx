@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { css } from '@emotion/react';
-import { Button } from '@mui/material';
 import { Link } from "react-router-dom";
 import '../styles/Application.scss';
 
@@ -53,30 +51,6 @@ export default function Home() {
     }
   };
 
-  const scrollBtn = {
-    fontSize: '4em !important',
-    color: '#9399B4 !important',
-    backgroundColor: 'none !important',
-    height: '100px !important',
-    width: '100px !important',
-    '&:hover': {
-      background: 'none !important',
-      color: '#9661C2 !important'
-    }
-  };
-
-  const navBtnStyle = {
-    fontSize: '3em !important',
-    color: '#71B1F8 !important',
-    padding: '10px 25px !important',
-    backgroundColor: '#E7F1FA !important',
-    filter: 'drop-shadow(0.1rem 0.1rem 0.5rem rgba(80, 80, 80, 0.5))',
-    '&:hover': {
-      background: '#4B73DC !important',
-      color: '#E7F1FA !important'
-    }
-  };
-
   return (
     <div className="landing">
       <section id="section-one" className="box-one">
@@ -88,13 +62,9 @@ export default function Home() {
           </div>
         </div>
         <div style={scrollStyleOne} className="scrollBtn">
-          <Button
-            sx={scrollBtn}
-            onClick={() => scrollToSection('section-two')}
-            size="small"
-          >
+          <Link className="scrollBtn" onClick={() => scrollToSection('section-two')} >
             <i className="bi bi-caret-down"></i>
-          </Button>
+          </Link>
         </div>
       </section>
       <section id="section-two" className="box-two">
@@ -104,7 +74,7 @@ export default function Home() {
         </div>
       </section>
       <section id="section-three" className="box-three">
-          <Button sx={navBtnStyle} href="/user/1" size="large">Explore<i className="bi bi-caret-right"></i></Button>
+          <Link className="enterBtn" to="/user/1">Explore<i className="bi bi-caret-right"></i></Link>
           <img className="app-screenshot" src={screenshotOne} alt="App"/>
       </section >
       <footer className="box-footer">
