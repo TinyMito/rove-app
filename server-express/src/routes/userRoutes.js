@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getUser } = require("../db/queries/user");
+const { getUserSchedule } = require("../db/queries/user");
 
 router.get("/", (req, res) => {
   res.status(400).json({ message: "=> /api/user/:id" });
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
-  getUser(id)
+  getUserSchedule(id)
     .then((response) => {
       res.json(response);
     });

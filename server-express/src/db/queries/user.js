@@ -7,23 +7,23 @@ const dbQuery = function (query) {
   );
 };
 
-const userQuery =
+const userScheduleQuery =
   `
-  SELECT DISTINCT ON (trips.user_id, destinations.name) 
-  trips.id, trips.user_id, users.first_name, users.last_name, destinations.name, destinations.thumbnail_img_url, destinations.cover_photo_url
-  FROM trips 
-  JOIN users ON users.id = trips.user_id
-  JOIN destinations ON destinations.id = trips.destination_id
-  WHERE trips.user_id = $1
-  ORDER BY trips.user_id, destinations.name;
+  SELECT schedules.id, schedules.start_date, schedules.end_date, schedules.user_id, 
+  users.first_name, users.last_name, destinations.name, destinations.thumbnail_img_url, destinations.cover_photo_url
+  FROM schedules 
+  JOIN users ON users.id = schedules.user_id
+  JOIN destinations ON destinations.id = schedules.destination_id
+  WHERE schedules.user_id = $1
+  ORDER BY schedules.user_id, destinations.name;
   `;
 
-const getUser = (userId) => {
+const getUserSchedule = (userId) => {
   const query = {
-    string: userQuery,
+    string: userScheduleQuery,
     params: [userId],
   };
   return dbQuery(query);
 };
 
-module.exports = { getUser };
+module.exports = { getUserSchedule };
