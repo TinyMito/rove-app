@@ -49,8 +49,8 @@ const changeTimeSchedule = {
 
 const timeSchedule = {
   display: 'flex',
-  flexDirection: 'column'
-
+  flexDirection: 'column',
+  verticalAlign: 'middle'
 }
 
 export const ScheduleTimeLine = (props) => {

@@ -1,3 +1,19 @@
+.time-display-schedule-trip {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.clock-schedule-page {
+  padding-left: 2px;
+  color:#71B1F8;
+}
+
+.clock-schedule-page:hover { 
+  transform: scale(1.5)
+}
+
+
 .page-heading {
   display: flex;
   justify-content: space-between;

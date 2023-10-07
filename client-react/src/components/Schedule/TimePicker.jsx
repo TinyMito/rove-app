@@ -4,8 +4,13 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
-import dayjs, { Dayjs } from 'dayjs';
-import customParseFormat from "dayjs/plugin/customParseFormat";
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+
+const theme = createTheme({
+  typography: {
+    fontSize: 5,
+  },
+});
 
 const formatTime = (time) => {
   // Split the time into hours and minutes
@@ -45,6 +50,7 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
       <DemoContainer
         components={['TimePicker']}>
         <TimePicker 
+          style={theme}
           label={startTime}
           startTime={startTime}
           tripId={tripId}
@@ -54,12 +60,13 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
         />
       </DemoContainer>
     </LocalizationProvider> : <div
+      className="time-display-schedule-trip"
       onClick={() => {
         setIsEditing((prev) => {
           return !prev;
         })
       }}
-    >{startTime}<QueryBuilderIcon/></div>}
+    >{startTime}<QueryBuilderIcon className="clock-schedule-page"/></div>}
     </>
   );
 }
