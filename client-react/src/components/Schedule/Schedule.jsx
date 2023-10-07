@@ -10,11 +10,9 @@ import Header from '../partials/Header';
 
 export const Schedule = (props) => {
   const { id } = useParams();
-  const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
+  const { schedule, dates, handleSetDay, currentDay, totalDays, destination } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
   const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
-
-  console.log('data', data[0]);
 
   return (
     <div className="box">
@@ -23,10 +21,10 @@ export const Schedule = (props) => {
         <div className="flex-column">
           <Header />
           <div className="body">
-            <title >Vancouver</title>
+            <title>{destination}</title>
             <div id="root"></div>
             <div className="page-heading">
-              <h1>Paris</h1>
+              <h1>{destination}</h1>
               <div className="schedule-heading">
                 <h2 style={{ marginRight: '0.5em' }}>DAY:</h2>
                 <Days
