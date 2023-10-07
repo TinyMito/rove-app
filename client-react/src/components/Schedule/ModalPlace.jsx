@@ -20,7 +20,7 @@ const ModalPlace = ({ placeId, handleClose }) => {
           <RiCloseLine style={{ marginBottom: "-3px" }} />
         </button>          
         <Place 
-          id={placeId} 
+          placeId={placeId} 
           containerClassName='modal-place-container' 
           hideAddTripButton
         />
