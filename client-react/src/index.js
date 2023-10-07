@@ -18,6 +18,9 @@ import Place from './components/Place/Place';
 import Duration from './components/Duration';
 import User from './components/User/User';
 import Dev from './components/Dev';
+import { Login } from '@mui/icons-material';
+import RegistrationForm from 'components/RegistrationForm';
+import LoginForm from 'components/LoginForm';
 
 const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
@@ -36,6 +39,8 @@ root.render(
           <Route path="/place/:id" element={<Place />} />
           <Route path="/user/:id" element={<User />} />
           <Route path="/dev" element={<Dev />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegistrationForm />} />
         </Routes>
     </BrowserRouter>
   </StrictMode>
