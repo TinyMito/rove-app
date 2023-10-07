@@ -34,10 +34,8 @@ app.use(express.static(public));
 app.use("/api/trip", require("./routes/tripRoutes"));
 app.use("/api/schedule", require("./routes/scheduleRoutes"));
 app.use("/api/place", require("./routes/placeRoutes"));
-app.use("/api/duration", require("./routes/duration"));
+app.use("/api/duration", require("./routes/duration.js"));
 app.use("/api/user", require("./routes/userRoutes"));
-app.use("/api/login", require("./routes/loginRoutes"));
-app.use("/api/register", require("./routes/registrationRoutes"));
 
 //route to get users information from the query search provided in the queries folder
 app.get('/users', async (req, res) => {
