@@ -3,8 +3,10 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+
+//icons:
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 
 const theme = createTheme({
   typography: {
@@ -31,8 +33,6 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
 
   const [isEditing, setIsEditing] = useState(false);
 
-  // const [value, setValue] = useState<Dayjs | null>(dayjs(new Date())); 
-  
   const handleSubmit = (newValue) => {
     console.log('value', newValue); 
     const newStartTime = formatTime(`${newValue.$H}:${newValue.$m}`);
@@ -43,30 +43,31 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
   return (
     <>
       {isEditing?    
-      <LocalizationProvider 
-        dateAdapter={AdapterDayjs}
-        localeText={{ newTimePlaceholder: 'Select a new time' }}
-      >
-      <DemoContainer
-        components={['TimePicker']}>
-        <TimePicker 
-          style={theme}
-          label={startTime}
-          startTime={startTime}
-          tripId={tripId}
-          onAccept={handleSubmit}
-          // onChange={(newValue) => setValue(newValue)} 
-          format="HH:mm"
-        />
-      </DemoContainer>
-    </LocalizationProvider> : <div
-      className="time-display-schedule-trip"
-      onClick={() => {
-        setIsEditing((prev) => {
-          return !prev;
-        })
-      }}
-    >{startTime}<QueryBuilderIcon className="clock-schedule-page"/></div>}
+        <LocalizationProvider 
+          dateAdapter={AdapterDayjs}
+          localeText={{ newTimePlaceholder: 'Select a new time' }}
+        >
+          <DemoContainer
+            components={['TimePicker']}>
+            <TimePicker 
+              style={theme}
+              label={startTime}
+              startTime={startTime}
+              tripId={tripId}
+              onAccept={handleSubmit}
+              // onChange={(newValue) => setValue(newValue)} 
+              format="HH:mm"
+            />
+          </DemoContainer>
+        </LocalizationProvider> : <div
+          className="time-display-schedule-trip"
+          onClick={() => {
+            setIsEditing((prev) => {
+              return !prev;
+            })
+          }}
+        >{startTime}<QueryBuilderIcon className="clock-schedule-page"/></div>
+      }
     </>
   );
 }

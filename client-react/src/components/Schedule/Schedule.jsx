@@ -14,7 +14,7 @@ export const Schedule = (props) => {
   const { start_date, end_date } = schedule || {};
   const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
 
-  
+  console.log('data', data[0]);
 
   return (
     <div className="box">
@@ -26,7 +26,7 @@ export const Schedule = (props) => {
             <title >Vancouver</title>
             <div id="root"></div>
             <div className="page-heading">
-              <h1>Vancouver</h1>
+              <h1>Paris</h1>
               <div className="schedule-heading">
                 <h2 style={{ marginRight: '0.5em' }}>DAY:</h2>
                 <Days

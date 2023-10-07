@@ -47,8 +47,8 @@ VALUES
 
 INSERT INTO places (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
-  (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://shorturl.at/rBIU3', 'https://shorturl.at/ahHK2', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
-  (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://shorturl.at/gEWY1', 'https://shorturl.at/dDSV6', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
+  (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
+  (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
   (3, 'Shinjuku', 'Shinjuku, Akihabara, and traditional tea ceremonies.', 5, 'https://shorturl.at/nT047', 'https://t.ly/Ee8ZY', 'https://maps.app.goo.gl/YbEDLhwKW1w8xfB89'),
   (4, 'Sagrada Familia', 'Sagrada Familia, Park Guell, and La Rambla.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/2TfvjAUfjS3NHxLu5'),
   (5, 'Sydney Opera House', 'Sydney Opera House, Bondi Beach, and Taronga Zoo.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
