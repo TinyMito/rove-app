@@ -96,7 +96,7 @@ export const TripItem = ({
           <CardActions className="card-actions-schedule">               
             <IconButton 
               className="icon_buttons" aria-label="mapIcon" size="large"
-              href={`/map/${trip.place_id}`}
+              href={trip.google_map_link}
             >
               <MapOutlinedIcon />
             </IconButton>

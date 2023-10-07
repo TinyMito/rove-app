@@ -9,6 +9,7 @@ export const useTimeLine = ({ id, date }) => {
       .then((response) => response.json())
       .then((response) => {
         setData(response);
+        console.log('response', response)
       })
       .catch((error) => {
         console.error('Error fetching updated trip data:', error);
