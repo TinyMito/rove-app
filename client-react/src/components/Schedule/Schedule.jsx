@@ -12,7 +12,9 @@ export const Schedule = (props) => {
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
-  const { data, deleteTrip } = useTimeLine({ id, date: dates[currentDay] });
+  const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
+
+  
 
   return (
     <div className="box">
@@ -38,12 +40,18 @@ export const Schedule = (props) => {
               {start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}
             </h2>
             <section className="itinerary_day">
-              <Button fullWidth={true} sx={{ fontSize: '50px' }} href="#" size="small">
+              <Button 
+              fullWidth={true} 
+              sx={{ fontSize: '50px' }} 
+              href={`/card/:location/${props.place_id}`}
+              size="small">
                 <i className="bi bi-plus"></i>
               </Button>
               <ScheduleTimeLine
                 data={data}
                 deleteTrip={deleteTrip}
+                handleFetchTrips={handleFetchTrips}
+                updateTrip={updateTrip}
                 className="schedule-card"
               />
             </section>
