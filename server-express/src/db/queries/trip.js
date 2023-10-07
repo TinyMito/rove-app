@@ -57,42 +57,26 @@ const deleteATripByTripId = ({ tripId }) => {
   return dbQuery(query);
 };
 
-///////////////////////Edit a trip's user_note//////////////////////
-const editUserNote = `
-  UPDATE trips
-  SET 
-    user_note = $1,
-    start_time = $2,
-    
-  WHERE id = $
-`;
+////////////////Edit a trip start-time and user-note///////////////////
+const queryTripTimeAndUserNote = `
+UPDATE trips 
+SET
+  user_note = COALESCE($1, user_note),
+  start_time = COALESCE($2, start_time)
+WHERE id = $3 
+RETURNING *`;
 
-const updateUserNoteByTripId = ({ tripId }) => {
+const updateTripTimeAndUserNote = ({ tripId, startTime, userNote }) => {
   const query = {
-    string: editUserNote,
-    params: [tripId]
+    string: queryTripTimeAndUserNote,
+    params: [userNote, startTime, tripId]
   };
   return dbQuery(query);
 };
-
-///////////////////////Edit a trip's start & end time//////////////////////
-const updateTripTimes = `
-
-`;
-
-const updateTrips = ({ tripId }) => {
-  const query = {
-    string: editUserNote,
-    params: [tripId]
-  };
-  return dbQuery(query);
-};
-
 
 ////////////////////////////Exports////////////////////////////////
 module.exports = {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
-  updateUserNoteByTripId,
-  updateTrips
+  updateTripTimeAndUserNote
 };
