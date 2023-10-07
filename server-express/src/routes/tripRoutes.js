@@ -13,10 +13,12 @@ router.get("/", (req, res) => {
   const { date, id, scheduleId } = req.query;
 
   if (date && scheduleId) {
+    console.log('date, scheduleId', date, scheduleId);
     getTripsByScheduleIdNDate({ id, date, scheduleId })
       .then((response) => {
         res.status(200);
         res.json(response);
+        console.log('get', response);
       })
       .catch((error) => {
         console.error('Error fetching data for trip/:id:', error);

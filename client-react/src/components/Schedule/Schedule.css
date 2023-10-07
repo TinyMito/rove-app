@@ -4,6 +4,14 @@
   align-items: center;
 }
 
+.card-actions-schedule {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 .clock-schedule-page {
   padding-left: 2px;
   color:#71B1F8;
@@ -13,6 +21,18 @@
   transform: scale(1.5)
 }
 
+.edit-trip-usernote {
+  padding-left: 2px;
+  color:#71B1F8;
+}
+
+.edit-trip-usernote:hover {
+  transform: scale(1.5)
+}
+
+.usernote-schedule-page {
+  font: 3em !important;
+}
 
 .page-heading {
   display: flex;
@@ -20,6 +40,12 @@
   align-items: baseline;
   color: rgb(58, 57, 57);
   border-bottom: 5px solid black;
+}
+
+.user-note-edit-schedule {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .schedule-heading {

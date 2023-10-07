@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from "axios";
 
 export const useTimeLine = ({ id, date }) => {
-
   const [data, setData] = useState([]);
 
   const handleFetchTrips = useCallback(() => {
@@ -20,7 +19,7 @@ export const useTimeLine = ({ id, date }) => {
     if (date) {
       handleFetchTrips();
     }
-  }, [id, date])
+  }, [id, date, handleFetchTrips])
 
   const deleteTrip = useCallback((tripId) => {
     fetch(`/api/trip/${tripId}`, {
@@ -38,24 +37,7 @@ export const useTimeLine = ({ id, date }) => {
       .catch((error) => {
         console.error('error', error);
       });
-  }, []);
-
-  // const updateTrip = useCallback((tripId, startTime, userNote) => {
-  //   const data = {
-  //     tripId,
-  //     startTime,
-  //     // userNote
-  //   };
-
-  //   return fetch(`/api/trip/${tripId}`, {
-  //     method: 'PUT',
-  //     body: JSON.stringify(data)
-  //   })
-  //     .then(() => {
-  //       handleFetchTrips();
-  //       // return response.json();
-  //     })
-  // }, []);
+  }, [handleFetchTrips]);
 
   const updateTrip = async (tripId, startTime, userNote) => {
     try {
