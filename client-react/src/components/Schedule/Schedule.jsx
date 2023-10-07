@@ -23,7 +23,7 @@ export const Schedule = (props) => {
           <div className="body">
             <title>{destination}</title>
             <div id="root"></div>
-            <div className="page-heading">
+            <div className="page-heading-schedule">
               <h1>{destination}</h1>
               <div className="schedule-heading">
                 <h2 style={{ marginRight: '0.5em' }}>DAY:</h2>
