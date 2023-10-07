@@ -5,6 +5,9 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+// DATA: Import GlobalData function
+import { globalData } from '../../GlobalData';
+
 // User CSS
 import '../../styles/User.scss'
 
@@ -18,8 +21,11 @@ import MyScheduleList from './MyScheduleList';
 import TripSuggestion from './TripSuggestion';
 
 export default function User() {
+  // DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData } = globalData();
+
   // Get url id parameter
-  const { id } = useParams();
+  //const { id } = useParams();
   const [schedules, setScheduleList] = useState([]);
   const [suggestedTrips, setSuggestedTrips] = useState([]);
   const [userName, setUserName] = useState([]);
@@ -28,7 +34,7 @@ export default function User() {
   const [selectedTripId, setSelectedTripId] = useState(null); // Store selected trip ID
   
   useEffect(() => {
-    const apiUser = `/api/user/${id}`;
+    const apiUser = `/api/user/${userData.id}`;
 
     axios.get(apiUser)
       .then((res) => {
@@ -42,7 +48,11 @@ export default function User() {
         setSuggestedTrips({ error: err.message });
         setUserName({ error: err.message });
       });
-  }, [id]);
+  }, [userData.id]);
+
+  const changeUser = (newUserId) => {
+    setUserData({ ...userData, id: newUserId });
+  };
 
   function randomPicker(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -70,7 +80,8 @@ export default function User() {
     <div className="box">
       <div className="flex-row">
         <Navigation 
-          userId={id}
+          loggedIn={userData.loggedIn}
+          userId={userData.id}
           userImg={userImg} 
         />
           <div className="flex-column">
@@ -80,6 +91,8 @@ export default function User() {
 
               <div className="body">
                 <h2>{userName}'s profile</h2>
+                <button onClick={() => changeUser(1)}>Change User 1</button>
+                <button onClick={() => changeUser(5)}>Change User 5</button>
                 <div className="page-heading"><h1>Trip Suggestion</h1></div>
                 <div className="item-list">
                   {selectedTrips.map((item) => (
@@ -91,14 +104,18 @@ export default function User() {
                   ))}
                 </div>
                 <div className="page-heading"><h1>My Schedule</h1></div>
-                <div className="item-list">
-                  {schedules.map((item) => (
-                    <MyScheduleList 
-                      key={item.id} 
-                      schedule={item}
-                    />
-                  ))}
-                </div>
+                {userData.loggedIn ? (
+                  <div className="item-list">
+                    {schedules.map((item) => (
+                      <MyScheduleList 
+                        key={item.id} 
+                        schedule={item}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <h3>Please login to see your schedule.</h3>
+                )}
               </div>
 
           </div>

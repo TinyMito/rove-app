@@ -73,7 +73,7 @@ export default function Home() {
         </div>
       </section>
       <section id="section-three" className="box-three">
-          <Link className="enterBtn" to="/user/1">Explore<i className="bi bi-caret-right"></i></Link>
+          <Link className="enterBtn" to="/user/">Explore<i className="bi bi-caret-right"></i></Link>
           <img className="app-screenshot" src={screenshotOne} alt="App"/>
       </section >
       <footer className="box-footer">
