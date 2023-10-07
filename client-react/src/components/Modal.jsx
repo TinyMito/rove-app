@@ -7,29 +7,41 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DatePicker from 'react-datepicker';
-import { useState } from 'react';
-import Alert from '@mui/material/Alert'; // Import Alert component from Material-UI
-
+import { useState, useEffect } from 'react'; // Import useEffect
+import Alert from '@mui/material/Alert';
+import axios from 'axios';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
-export default function Modal() {
+export default function Modal({ locationName, placeId , attractionId, photoUrl, attractionAddress, attractionName}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null); // State variable for selected time
-
-  const [fullWidth] = React.useState(true);
-  const [maxWidth] = React.useState('sm');
-  const [showAlert, setShowAlert] = React.useState(false); // State variable for showing the alert
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [showAlert, setShowAlert] = React.useState(false);
+  const [modalLocationName, setModalLocationName] = useState(locationName);
+  const [modalPlaceId, setModalPlaceId] = useState(placeId);
+  const [modalAttractionId, setAttractionId] = useState(attractionId)
+  const [modalPhotoUrl, setPhotoUrl] = useState(photoUrl)
+  const [attractionAddressName, setAttractionAddress] = useState(attractionAddress)
+  const [attractionActualName, setAttractionName] = useState(attractionName)
+  // Use useEffect to update state variables when props change
+  useEffect(() => {
+    setModalLocationName(locationName);
+    setModalPlaceId(placeId);
+    setAttractionId(attractionId);
+    setPhotoUrl(photoUrl)
+    setAttractionAddress(attractionAddress)
+    setAttractionName(attractionName)
+  }, [locationName, placeId, attractionId, photoUrl, attractionAddress, attractionName]);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
   };
 
   const handleTimeChange = (time) => {
-    setSelectedTime(time); // Update the selected time when the TimePicker changes
+    setSelectedTime(time);
   };
 
   const handleClickOpen = () => {
@@ -37,19 +49,66 @@ export default function Modal() {
   };
 
   const handleCancel = () => {
-    setOpen(false)
+    setOpen(false);
   };
+  const handleSubmit = async () => {
+    console.log('Submitting form...');
+    if (startDate !== null && selectedTime !== null) {
+      console.log('it works here');
+  
+      try {
+        // Format the date as "yyyy-MM-dd"
+        const formattedDate = startDate.toISOString().split('T')[0];
+  
+        // Create a new Date object with the time from selectedTime
+        const selectedDateTime = new Date(selectedTime);
+        
+        // Extract hours and minutes from selectedDateTime
+        const hours = selectedDateTime.getHours();
+        const minutes = selectedDateTime.getMinutes();
+  
+        // Format the time as "HH:mm"
+        const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+  
+        const tripData = {
+          destination_id: modalPlaceId,
+          destination_name:modalLocationName,
+          place_id:modalAttractionId,
+          place_name: attractionActualName,
+          place_address: attractionAddressName,
+          user_id:1,
+          schedule_id:1,
+          date:formattedDate,
+          start_time: formattedTime,
+          attraction_photo_url: modalPhotoUrl
+        };
+  
+        const response = await axios.post("/api/trip", tripData);
+        console.log('Response:', response);
+        if (response.status === 200) {
+          console.log("Trip inserted!!!");
+        } else {
+          console.error("Failed to insert trip!");
+        }
+      } catch (error) {
+        console.error("Error inserting trip:", error);
+      }
+    } else {
+      console.error("Please fill in both fields!");
+      setShowAlert(true);
+    }
+  };
+  
 
   const handleClose = () => {
     setOpen(false);
     if (startDate !== null && selectedTime !== null) {
-      console.log(startDate, selectedTime); // Use the selected time
+      console.log(startDate, selectedTime);
     } else {
-      setShowAlert(true); // Show the alert if date or time is missing
+      setShowAlert(true);
     }
   };
 
-  // Function to check if the "Confirm" button should be disabled
   const isConfirmDisabled = () => {
     return startDate === null || selectedTime === null;
   };
@@ -61,8 +120,8 @@ export default function Modal() {
       </Button>
       <Dialog
         open={open}
-        fullWidth={fullWidth}
-        maxWidth={maxWidth}
+        fullWidth={true}
+        maxWidth="sm"
         onClose={handleClose}
       >
         <DialogTitle>Trip Details</DialogTitle>
@@ -86,6 +145,7 @@ export default function Modal() {
               <TimePicker
                 label="Select the time!"
                 onChange={handleTimeChange}
+                format="HH:mm"
               />
             </DemoContainer>
           </LocalizationProvider>
@@ -100,8 +160,8 @@ export default function Modal() {
         <DialogActions>
           <Button onClick={handleCancel}>Cancel</Button>
           <Button
-            onClick={handleClose}
-            disabled={isConfirmDisabled()} // Disable the "Confirm" button if required fields are not filled
+            onClick={handleSubmit}
+            disabled={isConfirmDisabled()}
           >
             Confirm
           </Button>

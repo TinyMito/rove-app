@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const { getUser } = require("./db/queries/queries.js")
+const { getUser } = require("./db/queries/queries.js");
+const { getTripsByScheduleIdNDate } = require('./db/queries/trip.js');
 
 // Database connection configuration (TO REMOVE)
 const dbConfig = {
@@ -51,6 +52,15 @@ app.get('/users', async (req, res) => {
 app.use(function (req, res) {
   res.status(404);
 });
+
+/* app.get('/api/trip', async(req, res)=> {
+  try {
+    const trip = await getTripsByScheduleIdNDate();
+    res.json(trip);
+  } catch (error) {
+    console.error('Error fetching trip:', error)
+  }
+}) */
 
 // Listen for incoming requests
 app.listen(PORT, () => {
