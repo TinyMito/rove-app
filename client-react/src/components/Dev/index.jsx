@@ -6,11 +6,23 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../../GlobalData';
+
 // Import Navigation & Header
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
 export default function Dev() {
+
+  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData } = globalData();
+
+  // EXAMPLE change user id in GLOBAL DATA
+  const changeUser = (newUserId) => {
+    setUserData({ ...userData, id: newUserId });
+  };
+
   return (
     <div className="box"> 
       <div className="flex-row">
@@ -20,22 +32,12 @@ export default function Dev() {
           <div className="body">
             {/* Your codes start here */}
 
-
             <h1>TEST PAGE Example</h1>
-            <h2>Header 2</h2>
-            <h3>Example Layout see /components/Dev/</h3>
-            <span>Normal Text - font size working in progress will be adjusted later.</span>
-            
-            <div>
-              <Button sx={{ fontSize: '30px' }} href="#" size="large">Text Base Button</Button>
-            </div>
 
-            <div>
-              <Button sx={{ fontSize: '30px' }} href="#" size="large" disabled>Button Disabled</Button>
-            </div>
+            <h2>{userData.id}</h2>
 
-            <Button fullWidth={true} sx={{ fontSize: '30px' }} href="#" size="large">Full Width</Button>
-
+            <button onClick={() => changeUser(1)}>Change User 1</button>
+            <button onClick={() => changeUser(5)}>Change User 5</button>
 
             {/* Your codes end here */}
           </div>

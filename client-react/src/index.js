@@ -10,6 +10,8 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import ScrollFix from "./ScrollFix";
 
+import { DataProvider } from './GlobalData'; // Add GlobalData
+
 import Application from './components/Application';
 import { Schedule } from './components/Schedule/Schedule';
 import Google from './components/Autocomplete';
@@ -27,16 +29,20 @@ root.render(
     <BrowserRouter>
       <ScrollFix />
       <Global styles={baseCss} />
-        <Routes>
-          <Route path="/" element={<Application />} />
-          <Route path="/schedule/:id" element={<Schedule />} />
-          <Route path="/google" element={<Google />} />
-          <Route path="/card/:location/:id" element={<Suggestion />} />
-          <Route path="/duration" element={<Duration />} />
-          <Route path="/place/:id" element={<Place />} />
-          <Route path="/user/:id" element={<User />} />
-          <Route path="/dev" element={<Dev />} />
-        </Routes>
+      <DataProvider>
+          <Routes>
+            
+            <Route path="/" element={<Application />} />
+            <Route path="/schedule/:id" element={<Schedule />} />
+            <Route path="/google" element={<Google />} />
+            <Route path="/card/:location/:id" element={<Suggestion />} />
+            <Route path="/duration" element={<Duration />} />
+            <Route path="/place/:id" element={<Place />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/dev" element={<Dev />} />
+            
+          </Routes>
+        </DataProvider>
     </BrowserRouter>
   </StrictMode>
 );
