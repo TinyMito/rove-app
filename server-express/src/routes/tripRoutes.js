@@ -5,7 +5,8 @@ const router = express.Router();
 const {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
-  updateTripTimeAndUserNote
+  updateUserNoteByTripId,
+  updateTrips,
 } = require("../db/queries/trip");
 
 ////////////////////////////Get all trips////////////////////////////////
@@ -41,27 +42,7 @@ router.delete("/:id", (req, res) => {
       console.error('Error fetching data for trip/:id:', error);
       res.status(500).json({ error: 'Internal server error' });
     });
+
 });
-
-////////////////////////////Update a trip////////////////////////////////
-router.put("/:id", (req, res) => {
-
-  console.log('req.body', req.body);
-  const { tripId, startTime, userNote } = req.body;
-  // res.json({ test: 'ok' });
-  updateTripTimeAndUserNote({ tripId, startTime, userNote })
-    .then((rows) => {
-      res.status(200);
-      console.log('updated trip', rows[0]);
-      res.json(rows[0]);
-    })
-    .catch((error) => {
-      console.log('Error fetching data for trip/:id', error);
-      res.status(500).json({ error: 'Internal server error' });
-    });
-});
-
-/////////////////////////////////////////////////////////////////////////
-
 
 module.exports = router;

@@ -30,7 +30,6 @@ import Detail from '../Place/Place';
 // Modal
 import ModalDelete from './ModalDelete';
 import ModalPlace from './ModalPlace';
-import TimePicker from './TimePicker';
 
 
 const defaultDeleteModalProps = {
@@ -43,19 +42,9 @@ const defaultPlaceModalProps = {
   placeId: undefined
 };
 
-const changeTimeSchedule = {
-  //
-};
+export const ScheduleTimeLine = (prop) => {
 
-const timeSchedule = {
-  display: 'flex',
-  flexDirection: 'column',
-  verticalAlign: 'middle'
-}
-
-export const ScheduleTimeLine = (props) => {
-
-  const { data, deleteTrip, handleFetchTrips, updateTrip } = props
+  const { data, deleteTrip } = prop
 
   const [deleteModalProps, setDeleteModalProps] = useState(defaultDeleteModalProps);
   const [darkBGClass, setDarkBGClass] = useState('');
@@ -128,16 +117,8 @@ export const ScheduleTimeLine = (props) => {
           key={trip.trip_id}
           sx={{ padding: -1 }}
         >
-          <TimelineOppositeContent color="textSecondary" sx={{ fontSize: 25 }} >
-            <div style={timeSchedule}>
-            <TimePicker 
-              onSubmit={handleFetchTrips}
-              // style={changeTimeSchedule}
-              startTime={trip.start_time}
-              tripId={trip.trip_id}
-              updateTrip={updateTrip}
-            />
-            </div>
+          <TimelineOppositeContent color="textSecondary" sx={{ fontSize: 25 }}>
+            {trip.start_time}
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot />
