@@ -11,7 +11,6 @@ CREATE TABLE users (
   last_name TEXT,
   username VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
   profile_thumbnail_img VARCHAR(255)
 );
 
