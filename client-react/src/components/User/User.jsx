@@ -11,6 +11,7 @@ import '../../styles/User.scss'
 // Layout
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
+import ModalPlace from './ModalPlace';
 
 // Components for User
 import MyScheduleList from './MyScheduleList';
@@ -22,6 +23,8 @@ export default function User() {
   const [schedules, setScheduleList] = useState([]);
   const [suggestedTrips, setSuggestedTrips] = useState([]);
   const [userName, setUserName] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false); // Modal state
+  const [selectedTripId, setSelectedTripId] = useState(null); // Store selected trip ID
   
   useEffect(() => {
     const apiUser = `/api/user/${id}`;
@@ -49,31 +52,54 @@ export default function User() {
 
   const selectedTrips = randomPicker(suggestedTrips).slice(0,8);
 
+  // Open Modal
+  const openModal = (tripId) => {
+    setSelectedTripId(tripId);
+    setModalOpen(true);
+  };
+
+  // Close Modal
+  const closeModal = () => {
+    setSelectedTripId(null);
+    setModalOpen(false);
+  };
+
   return (
     <div className="box">
-    <div className="flex-row">
+      <div className="flex-row">
         <Navigation />
-        <div className="flex-column">
-          <Header />
+          <div className="flex-column">
+            <Header />
 
-    <div className="body">
-      <h2>{userName}'s profile</h2>
-      <div className="page-heading"><h1>Trip Suggestion</h1></div>
-      <div className="item-list">
-        {selectedTrips.map((item) => (
-          <TripSuggestion key={item.id} trip={item}/>
-        ))}
-      </div>
-      <div className="page-heading"><h1>My Schedule</h1></div>
-      <div className="item-list">
-        {schedules.map((item) => (
-          <MyScheduleList key={item.id} schedule={item}/>
-        ))}
-      </div>
-    </div>
+              <div className="body">
+                <h2>{userName}'s profile</h2>
+                <div className="page-heading"><h1>Trip Suggestion</h1></div>
+                <div className="item-list">
+                  {selectedTrips.map((item) => (
+                    <TripSuggestion 
+                      key={item.id} 
+                      trip={item}
+                      openModal={openModal}
+                    />
+                  ))}
+                </div>
+                <div className="page-heading"><h1>My Schedule</h1></div>
+                <div className="item-list">
+                  {schedules.map((item) => (
+                    <MyScheduleList 
+                      key={item.id} 
+                      schedule={item}
+                    />
+                  ))}
+                </div>
+              </div>
 
-    </div>
-    </div>
+          </div>
+        </div>
+
+        {modalOpen && (
+          <ModalPlace placeId={selectedTripId} handleClose={closeModal} />
+        )}
     </div>
   );
 }

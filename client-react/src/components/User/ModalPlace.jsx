@@ -22,7 +22,7 @@ const ModalPlace = ({ placeId, handleClose }) => {
         <Place 
           placeId={placeId} 
           containerClassName='modal-place-container' 
-          hideAddTripButton
+          /* hideAddTripButton */
         />
       </div>
     </>
