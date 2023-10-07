@@ -23,6 +23,7 @@ export default function User() {
   const [schedules, setScheduleList] = useState([]);
   const [suggestedTrips, setSuggestedTrips] = useState([]);
   const [userName, setUserName] = useState([]);
+  const [userImg, setUserImg] = useState([]);
   const [modalOpen, setModalOpen] = useState(false); // Modal state
   const [selectedTripId, setSelectedTripId] = useState(null); // Store selected trip ID
   
@@ -34,6 +35,7 @@ export default function User() {
         setScheduleList(res.data.schedule);
         setSuggestedTrips(res.data.suggestedTrip);
         setUserName(res.data.schedule[0].first_name);
+        setUserImg(res.data.schedule[0].profile_thumbnail_img);
       })
       .catch((err) => {
         setScheduleList({ error: err.message });
@@ -67,9 +69,14 @@ export default function User() {
   return (
     <div className="box">
       <div className="flex-row">
-        <Navigation />
+        <Navigation 
+          userId={id}
+          userImg={userImg} 
+        />
           <div className="flex-column">
-            <Header />
+            <Header 
+              userName={userName}
+            />
 
               <div className="body">
                 <h2>{userName}'s profile</h2>

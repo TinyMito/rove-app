@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import '../styles/Application.scss';
 
 import appIcon from '../assets/images/logo.png';
-import userIcon from '../assets/images/avatar.png';
 import screenshotOne from '../assets/images/screenshot.png';
 
 export default function Home() {
