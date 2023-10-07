@@ -58,7 +58,6 @@ export const Schedule = (props) => {
       </div>
     </div>
   );
-
 }
 
 {/* // travel time - random math time give it 15min, 30min, 45min, etc. */}
