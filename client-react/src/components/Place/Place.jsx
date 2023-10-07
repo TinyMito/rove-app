@@ -5,16 +5,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export default function Detail(props) {
+export default function Place(props) {
   // Get url id parameter
   const { id } = useParams();
-  const [placeId, setPlaceId] = useState(props.id || id);
+  const placeId = (props.placeId || id); // Modified - if props.placeId is false use 'id' from useParams()
   const [place, setPlace] = useState({});
   const [rating, setRating] = useState(0);
-
-  // Responsive Design for Mobile
-  //const isMobile = useMediaQuery('(min-width:800px)');
-  //const cardMaxWidth = isMobile ? 600 : 'auto';
 
   useEffect(() => {
     const apiPlace = `/api/place/${placeId}`;
