@@ -114,6 +114,14 @@ export const baseCss = css`
 
   /* -------------------------------- Elements */
 
+  .page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: rgb(58, 57, 57);
+    border-bottom: 5px solid #71B1F8;
+  }
+
   .MuiButtonBase-root {
     font-size: 3em !important;
     text-transform: none !important;
