@@ -43,9 +43,9 @@ VALUES
 
 INSERT INTO destinations (google_destination_id, name)
 VALUES
-  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Paris, France'),
-  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Rome, Italy'),
-  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Dubai, UAE'),
+  ('ChIJD7fiBh9u5kcRYJSMaMOCCwQ', 'Paris, France'),
+  ('ChIJu46S-ZZhLxMROG5lkwZ3D7k', 'Rome, Italy'),
+  ('ChIJRcbZaklDXz4RYlEphFBu5r0', 'Dubai, United Arab Emirates'),
   ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Kyoto, Japan');
 
 INSERT INTO places (name, google_place_id, destination_id)
@@ -61,6 +61,8 @@ VALUES
   ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c', 2),
   ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w', 2),
   ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3); --Dubai
+  ('Kyoto International Manga Museum', 'ChIJh1qJf4YIAWARTAOFMHrSHvI', 4)
+  ('Nishiki Market', 'ChIJT8uMzZwIAWARnGzsARCjnrY', 4)
 
 INSERT INTO schedules (start_date, end_date, user_id, destination_id)
 VALUES
