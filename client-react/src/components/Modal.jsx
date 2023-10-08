@@ -87,6 +87,7 @@ export default function Modal({ locationName, placeId , attractionId, photoUrl, 
         console.log('Response:', response);
         if (response.status === 200) {
           console.log("Trip inserted!!!");
+          handleClose();
         } else {
           console.error("Failed to insert trip!");
         }
@@ -124,6 +125,7 @@ export default function Modal({ locationName, placeId , attractionId, photoUrl, 
         maxWidth="sm"
         onClose={handleClose}
       >
+        
         <DialogTitle>Trip Details</DialogTitle>
         <DialogContent>
           <DialogContentText>
