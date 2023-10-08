@@ -30,7 +30,8 @@ CREATE TABLE places (
   id SERIAL PRIMARY KEY NOT NULL,
   google_place_id VARCHAR(255),
   destination_id INTEGER REFERENCES destinations(id),
-  name TEXT
+  name TEXT,
+  photo_url VARCHAR(1000)
 );
 
 CREATE TABLE schedules (

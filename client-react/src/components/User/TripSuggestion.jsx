@@ -11,7 +11,7 @@ export default function TripSuggestion({data, openModal}) {
             component="img"
             className="item-card-image"
             alt={data.name}
-            image=""
+            image={data.photo_url}
             title={data.name}
           />
           <div className="item-card-caption">
