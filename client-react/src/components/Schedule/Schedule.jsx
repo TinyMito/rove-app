@@ -26,7 +26,7 @@ export const Schedule = (props) => {
             <div className="page-heading-schedule">
               <h1>{destination}</h1>
               <div className="schedule-heading">
-                <h2 style={{ marginRight: '0.5em' }}>DAY:</h2>
+                <h2 style={{ marginRight: '0.5em', fontSize: '2em' }}>DAY:</h2>
                 <Days
                   daysCount={totalDays}
                   handleChange={handleSetDay}
@@ -37,7 +37,7 @@ export const Schedule = (props) => {
             <h2 className="travel-dates">
               {start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}
             </h2>
-            <section className="itinerary_day">
+            <section className="itinerary-day">
               <Button 
               fullWidth={true} 
               sx={{ fontSize: '50px' }} 
@@ -45,13 +45,15 @@ export const Schedule = (props) => {
               size="small">
                 <i className="bi bi-plus"></i>
               </Button>
-              <ScheduleTimeLine
-                data={data}
-                deleteTrip={deleteTrip}
-                handleFetchTrips={handleFetchTrips}
-                updateTrip={updateTrip}
-                className="schedule-card"
-              />
+              <div className="schedule-card-wrapper">
+                <ScheduleTimeLine
+                  data={data}
+                  deleteTrip={deleteTrip}
+                  handleFetchTrips={handleFetchTrips}
+                  updateTrip={updateTrip}
+                  className="schedule-card"
+                />
+              </div>
             </section>
            </div>
         </div>

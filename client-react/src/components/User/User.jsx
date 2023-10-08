@@ -62,7 +62,7 @@ export default function User() {
     return array;
   }
 
-  const selectedTrips = randomPicker(suggestedTrips).slice(0,8);
+  const selectedTrips = randomPicker(suggestedTrips).slice(0,4);
 
   // Open Modal
   const openModal = (tripId) => {
@@ -91,15 +91,15 @@ export default function User() {
 
               <div className="body">
                 <h2>{userName}'s profile</h2>
-                <button onClick={() => changeUser(1)}>Change User 1</button>
-                <button onClick={() => changeUser(5)}>Change User 5</button>
-                <div className="page-heading"><h1>Trip Suggestion</h1></div>
+
+                <div className="page-heading"><h1>Destination Suggestion</h1></div>
                 <div className="item-list">
                   {selectedTrips.map((item) => (
                     <TripSuggestion 
                       key={item.id} 
-                      trip={item}
-                      openModal={openModal}
+                      data={item}
+
+                      /* openModal={openModal} */
                     />
                   ))}
                 </div>
@@ -116,6 +116,10 @@ export default function User() {
                 ) : (
                   <h3>Please login to see your schedule.</h3>
                 )}
+
+                <button onClick={() => changeUser(1)}>Change User 1</button>
+                <button onClick={() => changeUser(2)}>Change User 2</button>
+                <button onClick={() => changeUser(3)}>Change User 3</button>
               </div>
 
           </div>

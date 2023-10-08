@@ -15,7 +15,8 @@ const userScheduleQuery =
   `
   SELECT DISTINCT ON (schedules.id, schedules.start_date, schedules.end_date)
   schedules.id, schedules.start_date, schedules.end_date, schedules.user_id, 
-  users.first_name, users.last_name, users.profile_thumbnail_img, destinations.name, destinations.thumbnail_img_url, destinations.cover_photo_url
+  users.first_name, users.last_name, users.profile_thumbnail_img, 
+  destinations.name
   FROM schedules 
   JOIN users ON users.id = schedules.user_id
   JOIN destinations ON destinations.id = schedules.destination_id
