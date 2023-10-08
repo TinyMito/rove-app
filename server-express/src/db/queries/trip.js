@@ -77,23 +77,25 @@ const updateTripTimeAndUserNote = ({ tripId, startTime, userNote }) => {
 ////////////// Add TRIP ///////////////
 const checkDestinationId = async (destinationId, destinationName) => {
   const destinationDataId = await db.query(`
-  SELECT * FROM destinations WHERE
-  google_destination_id = $1;`, [destinationId])
+  SELECT * FROM destinations 
+  WHERE
+  google_destination_id = $1;
+  `, [destinationId]);
   if (destinationDataId.rows.length === 0) {
     const insertData = await db.query(`
     INSERT INTO destinations (google_destination_id, name)
     VALUES ($1, $2)
     RETURNING id;
     `, [destinationId, destinationName]);
-    return insertData.rows[0].id
+    return insertData.rows[0].id;
   }
-  return destinationDataId.rows[0].id
-}
+  return destinationDataId.rows[0].id;
+};
 
 const checkPlacesId = async (placeId, destinationId, placeName) => {
   const checkPlacesId = await db.query(`
   SELECT * FROM places WHERE
-  google_place_id = $1;`, [placeId])
+  google_place_id = $1;`, [placeId]);
   console.log(checkPlacesId);
   if (checkPlacesId.rows.length === 0) {
     const insertData = await db.query(`
@@ -101,40 +103,64 @@ const checkPlacesId = async (placeId, destinationId, placeName) => {
     VALUES ($1, $2, $3)
     RETURNING id;
     `, [placeId, destinationId, placeName]);
-    return insertData.rows[0].id
+    return insertData.rows[0].id;
   }
-  return checkPlacesId.rows[0].id
-}
+  return checkPlacesId.rows[0].id;
+};
 
 const addTripQuery = async (tripData) => {
-  const { destination_id, destination_name, place_id, place_name, place_address, user_id, schedule_id, date, start_time, attraction_photo_url } = tripData;
+  const {
+    destination_id,
+    destination_name,
+    place_id, place_name,
+    place_address,
+    user_id,
+    schedule_id,
+    date,
+    start_time,
+    attraction_photo_url
+  } = tripData;
 
   console.log(tripData);
 
-  const destinationId = await checkDestinationId(destination_id, destination_name) 
-  const placeId = await checkPlacesId(place_id, destinationId, place_name)
- // 
-  const queryString =`
-  INSERT INTO trips(place_id, user_id, schedule_id, date, start_time, attraction_photo_url)
+  const destinationId = await checkDestinationId(destination_id, destination_name);
+  const placeId = await checkPlacesId(place_id, destinationId, place_name);
+
+  const queryString = `
+  INSERT INTO trips(
+    place_id,
+    user_id,
+    schedule_id,
+    date,
+    start_time,
+    attraction_photo_url
+    )
   VALUES($1, $2, $3, $4, $5, $6)
-  RETURNING id;`
+  RETURNING id;`;
 
-const values = [ placeId, user_id, schedule_id, date, start_time, attraction_photo_url];
+  const values = [
+    placeId,
+    user_id,
+    schedule_id,
+    date,
+    start_time,
+    attraction_photo_url
+  ];
 
-  const results = await db.query(queryString, values)
-  console.log(results)
+  const results = await db.query(queryString, values);
+  console.log(results);
 
 };
-module.exports = addTripQuery;
+
 ////////////// Get TRIP ///////////////
 
 const getTrip = () => {
-  return db.query(`SELECT * FROM trips;`) 
+  return db.query(`SELECT * FROM trips;`)
     .then(data => {
       return data.rows;
     })
     .catch((err) => {
-      console.error(err.message); 
+      console.error(err.message);
     });
 };
 ////////////////////////////Exports////////////////////////////////
