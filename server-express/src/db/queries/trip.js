@@ -141,9 +141,7 @@ const getTrip = () => {
 module.exports = {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
-  updateUserNoteByTripId,
-  updateTrips,
   addTripQuery,
-  getTrip
+  getTrip,
   updateTripTimeAndUserNote
 };
