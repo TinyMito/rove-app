@@ -8,7 +8,16 @@ import './Schedule.css'; // Import the CSS file
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../../GlobalData';
+
 export const Schedule = (props) => {
+
+  const { userData, setUserData } = globalData();
+  const changeUser = (newUserId) => {
+    setUserData({ ...userData, id: newUserId });
+  };
+  
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays, destination } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
