@@ -26,9 +26,9 @@ export default function Dev() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation />
+        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header />
+          <Header userName={userData.userName} />
           <div className="body">
             {/* Your codes start here */}
 
