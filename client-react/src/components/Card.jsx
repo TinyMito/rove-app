@@ -85,7 +85,7 @@ export default function Suggestion() {
               
               <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
            {/*      <Button sx={{ fontSize: '20px' }}> + </Button> */}
-           <Modal locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
+           <Modal scheduleId={userData.scheduleId} locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
                 <CardMedia
                   component='img'
                   height='300'
