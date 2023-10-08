@@ -57,15 +57,13 @@ VALUES
   ('Fontana del Mosè', 'ChIJi9yyY6hhLxMRVNyx8X7arwA'),
   ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c'),
   ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w'),
-  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8')--Dubai
-
+  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8'); --Dubai
 
 INSERT INTO schedules (start_date, end_date, user_id)
 VALUES
   ('2023-10-01', '2023-10-03', 1),
   ('2023-11-15', '2023-11-15', 2),
-  ('2024-01-15', '2024-01-15', 3)
-
+  ('2024-01-15', '2024-01-15', 3);
 
 INSERT INTO trips (place_id, user_id, schedule_id, date, start_time, attraction_photo_url)
 VALUES
@@ -83,7 +81,7 @@ VALUES
   (9, 2, 2, '2023-11-15', '12:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zgWceI8QPJoTSFFc4VpV4gQ0lVTFTMvpThWZ5U7P0EMetRJjTOmJcuEqDwWXsN6Wb5CjXZBfCf3slrgGQOtCN03m5h09WJUWkj80FHWGBuuv-mrtiAnMuWvFoFVyJXXNWHpBq5ve9uBS4qOCdK1umJ-W59CAI48oMzQKeL0huTTngeC&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
 
 -- trip 3, 
-  (10, 3, 3, '2024-01-15', '11:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zhx-hpQ3LAdo8UZh7FWZ8hcJGDNb-57YoNr4Rt4wG6Nl3CftpnYc_EIdUZ6EsZf-NL-Gsz6nbAJ24v9i-Bx1Vioaw6vkmkk7d2lhDiX47B0lbqQnHBQsCeQ8gqyQrfNe3BzULadXIrxouaNQmo0PXOOJGtlBV-COA9pADSku8NibkbX&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU')
+  (10, 3, 3, '2024-01-15', '11:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zhx-hpQ3LAdo8UZh7FWZ8hcJGDNb-57YoNr4Rt4wG6Nl3CftpnYc_EIdUZ6EsZf-NL-Gsz6nbAJ24v9i-Bx1Vioaw6vkmkk7d2lhDiX47B0lbqQnHBQsCeQ8gqyQrfNe3BzULadXIrxouaNQmo0PXOOJGtlBV-COA9pADSku8NibkbX&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU');
 
 /* INSERT INTO mock_destinations (name, thumbnail_img_url, cover_photo_url)
 VALUES
