@@ -21,6 +21,7 @@ export default function UserNote({userNote, onSubmit}) {
       {isEditing? (
         <div className="user-note-edit-schedule">
           <TextField
+            className="user-note-schedule"
             fullWidth
             sx={{ m: 0.05 }}
             id="standard-multiline-flexible"
@@ -31,7 +32,6 @@ export default function UserNote({userNote, onSubmit}) {
             value={editedUserNote}
             onBlur={() => onSubmit(editedUserNote)}
           />
-          
           <TaskAltIcon
             className="edit-trip-usernote"
             onClick={() => {
