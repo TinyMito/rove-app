@@ -5,7 +5,18 @@ import "./Duration.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../GlobalData';
+
 export default function Duration() {
+  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData } = globalData();
+
+  // EXAMPLE change user id in GLOBAL DATA
+  const updateScheduleId = (newScheduleId) => {
+    setUserData({ ...userData, scheduleId: newScheduleId });
+  };
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const navigate = useNavigate();
@@ -47,6 +58,7 @@ export default function Duration() {
         if (response.status === 200) {
           console.log("Trip duration inserted successfully.");
           // Redirect to the next page
+          updateScheduleId(id)
           navigate("/");
         } else {
           console.error("Failed to insert trip duration.");
