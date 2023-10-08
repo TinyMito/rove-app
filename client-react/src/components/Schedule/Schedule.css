@@ -54,6 +54,10 @@
   align-items: right;
 }
 
+.timepicker-clock-schedule {
+  font-size: 1em !important; 
+}
+
 .travel-dates {
   display: flex;
   justify-content: right;
