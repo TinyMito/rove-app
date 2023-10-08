@@ -11,7 +11,7 @@ const dbQuery = function (query) {
   );
 };
 
-const userScheduleQuery =
+/* const userScheduleQuery =
   `
   SELECT DISTINCT ON (schedules.id, schedules.start_date, schedules.end_date)
   schedules.id, schedules.start_date, schedules.end_date, schedules.user_id, 
@@ -22,6 +22,15 @@ const userScheduleQuery =
   JOIN destinations ON destinations.id = schedules.destination_id
   WHERE schedules.user_id = $1
   ORDER BY schedules.start_date;
+  `; */
+
+  const userScheduleQuery =
+  `
+  SELECT DISTINCT schedules.id, schedules.start_date, schedules.end_date, schedules.user_id, users.first_name, users.last_name, users.profile_thumbnail_img
+  FROM schedules
+  JOIN trips ON trips.schedule_id = schedules.id AND trips.user_id = schedules.user_id
+  JOIN users ON users.id = schedules.user_id
+  WHERE schedules.user_id = $1;
   `;
 
 const getUserSchedule = (userId) => {

@@ -15,7 +15,8 @@ export function DataProvider({ children }) {
     googleApiPlaceId: null
 
   });
-
+  
+  console.log(userData)
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
       {children}
