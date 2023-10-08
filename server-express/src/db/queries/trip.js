@@ -149,22 +149,10 @@ const addTripQuery = async (tripData) => {
 
 };
 
-////////////// Get TRIP ///////////////
-
-const getTrip = () => {
-  return db.query(`SELECT * FROM trips;`)
-    .then(data => {
-      return data.rows;
-    })
-    .catch((err) => {
-      console.error(err.message);
-    });
-};
 ////////////////////////////Exports////////////////////////////////
 module.exports = {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
   addTripQuery,
-  getTrip,
   updateTripTimeAndUserNote
 };

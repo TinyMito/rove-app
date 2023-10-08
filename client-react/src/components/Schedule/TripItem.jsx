@@ -72,7 +72,7 @@ export const TripItem = ({
             component="img"
             alt={trip.name}
             height="400"
-            image={trip.cover_photo_url}              
+            image={trip.attraction_photo_url}              
             style={{ cursor: 'pointer'}}
             onClick={() => handlePlaceCardOpen(trip.place_id)}
           />
