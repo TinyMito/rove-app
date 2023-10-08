@@ -13,7 +13,8 @@ const destination =
     S.id AS scheedule_id,
     S.start_date AS start_date,
     S.end_date AS end_date,
-    D.name AS destination_name
+    D.name AS destination_name,
+    D.google_destination_id AS google_destination_id
   FROM
     schedules S
   JOIN

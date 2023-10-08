@@ -10,18 +10,24 @@ import Header from '../partials/Header';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
+import { replaceSpacesWithPercent20 } from './utils';
 
 export const Schedule = (props) => {
 
+  
   const { userData, setUserData } = globalData();
   const changeUser = (newUserId) => {
     setUserData({ ...userData, id: newUserId });
   };
   
   const { id } = useParams();
-  const { schedule, dates, handleSetDay, currentDay, totalDays, destination } = useSchedule({ id });
+  const { schedule, dates, handleSetDay, currentDay, totalDays, destination, googleDestinationId } = useSchedule({ id });
   const { start_date, end_date } = schedule || {};
   const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
+  
+  console.log('destination');
+  console.log('googleDestinationId', 'googleDestinationId')
+  const destinationNameFormatted = replaceSpacesWithPercent20(googleDestinationId);
 
   return (
     <div className="box">
@@ -50,7 +56,7 @@ export const Schedule = (props) => {
               <Button 
               fullWidth={true} 
               sx={{ fontSize: '50px' }} 
-              href={`/card/:location/${props.place_id}`}
+              href={`/card/${destination}/${googleDestinationId}`}
               size="small">
                 <i className="bi bi-plus"></i>
               </Button>
