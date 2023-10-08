@@ -62,11 +62,11 @@ VALUES
   ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w', 2),
   ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3); --Dubai
 
-INSERT INTO schedules (start_date, end_date, user_id)
+INSERT INTO schedules (start_date, end_date, user_id, destination_id)
 VALUES
-  ('2023-10-01', '2023-10-03', 1),
-  ('2023-11-15', '2023-11-15', 2),
-  ('2024-01-15', '2024-01-15', 3);
+  ('2023-10-01', '2023-10-03', 1, 1),
+  ('2023-11-15', '2023-11-15', 2, 2),
+  ('2024-01-15', '2024-01-15', 3, 3);
 
 INSERT INTO trips (place_id, user_id, schedule_id, date, start_time, attraction_photo_url)
 VALUES
