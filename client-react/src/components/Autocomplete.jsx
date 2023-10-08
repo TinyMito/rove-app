@@ -5,6 +5,10 @@ import PlacesAutocomplete, {
 import { useNavigate } from 'react-router-dom';
 import './Google.css';
 
+// Import Navigation & Header
+import Navigation from './partials/Navigation';
+import Header from './partials/Header';
+
 export default function GoogleAutocomplete() {
   const [address, setAddress] = useState('');
   const [locationInfo, setLocationInfo] = useState(null);
@@ -31,7 +35,14 @@ export default function GoogleAutocomplete() {
   };
 
   return (
-    <div className="body">
+    <div className="box"> 
+      <div className="flex-row">
+        <Navigation />
+        <div className="flex-column">
+          <Header />
+          <div className="body">
+            {/* Your codes start here */}
+
       <PlacesAutocomplete
         value={address}
         onChange={setAddress}
@@ -81,6 +92,11 @@ export default function GoogleAutocomplete() {
         )}
       </PlacesAutocomplete>
       <button onClick={handleButtonClick}>Submit</button>
+      
+            {/* Your codes end here */}
+            </div>
+        </div>
+      </div>
     </div>
   );
 }

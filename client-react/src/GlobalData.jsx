@@ -8,7 +8,9 @@ export function DataProvider({ children }) {
     loggedIn: true, // <- testing only
     scheduleId: null,
     scheduleStartDate: null,
-    scheduleEndDate: null
+    scheduleEndDate: null,
+    googleApiPlaceName: null,
+    googleApiPlaceId: null
 
   });
 

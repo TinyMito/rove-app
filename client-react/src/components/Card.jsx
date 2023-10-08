@@ -4,6 +4,10 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 import './Card.css';
 import Modal from './Modal';
 
+// Import Navigation & Header
+import Navigation from './partials/Navigation';
+import Header from './partials/Header';
+
 export default function Suggestion() {
   const [placeData, setPlaceData] = useState(null);
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
@@ -59,7 +63,14 @@ export default function Suggestion() {
   }, [id]);
 
   return (
-    <div className="body">
+    <div className="box"> 
+      <div className="flex-row">
+        <Navigation />
+        <div className="flex-column">
+          <Header />
+          <div className="body">
+            {/* Your codes start here */}
+
       <h1>Nearby Attractions - {location}</h1>
       {nearbyAttractions.length > 0 ? (
         <div>
@@ -91,6 +102,11 @@ export default function Suggestion() {
       ) : (
         <p>No nearby attractions found.</p>
       )}
+      
+            {/* Your codes end here */}
+            </div>
+        </div>
+      </div>
     </div>
   );
 }
