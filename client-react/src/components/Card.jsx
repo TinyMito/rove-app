@@ -4,11 +4,17 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 import './Card.css';
 import Modal from './Modal';
 
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../GlobalData';
+
 // Import Navigation & Header
 import Navigation from './partials/Navigation';
 import Header from './partials/Header';
 
 export default function Suggestion() {
+  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData } = globalData();
+
   const [placeData, setPlaceData] = useState(null);
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
   const { location, id } = useParams();
@@ -65,9 +71,9 @@ export default function Suggestion() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation />
+        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header />
+          <Header userName={userData.userName} />
           <div className="body">
             {/* Your codes start here */}
 
