@@ -1,9 +1,9 @@
 INSERT INTO users (first_name, last_name, username, email, password, profile_thumbnail_img)
 VALUES
   ('John', 'Doe', 'traveler1', 'traveller1@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar01.png'),
+', 'avatar00.png'),
   ('Alice', 'Johnson', 'traveler2', 'traveler2@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar02.png'),
+', 'avatar01.png'),
   ('Sarah', 'Smith', 'traveler3', 'traveler3@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar03.png'),
   ('Michael', 'Brown', 'traveler4', 'traveler4@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
@@ -60,9 +60,9 @@ VALUES
   ('Fontana del Mosè', 'ChIJi9yyY6hhLxMRVNyx8X7arwA', 2),
   ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c', 2),
   ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w', 2),
-  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3); --Dubai
-  ('Kyoto International Manga Museum', 'ChIJh1qJf4YIAWARTAOFMHrSHvI', 4)
-  ('Nishiki Market', 'ChIJT8uMzZwIAWARnGzsARCjnrY', 4)
+  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3), --Dubai
+  ('Kyoto International Manga Museum', 'ChIJh1qJf4YIAWARTAOFMHrSHvI', 4),
+  ('Nishiki Market', 'ChIJT8uMzZwIAWARnGzsARCjnrY', 4);
 
 INSERT INTO schedules (start_date, end_date, user_id, destination_id)
 VALUES
@@ -111,7 +111,7 @@ VALUES
   ('Singapore', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv'),
   ('Rio de Janeiro', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv');
 
-INSERT INTO mock_places (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
+INSERT INTO mockplaces (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
   (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
   (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
