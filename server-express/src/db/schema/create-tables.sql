@@ -47,7 +47,8 @@ CREATE TABLE trips (
   schedule_id INT REFERENCES schedules(id),
   date VARCHAR(10),
   start_time VARCHAR(5),
-  attraction_photo_url VARCHAR(1000) -- places photo
+  attraction_photo_url VARCHAR(1000), -- places photo
+  user_note VARCHAR(255)
 );
 
 CREATE TABLE mockplaces (
