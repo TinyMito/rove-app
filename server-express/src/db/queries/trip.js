@@ -15,14 +15,11 @@ const tripsQuery =
     T.user_id,
     T.schedule_id,
     T.date,
-    T.start_time,
-    T.end_time, 
+    T.start_time, 
     T.user_note AS user_note,
-    P.description AS place_description,
-    P.thumbnail_img_url,
-    P.cover_photo_url,
-    P.google_map_link,
-    P.name AS name
+    T.attraction_photo_url,
+    P.google_place_id,
+    P.name AS name,
   FROM
     trips T
   JOIN
