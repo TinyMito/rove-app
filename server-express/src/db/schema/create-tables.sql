@@ -37,7 +37,8 @@ CREATE TABLE schedules (
   id SERIAL PRIMARY KEY NOT NULL,
   start_date VARCHAR(10),
   end_date VARCHAR(10),
-  user_id INT REFERENCES users(id)
+  user_id INT REFERENCES users(id),
+  destination_id INTEGER REFERENCES destinations(id)
 );
 
 CREATE TABLE trips (
@@ -47,7 +48,8 @@ CREATE TABLE trips (
   schedule_id INT REFERENCES schedules(id),
   date VARCHAR(10),
   start_time VARCHAR(5),
-  attraction_photo_url VARCHAR(1000) -- places photo
+  attraction_photo_url VARCHAR(1000), -- places photo
+  user_note VARCHAR(255)
 );
 
 CREATE TABLE mockplaces (
