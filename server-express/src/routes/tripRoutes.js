@@ -6,22 +6,13 @@ const {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
   addTripQuery,
-  getTrip,
   updateTripTimeAndUserNote
 } = require("../db/queries/trip");
 
-router.get("/", async (req, res) => {
-  const { id } = req.params;
-
-  getTrip()
-    .then((response) => {
-      res.json(response);
-    });
-});
 ////////////////////////////Get all trips////////////////////////////////
-router.get("/:id", (req, res) => {
+router.get("/", (req, res) => {
   const { date, id, scheduleId } = req.query;
-
+  console.log('date, scheduleId', date, scheduleId);
   if (date && scheduleId) {
     console.log('date, scheduleId', date, scheduleId);
     getTripsByScheduleIdNDate({ id, date, scheduleId })

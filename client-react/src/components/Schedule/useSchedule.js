@@ -11,6 +11,7 @@ export const useSchedule = ({ id }) => {
     fetch(`/api/schedule/${id}`)
       .then((response) => response.json())
       .then((response) => {
+        console.log('schedule response', response)
         const newSchedule = response[currentDay];
         setSchedule(newSchedule);
 
