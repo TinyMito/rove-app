@@ -8,12 +8,6 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 //icons:
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 
-const theme = createTheme({
-  typography: {
-    fontSize: 5,
-  },
-});
-
 const formatTime = (time) => {
   // Split the time into hours and minutes
   const [hours, minutes] = time.split(':');
@@ -46,11 +40,13 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
         <LocalizationProvider 
           dateAdapter={AdapterDayjs}
           localeText={{ newTimePlaceholder: 'Select a new time' }}
+          className="timepicker-container"
         >
           <DemoContainer
-            components={['TimePicker']}>
+            components={['TimePicker']}
+          >
             <TimePicker 
-              style={theme}
+              className="timepicker-clock-schedule"
               label={startTime}
               startTime={startTime}
               tripId={tripId}

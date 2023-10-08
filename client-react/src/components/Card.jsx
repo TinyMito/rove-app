@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
 import './Card.css';
+import Modal from './Modal';
 
 export default function Suggestion() {
   const [placeData, setPlaceData] = useState(null);
@@ -63,10 +64,11 @@ export default function Suggestion() {
       {nearbyAttractions.length > 0 ? (
         <div>
           <div className='attractions-list'>
-            {nearbyAttractions.slice(0,8).map((attraction, index) => (
+            {nearbyAttractions.slice(0,20).map((attraction, index) => (
               
               <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
-                <Button sx={{ fontSize: '20px' }}> + </Button>
+           {/*      <Button sx={{ fontSize: '20px' }}> + </Button> */}
+           <Modal locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
                 <CardMedia
                   component='img'
                   height='300'
@@ -76,6 +78,7 @@ export default function Suggestion() {
                   <Typography variant='h6'>{attraction.name}</Typography>
                   <Typography variant='body2' color='text.secondary'>
                     Address: {attraction.vicinity}
+                    PlaceId: {attraction.place_id}
                   </Typography>
                   <Typography variant='body2' color='text.secondary'>
                   <Rating name="read-only" value={attraction.rating} readOnly />

@@ -1,9 +1,9 @@
 INSERT INTO users (first_name, last_name, username, email, password, profile_thumbnail_img)
 VALUES
   ('John', 'Doe', 'traveler1', 'traveller1@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar01.png'),
+', 'avatar00.png'),
   ('Alice', 'Johnson', 'traveler2', 'traveler2@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar02.png'),
+', 'avatar01.png'),
   ('Sarah', 'Smith', 'traveler3', 'traveler3@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar03.png'),
   ('Michael', 'Brown', 'traveler4', 'traveler4@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
@@ -41,8 +41,54 @@ VALUES
   ('Liam', 'Smith', 'traveler20', 'traveler20@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar04.png');
 
+INSERT INTO destinations (google_destination_id, name)
+VALUES
+  ('ChIJD7fiBh9u5kcRYJSMaMOCCwQ', 'Paris, France'),
+  ('ChIJu46S-ZZhLxMROG5lkwZ3D7k', 'Rome, Italy'),
+  ('ChIJRcbZaklDXz4RYlEphFBu5r0', 'Dubai, United Arab Emirates'),
+  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Kyoto, Japan');
 
-INSERT INTO destinations (name, thumbnail_img_url, cover_photo_url)
+INSERT INTO places (name, google_place_id, destination_id)
+VALUES 
+  ('Palais de Justice de Paris', 'ChIJD7fiBh9u5kcRYJSMaMOCCwQ', 1), --Paris
+  ('Hôtel de Sens', 'ChIJvzDrq_1x5kcRFc9gDmQac24', 1),
+  ('Cathédrale Notre-Dame de Paris','ChIJATr1n-Fx5kcRjQb6q6cdQDY', 1),
+  ('Sainte-Chapelle', 'ChIJR3122B9u5kcRaCck3PlB9DM', 1),
+  ('The Centre Pompidou', 'ChIJoyC4CRxu5kcRRTPcWX5srLc', 1),
+  ('Hôtel de Ville', 'ChIJi1uPs_1x5kcRbh8M8XJSNMA', 1),
+  ('Fountain of the Bees', 'ChIJF_bCxathLxMRS4-5fHPJuAQ', 2),--Rome
+  ('Fontana del Mosè', 'ChIJi9yyY6hhLxMRVNyx8X7arwA', 2),
+  ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c', 2),
+  ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w', 2),
+  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3), --Dubai
+  ('Kyoto International Manga Museum', 'ChIJh1qJf4YIAWARTAOFMHrSHvI', 4),
+  ('Nishiki Market', 'ChIJT8uMzZwIAWARnGzsARCjnrY', 4);
+
+INSERT INTO schedules (start_date, end_date, user_id, destination_id)
+VALUES
+  ('2023-10-01', '2023-10-03', 1, 1),
+  ('2023-11-15', '2023-11-15', 2, 2),
+  ('2024-01-15', '2024-01-15', 3, 3);
+
+INSERT INTO trips (place_id, user_id, schedule_id, date, start_time, attraction_photo_url)
+VALUES
+-- trip 1
+  (1, 1, 1, '2023-10-01', '08:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zglT9IQTWJPN7cjJENTGQzbiUFp2RUC-cvukUfII1ymVCNvij2duUEe9H3BAanV2g6pq_n0hEAMEooIyLBEyz0ek6HiLk_aj3lwStmuAJlRkuLHcnaZsPyWIX1pKW2kIbENUnd2_-qOdsLMZuPjsKn3Nf6T1-AL8EqK7PR9zgqTfCXU&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+  (2, 1, 1, '2023-10-01', '09:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83ziio7_QtBCMQcocLNdVGr8SYIFz27X1nOcHCDygOf1-I7coKreYjx49ihlWU52chH4mS2yM6YvYeyq_uBjH2REcI8-3s4Sm0ZIS60cYv-bFGxGPRa67enJv8wNMhB6TldUs8tmhWUJ8fE70H5P9wS_x-soPdWNU-lqKCg-RmEU6zEjz&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+  (3, 1, 1, '2023-10-02', '10:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zjCrFITW7bwYlizJfHgMTZDcXIZj2mpHsP-_VnzPf1oETTlq4kLoj7zAW0jXTlPYUL2q-8f60pbX4xNYyDUglXZU9chNVfX89DL-h0u8gMOKIUyyREssljZ0W9CH1hDdej1p8Eof6ZQ4U7ytx5OBd4Fqyi0L5qGXDMmMzGE4BBE-AE0&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+  (4, 1, 1, '2023-10-03', '07:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zhWzQsVPa4MCohAtQSVS-BTHUM4boHl-EDrAevjB4VMkLXdfgHa70D9ET4foW8YGxbm4M0OB6PSOCAdsSWauwgIEB_Etx_rND8-lNBhZieCnGgcPQsUG6oygPRKMvTBcemmemORzjWsfXn11KXoHKerpe6pY3V4ssHIp3EnkhXtZzOt&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+  (5, 1, 1, '2023-10-03', '08:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zjp_UQUvaVGMpE1NlBvc1Lsa2_kD7lKLYy-lr5_UDMQNU7rIF-vr71yBNuhEq-MBfyS9MFCnZUqAgQP-POVUNE3g7TlJ3g1MVQNwhs3PxVtvMzBIDJEujpI7JVOB71K4yRsor4ZZ1LwvmeG4ILoSupSjhJgevoF1IwoCZS_2Ud8cRl2&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+  (6, 1, 1, '2023-10-03', '10:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zjaP5aJcI8tgsr6seVE_2UQ4DL-EEL64xe1mpLIjeLzhPYUiyYY_c7QQgyfrldmXWgClAB-hL1-7Fs-YnU_d0hfUG_9b3_h4nR86QdrOUBb2kiGHaTTc4qLWLCylYQWR0R8SVqh_3QbvxEWolnf8hkxG86Dz7W4lo7uW5RrSaIPQUsY&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+
+-- trip 2, 
+  (7, 2, 2, '2023-11-15', '09:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zgFvK2J-IrSwx6UMAJIgP4inHAp5X0-QWYiD3U-xuooEZKBNs3GcCizj0zk2SBfMbLipXhK-Di9VQNJcxaYoL6xtAzJKW13LGfrmmD2svht4Z-XBjg0iPMKlCRX4FcOoPhsyzht-kX7LI7XGjaTsJjGnj9IrOJAEyHEtdZMMRlXKatS&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+  (8, 2, 2, '2023-11-15', '11:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zjOLBRtwQ0VN1FyFNBbnH0WB_PnXI62rCtwsP13dpIrIiUQIJP8iIgX-Hzf7lyVAYQ5fwuHbLzPfSR4YiPlbv1BHYyE-7SUyWZhFrGSRMH3l8g10vZHbOq37Pvy-k54OY8LYjf3_XuSgaQdd1RI31G6XlfGI8Ias_8oZF4wk3tX6jU&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+  (9, 2, 2, '2023-11-15', '12:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zgWceI8QPJoTSFFc4VpV4gQ0lVTFTMvpThWZ5U7P0EMetRJjTOmJcuEqDwWXsN6Wb5CjXZBfCf3slrgGQOtCN03m5h09WJUWkj80FHWGBuuv-mrtiAnMuWvFoFVyJXXNWHpBq5ve9uBS4qOCdK1umJ-W59CAI48oMzQKeL0huTTngeC&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU'),
+
+-- trip 3, 
+  (10, 3, 3, '2024-01-15', '11:00', 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zhx-hpQ3LAdo8UZh7FWZ8hcJGDNb-57YoNr4Rt4wG6Nl3CftpnYc_EIdUZ6EsZf-NL-Gsz6nbAJ24v9i-Bx1Vioaw6vkmkk7d2lhDiX47B0lbqQnHBQsCeQ8gqyQrfNe3BzULadXIrxouaNQmo0PXOOJGtlBV-COA9pADSku8NibkbX&key=AIzaSyBhYeKLTXce8nNFmgRQ4VtYQLA-qOhVoSU');
+
+/* INSERT INTO mock_destinations (name, thumbnail_img_url, cover_photo_url)
 VALUES
   ('Paris', 'https://tinyurl.com/ye2ym57h', 'https://tinyurl.com/2fb7f766'),
   ('New York City', 'https://tinyurl.com/yckkds9a', 'https://tinyurl.com/3mt4rh38'),
@@ -65,7 +111,7 @@ VALUES
   ('Singapore', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv'),
   ('Rio de Janeiro', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv');
 
-INSERT INTO places (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
+INSERT INTO mockplaces (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
   (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
   (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
@@ -88,7 +134,7 @@ VALUES
   (19, 'Gardens by the Bay', 'Futuristic park with Supertree Grove and Flower Dome.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ubGqaQgnYDpPGWfF7'),
   (20, 'Christ the Redeemer', 'Iconic statue atop Corcovado mountain.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9');
 
-INSERT INTO schedules (start_date, end_date, user_id, destination_id)
+INSERT INTO mock_schedules (start_date, end_date, user_id, destination_id)
 VALUES
   ('2023-10-01', '2023-10-03', 1, 1),
   ('2023-11-15', '2023-11-15', 2, 7),
@@ -132,4 +178,6 @@ VALUES
   (19, 6, 5, 5, '2023-11-15', '12:00'),
 
 -- trip 6
-  (20, 8, 6, 6, '2023-11-16', '11:00');
+  (20, 8, 6, 6, '2023-11-16', '11:00', '12:00');
+  (20, 8, 6, 6, '2023-11-16', '11:00');*/
+

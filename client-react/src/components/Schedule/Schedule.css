@@ -3,6 +3,13 @@
   justify-content: right;
   align-items: center;
 }
+.card_schedule {
+  border-radius: 20px !important;
+}
+
+.card_schedule:hover {
+  transform: scale(1.005)
+}
 
 .card-actions-schedule {
   display: flex;
@@ -18,7 +25,9 @@
 }
 
 .clock-schedule-page:hover { 
-  transform: scale(1.5)
+  color: #9DD82E;
+  font-weight: bold;
+  transform: scale(1.2)
 }
 
 .edit-trip-usernote {
@@ -27,7 +36,8 @@
 }
 
 .edit-trip-usernote:hover {
-  transform: scale(1.5)
+  transform: scale(1.5);
+  color: #9DD82E;
 }
 
 .usernote-schedule-page {
@@ -38,7 +48,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  color: rgb(58, 57, 57);
+  color: #4078c0;
   border-bottom: 5px solid black;
 }
 
@@ -46,6 +56,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: #4B73DC;
 }
 
 .schedule-heading {
@@ -54,20 +65,59 @@
   align-items: right;
 }
 
+.timepicker-clock-schedule {
+  font-size: 1em !important; 
+}
+
 .travel-dates {
   display: flex;
   justify-content: right;
   color: #71B1F8;
+  margin-bottom: 1em;
 }
 
 .modal-place-container {
   width: 1000px;
 }
 
-.itinerary-day.no-overflow {
- overflow: hidden;
+.itinerary_day.no-overflow {
+ overflow: show;
 }
 
+.timepicker-container {
+  border:none !important;
+  background-color: red !important;
+}
+
+.timepicker-clock-schedule {
+  /* background-color: red; */
+  width: 2em !important;
+  /* border-radius: 25px; */
+  background-color: white;
+}
+
+.user-note-display-schedule {
+  font-size: 1.4em !important;
+  display: flex;
+  padding-top: 0.5em;
+  color:#6e6f72;
+}
+
+.schedule-card-wrapper {
+  margin-left: 0.1em;
+  padding-right: -1em;
+  margin-right: -3.7em;
+}
+
+.css-66dh3a-MuiInputBase-input-MuiInput-input {
+  color:#6e6f72 !important;
+}
+
+.trip_name {
+  font-weight: bold !important;
+  /* font-size: 2em !important; */
+  color: #71B1F8;
+}
 @media (max-width: 1260px) {
   .modal-place-container {
     max-width: 700px;
