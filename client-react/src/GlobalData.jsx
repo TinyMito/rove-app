@@ -5,7 +5,12 @@ const UserContext = createContext();
 export function DataProvider({ children }) {
   const [userData, setUserData] = useState({
     id: 1,
-    loggedIn: true // <- testing only
+    loggedIn: true, // <- testing only
+    scheduleId: null,
+    scheduleStartDate: null,
+    scheduleEndDate: null,
+    googleApiPlaceName: null,
+    googleApiPlaceId: null
 
   });
 

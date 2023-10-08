@@ -35,7 +35,7 @@ const getUserSchedule = (userId) => {
 const userSuggestedTripQuery =
   `
   SELECT *
-  FROM destinations;
+  FROM places;
   `;
 
 const getUserSuggestedTrip = () => {
