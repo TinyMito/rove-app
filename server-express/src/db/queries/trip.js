@@ -19,7 +19,7 @@ const tripsQuery =
     T.user_note AS user_note,
     T.attraction_photo_url,
     P.google_place_id,
-    P.name AS name,
+    P.name AS name
   FROM
     trips T
   JOIN
