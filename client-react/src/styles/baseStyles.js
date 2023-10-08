@@ -137,6 +137,10 @@ export const baseCss = css`
     background: #9DD82E !important;
   }
 
+  .MuiMenuItem-root {
+    font-size: 1em !important;
+  }
+  
   .MuiSvgIcon-root {
     outline: none !important;
   }
