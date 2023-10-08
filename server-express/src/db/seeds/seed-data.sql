@@ -41,8 +41,46 @@ VALUES
   ('Liam', 'Smith', 'traveler20', 'traveler20@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar04.png');
 
+INSERT INTO destinations (google_destination_id, name)
+VALUES
+  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Kyoto, Japan');
 
-INSERT INTO destinations (name, thumbnail_img_url, cover_photo_url)
+INSERT INTO schedules (start_date, end_date, user_id)
+VALUES
+  ('2023-10-01', '2023-10-03', 1),
+  ('2023-11-15', '2023-11-15', 2),
+  ('2024-01-15', '2024-01-15', 3),
+  ('2023-10-01', '2023-10-03', 4),
+  ('2023-11-15', '2023-11-15', 5),
+  ('2023-11-20', '2023-11-21', 5),
+  ('2023-12-15', '2023-12-15', 5),
+  ('2023-11-16', '2023-11-16', 6);
+
+INSERT INTO mockplaces (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
+VALUES
+  (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://shorturl.at/rBIU3', 'https://shorturl.at/ahHK2', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
+  (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://shorturl.at/gEWY1', 'https://shorturl.at/dDSV6', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
+  (3, 'Shinjuku', 'Shinjuku, Akihabara, and traditional tea ceremonies.', 5, 'https://shorturl.at/nT047', 'https://t.ly/Ee8ZY', 'https://maps.app.goo.gl/YbEDLhwKW1w8xfB89'),
+  (4, 'Sagrada Familia', 'Sagrada Familia, Park Guell, and La Rambla.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/2TfvjAUfjS3NHxLu5'),
+  (5, 'Sydney Opera House', 'Sydney Opera House, Bondi Beach, and Taronga Zoo.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
+  (6, 'Colosseum', 'Colosseum, Roman Forum, and Vatican City.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/dJ6TUUzxW4Uc2jjR7'),
+  (7, 'Big Ben', 'Big Ben, Buckingham Palace, and Tower Bridge.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/Gyq4gGB8pWV9R1Gu7'),
+  (8, 'Golden Gate Bridge', 'Golden Gate Bridge, Alcatraz Island, and Fishermans Wharf.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/7W1RpQHmrxyiR5Vv7'),
+  (9, 'Hagia Sophia', 'Hagia Sophia, Blue Mosque, and Grand Bazaar.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ubGqaQgnYDpPGWfF7'),
+  (10, 'Burj Khalifa', 'Burj Khalifa, Palm Jumeirah, and Dubai Mall.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9'),
+  (11, 'Hollywood Walk of Fame', 'Famous for the stars on the sidewalk and movie history.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
+  (12, 'South Beach', 'Beautiful beaches, nightlife, and art deco architecture.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
+  (13, 'Brandenburg Gate', 'Iconic neoclassical monument and symbol of reunification.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/YbEDLhwKW1w8xfB89'),
+  (14, 'Gateway of India', 'Historic arch monument overlooking the Arabian Sea.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/2TfvjAUfjS3NHxLu5'),
+  (15, 'CN Tower', 'Landmark tower with a glass floor and stunning views.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
+  (16, 'The Strip', 'Famous boulevard known for its resorts and casinos.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/dJ6TUUzxW4Uc2jjR7'),
+  (17, 'Rijksmuseum', 'National museum with Dutch Golden Age paintings.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/Gyq4gGB8pWV9R1Gu7'),
+  (18, 'Table Mountain', 'Iconic flat-topped mountain with hiking trails.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/7W1RpQHmrxyiR5Vv7'),
+  (19, 'Gardens by the Bay', 'Futuristic park with Supertree Grove and Flower Dome.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ubGqaQgnYDpPGWfF7'),
+  (20, 'Christ the Redeemer', 'Iconic statue atop Corcovado mountain.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9'); 
+
+
+/* INSERT INTO destinations (name, thumbnail_img_url, cover_photo_url)
 VALUES
   ('Paris', 'https://tinyurl.com/ye2ym57h', 'https://tinyurl.com/2fb7f766'),
   ('New York City', 'https://tinyurl.com/yckkds9a', 'https://tinyurl.com/3mt4rh38'),
@@ -65,7 +103,7 @@ VALUES
   ('Singapore', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv'),
   ('Rio de Janeiro', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv');
 
-INSERT INTO places (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
+INSERT INTO mockplaces (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
   (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
   (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
@@ -132,4 +170,6 @@ VALUES
   (19, 6, 5, 5, '2023-11-15', '12:00'),
 
 -- trip 6
-  (20, 8, 6, 6, '2023-11-16', '11:00');
+  (20, 8, 6, 6, '2023-11-16', '11:00', '12:00');
+  (20, 8, 6, 6, '2023-11-16', '11:00');*/
+

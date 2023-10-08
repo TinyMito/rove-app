@@ -5,11 +5,23 @@ const router = express.Router();
 const {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
+  updateUserNoteByTripId,
+  updateTrips,
+  addTripQuery,
+  getTrip,
   updateTripTimeAndUserNote
 } = require("../db/queries/trip");
 
+router.get("/", async (req, res) => {
+  const { id } = req.params;
+
+  getTrip()
+    .then((response) => {
+      res.json(response);
+    });
+});
 ////////////////////////////Get all trips////////////////////////////////
-router.get("/", (req, res) => {
+router.get("/:id", (req, res) => {
   const { date, id, scheduleId } = req.query;
 
   if (date && scheduleId) {
@@ -63,7 +75,38 @@ router.put("/:id", (req, res) => {
     });
 });
 
+////////////////////////////Add a trip////////////////////////////////
+router.post("/", (req, res) => {
+  const { destination_id, destination_name, place_id, place_name,place_address, user_id, schedule_id, date, start_time, attraction_photo_url } = req.body;
+
+  // Use object destructuring to create the tripData object
+  const tripData = {
+    destination_id,
+    destination_name,
+    place_id,
+    place_name,
+    place_address,
+    user_id,
+    schedule_id,
+    date, start_time,
+    attraction_photo_url    
+  };
+
+  console.log('tripData', tripData);
+
+  // Call the addTripQuery function to insert the new trip into the database
+  addTripQuery(tripData)
+    .then((tripId) => {
+      res.status(200).json({ tripId }); // Respond with the ID of the newly inserted trip
+    })
+    .catch((error) => {
+      console.error('Error inserting trip', error);
+      res.status(500).json({ error: 'Internal server error' });
+    });
+});
+
 /////////////////////////////////////////////////////////////////////////
+
 
 
 module.exports = router;
