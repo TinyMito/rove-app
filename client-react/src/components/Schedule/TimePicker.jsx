@@ -40,9 +40,11 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
         <LocalizationProvider 
           dateAdapter={AdapterDayjs}
           localeText={{ newTimePlaceholder: 'Select a new time' }}
+          className="timepicker-container"
         >
           <DemoContainer
-            components={['TimePicker']}>
+            components={['TimePicker']}
+          >
             <TimePicker 
               className="timepicker-clock-schedule"
               label={startTime}
