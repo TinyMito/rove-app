@@ -43,21 +43,24 @@ VALUES
 
 INSERT INTO destinations (google_destination_id, name)
 VALUES
+  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Paris, France'),
+  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Rome, Italy'),
+  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Dubai, UAE'),
   ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Kyoto, Japan');
 
 INSERT INTO places (name, google_place_id, destination_id)
 VALUES 
-  ('Palais de Justice de Paris', 'ChIJD7fiBh9u5kcRYJSMaMOCCwQ'), --Paris
-  ('Hôtel de Sens', 'ChIJvzDrq_1x5kcRFc9gDmQac24'),
-  ('Cathédrale Notre-Dame de Paris','ChIJATr1n-Fx5kcRjQb6q6cdQDY'),
-  ('Sainte-Chapelle', 'ChIJR3122B9u5kcRaCck3PlB9DM'),
-  ('The Centre Pompidou', 'ChIJoyC4CRxu5kcRRTPcWX5srLc'),
-  ('Hôtel de Ville', 'ChIJi1uPs_1x5kcRbh8M8XJSNMA'),
-  ('Fountain of the Bees', 'ChIJF_bCxathLxMRS4-5fHPJuAQ'),--Rome
-  ('Fontana del Mosè', 'ChIJi9yyY6hhLxMRVNyx8X7arwA'),
-  ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c'),
-  ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w'),
-  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8'); --Dubai
+  ('Palais de Justice de Paris', 'ChIJD7fiBh9u5kcRYJSMaMOCCwQ', 1), --Paris
+  ('Hôtel de Sens', 'ChIJvzDrq_1x5kcRFc9gDmQac24', 1),
+  ('Cathédrale Notre-Dame de Paris','ChIJATr1n-Fx5kcRjQb6q6cdQDY', 1),
+  ('Sainte-Chapelle', 'ChIJR3122B9u5kcRaCck3PlB9DM', 1),
+  ('The Centre Pompidou', 'ChIJoyC4CRxu5kcRRTPcWX5srLc', 1),
+  ('Hôtel de Ville', 'ChIJi1uPs_1x5kcRbh8M8XJSNMA', 1),
+  ('Fountain of the Bees', 'ChIJF_bCxathLxMRS4-5fHPJuAQ', 2),--Rome
+  ('Fontana del Mosè', 'ChIJi9yyY6hhLxMRVNyx8X7arwA', 2),
+  ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c', 2),
+  ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w', 2),
+  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3); --Dubai
 
 INSERT INTO schedules (start_date, end_date, user_id)
 VALUES
