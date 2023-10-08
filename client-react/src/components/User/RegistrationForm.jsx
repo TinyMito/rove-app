@@ -1,8 +1,21 @@
+// MUI Components
+import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../../GlobalData';
+
+// Import Navigation & Header
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
+
 export default function RegistrationForm() {
+  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData } = globalData();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -28,6 +41,14 @@ export default function RegistrationForm() {
   };
 
   return (
+    <div className="box"> 
+      <div className="flex-row">
+        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+        <div className="flex-column">
+          <Header userName={userData.userName} />
+          <div className="body">
+            {/* Your codes start here */}
+
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -52,5 +73,10 @@ export default function RegistrationForm() {
       />
       <button type="submit">Register</button>
     </form>
+
+    </div>
+        </div>
+      </div>
+    </div>    
   );
 }

@@ -11,7 +11,7 @@ export default function MyScheduleList({schedule}) {
             component="img"
             className="item-card-image"
             alt={schedule.name}
-            image={schedule.cover_photo_url}
+            image=""
             title={schedule.name}
           />
           <div className="item-card-caption">

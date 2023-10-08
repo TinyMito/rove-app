@@ -15,7 +15,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
-export default function Modal({ locationName, placeId , attractionId, photoUrl, attractionAddress, attractionName}) {
+export default function Modal({ scheduleId, locationName, placeId , attractionId, photoUrl, attractionAddress, attractionName}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -26,6 +26,7 @@ export default function Modal({ locationName, placeId , attractionId, photoUrl, 
   const [modalPhotoUrl, setPhotoUrl] = useState(photoUrl)
   const [attractionAddressName, setAttractionAddress] = useState(attractionAddress)
   const [attractionActualName, setAttractionName] = useState(attractionName)
+
   // Use useEffect to update state variables when props change
   useEffect(() => {
     setModalLocationName(locationName);
@@ -77,7 +78,7 @@ export default function Modal({ locationName, placeId , attractionId, photoUrl, 
           place_name: attractionActualName,
           place_address: attractionAddressName,
           user_id:1,
-          schedule_id:1,
+          schedule_id: scheduleId,
           date:formattedDate,
           start_time: formattedTime,
           attraction_photo_url: modalPhotoUrl
@@ -87,6 +88,7 @@ export default function Modal({ locationName, placeId , attractionId, photoUrl, 
         console.log('Response:', response);
         if (response.status === 200) {
           console.log("Trip inserted!!!");
+          handleClose();
         } else {
           console.error("Failed to insert trip!");
         }
@@ -124,6 +126,7 @@ export default function Modal({ locationName, placeId , attractionId, photoUrl, 
         maxWidth="sm"
         onClose={handleClose}
       >
+        
         <DialogTitle>Trip Details</DialogTitle>
         <DialogContent>
           <DialogContentText>

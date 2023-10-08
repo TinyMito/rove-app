@@ -30,7 +30,8 @@ CREATE TABLE places (
   id SERIAL PRIMARY KEY NOT NULL,
   google_place_id VARCHAR(255),
   destination_id INTEGER REFERENCES destinations(id),
-  name TEXT
+  name TEXT,
+  photo_url VARCHAR(1000)
 );
 
 CREATE TABLE schedules (
@@ -52,7 +53,7 @@ CREATE TABLE trips (
   user_note TEXT DEFAULT 'This is your note section'
 );
 
-CREATE TABLE mockplaces (
+/* CREATE TABLE mockplaces (
   id SERIAL PRIMARY KEY,
   destination_id INT NOT NULL,
   name TEXT,
@@ -61,4 +62,4 @@ CREATE TABLE mockplaces (
   thumbnail_img_url VARCHAR(255),
   cover_photo_url VARCHAR(255),
   google_map_link VARCHAR(255)
-);
+); */

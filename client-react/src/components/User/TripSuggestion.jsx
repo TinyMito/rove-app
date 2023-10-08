@@ -2,20 +2,20 @@
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
 import { Link } from "react-router-dom";
 
-export default function TripSuggestion({trip, openModal}) { 
+export default function TripSuggestion({data, openModal}) { 
   return (
     <div className="item-card">
       <div>
-        <Link onClick={() => openModal(trip.id)}>
+        <Link to={`/card/${data.name}/${data.google_place_id}`} /* onClick={() => openModal(trip.id)} */>
           <CardMedia
             component="img"
             className="item-card-image"
-            alt={trip.name}
-            image={trip.cover_photo_url}
-            title={trip.name}
+            alt={data.name}
+            image={data.photo_url}
+            title={data.name}
           />
           <div className="item-card-caption">
-            <span className="caption-title">{trip.name}</span><br/>
+            <span className="caption-title">{data.name}</span><br/>
           </div>
         </Link>
       </div>

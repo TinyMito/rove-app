@@ -1,9 +1,9 @@
 INSERT INTO users (first_name, last_name, username, email, password, profile_thumbnail_img)
 VALUES
   ('John', 'Doe', 'traveler1', 'traveller1@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar01.png'),
+', 'avatar00.png'),
   ('Alice', 'Johnson', 'traveler2', 'traveler2@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar02.png'),
+', 'avatar01.png'),
   ('Sarah', 'Smith', 'traveler3', 'traveler3@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
 ', 'avatar03.png'),
   ('Michael', 'Brown', 'traveler4', 'traveler4@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
@@ -43,24 +43,26 @@ VALUES
 
 INSERT INTO destinations (google_destination_id, name)
 VALUES
-  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Paris, France'),
-  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Rome, Italy'),
-  ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Dubai, UAE'),
+  ('ChIJD7fiBh9u5kcRYJSMaMOCCwQ', 'Paris, France'),
+  ('ChIJu46S-ZZhLxMROG5lkwZ3D7k', 'Rome, Italy'),
+  ('ChIJRcbZaklDXz4RYlEphFBu5r0', 'Dubai, United Arab Emirates'),
   ('ChIJ8cM8zdaoAWARPR27azYdlsA', 'Kyoto, Japan');
 
-INSERT INTO places (name, google_place_id, destination_id)
+INSERT INTO places (name, google_place_id, destination_id, photo_url)
 VALUES 
-  ('Palais de Justice de Paris', 'ChIJD7fiBh9u5kcRYJSMaMOCCwQ', 1), --Paris
-  ('Hôtel de Sens', 'ChIJvzDrq_1x5kcRFc9gDmQac24', 1),
-  ('Cathédrale Notre-Dame de Paris','ChIJATr1n-Fx5kcRjQb6q6cdQDY', 1),
-  ('Sainte-Chapelle', 'ChIJR3122B9u5kcRaCck3PlB9DM', 1),
-  ('The Centre Pompidou', 'ChIJoyC4CRxu5kcRRTPcWX5srLc', 1),
-  ('Hôtel de Ville', 'ChIJi1uPs_1x5kcRbh8M8XJSNMA', 1),
-  ('Fountain of the Bees', 'ChIJF_bCxathLxMRS4-5fHPJuAQ', 2),--Rome
-  ('Fontana del Mosè', 'ChIJi9yyY6hhLxMRVNyx8X7arwA', 2),
-  ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c', 2),
-  ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w', 2),
-  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3); --Dubai
+  ('Palais de Justice de Paris', 'ChIJD7fiBh9u5kcRYJSMaMOCCwQ', 1, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zhLnfeM25BrpOsfDDNLqq82-QmmAem5Hq-V-dbEgcZX-4ORSxcHZGTCk5d9gYMAfUv4NvhfbO0l-9koH_ZPQAUeT_KZy5XZzJWc_Yh8x5eEeL860J9brR7SdPZ9MjT7SPGgXvNvDyV7-M9KvbUi3sEr5hftYQ_bk4yf6EwWjOwBF7-K&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'), --Paris
+  ('Hôtel de Sens', 'ChIJvzDrq_1x5kcRFc9gDmQac24', 1, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83ziPG7nmOk6Q2n8Dv3R1WzVwGW01sNsoXNwJedghullvfC_4Q-zOuCpky7k43FOKN_Z3Y6Ueskn9jvaQxbCVDx6R8gmBjKqZf-Bfe6eNwYM_VsnAQW4EkeZvYfgK4HobMxx2dOeaWmhmeHQU2pLjYpQGXfKO1Tp_0UFPio9VnjTsV4Vl&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('Cathédrale Notre-Dame de Paris','ChIJATr1n-Fx5kcRjQb6q6cdQDY', 1, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83ziV-w3xuLyA4KAm08RFrIuo47yGo6XQiOOPj83ulzP8N5bNmsZrihUi7YLgteg57TQF45iWOLJ4geX0vsY7Qc4EYbEBnBEBzWnmlGWUk7mlyhPLgBWHaCMeVzGfzJib_wHCEVJqayUIuYi7zTmb2W4fLepDwlSxKroDoQEoR52e45WR&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('Sainte-Chapelle', 'ChIJR3122B9u5kcRaCck3PlB9DM', 1, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zgjAvncn3Djs9lNUbidJKYsPhmkWRhOBPw94YdSfd1WJxVeRHlzPe_t6xuFp86UfuBfdtzBo4gIOdqQumfZfU3KX_O-JsGPJqSNt43VcKUQf4KfYZE1f_OBLujGkduG7nIWXYne8JjLLvrt48sHIcvlOLHy3qydg6jYTVulbB7MOf1m&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('The Centre Pompidou', 'ChIJoyC4CRxu5kcRRTPcWX5srLc', 1, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zhOgkqoKiMv7ndbcgEk589A75-1TQqN8tlk0m0j4ynrq-QKnevjAsejJAXN-RqP8vFxbwc4UMtFIFuF4MBJ-Gl8ChPHcJmofcFdMd5M3ngX37aG94KaYmgD8xQe_Qcz5zaY_ZAWyao04oIZF9NfefDiEfsyJo-EZl5nptv_sug7rnYw&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('Hôtel de Ville', 'ChIJi1uPs_1x5kcRbh8M8XJSNMA', 1,'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zh270kAX5YfO5ZSoggDgA3uTGHz3RHLVvoV7zpWiiNzHNO3o_WUYVPmNM-ebVHvMZEfJHNPhLi3_N2hTE-o_wpcHNDDR2g9cWInat1HILtuYdyXdD-bXDghxiehTY-ZfGidk4QyhK9mFGd4GKEmWKAJWoAnT6KKUpO32nP6dtF8onve&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('Fountain of the Bees', 'ChIJF_bCxathLxMRS4-5fHPJuAQ', 2,'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zi-cyOWFstd3efiEX1CSDi-xrgwcG_xw9uXyhqRHB7B2fLRnuryaASM7o40oH03n9A4pRJN9dtumWtTD609ZU0KG6XodGxlHhQ1fTfTD8x_rh3pYzvqyduIztTXuyJgh-A0rNzVy0fU2ZQibMAAEwqPogXe90A0WnBIPesfiUHOmWyp&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),--Rome
+  ('Fontana del Mosè', 'ChIJi9yyY6hhLxMRVNyx8X7arwA', 2, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zhpMMjjBPWrQWLOra4PoVCziqgBXHKn6EItu3Q4IuDKm9sOelui9bdtKfiCIAJQOPQvgah00Ea1hfng7th3AtcTXmOxihNk7KUtYvgVy89qYvRF-Ih4NKmg7np_51kMGMOTif2OWbuQRjG18vZcLeTf1xl2UL-j7geaBLQu4suG0DU&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('Basilica Papale di Santa Maria Maggiore', 'ChIJ1zB926RhLxMRejWMj_tUs_c', 2, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zgmfPwNjla9yPkM_zNlyAGkCd1pDv2_goq05B_4bTcxIdAzE-7hHMdOcZRk-vNG-6iHRuHCV3p2fg62GhlFJ7IZrB5GCHdVCNMn2Mj8WsL-n3DkBFvit-1wy5XpnNDsEJAFOepJgPCP4gZNGSHY1RVEEKyTgxSVxHiT9WVOYOlV09zj&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('National Roman Museum - Palazzo Massimo', 'ChIJ18PTgaZhLxMRvINaLw9AZ2w', 2,'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zh67UbbCnoFHOx_FG-GlmmbXZU48urVdBmHrJgL07R3xmJ2BU_-g2AeTh7gEKMEfSaAvKHbH-QndBM477-jkmSEeMXYDWBy6wEUji6bsLvs2u6BJDAU4HWeiSc-D5UC6j4FH0j_QUi6ENg9c-57zw75Jl84TRNHTa4FxVBN5WnaS5xh&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('Burj Khalifa', 'JnijRDXz4R4rfO4QLlRf8', 3,'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zh1Zf_XnxpDlFUl25du1nUndSIJl87Z2PsutkWWnK2_-sNDHxwIi926liPoQJ-tZ3GpHTy9JfhKBkHJRXA6y37K7WftHRqcb0akjp5q6WeBWUlXT2RWHBTXy2W-Oa61waoMWVt68SGsHI72iHzDvKbhrt4zDYnsTVo5YkdlaxtXf4cC&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'), --Dubai
+  ('Kyoto International Manga Museum', 'ChIJh1qJf4YIAWARTAOFMHrSHvI', 4, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zjKCoToJB2M3RSazXOtR6N6U6SVB3nIK4zhTdNTvRYJKroa5XzW7K06B_3s7WWG28JsI_irhWr0LXluLknYzhSZsrvGMENNcmSIHJrfLRxALTNEdP7USSHvQxVEddkaOu8Kbp94YV7lV0sAU8ACRP4n9GltIyqRKg5i_kwvcmOkM_R2&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI'),
+  ('Nishiki Market', 'ChIJT8uMzZwIAWARnGzsARCjnrY', 4, 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATJ83zgIfq-nnADUXBlfc_UO3PrmCiSZPdrvVkbYCQfAsSKpcziRaaORrP4LQFlNBR0ZtK-qfWnzgfGoK8isq7Xxcn7rxAARv5y_3u_iMiiO_yue_pQDJ_FujkGp-mDa2R1ryGRWZdKpQVRMNOhfqo0FXIG7fzcHtJkocseDeMlawHQizY0&key=AIzaSyDBIOWQTrQpzed2FuZsesa06-iprfIHFAI');
 
 INSERT INTO schedules (start_date, end_date, user_id, destination_id)
 VALUES
@@ -109,7 +111,7 @@ VALUES
   ('Singapore', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv'),
   ('Rio de Janeiro', 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv');
 
-INSERT INTO mock_places (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
+INSERT INTO mockplaces (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
   (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
   (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
