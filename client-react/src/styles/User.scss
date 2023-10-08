@@ -1,0 +1,49 @@
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25px 0px 50px 0px;
+}
+
+.item-card {
+  padding: 0px;
+  margin: 10px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+}
+
+.item-card a {
+  color: #9399B4;
+  text-decoration: none;
+  &:hover {
+    color: #9DD82E;
+  }
+}
+
+.item-card-image {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+}
+
+.item-card-caption {
+  display: block;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px 5px 25px 5px;
+  word-wrap: normal;
+}
+
+.caption-title {
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.caption-date {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}

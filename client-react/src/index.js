@@ -8,6 +8,9 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import ScrollFix from "./ScrollFix";
+
+import { DataProvider } from './GlobalData'; // Add GlobalData
 
 import Application from './components/Application';
 import { Schedule } from './components/Schedule/Schedule';
@@ -18,6 +21,9 @@ import Duration from './components/Duration';
 import User from './components/User/User';
 import Dev from './components/Dev';
 import Modal from './components/Modal'
+import RegistrationForm from 'components/RegistrationForm';
+import LoginForm from 'components/LoginForm';
+
 
 const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
@@ -25,7 +31,9 @@ const root = createRoot(rootElement); // React ^18
 root.render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollFix />
       <Global styles={baseCss} />
+      <DataProvider>
         <Routes>
           <Route path="/" element={<Application />} />
           <Route path="/schedule/:id" element={<Schedule />} />
@@ -35,8 +43,13 @@ root.render(
           <Route path="/place/:id" element={<Place />} />
           <Route path="/user/:id" element={<User />} />
           <Route path="/modal" element={<Modal />} />
+          <Route path="/user" element={<User />} />
           <Route path="/dev" element={<Dev />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegistrationForm />} />
+
         </Routes>
+      </DataProvider>
     </BrowserRouter>
   </StrictMode>
 );

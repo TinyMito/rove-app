@@ -1,25 +1,45 @@
-INSERT INTO users (first_name, last_name, username, email, profile_thumbnail_img)
+INSERT INTO users (first_name, last_name, username, email, password, profile_thumbnail_img)
 VALUES
-  ('John', 'Doe', 'traveler1', 'traveller1@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Alice', 'Johnson', 'traveler2', 'traveler2@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Sarah', 'Smith', 'traveler3', 'traveler3@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Michael', 'Brown', 'traveler4', 'traveler4@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Emily', 'Davis', 'traveler5', 'traveler5@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('David', 'Wilson', 'traveler6', 'traveler6@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Laura', 'Turner', 'traveler7', 'traveler7@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Chris', 'Anderson', 'traveler8', 'traveler8@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Alice', 'Johnson', 'traveler9', 'traveler9@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Bob', 'Smith', 'traveler10', 'traveler10@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Charlie', 'Brown', 'traveler11', 'traveler11@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('David', 'Wilson', 'traveler12', 'traveler12@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Eva', 'Davis', 'traveler13', 'traveler13@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Frank', 'Turner', 'traveler14', 'traveler14@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Grace', 'Anderson', 'traveler15', 'traveler15@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Harrison', 'Smith', 'traveler16', 'traveler16@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Isabella', 'Wilson', 'traveler17', 'traveler17@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Jack', 'Johnson', 'traveler18', 'traveler18@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Katherine', 'Brown', 'traveler19', 'traveler19@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
-  ('Liam', 'Smith', 'traveler20', 'traveler20@example.com', 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+  ('John', 'Doe', 'traveler1', 'traveller1@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar01.png'),
+  ('Alice', 'Johnson', 'traveler2', 'traveler2@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar02.png'),
+  ('Sarah', 'Smith', 'traveler3', 'traveler3@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar03.png'),
+  ('Michael', 'Brown', 'traveler4', 'traveler4@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar04.png'),
+  ('Emily', 'Davis', 'traveler5', 'traveler5@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar05.png'),
+  ('David', 'Wilson', 'traveler6', 'traveler6@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar06.png'),
+  ('Laura', 'Turner', 'traveler7', 'traveler7@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar07.png'),
+  ('Chris', 'Anderson', 'traveler8', 'traveler8@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar08.png'),
+  ('Alice', 'Johnson', 'traveler9', 'traveler9@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar01.png'),
+  ('Bob', 'Smith', 'traveler10', 'traveler10@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar02.png'),
+  ('Charlie', 'Brown', 'traveler11', 'traveler11@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar03.png'),
+  ('David', 'Wilson', 'traveler12', 'traveler12@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar04.png'),
+  ('Eva', 'Davis', 'traveler13', 'traveler13@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar05.png'),
+  ('Frank', 'Turner', 'traveler14', 'traveler14@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar06.png'),
+  ('Grace', 'Anderson', 'traveler15', 'traveler15@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar07.png'),
+  ('Harrison', 'Smith', 'traveler16', 'traveler16@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar08.png'),
+  ('Isabella', 'Wilson', 'traveler17', 'traveler17@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar01.png'),
+  ('Jack', 'Johnson', 'traveler18', 'traveler18@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar02.png'),
+  ('Katherine', 'Brown', 'traveler19', 'traveler19@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar03.png'),
+  ('Liam', 'Smith', 'traveler20', 'traveler20@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
+', 'avatar04.png');
 
 INSERT INTO destinations (google_destination_id, name)
 VALUES
@@ -85,8 +105,8 @@ VALUES
 
 INSERT INTO mockplaces (destination_id, name, description, rating, thumbnail_img_url, cover_photo_url, google_map_link)
 VALUES
-  (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://shorturl.at/rBIU3', 'https://shorturl.at/ahHK2', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
-  (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://shorturl.at/gEWY1', 'https://shorturl.at/dDSV6', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
+  (1, 'Eiffel Tower', 'Eiffel Tower and romantic walks along the Seine River.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/4LQhxeR7LRJHvGtY6'),
+  (2, 'Time Sqaure', 'Times Square, Central Park, and Broadway shows.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/n2uvUam6mV5zq6p6A'),
   (3, 'Shinjuku', 'Shinjuku, Akihabara, and traditional tea ceremonies.', 5, 'https://shorturl.at/nT047', 'https://t.ly/Ee8ZY', 'https://maps.app.goo.gl/YbEDLhwKW1w8xfB89'),
   (4, 'Sagrada Familia', 'Sagrada Familia, Park Guell, and La Rambla.', 4, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/2TfvjAUfjS3NHxLu5'),
   (5, 'Sydney Opera House', 'Sydney Opera House, Bondi Beach, and Taronga Zoo.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/wqF6BXp1GJ5j3fdz7'),
@@ -106,36 +126,50 @@ VALUES
   (19, 'Gardens by the Bay', 'Futuristic park with Supertree Grove and Flower Dome.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ubGqaQgnYDpPGWfF7'),
   (20, 'Christ the Redeemer', 'Iconic statue atop Corcovado mountain.', 5, 'https://tinyurl.com/apzdatcv', 'https://tinyurl.com/apzdatcv', 'https://maps.app.goo.gl/ekT8zv4fCCmL1wvE9');
 
-INSERT INTO trips (place_id, destination_id, user_id, schedule_id, date, start_time, end_time)
+INSERT INTO schedules (start_date, end_date, user_id, destination_id)
+VALUES
+  ('2023-10-01', '2023-10-03', 1, 1),
+  ('2023-11-15', '2023-11-15', 2, 7),
+  ('2024-01-15', '2024-01-15', 3, 10),
+  ('2023-10-01', '2023-10-03', 4, 2),
+  ('2023-11-15', '2023-11-15', 5, 3),
+  ('2023-11-20', '2023-11-21', 5, 4),
+  ('2023-12-15', '2023-12-15', 5, 6),
+  ('2023-11-16', '2023-11-16', 6, 8);
+
+
+INSERT INTO trips (place_id, destination_id, user_id, schedule_id, date, start_time)
 VALUES
 -- trip 1
-  (1, 1, 1, 1, '2023-10-01', '08:00', '09:00'),
-  (2, 1, 1, 1, '2023-10-01', '09:00', '10:00'),
-  (3, 1, 1, 1, '2023-10-02', '10:00', '12:00'),
-  (4, 1, 1, 1, '2023-10-03', '07:00', '08:00'),
-  (5, 1, 1, 1, '2023-10-03', '08:00', '10:00'),
-  (6, 1, 1, 1, '2023-10-03', '10:00', '12:00'),
+  (1, 1, 1, 1, '2023-10-01', '08:00'),
+  (2, 1, 1, 1, '2023-10-01', '09:00'),
+  (3, 1, 1, 1, '2023-10-02', '10:00'),
+  (4, 1, 1, 1, '2023-10-03', '07:00'),
+  (5, 1, 1, 1, '2023-10-03', '08:00'),
+  (6, 1, 1, 1, '2023-10-03', '10:00'),
 
 -- trip 2
-  (7, 7, 2, 2, '2023-11-15', '09:00', '11:00'),
-  (8, 7, 2, 2, '2023-11-15', '11:00', '12:00'),
-  (9, 7, 2, 2, '2023-11-15', '12:00', '14:00'),
+  (7, 7, 2, 2, '2023-11-15', '09:00'),
+  (8, 7, 2, 2, '2023-11-15', '11:00'),
+  (9, 7, 2, 2, '2023-11-15', '12:00'),
 
 -- trip 3
-  (10, 10, 3, 3, '2024-01-15', '11:00', '12:00'),
+  (10, 10, 3, 3, '2024-01-15', '11:00'),
 
 -- trip 4
-  (11, 2, 4, 4, '2023-10-01', '08:00', '09:00'),
-  (12, 2, 4, 4, '2023-10-01', '09:00', '10:00'),
-  (13, 2, 4, 4, '2023-10-02', '10:00', '11:00'),
-  (14, 2, 4, 4, '2023-10-03', '07:00', '08:00'),
-  (15, 2, 4, 4, '2023-10-03', '08:00', '10:00'),
-  (16, 2, 4, 4, '2023-10-03', '10:00', '12:00'),
+  (11, 2, 4, 4, '2023-10-01', '08:00'),
+  (12, 2, 4, 4, '2023-10-01', '09:00'),
+  (13, 2, 4, 4, '2023-10-02', '10:00'),
+  (14, 2, 4, 4, '2023-10-03', '07:00'),
+  (15, 2, 4, 4, '2023-10-03', '08:00'),
+  (16, 2, 4, 4, '2023-10-03', '10:00'),
 
 -- trip 5
-  (17, 3, 5, 5, '2023-11-15', '09:00', '11:00'),
-  (18, 4, 5, 5, '2023-11-15', '11:00', '12:00'),
-  (19, 6, 5, 5, '2023-11-15', '12:00', '14:00'),
+  (17, 3, 5, 5, '2023-11-15', '09:00'),
+  (18, 4, 5, 5, '2023-11-15', '11:00'),
+  (19, 6, 5, 5, '2023-11-15', '12:00'),
 
 -- trip 6
-  (20, 8, 6, 6, '2023-11-16', '11:00', '12:00'); */
+  (20, 8, 6, 6, '2023-11-16', '11:00', '12:00');
+  (20, 8, 6, 6, '2023-11-16', '11:00');*/
+

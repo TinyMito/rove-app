@@ -9,6 +9,7 @@ const {
   updateTrips,
   addTripQuery,
   getTrip,
+  updateTripTimeAndUserNote
 } = require("../db/queries/trip");
 
 router.get("/", async (req, res) => {
@@ -24,10 +25,12 @@ router.get("/:id", (req, res) => {
   const { date, id, scheduleId } = req.query;
 
   if (date && scheduleId) {
+    console.log('date, scheduleId', date, scheduleId);
     getTripsByScheduleIdNDate({ id, date, scheduleId })
       .then((response) => {
         res.status(200);
         res.json(response);
+        console.log('get', response);
       })
       .catch((error) => {
         console.error('Error fetching data for trip/:id:', error);
@@ -52,7 +55,24 @@ router.delete("/:id", (req, res) => {
       console.error('Error fetching data for trip/:id:', error);
       res.status(500).json({ error: 'Internal server error' });
     });
+});
 
+////////////////////////////Update a trip////////////////////////////////
+router.put("/:id", (req, res) => {
+
+  console.log('req.body', req.body);
+  const { tripId, startTime, userNote } = req.body;
+  // res.json({ test: 'ok' });
+  updateTripTimeAndUserNote({ tripId, startTime, userNote })
+    .then((rows) => {
+      res.status(200);
+      console.log('updated trip', rows[0]);
+      res.json(rows[0]);
+    })
+    .catch((error) => {
+      console.log('Error fetching data for trip/:id', error);
+      res.status(500).json({ error: 'Internal server error' });
+    });
 });
 
 ////////////////////////////Add a trip////////////////////////////////
@@ -84,6 +104,9 @@ router.post("/", (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     });
 });
+
+/////////////////////////////////////////////////////////////////////////
+
 
 
 module.exports = router;
