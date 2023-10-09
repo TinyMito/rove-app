@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const { 
-  getDestinationNDates, 
-  updateSchedulesQuery 
+const {
+  getDestinationNDates,
+  updateSchedulesQuery
 } = require("../db/queries/schedule");
-
 
 router.get("/", (req, res) => {
   res.json({ test: 'ok' });
@@ -25,11 +24,11 @@ router.get("/:id", (req, res) => {
     });
 });
 
-////////////////////////////Update a Schedule's Destination////////////////////////////////
+//////////////////Update a Schedule's Destination///////////////////////////
 router.put("/", async (req, res) => {
   const { scheduleId, destinationId } = req.body;
   try {
-    
+
     const updatedScheduleId = await updateSchedulesQuery({ scheduleId, destinationId });
 
     res.status(200).json({ updatedScheduleId });

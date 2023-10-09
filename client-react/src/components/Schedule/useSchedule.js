@@ -12,8 +12,7 @@ export const useSchedule = ({ id }) => {
     fetch(`/api/schedule/${id}`)
       .then((response) => response.json())
       .then((response) => {
-        console.log('schedule response', response)
-        const newSchedule = response[currentDay];
+        const newSchedule = response[0]; // response always comes back in an array with just one element.
         setSchedule(newSchedule);
 
         // Assuming start_date and end_date are properties of newSchedule
@@ -26,6 +25,7 @@ export const useSchedule = ({ id }) => {
         setDates(daysArray(start_date, end_date));
         setDestination(destination_name);
         setGoogleDestinationId(google_destination_id);
+        console.log('schedule', newSchedule)
       });
   }, [id]);
 
