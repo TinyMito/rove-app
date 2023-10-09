@@ -4,14 +4,14 @@ import PlacesAutocomplete, {
   geocodeByAddress,
 } from 'react-places-autocomplete';
 import { useNavigate } from 'react-router-dom';
-import './Google.css';
+import '../../styles/Google.css';
 
 // GLOBAL DATA: Import GlobalData function
-import { globalData } from '../GlobalData';
+import { globalData } from '../../GlobalData';
 
 // Import Navigation & Header
-import Navigation from './partials/Navigation';
-import Header from './partials/Header';
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
 
 export default function GoogleAutocomplete() {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc

@@ -14,16 +14,16 @@ import { DataProvider } from './GlobalData'; // Add GlobalData
 
 import Application from './components/Application';
 import { Schedule } from './components/Schedule/Schedule';
-import Google from './components/Autocomplete';
-import Suggestion from './components/Card';
+import Google from './components/Survey/Autocomplete';
+import Suggestion from './components/Survey/Card';
 import Place from './components/Place/Place';
 import Duration from './components/Survey/Duration';
 import User from './components/User/User';
 import Dev from './components/Dev';
-import Modal from './components/Modal'
+import Modal from './components/Survey/Modal'
 import RegistrationForm from 'components/User/RegistrationForm';
 import LoginForm from 'components/User/LoginForm';
-import MapData from 'components/MapData';
+import MapData from 'components/Map/MapData';
 
 
 const rootElement = document.getElementById('root'); // React ^18
