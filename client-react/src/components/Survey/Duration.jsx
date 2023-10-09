@@ -72,7 +72,7 @@ export default function Duration() {
           const { newTrip, startDate, endDate } = response.data;
           //console.log(response.data)
           updateScheduleId(newTrip, startDate, endDate);
-          console.log("GLOBAL DATA: ", userData)
+          //console.log("GLOBAL DATA: ", userData)
           navigate("/google");
         } else {
           console.error("Failed to insert trip duration.");

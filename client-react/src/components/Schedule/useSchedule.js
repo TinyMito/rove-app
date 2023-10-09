@@ -25,7 +25,7 @@ export const useSchedule = ({ id }) => {
         setDates(daysArray(start_date, end_date));
         setDestination(destination_name);
         setGoogleDestinationId(google_destination_id);
-        console.log('schedule', newSchedule)
+        //console.log('schedule', newSchedule)
       });
   }, [id]);
 

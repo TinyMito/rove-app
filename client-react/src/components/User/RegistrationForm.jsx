@@ -32,7 +32,7 @@ export default function RegistrationForm() {
     e.preventDefault();
     try {
       const response = await axios.post("/api/register", formData);
-      console.log(response.data.token);
+      //console.log(response.data.token);
       // Redirect upon successful registration
       navigate("/");
     } catch (error) {

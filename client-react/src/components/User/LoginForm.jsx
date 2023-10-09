@@ -31,7 +31,7 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const response = await axios.post("/api/login", formData);
-      console.log(response.data.token);
+      //console.log(response.data.token);
       // Redirect upon successful login
       navigate("/");
     } catch (error) {

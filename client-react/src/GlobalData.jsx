@@ -14,7 +14,8 @@ export function DataProvider({ children }) {
     destinationId: null
   });
   
-  console.log(userData)
+  //console.log(userData)
+
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
       {children}

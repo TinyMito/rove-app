@@ -4,7 +4,7 @@ import appIcon from '../../assets/images/logo.png';
 import '../../styles/Navigation.scss';
 
 export default function Navigation({loggedIn, userImg, userId}) {
-  console.log(loggedIn)
+
   return (
     <div className="Navigation">
       <div className="navFlex">

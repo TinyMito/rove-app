@@ -26,7 +26,7 @@ const db = pgp(dbConfig);
 // serve static files from ../build (needed for React)
 const cwd = process.cwd();
 const public = path.join(cwd, '..', 'public');
-console.log("public dir: ", public);
+//console.log("public dir: ", public);
 app.use(express.static(public));
 
 // Routes

@@ -53,9 +53,9 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
     setOpen(false);
   };
   const handleSubmit = async () => {
-    console.log('Submitting form...');
+    //console.log('Submitting form...');
     if (startDate !== null && selectedTime !== null) {
-      console.log('it works here');
+      //console.log('it works here');
   
       try {
         // Format the date as "yyyy-MM-dd"
@@ -85,9 +85,9 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
         };
   
         const response = await axios.post("/api/trip", tripData);
-        console.log('Response:', response);
+        //console.log('Response:', response);
         if (response.status === 200) {
-          console.log("Trip inserted!!!");
+          //console.log("Trip inserted!!!");
           handleClose();
         } else {
           console.error("Failed to insert trip!");
@@ -105,7 +105,7 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
   const handleClose = () => {
     setOpen(false);
     if (startDate !== null && selectedTime !== null) {
-      console.log(startDate, selectedTime);
+      //console.log(startDate, selectedTime);
     } else {
       setShowAlert(true);
     }
