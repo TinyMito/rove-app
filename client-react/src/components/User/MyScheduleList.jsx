@@ -11,7 +11,7 @@ export default function MyScheduleList({schedule}) {
             component="img"
             className="item-card-image"
             alt={schedule.name}
-            image=""
+            image='https://image.cnbcfm.com/api/v1/image/107178919-1673854215895-gettyimages-669463000-shutterstock_621020393.jpeg?v=1674003106'
             title={schedule.name}
           />
           <div className="item-card-caption">

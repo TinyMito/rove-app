@@ -22,7 +22,7 @@ export default function Place(props) {
   const [place, setPlace] = useState({});
   const [rating, setRating] = useState(0);
   // Extract latitude and longitude from the place data
-  const { latitude, longitude } = props.place;
+ /*  const { latitude, longitude } = props.place; */
   useEffect(() => {
     const apiPlace = `/api/place/${placeId}`;
 
@@ -82,7 +82,7 @@ export default function Place(props) {
               component="img"
               sx={{ height: 400, border: "0px solid #ccc", borderRadius: 2 }}
               alt={place.place_name}
-              image={place.cover_photo_url}
+              image={place.photo_url}
               title={place.place_name}
             />
           </Grid>
@@ -99,7 +99,7 @@ export default function Place(props) {
           </Typography>
         </CardContent>
       </Card>
-      <Link to={`/map?lat=${latitude}&lng=${longitude}`}>View on Map</Link>
+      {/* <Link to={`/map?lat=${latitude}&lng=${longitude}`}>View on Map</Link> */}
     </div>
   );
 }
