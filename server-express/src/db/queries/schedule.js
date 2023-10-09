@@ -46,9 +46,25 @@ const deleteASchedule = (scheduleId) => {
   return dbQuery(query);
 };
 
+////////////// Update Schedules ///////////////
+const updateSchedulesQuery = async ({ scheduleId, destinationId }) => {
+  const queryString = `
+    UPDATE schedules
+    SET destination_id = $2
+    WHERE id = $1
+    RETURNING id;
+  `;
+
+  const values = [scheduleId, destinationId];
+
+  const results = await db.query(queryString, values);
+  return results.rows[0].id;
+};
+
 
 ////////////////////////////Exports/////////////////////////////
 module.exports = {
   getDestinationNDates,
-  deleteASchedule
+  deleteASchedule,
+  updateSchedulesQuery
 };

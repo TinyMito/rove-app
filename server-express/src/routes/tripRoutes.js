@@ -19,10 +19,10 @@ router.get("/", (req, res) => {
       .then((response) => {
         res.status(200);
         res.json(response);
-        console.log('get', response);
+        //console.log('get', response);
       })
       .catch((error) => {
-        console.error('Error fetching data for trip/:id:', error);
+        //console.error('Error fetching data for trip/:id:', error);
         res.status(500).json({ error: 'Internal server error' });
       });
   } else if (id) {
@@ -33,7 +33,7 @@ router.get("/", (req, res) => {
 ////////////////////////////Delete a trip////////////////////////////////
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  console.log('id', id);
+  //console.log('id', id);
 
   deleteATripByTripId({ tripId: id })
     .then(() => {
@@ -41,7 +41,7 @@ router.delete("/:id", (req, res) => {
       res.json({});
     })
     .catch((error) => {
-      console.error('Error fetching data for trip/:id:', error);
+      //console.error('Error fetching data for trip/:id:', error);
       res.status(500).json({ error: 'Internal server error' });
     });
 });
@@ -55,7 +55,7 @@ router.put("/:id", (req, res) => {
   updateTripTimeAndUserNote({ tripId, startTime, userNote })
     .then((rows) => {
       res.status(200);
-      console.log('updated trip', rows[0]);
+      //console.log('updated trip', rows[0]);
       res.json(rows[0]);
     })
     .catch((error) => {
@@ -81,7 +81,7 @@ router.post("/", (req, res) => {
     attraction_photo_url
   };
 
-  console.log('tripData', tripData);
+  //console.log('tripData', tripData);
 
   // Call the addTripQuery function to insert the new trip into the database
   addTripQuery(tripData)
@@ -89,13 +89,9 @@ router.post("/", (req, res) => {
       res.status(200).json({ tripId }); // Respond with the ID of the newly inserted trip
     })
     .catch((error) => {
-      console.error('Error inserting trip', error);
+      //console.error('Error inserting trip', error);
       res.status(500).json({ error: 'Internal server error' });
     });
 });
-
-/////////////////////////////////////////////////////////////////////////
-
-
 
 module.exports = router;

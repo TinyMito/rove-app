@@ -9,7 +9,7 @@ export const useTimeLine = ({ id, date }) => {
       .then((response) => response.json())
       .then((response) => {
         setData(response);
-        console.log('response', response)
+        //console.log('response', response)
       })
       .catch((error) => {
         console.error('Error fetching updated trip data:', error);
@@ -27,7 +27,7 @@ export const useTimeLine = ({ id, date }) => {
       method: 'DELETE',
     })
       .then((response) => {
-        console.log('response', response)
+        //console.log('response', response)
         if (response.status === 200) {
           handleFetchTrips();
         }
@@ -52,7 +52,7 @@ export const useTimeLine = ({ id, date }) => {
       // Send the trip updates data to the server
       const response = await axios.put(`/api/trip/${tripId}`, tripData);
       if (response.status === 200) {
-        console.log("Trip updated successfully.");
+        //console.log("Trip updated successfully.");
         handleFetchTrips();
       } else {
         console.error("Failed to update trip.");

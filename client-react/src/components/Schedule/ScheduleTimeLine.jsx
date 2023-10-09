@@ -54,7 +54,7 @@ export const ScheduleTimeLine = (props) => {
       isOpen: true,
       placeId
     });
-    console.log('placeId', placeId);
+    //console.log('placeId', placeId);
   }, []);
 
   const handlePlaceCardClose = useCallback(() => {

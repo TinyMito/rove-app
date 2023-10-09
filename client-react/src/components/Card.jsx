@@ -30,7 +30,7 @@ export default function Suggestion() {
 
         if (data.status === 'OK') {
           setPlaceData(data.result);
-          console.log('Place details:', data.result);
+          //console.log('Place details:', data.result);
 
           // Check if location is available in placeData
           if (data.result.geometry && data.result.geometry.location) {
@@ -40,10 +40,10 @@ export default function Suggestion() {
             console.error('Location not available for this place.');
           }
         } else {
-          console.error('Error fetching place details:', data.status);
+          //console.error('Error fetching place details:', data.status);
         }
       } catch (error) {
-        console.error('Error fetching place details:', error);
+        //console.error('Error fetching place details:', error);
       }
     };
 
@@ -56,12 +56,12 @@ export default function Suggestion() {
 
         if (data.status === 'OK') {
           setNearbyAttractions(data.results);
-          console.log('Nearby attractions:', data.results);
+          //console.log('Nearby attractions:', data.results);
         } else {
-          console.error('Error fetching nearby attractions:', data.status);
+          //console.error('Error fetching nearby attractions:', data.status);
         }
       } catch (error) {
-        console.error('Error fetching nearby attractions:', error);
+        //console.error('Error fetching nearby attractions:', error);
       }
     };
 

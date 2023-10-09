@@ -28,7 +28,7 @@ export default function BasicTimePicker({ tripId, startTime, updateTrip }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleSubmit = (newValue) => {
-    console.log('value', newValue); 
+    //('value', newValue); 
     const newStartTime = formatTime(`${newValue.$H}:${newValue.$m}`);
     setIsEditing(false);
     updateTrip(tripId, newStartTime);
