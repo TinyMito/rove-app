@@ -4,15 +4,15 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 import React from "react";
 import { MapContainer as Map, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "./MapData.css";
+import "../../styles/MapData.css";
 import { useLocation } from "react-router-dom";
 
 // GLOBAL DATA: Import GlobalData function
-import { globalData } from '../GlobalData';
+import { globalData } from '../../GlobalData';
 
 // Import Navigation & Header
-import Navigation from './partials/Navigation';
-import Header from './partials/Header';
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
 
 export default function MapData() {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc

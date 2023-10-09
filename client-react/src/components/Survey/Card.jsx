@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
-import './Card.css';
+import '../../styles/Card.css';
 import Modal from './Modal';
 
 // GLOBAL DATA: Import GlobalData function
-import { globalData } from '../GlobalData';
+import { globalData } from '../../GlobalData';
 
 // Import Navigation & Header
-import Navigation from './partials/Navigation';
-import Header from './partials/Header';
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
 
 export default function Suggestion() {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc

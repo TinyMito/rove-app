@@ -11,7 +11,7 @@ export default function Navigation({loggedIn, userImg, userId}) {
         <Link className="navBtnStyle" to="/"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
         {loggedIn ? (
           <>
-            <Link className="navBtnStyle" to={`/user`}><img className="userIconStyle" src={`../${userImg}`} alt="Avatar" /></Link>
+            <Link className="navBtnStyle" to={`/user`}><img className="userIconStyle" src={`/${userImg}`} alt="Avatar" /></Link>
             <Link className="navBtnStyle" to={`/register`}><i className="bi bi-person-plus"></i></Link>
             <Link className="navBtnStyle" to={`/login`}><i className="bi bi-box-arrow-in-right"></i></Link>
             <Link className="navBtnStyle userBtnStyle" to={`/logout`}><i className="bi bi-box-arrow-left"></i></Link>
