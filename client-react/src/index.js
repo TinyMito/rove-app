@@ -23,6 +23,7 @@ import Dev from './components/Dev';
 import Modal from './components/Modal'
 import RegistrationForm from 'components/User/RegistrationForm';
 import LoginForm from 'components/User/LoginForm';
+import MapData from 'components/MapData';
 
 
 const rootElement = document.getElementById('root'); // React ^18
@@ -47,6 +48,7 @@ root.render(
           <Route path="/dev" element={<Dev />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegistrationForm />} />
+          <Route path="/map" element={<MapData />} />
 
         </Routes>
       </DataProvider>
