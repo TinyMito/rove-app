@@ -1,5 +1,6 @@
+import { useEffect, useCallback } from 'react';
 import { Button } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useTimeLine } from './useTimeLine';
 import { useSchedule } from './useSchedule';
 import { Days } from './Days';
@@ -10,25 +11,35 @@ import Header from '../partials/Header';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
-import { replaceSpacesWithPercent20 } from './utils';
 
-export const Schedule = (props) => {
+export const Schedule = () => {
+  const navigate = useNavigate();
   
   const { userData, setUserData } = globalData();
   
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays, destination, googleDestinationId } = useSchedule({ id });
 
-  const handleButtonClick = (id) => {
-    setUserData({ ...userData, scheduleId: id})
-  }
+  const handleNavigate = useCallback(() => {
+    navigate(`/card/${destination}/${googleDestinationId}`);
+  }, [destination, googleDestinationId]);
 
-  const { start_date, end_date } = schedule || {};
+  const { schedule_id, start_date, end_date } = schedule || {};
   const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
-  
-  const destinationNameFormatted = replaceSpacesWithPercent20(googleDestinationId);
 
-  // const destinationNameFormatted = replaceSpacesWithPercent20(googleDestinationId);
+  useEffect(() => {
+    if (schedule && !userData.scheduleId) {
+      setUserData((prev) => {
+        return {
+          ...prev,
+          scheduleId: schedule_id,
+          scheduleStartDate: start_date,
+          scheduleEndDate: end_date,
+          destinationId: null
+        }
+      })
+    } 
+  }, [schedule, userData.scheduleId]);
 
   return (
     <div className="box"> 
@@ -56,9 +67,8 @@ export const Schedule = (props) => {
             <section className="itinerary-day">
               <Button 
               fullWidth={true} 
-              sx={{ fontSize: '50px' }} 
-              href={`/card/${destination}/${googleDestinationId}`}
-              onClick={handleButtonClick}
+              sx={{ fontSize: '50px' }}
+              onClick={handleNavigate}
               size="small">
                 <i className="bi bi-plus"></i>
               </Button>

@@ -10,7 +10,7 @@ const dbQuery = function (query) {
 ////////////////////////////Retrieve a schedule/////////////////////////////
 const destination =
   `SELECT
-    S.id AS scheedule_id,
+    S.id AS schedule_id,
     S.start_date AS start_date,
     S.end_date AS end_date,
     D.name AS destination_name,
