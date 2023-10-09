@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const UserContext = createContext();
 
@@ -13,14 +13,17 @@ export function DataProvider({ children }) {
     scheduleEndDate: null,
     destinationId: null
   });
-  
-  //console.log(userData)
+
+  useEffect(() => {
+    console.log('userData:', userData);
+  }, [userData]);
 
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
       {children}
     </UserContext.Provider>
   );
+
 }
 
 export function globalData() {
