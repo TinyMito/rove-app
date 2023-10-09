@@ -82,6 +82,7 @@ export const TripItem = ({
               {trip.name}
             </Typography>
             <Typography 
+              component={'div'}
               variant="body2" color="text.secondary"
               className="usernote-schedule-page"
             >

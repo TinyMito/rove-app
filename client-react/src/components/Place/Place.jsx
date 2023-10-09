@@ -7,12 +7,12 @@ import { useParams } from 'react-router-dom';
 
 export default function Place(props) {
   // Get url id parameter
-  const { id } = useParams();
-  const placeId = (props.placeId || id); // Modified - if props.placeId is false use 'id' from useParams()
-  const [place, setPlace] = useState({});
-  const [rating, setRating] = useState(0);
+  //const { id } = useParams();
+  //const placeId = (props.placeId || id); // Modified - if props.placeId is false use 'id' from useParams()
+  //const [place, setPlace] = useState({});
+  //const [rating, setRating] = useState(0);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const apiPlace = `/api/place/${placeId}`;
 
     axios.get(apiPlace)
@@ -24,7 +24,8 @@ export default function Place(props) {
         setPlace({ error: err.message });
       });
   }, [id]);
-  
+   */
+
   return (
     <div className={props.containerClassName || 'body'}>
       <Card sx={{ padding: '0px 20px'}}>

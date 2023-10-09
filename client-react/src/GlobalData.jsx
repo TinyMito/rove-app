@@ -11,9 +11,7 @@ export function DataProvider({ children }) {
     scheduleId: null,
     scheduleStartDate: null,
     scheduleEndDate: null,
-    googleApiPlaceName: null,
-    googleApiPlaceId: null
-
+    destinationId: null
   });
   
   console.log(userData)
