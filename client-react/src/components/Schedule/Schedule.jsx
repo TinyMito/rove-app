@@ -25,16 +25,20 @@ export const Schedule = (props) => {
 
   const { start_date, end_date } = schedule || {};
   const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
+  
+  const destinationNameFormatted = replaceSpacesWithPercent20(googleDestinationId);
 
   // const destinationNameFormatted = replaceSpacesWithPercent20(googleDestinationId);
 
   return (
-    <div className="box">
+    <div className="box"> 
       <div className="flex-row">
-        <Navigation />
+        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header />
+          <Header userName={userData.userName} />
           <div className="body">
+            <title>{destination}</title>
+            <div id="root"></div>
             <div className="page-heading-schedule">
               <h1>{destination}</h1>
               <div className="schedule-heading">

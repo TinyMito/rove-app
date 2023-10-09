@@ -71,7 +71,7 @@ const updateTripTimeAndUserNote = ({ tripId, startTime, userNote }) => {
   return dbQuery(query);
 };
 
-////////////// Add TRIP ///////////////
+////////////// Check Destination ///////////////
 const checkDestinationId = async (destinationId, destinationName) => {
   const destinationDataId = await db.query(`
   SELECT * FROM destinations 
@@ -148,6 +148,8 @@ const addTripQuery = async (tripData) => {
   console.log(results);
 
 };
+
+
 
 ////////////////////////////Exports////////////////////////////////
 module.exports = {
