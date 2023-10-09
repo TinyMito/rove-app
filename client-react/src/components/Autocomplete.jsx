@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PlacesAutocomplete, {
   geocodeByAddress,
 } from 'react-places-autocomplete';
@@ -29,16 +30,56 @@ export default function GoogleAutocomplete() {
   const locationName = locationInfo?.formatted_address;
 
   const navigate = useNavigate();
-  const handleButtonClick = () => {
-    if (locationInfo) {
-      console.log('Selected location info:', locationInfo);
-      if (placeId) {
-        navigate(`/card/${locationName}/${placeId}`);
-      } else {
-        navigate('/card');
-      }
-    }
-  };
+
+const handleButtonClick = () => {
+  //console.log("CODE:", placeId);
+  //console.log("NAME:", locationName);
+
+  if (locationInfo) {
+    //console.log('Selected location info:', locationInfo);
+
+    // Return a promise from the function
+    return axios
+      .post('/api/destination', {
+        google_destination_id: placeId,
+        name: locationName,
+      })
+      .then((response) => {
+        const destinationId = response.data.destinationId;
+        // Return the destinationId to be used in the next .then
+        return destinationId;
+      })
+      .then((destinationId) => {
+        if (placeId) {
+          // Now that we have the destinationId, we can call updateSchedule
+          updateSchedule(userData.scheduleId, destinationId);
+          navigate(`/card/${locationName}/${placeId}`);
+        } else {
+          navigate('/card');
+        }
+      })
+      .catch((error) => {
+        console.error('Error inserting destination:', error);
+      });
+  } else {
+    return Promise.reject(new Error('Location info is missing.'));
+  }
+};
+
+const updateSchedule = async (scheduleId, destinationId) => {
+  // Take the destination ID and update the schedules table
+  axios
+    .put('/api/schedule', {
+      scheduleId,
+      destinationId,
+    })
+    .then((response) => {
+      console.log('Schedule updated with ID:', response.data);
+    })
+    .catch((error) => {
+      console.error('Error updating schedule:', error);
+    });
+};
 
   return (
     <div className="box"> 

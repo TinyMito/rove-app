@@ -39,6 +39,7 @@ app.use("/api/duration", require("./routes/durationRoutes"));
 app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/login", require("./routes/loginRoutes"));
 app.use("/api/register", require("./routes/registrationRoutes"));
+app.use("/api/destination", require("./routes/destinationRoutes"));
 
 //route to get users information from the query search provided in the queries folder
 app.get('/users', async (req, res) => {
