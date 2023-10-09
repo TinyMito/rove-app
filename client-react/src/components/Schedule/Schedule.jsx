@@ -13,21 +13,20 @@ import { globalData } from '../../GlobalData';
 import { replaceSpacesWithPercent20 } from './utils';
 
 export const Schedule = (props) => {
-
   
   const { userData, setUserData } = globalData();
-  const changeUser = (newUserId) => {
-    setUserData({ ...userData, id: newUserId });
-  };
   
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays, destination, googleDestinationId } = useSchedule({ id });
+
+  const handleButtonClick = (id) => {
+    setUserData({ ...userData, scheduleId: id})
+  }
+
   const { start_date, end_date } = schedule || {};
   const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
-  
-  console.log('destination');
-  console.log('googleDestinationId', 'googleDestinationId')
-  const destinationNameFormatted = replaceSpacesWithPercent20(googleDestinationId);
+
+  // const destinationNameFormatted = replaceSpacesWithPercent20(googleDestinationId);
 
   return (
     <div className="box">
@@ -36,8 +35,6 @@ export const Schedule = (props) => {
         <div className="flex-column">
           <Header />
           <div className="body">
-            <title>{destination}</title>
-            <div id="root"></div>
             <div className="page-heading-schedule">
               <h1>{destination}</h1>
               <div className="schedule-heading">
@@ -57,6 +54,7 @@ export const Schedule = (props) => {
               fullWidth={true} 
               sx={{ fontSize: '50px' }} 
               href={`/card/${destination}/${googleDestinationId}`}
+              onClick={handleButtonClick}
               size="small">
                 <i className="bi bi-plus"></i>
               </Button>

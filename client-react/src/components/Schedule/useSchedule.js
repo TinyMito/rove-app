@@ -12,7 +12,6 @@ export const useSchedule = ({ id }) => {
     fetch(`/api/schedule/${id}`)
       .then((response) => response.json())
       .then((response) => {
-        console.log('schedule response', response)
         const newSchedule = response[currentDay];
         setSchedule(newSchedule);
 
@@ -26,6 +25,7 @@ export const useSchedule = ({ id }) => {
         setDates(daysArray(start_date, end_date));
         setDestination(destination_name);
         setGoogleDestinationId(google_destination_id);
+        console.log('schedule', schedule)
       });
   }, [id]);
 
