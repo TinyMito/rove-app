@@ -49,6 +49,7 @@ export default function AuthForm() {
   
   const handleSelectAvatar = (avatarUrl) => {
     setFormData({ ...formData, avatar: avatarUrl });
+    setIsAvatarSelected(true);
     handleCloseAvatarDialog();
   };
 
@@ -69,6 +70,7 @@ export default function AuthForm() {
   const [errorMessageBottom, setErrorMessageBottom] = useState("");
   const { hasMessage = false, message = "" } = location.state || {};
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const [isAvatarSelected, setIsAvatarSelected] = useState(false);
 
   // MUI Password Show Function
   const [showPassword, setShowPassword] = React.useState(false);
@@ -85,10 +87,14 @@ export default function AuthForm() {
     avatar: "",
   });
 
+  const [isFormReady, setIsFormReady] = useState(false);
+  const [isRegisterFormReady, setIsRegisterFormReady] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,6 +103,12 @@ export default function AuthForm() {
     if (formData.password !== formData.passwordConfirmation) {
       setErrorMessageBottom("Passwords do not match!");
       return; // Exit the function without making the API call
+    }
+
+    // Check if the avatar is selected
+    if (!isAvatarSelected) {
+      setErrorMessageBottom("Please select an avatar.");
+      return; // Prevent form submission
     }
 
     // Remove passwordConfirmation state
@@ -130,8 +142,6 @@ export default function AuthForm() {
   };
 
   const toggleMode = () => {
-    setErrorMessage(null);
-    setErrorMessageBottom(null);
     setIsLoginMode((prevMode) => !prevMode); // Toggle between login and registration mode
   };
 
@@ -200,7 +210,7 @@ export default function AuthForm() {
 
                   <Button 
                     onClick={handleSubmit} 
-                    variant="text" 
+                    variant="text"
                     sx={{margin: '20px', padding: '10px'}}
                   >Login</Button>
 
@@ -223,7 +233,18 @@ export default function AuthForm() {
 
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
 
- 
+                  <h3>Your Public Username</h3>
+
+                    <FormControl sx={{ m: 1 }} variant="outlined">
+                      <TextField
+                        required
+                        id="outlined-required username"
+                        label="Username"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleChange}
+                      />
+                    </FormControl>  
 
                     <h3>Contact Information</h3>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -353,19 +374,6 @@ export default function AuthForm() {
                         </Button>
                       </DialogActions>
                     </Dialog>   
-
-                    <h3>Your Public Username</h3>
-
-                    <FormControl sx={{ m: 1 }} variant="outlined">
-                      <TextField
-                        required
-                        id="outlined-required username"
-                        label="Username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                      />
-                    </FormControl> 
 
                     {errorMessageBottom ? (
                       <span className="message">
