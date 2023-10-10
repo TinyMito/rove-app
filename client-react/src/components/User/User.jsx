@@ -3,7 +3,8 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useAuthentication } from 'useAuthentication';
 
 // DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
@@ -21,38 +22,32 @@ import MyScheduleList from './MyScheduleList';
 import TripSuggestion from './TripSuggestion';
 
 export default function User() {
+  // Requires the user to be logged in
+  const isAuthenticated = useAuthentication();
+
   // DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
   // Get url id parameter
-  //const { id } = useParams();
   const [schedules, setScheduleList] = useState([]);
   const [suggestedTrips, setSuggestedTrips] = useState([]);
-  const [userName, setUserName] = useState([]);
-  const [userImg, setUserImg] = useState([]);
   const [modalOpen, setModalOpen] = useState(false); // Modal state
   const [selectedTripId, setSelectedTripId] = useState(null); // Store selected trip ID
   
+  // user data 
   useEffect(() => {
-    const apiUser = `/api/user/${userData.id}`;
-
-    axios.get(apiUser)
-      .then((res) => {
-        setScheduleList(res.data.schedule);
-        setSuggestedTrips(res.data.suggestedTrip);
-        setUserName(res.data.schedule[0].first_name);
-        setUserImg(res.data.schedule[0].profile_thumbnail_img);
-      })
-      .catch((err) => {
-        setScheduleList({ error: err.message });
-        setSuggestedTrips({ error: err.message });
-        setUserName({ error: err.message });
-      });
+    if (userData.id) {
+      axios.get(`/api/user/${userData.id}`)
+        .then((res) => {
+          setScheduleList(res.data.schedule);
+          setSuggestedTrips(res.data.suggestedTrip);
+        })
+        .catch((err) => {
+          setScheduleList({ error: err.message });
+          setSuggestedTrips({ error: err.message });
+        });
+    }
   }, [userData.id]);
-
-  const changeUser = (newUserId) => {
-    setUserData({ ...userData, id: newUserId });
-  };
 
   function randomPicker(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -79,18 +74,12 @@ export default function User() {
   return (
     <div className="box">
       <div className="flex-row">
-        <Navigation 
-          loggedIn={userData.loggedIn}
-          userId={userData.id}
-          userImg={userImg} 
-        />
+      <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
           <div className="flex-column">
-            <Header 
-              userName={userName}
-            />
+          <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
 
               <div className="body">
-                <h2>{userName}'s profile</h2>
+                <h2>Username: {userData.userName}</h2>
 
                 <div className="page-heading"><h1>Destination Suggestion</h1></div>
                 <div className="item-list">
@@ -98,13 +87,11 @@ export default function User() {
                     <TripSuggestion 
                       key={item.id} 
                       data={item}
-
                       /* openModal={openModal} */
                     />
                   ))}
                 </div>
                 <div className="page-heading"><h1>My Schedule</h1></div>
-                {userData.loggedIn ? (
                   <div className="item-list">
                     {schedules.map((item) => (
                       <MyScheduleList 
@@ -113,15 +100,7 @@ export default function User() {
                       />
                     ))}
                   </div>
-                ) : (
-                  <h3>Please login to see your schedule.</h3>
-                )}
-
-                <button onClick={() => changeUser(1)}>Change User 1</button>
-                <button onClick={() => changeUser(2)}>Change User 2</button>
-                <button onClick={() => changeUser(3)}>Change User 3</button>
               </div>
-
           </div>
         </div>
 

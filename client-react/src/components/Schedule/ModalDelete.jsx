@@ -1,7 +1,7 @@
 import React,{ useCallback } from 'react';
 // import styles from './Modal.module.css';
 import { RiCloseLine } from "react-icons/ri";
-import "../../styles/Modal.css";
+import "../../styles/Modal.scss";
 
 const ModalDelete = ({ handleClose, handleConfirm, confirmMessage }) => {
 

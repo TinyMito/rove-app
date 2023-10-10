@@ -20,6 +20,7 @@ import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
 export default function MapData() {
+
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
@@ -39,7 +40,7 @@ export default function MapData() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+      <Navigation userImg={userData.userImg} />
         <div className="flex-column">
           <div styles="padding: 0; margin: 0;">
               <div className="centered-square-map">

@@ -12,9 +12,9 @@ const {
 ////////////////////////////Get all trips////////////////////////////////
 router.get("/", (req, res) => {
   const { date, id, scheduleId } = req.query;
-  console.log('date, scheduleId', date, scheduleId);
+  //console.log('date, scheduleId', date, scheduleId);
   if (date && scheduleId) {
-    console.log('date, scheduleId', date, scheduleId);
+    //console.log('date, scheduleId', date, scheduleId);
     getTripsByScheduleIdNDate({ id, date, scheduleId })
       .then((response) => {
         res.status(200);
@@ -49,7 +49,7 @@ router.delete("/:id", (req, res) => {
 ////////////////////////////Update a trip////////////////////////////////
 router.put("/:id", (req, res) => {
 
-  console.log('req.body', req.body);
+  //console.log('req.body', req.body);
   const { tripId, startTime, userNote } = req.body;
   // res.json({ test: 'ok' });
   updateTripTimeAndUserNote({ tripId, startTime, userNote })

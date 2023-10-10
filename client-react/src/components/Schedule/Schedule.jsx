@@ -6,13 +6,18 @@ import { useSchedule } from './useSchedule';
 import { Days } from './Days';
 import { ScheduleTimeLine } from "./ScheduleTimeLine";
 import './Schedule.css'; // Import the CSS file
-import Navigation from '../partials/Navigation';
-import Header from '../partials/Header';
+import { useAuthentication } from 'useAuthentication';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
 
+import Navigation from '../partials/Navigation';
+import Header from '../partials/Header';
+
 export const Schedule = () => {
+  // Requires the user to be logged in
+  const isAuthenticated = useAuthentication();
+
   const navigate = useNavigate();
   
   const { userData, setUserData } = globalData();
@@ -44,13 +49,9 @@ export const Schedule = () => {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+      <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header 
-            userName={userData.userName}
-            slogan={destination}
-            date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}
-          />
+        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} slogan={destination} date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'} />
           <div className="body">
             <title>{destination}</title>
             <div id="root"></div>

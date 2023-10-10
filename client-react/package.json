@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "express-session": "^1.17.3",
     "http-proxy-middleware": "^2.0.6",
     "sass": "^1.68.0"
   }

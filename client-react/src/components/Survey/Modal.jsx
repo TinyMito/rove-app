@@ -14,8 +14,9 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import '../../styles/Card.scss';
 
-export default function Modal({ scheduleId, locationName, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
+export default function Modal({ scheduleId, locationName, userId, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -54,9 +55,9 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
     setOpen(false);
   };
   const handleSubmit = async () => {
-    console.log('Submitting form...');
+    //console.log('Submitting form...');
     if (startDate !== null && selectedTime !== null) {
-      console.log('it works here');
+      //console.log('it works here');
   
       try {
         // Format the date as "yyyy-MM-dd"
@@ -78,7 +79,7 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
           place_id:modalAttractionId,
           place_name: attractionActualName,
           place_address: attractionAddressName,
-          user_id:1,
+          user_id: userId,
           schedule_id: scheduleId,
           date:formattedDate,
           start_time: formattedTime,
@@ -88,9 +89,9 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
         };
   
         const response = await axios.post("/api/trip", tripData);
-        console.log('Response:', response);
+        //console.log('Response:', response);
         if (response.status === 200) {
-          console.log("Trip inserted!!!");
+          //console.log("Trip inserted!!!");
           handleClose();
         } else {
           console.error("Failed to insert trip!");
@@ -108,7 +109,7 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
   const handleClose = () => {
     setOpen(false);
     if (startDate !== null && selectedTime !== null) {
-      console.log(startDate, selectedTime);
+      //console.log(startDate, selectedTime);
     } else {
       setShowAlert(true);
     }
@@ -120,9 +121,12 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Add this attraction to your trip!
-      </Button>
+      <div className="addBtn-position">
+        <Button className="addBtn" size="large" fullWidth={true} variant="text" onClick={handleClickOpen}>
+          <i className="bi bi-calendar-plus"></i>
+        </Button>
+      </div>
+
       <Dialog
         open={open}
         fullWidth={true}
@@ -131,7 +135,8 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
       >
         
         <DialogTitle>Trip Details</DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{minHeight: '450px', width: 'auto', borderRadius: '15px'}}>
+          <div className="dialog-component">
           <DialogContentText>
             Select the date for this attraction!
           </DialogContentText>
@@ -143,7 +148,8 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
             startDate={startDate}
             className="material-ui-datepicker"
           />
-
+        </div>
+        <div className="dialog-component">
           <DialogContentText>Select the time for this attraction!</DialogContentText>
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -155,17 +161,20 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
               />
             </DemoContainer>
           </LocalizationProvider>
-
+          </div>
+          <div className="dialog-component">
           {showAlert && (
             <Alert severity="error">
               Please select both date and time.
             </Alert>
           )}
+          </div>
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCancel}>Cancel</Button>
+          <Button size="large" onClick={handleCancel}>Cancel</Button>
           <Button
+            size="large"
             onClick={handleSubmit}
             disabled={isConfirmDisabled()}
           >

@@ -9,21 +9,23 @@ const { getUserByEmail } = require('../db/queries/login');
 const { createUser } = require('../db/queries/registration');
 
 // Configure express-session
-router.use(
+/* router.use(
   session({
     secret: 'sec-key',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false }, // Set to true if your app uses HTTPS
   })
-);
+); */
 
 router.post(
   '/',
   [
+    check('firstname').notEmpty(),
+    check('lastname').notEmpty(),
     check('username').notEmpty(),
     check('email').isEmail(),
-    check('password').isLength({ min: 6 }),
+    check('password').isLength({ min: 6 })
   ],
   async (req, res) => {
     // Validate request body
@@ -45,16 +47,24 @@ router.post(
 
     // Create a new user
     const newUser = {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
+      avatar: req.body.avatar
     };
 
     // Insert the user into the database
     const user = await createUser(newUser);
 
-    // Set session data after successful registration
+    // Set session data after successful login
     req.session.userId = user.id; // Store user ID in the session
+    req.session.userFirst = user.first_name;
+    req.session.userLast = user.last_name;
+    req.session.userAlias = user.username;
+    req.session.userEmail = user.email;
+    req.session.userProfile = user.profile_thumbnail_img;
 
     // Return user data
     res.status(201).json({ message: 'Registration successful' });

@@ -1,0 +1,82 @@
+/* Style the container for each date picker */
+.date-picker-container {
+  width: 100%;
+  padding: 20px 0px;
+}
+
+/* Style the label */
+.date-picker-label label {
+  font-weight: bold;
+}
+
+/* Style the date picker input field */
+.material-ui-datepicker {
+  min-width: 350px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+
+/* Style the calendar header */
+.react-datepicker__header {
+  background-color: #f0f0f0;
+}
+
+/* Style the calendar days */
+.react-datepicker__day {
+  font-size: 16px;
+  color: #000;
+  border-radius: 100%;
+  padding: 13px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+/* Style the selected day */
+.react-datepicker__day--selected {
+  background-color: #9DD82E;
+  color: #E7F1FA;
+}
+
+/* Style the today's date */
+.react-datepicker__day--today {
+  font-weight: bold;
+  color: black;
+}
+
+.react-datepicker__day--in-range {
+  background-color: #71B1F8;
+  color: #E7F1FA;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #9DD82E;
+  color: #E7F1FA;
+}
+
+.react-datepicker__day--selecting-range-start, .react-datepicker__day--selecting-range-end {
+  background-color: #4B73DC;
+  color: #E7F1FA;
+}
+
+.display-flow {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width : 1100px) {
+  .display-flow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .material-ui-datepicker {
+    width: 90%;
+  }
+
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+}

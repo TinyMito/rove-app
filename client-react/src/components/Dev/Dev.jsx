@@ -5,6 +5,7 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useAuthentication } from 'useAuthentication';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
@@ -14,6 +15,8 @@ import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
 export default function Dev() {
+  // Requires the user to be logged in
+  const isAuthenticated = useAuthentication();
 
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
@@ -26,18 +29,36 @@ export default function Dev() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+      <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header userName={userData.userName} />
+        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
           <div className="body">
             {/* Your codes start here */}
 
+            <div>
+              {isAuthenticated ? (
+                // Render authenticated content
+                <p>User is authenticated.</p>
+              ) : (
+                // Render non-authenticated content
+                <p>User is not authenticated.</p>
+              )}
+            </div>
+
             <h1>TEST PAGE Example</h1>
 
-            <h2>{userData.id}</h2>
-
-            <button onClick={() => changeUser(1)}>Change User 1</button>
-            <button onClick={() => changeUser(5)}>Change User 5</button>
+            <div>
+              {userData.id !== 1 ? (
+                // Render content that depends on userData
+                <div>
+                  <h2>Welcome, {userData.userName}</h2>
+                  {/* Other content */}
+                </div>
+              ) : (
+                // Render a loading indicator or message
+                <div>Loading...</div>
+              )}
+            </div>
 
             {/* Your codes end here */}
           </div>
