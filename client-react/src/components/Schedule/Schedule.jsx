@@ -51,24 +51,22 @@ export const Schedule = () => {
       <div className="flex-row">
       <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
         <div className="flex-column">
-        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
+        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} slogan={destination} date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'} />
           <div className="body">
             <title>{destination}</title>
             <div id="root"></div>
             <div className="page-heading-schedule">
-              <h1>{destination}</h1>
+              <h2 className="schedule-current-date">{dates[currentDay]}</h2>
               <div className="schedule-heading">
                 <h2 style={{ marginRight: '0.5em', fontSize: '2em' }}>DAY:</h2>
                 <Days
+                  className="schedule-pagination"
                   daysCount={totalDays}
                   handleChange={handleSetDay}
                   currentDay={currentDay + 1}
                 />
               </div>
             </div>
-            <h2 className="travel-dates">
-              {start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}
-            </h2>
             <section className="itinerary-day">
               <Button 
               fullWidth={true} 
