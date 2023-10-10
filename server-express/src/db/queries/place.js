@@ -9,9 +9,15 @@ const dbQuery = function (query) {
 
 const placeQuery =
   `
-  SELECT * 
-  FROM places 
-  WHERE id = $1
+  SELECT p.*, t.attraction_photo_url
+  FROM places p
+  LEFT JOIN (
+    SELECT place_id, attraction_photo_url
+    FROM trips
+    WHERE place_id = $1
+    LIMIT 1
+  ) t ON p.id = t.place_id
+  WHERE p.id = $1;
   ;`;
 
 const getPlace = (placeId) => {
