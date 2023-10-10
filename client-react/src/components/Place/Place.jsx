@@ -82,7 +82,7 @@ export default function Place(props) {
               component="img"
               sx={{ height: 400, border: "0px solid #ccc", borderRadius: 2 }}
               alt={place.place_name}
-              image={place.photo_url}
+              image={place.photo_url || place.attraction_photo_url}
               title={place.place_name}
             />
           </Grid>
