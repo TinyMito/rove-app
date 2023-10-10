@@ -28,7 +28,6 @@ import About from 'components/About/About';
 import Team from 'components/Team/Team';
 import MapSchedule from 'components/Map/MapSchedule'
 
-
 const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
 
