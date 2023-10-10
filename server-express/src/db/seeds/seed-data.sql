@@ -1,45 +1,8 @@
 INSERT INTO users (first_name, last_name, username, email, password, profile_thumbnail_img)
 VALUES
-  ('John', 'Doe', 'traveler1', 'traveller1@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar00.png'),
-  ('Alice', 'Johnson', 'traveler2', 'traveler2@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar01.png'),
-  ('Sarah', 'Smith', 'traveler3', 'traveler3@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar03.png'),
-  ('Michael', 'Brown', 'traveler4', 'traveler4@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar04.png'),
-  ('Emily', 'Davis', 'traveler5', 'traveler5@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar05.png'),
-  ('David', 'Wilson', 'traveler6', 'traveler6@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar06.png'),
-  ('Laura', 'Turner', 'traveler7', 'traveler7@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar07.png'),
-  ('Chris', 'Anderson', 'traveler8', 'traveler8@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar08.png'),
-  ('Alice', 'Johnson', 'traveler9', 'traveler9@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar01.png'),
-  ('Bob', 'Smith', 'traveler10', 'traveler10@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar02.png'),
-  ('Charlie', 'Brown', 'traveler11', 'traveler11@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar03.png'),
-  ('David', 'Wilson', 'traveler12', 'traveler12@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar04.png'),
-  ('Eva', 'Davis', 'traveler13', 'traveler13@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar05.png'),
-  ('Frank', 'Turner', 'traveler14', 'traveler14@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar06.png'),
-  ('Grace', 'Anderson', 'traveler15', 'traveler15@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar07.png'),
-  ('Harrison', 'Smith', 'traveler16', 'traveler16@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar08.png'),
-  ('Isabella', 'Wilson', 'traveler17', 'traveler17@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar01.png'),
-  ('Jack', 'Johnson', 'traveler18', 'traveler18@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar02.png'),
-  ('Katherine', 'Brown', 'traveler19', 'traveler19@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar03.png'),
-  ('Liam', 'Smith', 'traveler20', 'traveler20@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2
-', 'avatar04.png');
+  ('John', 'Doe', 'traveler1', 'traveller1@example.com', '$2a$10$YUc4PmIB.X9AF9Ia9/4QbeBSXz6IqgLemmhm37WlvOsZe52TYTfCq', 'avatar00.png'),
+  ('Alice', 'Johnson', 'traveler2', 'traveler2@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2', 'avatar01.png'),
+  ('Sarah', 'Smith', 'traveler3', 'traveler3@example.com', '$2a$10$3aYt30VjUq7LtdF5DldoNOh.JeTsZzzP2zAixDGmhqD6zhv.A80K2', 'avatar03.png');
 
 INSERT INTO destinations (google_destination_id, name)
 VALUES
