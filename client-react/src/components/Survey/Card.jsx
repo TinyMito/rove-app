@@ -141,6 +141,7 @@ export default function Suggestion() {
                           longitude={attraction.geometry.location.lng}
                           latitude={attraction.geometry.location.lat}
                           scheduleStart={userData.scheduleStartDate}
+                          scheduleEnd={userData.scheduleEndDate}
                         />
 
                       </Card>
