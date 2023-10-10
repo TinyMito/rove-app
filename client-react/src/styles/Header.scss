@@ -3,12 +3,26 @@
   max-width: 400px;
 }
 
+.sloganStyle-schedule-date {
+  padding-top: 0px;
+  margin-top: -0.5em;
+  color: #FFF;
+}
+
 @media (max-width: 1100px) {
   h1.sloganStyle {
     font-size: 3.5em;
   }
 
   h2.sloganStyle {
-    font-size: 3em;
+    font-size: 2.5em; // I think 2.5 looks better? but up to you i was just trying to fit the long destination name. 
+  }
+
+  // Kevin the below is what i was trying to fix.
+  h2.sloganStyle-schedule-date {
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+    margin-top: 0;
+    font-size: 1.3em;
   }
 }
