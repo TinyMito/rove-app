@@ -13,7 +13,6 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
 
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../../styles/Card.scss';
@@ -28,6 +27,9 @@ import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
 export default function Suggestion() {
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const { id, location } = useParams();
+
   // Requires the user to be logged in
   const isAuthenticated = useAuthentication();
 
@@ -36,12 +38,11 @@ export default function Suggestion() {
 
   const [placeData, setPlaceData] = useState(null);
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
-  const { location, id } = useParams();
 
   useEffect(() => {
     const fetchPlaceDetails = async () => {
+      
       try {
-        const apiKey = process.env.REACT_APP_API_KEY; // Replace with your Google API Key
         const response = await fetch(
           `https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,formatted_address,geometry&key=${apiKey}`
         );
@@ -85,7 +86,7 @@ export default function Suggestion() {
     };
 
     fetchPlaceDetails();
-  }, [id]);
+  }, [id, location]);
 
 
   return (
@@ -99,7 +100,8 @@ export default function Suggestion() {
 
               <div className="h1-flex">
                 <h1>Nearby Attractions - {location}</h1>
-                <Button className="doneBtn" size="large" href="/user">Finish</Button>
+                <Button className="navBtn" size="large" onClick={() => window.history.back()}>Back</Button>
+                <Button className="navBtn" size="large" variant="contained" href="/user">Finish</Button>
               </div>
               <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click finish at the left.</span>
 

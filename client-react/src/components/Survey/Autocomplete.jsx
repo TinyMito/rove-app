@@ -39,10 +39,16 @@ export default function GoogleAutocomplete() {
   const [address, setAddress] = useState('');
   const [locationInfo, setLocationInfo] = useState(null);
 
+  // Message + Disabled Button
+  const [entrySelected, setEntrySelected] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
   const handleSelect = async (value) => {
     const result = await geocodeByAddress(value);
     setAddress(value);
     setLocationInfo(result[0]);
+    setEntrySelected(true); // Set the entrySelected state to true when an entry is selected
+    setButtonDisabled(false); // Enable the submit button when an entry is selected
   };
 
   const placeId = locationInfo?.place_id
@@ -80,6 +86,8 @@ const handleButtonClick = () => {
       .catch((error) => {
         console.error('Error inserting destination:', error);
       });
+
+      setButtonDisabled(false);
   } else {
     return Promise.reject(new Error('Location info is missing.'));
   }
@@ -108,8 +116,12 @@ const updateSchedule = async (scheduleId, destinationId) => {
         <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
           <div className="body">
             {/* Your codes start here */}
-            <h1>Which city would you like to visit?</h1>
 
+            <div className="h1-flex">
+              <h1>Which city would you like to visit?</h1>
+              <Button className="navBtn" size="large" href="/survey">Start Over</Button>
+            </div>
+            
               <PlacesAutocomplete
                 value={address}
                 onChange={setAddress}
@@ -158,8 +170,14 @@ const updateSchedule = async (scheduleId, destinationId) => {
                 )}
 
               </PlacesAutocomplete>
+
+              {entrySelected ? null : (
+                <div className="message">
+                  Please select an entry.
+                </div>
+              )}
               
-              <Button fullWidth={true} size="large" onClick={handleButtonClick}>Submit</Button>
+              <Button fullWidth={true} size="large" onClick={handleButtonClick} disabled={buttonDisabled}>Submit</Button>
       
             {/* Your codes end here */}
             </div>

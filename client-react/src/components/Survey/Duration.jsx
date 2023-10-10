@@ -34,6 +34,9 @@ export default function Duration() {
   // Requires the user to be logged in
   const isAuthenticated = useAuthentication();
 
+  // Selected date both fields
+  const [datesSelected, setDatesSelected] = useState(false);
+
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
@@ -48,10 +51,12 @@ export default function Duration() {
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
+    setDatesSelected(Boolean(date && endDate));
   };
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
+    setDatesSelected(Boolean(startDate && date));
   };
 
   const calculateTripDuration = () => {
@@ -109,8 +114,9 @@ export default function Duration() {
         <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
           <div className="body">
             {/* Your codes start here */}
+
+            <h1>When are you traveling?</h1>
             
-              <h1>When are you traveling?</h1>
               <div className="display-flow">
 
                 <div className="date-picker-container">
@@ -139,13 +145,21 @@ export default function Duration() {
                 </div>
 
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style={{ textAlign: 'center', padding: '25px' }}>
-                  <h2>Number of Days: {calculateTripDuration()}</h2>
-                </div>
 
-                <Button size="large" onClick={handleContinueClick}>Continue</Button>
+              <div style={{ textAlign: 'center', padding: '25px' }}>
+                <h2>Number of Days: {calculateTripDuration()}</h2>
               </div>
+              
+              {datesSelected ? (
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <Button size="large" onClick={handleContinueClick}>Continue</Button>
+                </div>
+              ) : (
+                <div className="message">
+                  Please select both start and end dates.
+                </div>
+              )}
+              
 
             {/* Your codes end here */}
             </div>
