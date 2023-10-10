@@ -19,12 +19,13 @@ import Suggestion from './components/Survey/Card';
 import Place from './components/Place/Place';
 import Duration from './components/Survey/Duration';
 import User from './components/User/User';
-import Dev from './components/Dev';
+import Dev from './components/Dev/Dev';
 import Modal from './components/Survey/Modal'
-import RegistrationForm from 'components/User/RegistrationForm';
-import LoginForm from 'components/User/LoginForm';
+//import RegistrationForm from 'components/User/RegistrationForm';
+//import LoginForm from 'components/User/LoginForm';
 import MapData from 'components/Map/MapData';
-
+import Access from 'components/User/Access';
+import About from 'components/About/About';
 
 const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
@@ -46,10 +47,11 @@ root.render(
           <Route path="/modal" element={<Modal />} />
           <Route path="/user" element={<User />} />
           <Route path="/dev" element={<Dev />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegistrationForm />} />
+          {/* <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegistrationForm />} /> */}
           <Route path="/map" element={<MapData />} />
-
+          <Route path="/access" element={<Access />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </DataProvider>
     </BrowserRouter>
