@@ -50,7 +50,9 @@ CREATE TABLE trips (
   date VARCHAR(10),
   start_time VARCHAR(5),
   attraction_photo_url VARCHAR(1000), -- places photo
-  user_note TEXT DEFAULT 'This is your note section'
+  user_note TEXT DEFAULT 'This is your note section',
+  longitude NUMERIC, 
+  latitude NUMERIC
 );
 
 /* CREATE TABLE mockplaces (

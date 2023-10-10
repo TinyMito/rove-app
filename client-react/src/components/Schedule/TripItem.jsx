@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Timeline
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -46,6 +47,9 @@ export const TripItem = ({
     verticalAlign: 'middle'
   }
 
+  const navigate = useNavigate();
+
+  console.log('trip', trip.longitude)
   return (
     <TimelineItem 
       key={trip.trip_id}
@@ -97,7 +101,9 @@ export const TripItem = ({
           <CardActions className="card-actions-schedule">               
             <IconButton 
               className="icon_buttons" aria-label="mapIcon" size="large"
-              href={trip.google_map_link}
+              // longitude={trip.longitude}
+              // latitude={trip.latitude}
+              onClick={() => navigate(`/map?lng=${trip.longitude}&lat=${trip.latitude}`)}
             >
               <MapOutlinedIcon />
             </IconButton>
