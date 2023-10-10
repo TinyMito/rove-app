@@ -56,7 +56,7 @@ export default function GoogleAutocomplete() {
 
   const navigate = useNavigate();
 
-const handleButtonClick = () => {
+const handleButtonClick = async () => {
   //console.log("CODE:", placeId);
   //console.log("NAME:", locationName);
 
@@ -64,28 +64,24 @@ const handleButtonClick = () => {
     //console.log('Selected location info:', locationInfo);
 
     // Return a promise from the function
-    return axios
-      .post('/api/destination', {
-        google_destination_id: placeId,
-        name: locationName,
-      })
-      .then((response) => {
-        const destinationId = response.data.destinationId;
-        // Return the destinationId to be used in the next .then
-        return destinationId;
-      })
-      .then((destinationId) => {
-        if (placeId) {
-          // Now that we have the destinationId, we can call updateSchedule
-          updateSchedule(userData.scheduleId, destinationId);
-          navigate(`/card/${locationName}/${placeId}`);
-        } else {
-          navigate('/card');
-        }
-      })
-      .catch((error) => {
-        console.error('Error inserting destination:', error);
-      });
+    try {
+      const response = await axios
+        .post('/api/destination', {
+          google_destination_id: placeId,
+          name: locationName,
+        });
+      const destinationId = response.data.destinationId;
+      const destinationId_1 = destinationId;
+      if (placeId) {
+        // Now that we have the destinationId, we can call updateSchedule
+        updateSchedule(userData.scheduleId, destinationId_1);
+        navigate(`/card/${locationName}/${placeId}`);
+      } else {
+        navigate('/card');
+      }
+    } catch (error) {
+      console.error('Error inserting destination:', error);
+    }
 
       setButtonDisabled(false);
   } else {
@@ -145,19 +141,19 @@ const updateSchedule = async (scheduleId, destinationId) => {
 
                       {loading && <div>Loading...</div>}
 
-                      {suggestions.map((suggestion) => {
+                      {suggestions.map((suggestion, index) => {
+                        const suggestionKey = `suggestion_${index}`;
                         const className = suggestion.active
                           ? 'suggestion-item--active'
                           : 'suggestion-item';
-                        const style = suggestion.active ? {} : {};
+
                         return (
                           <Button
-                            key={suggestion.id}
+                            key={suggestionKey}
                             size="large"
                             variant="contained"
                             {...getSuggestionItemProps(suggestion, {
-                              className,
-                              style,
+                              className
                             })}
                           >
                             {suggestion.description}

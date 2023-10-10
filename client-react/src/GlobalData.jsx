@@ -41,8 +41,6 @@ export function DataProvider({ children }) {
       });
   };
 
-  console.log('userData:', userData);
-
   return (
     <UserContext.Provider value={{ userData, setUserData, fetchUserData }}>
       {children}
