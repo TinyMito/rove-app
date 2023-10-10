@@ -66,6 +66,7 @@ export default function AuthForm() {
 
   // Error Message or Message
   const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessageBottom, setErrorMessageBottom] = useState("");
   const { hasMessage = false, message = "" } = location.state || {};
   const [isLoginMode, setIsLoginMode] = useState(true);
 
@@ -84,41 +85,19 @@ export default function AuthForm() {
     avatar: "",
   });
 
-  const [isFormReady, setIsFormReady] = useState(false);
-  const [isRegisterFormReady, setIsRegisterFormReady] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    // Check if both email and password are not empty
-    if (formData.email && formData.password) {
-      setIsFormReady(true);
-    } else {
-      setIsFormReady(false);
-    }
-
-    // Check if all required fields in the registration form are filled
-    if (name === "password" || name === "passwordConfirmation") {
-      // Check if both password fields match
-      if (formData.password === formData.passwordConfirmation) {
-        setIsRegisterFormReady(true); // Enable registration button if passwords match
-      } else {
-        setIsRegisterFormReady(false); // Disable registration button if passwords don't match
-      }
-    } else {
-      // Check if all other required fields are filled
-      if (formData.username && formData.firstname && formData.lastname && formData.email && formData.password) {
-        setIsRegisterFormReady(true);
-      } else {
-        setIsRegisterFormReady(false);
-      }
-    }
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if the passwords match
+    if (formData.password !== formData.passwordConfirmation) {
+      setErrorMessageBottom("Passwords do not match!");
+      return; // Exit the function without making the API call
+    }
 
     // Remove passwordConfirmation state
     const registrationData = { ...formData };
@@ -143,14 +122,16 @@ export default function AuthForm() {
     } catch (error) {
       console.error(isLoginMode ? "Login failed:" : "Registration failed:", error);
       if (isLoginMode) {
-        setErrorMessage("Login failed. Please check your credentials.");
+        setErrorMessageBottom("Login failed. Please check your credentials.");
       } else {
-        setErrorMessage("Registration failed. Please fill all the required field.");
+        setErrorMessageBottom("Registration failed. Please fill all the required field.");
       }
     }
   };
 
   const toggleMode = () => {
+    setErrorMessage(null);
+    setErrorMessageBottom(null);
     setIsLoginMode((prevMode) => !prevMode); // Toggle between login and registration mode
   };
 
@@ -211,10 +192,15 @@ export default function AuthForm() {
                     />
                   </FormControl>
 
+                  {errorMessageBottom ? (
+                      <span className="message">
+                        {errorMessageBottom ? errorMessageBottom : message}
+                      </span>
+                    ) : null}
+
                   <Button 
                     onClick={handleSubmit} 
                     variant="text" 
-                    disabled={!isFormReady}
                     sx={{margin: '20px', padding: '10px'}}
                   >Login</Button>
 
@@ -237,18 +223,7 @@ export default function AuthForm() {
 
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
 
-                  <h3>Your Public Username</h3>
-
-                    <FormControl sx={{ m: 1 }} variant="outlined">
-                      <TextField
-                        required
-                        id="outlined-required username"
-                        label="Username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                      />
-                    </FormControl>  
+ 
 
                     <h3>Contact Information</h3>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -379,7 +354,26 @@ export default function AuthForm() {
                       </DialogActions>
                     </Dialog>   
 
-                    <Button disabled={!isRegisterFormReady} onClick={handleSubmit} variant="text" sx={{margin: '20px', padding: '10px'}}>Register</Button>
+                    <h3>Your Public Username</h3>
+
+                    <FormControl sx={{ m: 1 }} variant="outlined">
+                      <TextField
+                        required
+                        id="outlined-required username"
+                        label="Username"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleChange}
+                      />
+                    </FormControl> 
+
+                    {errorMessageBottom ? (
+                      <span className="message">
+                        {errorMessageBottom ? errorMessageBottom : message}
+                      </span>
+                    ) : null}
+
+                    <Button onClick={handleSubmit} variant="text" sx={{margin: '20px', padding: '10px'}}>Register</Button>
 
                   </div>
                 </>
