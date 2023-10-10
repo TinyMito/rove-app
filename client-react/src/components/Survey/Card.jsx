@@ -87,6 +87,7 @@ export default function Suggestion() {
     fetchPlaceDetails();
   }, [id]);
 
+
   return (
     <div className="box"> 
       <div className="flex-row">
@@ -135,6 +136,8 @@ export default function Suggestion() {
                           attractionName={attraction.name} 
                           attractionAddress={attraction.vicinity} 
                           photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} 
+                          longitude={attraction.geometry.location.lng}
+                          latitude={attraction.geometry.location.lat}
                         />
 
                       </Card>

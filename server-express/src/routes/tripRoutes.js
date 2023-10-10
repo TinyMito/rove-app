@@ -66,7 +66,7 @@ router.put("/:id", (req, res) => {
 
 ////////////////////////////Add a trip////////////////////////////////
 router.post("/", (req, res) => {
-  const { destination_id, destination_name, place_id, place_name, place_address, user_id, schedule_id, date, start_time, attraction_photo_url } = req.body;
+  const { destination_id, destination_name, place_id, place_name, place_address, user_id, schedule_id, date, start_time, attraction_photo_url, longitude, latitude } = req.body;
 
   // Use object destructuring to create the tripData object
   const tripData = {
@@ -78,7 +78,9 @@ router.post("/", (req, res) => {
     user_id,
     schedule_id,
     date, start_time,
-    attraction_photo_url
+    attraction_photo_url,
+    longitude,
+    latitude
   };
 
   //console.log('tripData', tripData);
@@ -89,7 +91,7 @@ router.post("/", (req, res) => {
       res.status(200).json({ tripId }); // Respond with the ID of the newly inserted trip
     })
     .catch((error) => {
-      //console.error('Error inserting trip', error);
+      console.error('Error inserting trip', error);
       res.status(500).json({ error: 'Internal server error' });
     });
 });

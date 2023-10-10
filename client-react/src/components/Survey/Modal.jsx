@@ -14,10 +14,8 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-
 import '../../styles/Card.scss';
-
-export default function Modal({ scheduleId, userId, locationName, placeId, attractionId, photoUrl, attractionAddress, attractionName}) {
+export default function Modal({ scheduleId, locationName, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -26,7 +24,8 @@ export default function Modal({ scheduleId, userId, locationName, placeId, attra
   const [modalPlaceId, setModalPlaceId] = useState(placeId);
   const [modalAttractionId, setAttractionId] = useState(attractionId)
   const [modalPhotoUrl, setPhotoUrl] = useState(photoUrl)
-  const [attractionAddressName, setAttractionAddress] = useState(attractionAddress)
+  const [attractionAddressName, setAttractionAddress] = useState
+  (attractionAddress)
   const [attractionActualName, setAttractionName] = useState(attractionName)
 
   // Use useEffect to update state variables when props change
@@ -37,7 +36,7 @@ export default function Modal({ scheduleId, userId, locationName, placeId, attra
     setPhotoUrl(photoUrl)
     setAttractionAddress(attractionAddress)
     setAttractionName(attractionName)
-  }, [locationName, placeId, attractionId, photoUrl, attractionAddress, attractionName]);
+  }, [locationName, placeId, attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude]);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -83,7 +82,9 @@ export default function Modal({ scheduleId, userId, locationName, placeId, attra
           schedule_id: scheduleId,
           date:formattedDate,
           start_time: formattedTime,
-          attraction_photo_url: modalPhotoUrl
+          attraction_photo_url: modalPhotoUrl,
+          longitude: longitude,
+          latitude: latitude
         };
   
         const response = await axios.post("/api/trip", tripData);
