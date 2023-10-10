@@ -25,7 +25,8 @@ import Modal from './components/Survey/Modal'
 //import LoginForm from 'components/User/LoginForm';
 import MapData from 'components/Map/MapData';
 import Access from 'components/User/Access';
-import About from 'components/About/About';
+import About from 'components/About/About'; import MapSchedule from 'components/Map/MapSchedule'
+
 
 const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
@@ -50,8 +51,10 @@ root.render(
           {/* <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegistrationForm />} /> */}
           <Route path="/map" element={<MapData />} />
+          <Route path="/map/:id" element={<MapSchedule />} />
           <Route path="/access" element={<Access />} />
           <Route path="/about" element={<About />} />
+
         </Routes>
       </DataProvider>
     </BrowserRouter>
