@@ -51,7 +51,6 @@ export default function Modal({ scheduleStart, scheduleEnd, scheduleId, location
     axios.get(`/api/user/${userId}`)
       .then((res) => {
         const filteredSchedule = res.data.schedule.filter((item) => item.id === scheduleId);
-        console.log("Dropdown:", filteredSchedule)
         setScheduleList(filteredSchedule);
       })
       .catch((err) => {

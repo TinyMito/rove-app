@@ -54,11 +54,11 @@ export default function Suggestion() {
         //console.log(filteredScheduleByUserId);
         console.log(filteredScheduleByGoogleId);
 
-        const scheduleId = filteredScheduleByGoogleId[0]?.id;
+        const scheduleId = filteredScheduleByGoogleId;
 
         if (userData.scheduleId === null || userData.scheduleId === undefined) {
           console.log("Schedule ID was blank, tries to update useState!", scheduleId)
-          setUserData({ ...userData, scheduleId });
+          //setUserData({ ...userData, scheduleId });
         } else {
           console.log("Schedule ID was found no need to update:", userData.scheduleId)
         }
