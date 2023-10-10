@@ -140,6 +140,7 @@ const updateSchedule = async (scheduleId, destinationId) => {
                         const style = suggestion.active ? {} : {};
                         return (
                           <Button
+                            key={suggestion.id}
                             size="large"
                             variant="contained"
                             {...getSuggestionItemProps(suggestion, {
