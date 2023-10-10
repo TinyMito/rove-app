@@ -95,7 +95,7 @@ const checkPlacesId = async (placeId, destinationId, placeName) => {
   const checkPlacesId = await db.query(`
   SELECT * FROM places WHERE
   google_place_id = $1;`, [placeId]);
-  console.log(checkPlacesId);
+  //console.log(checkPlacesId);
   if (checkPlacesId.rows.length === 0) {
     const insertData = await db.query(`
     INSERT INTO places (google_place_id, destination_id, name)
@@ -122,7 +122,7 @@ const addTripQuery = async (tripData) => {
     latitude
   } = tripData;
 
-  console.log(tripData);
+  //console.log(tripData);
 
   const destinationId = await checkDestinationId(destination_id, destination_name);
   const placeId = await checkPlacesId(place_id, destinationId, place_name);
@@ -153,7 +153,7 @@ const addTripQuery = async (tripData) => {
   ];
 
   const results = await db.query(queryString, values);
-  console.log(results);
+  //console.log(results);
 
 };
 

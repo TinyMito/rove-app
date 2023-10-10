@@ -7,14 +7,14 @@ const session = require('express-session');
 const { getUserByEmail } = require('../db/queries/login');
 
 // Configure express-session
-router.use(
+/* router.use(
   session({
     secret: 'sec-key',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false },
   })
-);
+); */
 
 router.post(
   '/',
@@ -45,6 +45,11 @@ router.post(
 
     // Set session data after successful login
     req.session.userId = user.id; // Store user ID in the session
+    req.session.userFirst = user.first_name;
+    req.session.userLast = user.last_name;
+    req.session.userAlias = user.username;
+    req.session.userEmail = user.email;
+    req.session.userProfile = user.profile_thumbnail_img;
 
     // Return success message or user data
     res.status(200).json({ message: 'Login successful' });

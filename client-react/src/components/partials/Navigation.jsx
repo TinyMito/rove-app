@@ -1,31 +1,58 @@
 import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import appIcon from '../../assets/images/logo.png';
 import '../../styles/Navigation.scss';
 
-export default function Navigation({loggedIn, userImg, userId}) {
-  console.log(loggedIn)
+// Axios, useEffect, useState, useParams
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+
+// GLOBAL DATA: Import GlobalData function
+import { globalData } from '../../GlobalData';
+
+export default function Navigation({isAuthenticated, userImg}) {
+  
+  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
+  const { userData, setUserData, fetchUserData } = globalData();
+  const navigate = useNavigate();
+
+  // Logout
+  const handleLogout = () => {
+    axios.post('/api/logout')
+      .then((response) => {
+        fetchUserData();
+        navigate("/access", { state: { isLoggedOut: true } });
+      })
+      .catch((error) => {
+        console.error('Logout failed:', error);
+      });
+  };
+
   return (
     <div className="Navigation">
       <div className="navFlex">
-        <Link className="navBtnStyle" to="/"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
-        {loggedIn ? (
+        <Link className="navBtnStyle" to="/about"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
+        {isAuthenticated || userData.id !== undefined ? (
           <>
-            <Link className="navBtnStyle" to={`/user`}><img className="userIconStyle" src={`/${userImg}`} alt="Avatar" /></Link>
-            <Link className="navBtnStyle" to={`/register`}><i className="bi bi-person-plus"></i></Link>
-            <Link className="navBtnStyle" to={`/login`}><i className="bi bi-box-arrow-in-right"></i></Link>
-            <Link className="navBtnStyle userBtnStyle" to={`/logout`}><i className="bi bi-box-arrow-left"></i></Link>
+            <Link className="navBtnStyle userBtnStyle" to={`/user`}><img className="userIconStyle" src={`/${userImg}`} alt="Avatar" /></Link>
           </>
         ) : (
           <>
-            <Link className="navBtnStyle" to={`/login`} ><i className="bi bi-person-circle" ></i></Link>
-            <Link className="navBtnStyle userBtnStyle" to={`/register`}><i className="bi bi-person-plus"></i></Link>
+            <Link className="navBtnStyle userBtnStyle" to={`/access`} ><i className="bi bi-person-circle" ></i></Link>
           </>
         )}
         <Link className="navBtnStyle" to="/survey"><i className="bi bi-calendar-week"></i></Link>
-       {/*  <Link className="navBtnStyle" to="/schedule/1"><i className="bi bi-calendar-week"></i></Link> */}
-        <Link className="navBtnStyle" to="/map"><i className="bi bi-geo-alt"></i></Link>
-        <Link className="navBtnStyle" to="/dev"><i className="bi bi-code-slash"></i></Link>
+        <Link className="navBtnStyle userBtnStyle" to="/map"><i className="bi bi-geo-alt"></i></Link>
+        {isAuthenticated || userData.id !== undefined ? (
+          <>
+            <Link className="navBtnStyle" onClick={() => handleLogout()}><i className="bi bi-box-arrow-left"></i></Link>
+          </>
+        ) : ( 
+          <>
+          </>
+          )}
       </div>
     </div>
   );
