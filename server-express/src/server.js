@@ -88,6 +88,7 @@ app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/login", require("./routes/loginRoutes"));
 app.use("/api/register", require("./routes/registrationRoutes"));
 app.use("/api/destination", require("./routes/destinationRoutes"));
+app.use("/api/map", require("./routes/mapRoutes.js"));
 
 app.use(function (req, res) {  res.status(404);
 });
