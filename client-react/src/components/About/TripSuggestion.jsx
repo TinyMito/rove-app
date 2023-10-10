@@ -3,6 +3,9 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 import { Link } from "react-router-dom";
 
 export default function TripSuggestion({data, openModal}) { 
+
+  const cleanImgUrl = data.photo_url ? data.photo_url : "./travel.png";
+
   return (
     <div className="item-card">
       <div>
@@ -11,7 +14,7 @@ export default function TripSuggestion({data, openModal}) {
             component="img"
             className="item-card-image"
             alt={data.name}
-            image={data.photo_url}
+            image={cleanImgUrl}
             title={data.name}
           />
           <div className="item-card-caption">
