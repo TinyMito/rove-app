@@ -1,5 +1,17 @@
 // MUI Components
-import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import FilledInput from '@mui/material/FilledInput';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Button from '@mui/material/Button';
 
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
@@ -98,39 +110,42 @@ export default function Duration() {
           <div className="body">
             {/* Your codes start here */}
             
-      <h2>When are you traveling?</h2>
-      <div className="date-picker-container">
-        <div className="date-picker-label">
-          <label>Start Date:</label>
-        </div>
-        <DatePicker
-          selected={startDate}
-          onChange={handleStartDateChange}
-          selectsStart
-          startDate={startDate}
-          endDate={endDate}
-          className="material-ui-datepicker"
-        />
-      </div>
-      <div className="date-picker-container">
-        <div className="date-picker-label">
-          <label>End Date:</label>
-        </div>
-        <DatePicker
-          selected={endDate}
-          onChange={handleEndDateChange}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-          className="material-ui-datepicker"
-        />
-      </div>
-      <div>
-        <p>Number of Days: {calculateTripDuration()}</p>
-      </div>
+              <h1>When are you traveling?</h1>
+              <div className="display-flow">
 
-      <Button onClick={handleContinueClick}>Continue</Button>
+                <div className="date-picker-container">
+                  <InputLabel htmlFor="outlined-adornment-password">Start Date:</InputLabel>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={handleStartDateChange}
+                    selectsStart
+                    startDate={startDate}
+                    endDate={endDate}
+                    className="material-ui-datepicker"
+                  />
+                </div>
+
+                <div className="date-picker-container">
+                  <InputLabel htmlFor="outlined-adornment-password">End Date:</InputLabel>
+                  <DatePicker
+                    selected={endDate}
+                    onChange={handleEndDateChange}
+                    selectsEnd
+                    startDate={startDate}
+                    endDate={endDate}
+                    minDate={startDate}
+                    className="material-ui-datepicker"
+                  />
+                </div>
+
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ textAlign: 'center', padding: '25px' }}>
+                  <h2>Number of Days: {calculateTripDuration()}</h2>
+                </div>
+
+                <Button size="large" onClick={handleContinueClick}>Continue</Button>
+              </div>
 
             {/* Your codes end here */}
             </div>

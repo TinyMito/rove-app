@@ -1,6 +1,21 @@
+// MUI Components
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import FilledInput from '@mui/material/FilledInput';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
+
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
 import '../../styles/Card.scss';
 import Modal from './Modal';
 import { useAuthentication } from 'useAuthentication';
@@ -81,37 +96,55 @@ export default function Suggestion() {
           <div className="body">
             {/* Your codes start here */}
 
-      <h1>Nearby Attractions - {location}</h1>
-      {nearbyAttractions.length > 0 ? (
-        <div>
-          <div className='attractions-list'>
-            {nearbyAttractions.slice(0,20).map((attraction, index) => (
-              
-              <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
-           {/*      <Button sx={{ fontSize: '20px' }}> + </Button> */}
-           <Modal scheduleId={userData.scheduleId} userId={userData.id} locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
-                <CardMedia
-                  component='img'
-                  height='300'
-                  image={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`}
-                />
-                <CardContent>
-                  <Typography variant='h6'>{attraction.name}</Typography>
-                  <Typography variant='body2' color='text.secondary'>
-                    Address: {attraction.vicinity}
-                    PlaceId: {attraction.place_id}
-                  </Typography>
-                  <Typography variant='body2' color='text.secondary'>
-                  <Rating name="read-only" value={attraction.rating} readOnly />
-                  </Typography>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <p>No nearby attractions found.</p>
-      )}
+              <div className="h1-flex">
+                <h1>Nearby Attractions - {location}</h1>
+                <Button className="doneBtn" size="large" href="/user">Finish</Button>
+              </div>
+              <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click finish at the left.</span>
+
+              {nearbyAttractions.length > 0 ? (
+
+                <div>
+                  <div className='attractions-list'>
+                    {nearbyAttractions.slice(0,20).map((attraction, index) => (
+                      
+                      <Card raised={true} sx={{ m:2 }} key={index} className='attraction-item'> 
+                  
+                        <CardMedia
+                          className="card-image"
+                          component='img'
+                          image={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`}
+                        />
+                        <CardContent className='attraction-item-content'>
+                          <Rating name="read-only" value={attraction.rating} readOnly />
+                          <Typography variant='h6'>{attraction.name}</Typography>
+                          <Typography variant='body2' color='text.secondary'>
+                            Address:<br/> {attraction.vicinity}
+                            {/* PlaceId: {attraction.place_id} */}
+                          </Typography>
+                          <Typography variant='body2' color='text.secondary'>
+                          
+                          </Typography>
+                        </CardContent>
+                        <Modal 
+                          scheduleId={userData.scheduleId} 
+                          userId={userData.id} 
+                          locationName={location} 
+                          placeId={id} 
+                          attractionId={attraction.place_id} 
+                          attractionName={attraction.name} 
+                          attractionAddress={attraction.vicinity} 
+                          photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} 
+                        />
+
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+                
+              ) : (
+                <h1>No nearby attractions found.</h1>
+              )}
       
             {/* Your codes end here */}
             </div>

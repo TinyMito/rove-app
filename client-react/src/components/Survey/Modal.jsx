@@ -15,6 +15,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
+import '../../styles/Card.scss';
+
 export default function Modal({ scheduleId, userId, locationName, placeId, attractionId, photoUrl, attractionAddress, attractionName}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
@@ -117,9 +119,12 @@ export default function Modal({ scheduleId, userId, locationName, placeId, attra
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Add this attraction to your trip!
-      </Button>
+      <div className="addBtn-position">
+        <Button className="addBtn" size="large" fullWidth={true} variant="text" onClick={handleClickOpen}>
+          <i className="bi bi-calendar-plus"></i>
+        </Button>
+      </div>
+
       <Dialog
         open={open}
         fullWidth={true}
@@ -128,7 +133,8 @@ export default function Modal({ scheduleId, userId, locationName, placeId, attra
       >
         
         <DialogTitle>Trip Details</DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{minHeight: '450px', width: 'auto', borderRadius: '15px'}}>
+          <div className="dialog-component">
           <DialogContentText>
             Select the date for this attraction!
           </DialogContentText>
@@ -140,7 +146,8 @@ export default function Modal({ scheduleId, userId, locationName, placeId, attra
             startDate={startDate}
             className="material-ui-datepicker"
           />
-
+        </div>
+        <div className="dialog-component">
           <DialogContentText>Select the time for this attraction!</DialogContentText>
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -152,17 +159,20 @@ export default function Modal({ scheduleId, userId, locationName, placeId, attra
               />
             </DemoContainer>
           </LocalizationProvider>
-
+          </div>
+          <div className="dialog-component">
           {showAlert && (
             <Alert severity="error">
               Please select both date and time.
             </Alert>
           )}
+          </div>
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCancel}>Cancel</Button>
+          <Button size="large" onClick={handleCancel}>Cancel</Button>
           <Button
+            size="large"
             onClick={handleSubmit}
             disabled={isConfirmDisabled()}
           >

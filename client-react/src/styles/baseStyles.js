@@ -123,7 +123,7 @@ export const baseCss = css`
   }
 
   .MuiButtonBase-root {
-    font-size: 3em !important;
+    /* font-size: 3em !important; */
     text-transform: none !important;
     color: #9399B4 !important;
     background: #FFF !important;
@@ -164,6 +164,10 @@ export const baseCss = css`
 
   .MuiTimelineContent-root {
     padding: 2em !important;
+  }
+
+  .MuiPaper-rounded {
+    border-radius: 20px;
   }
 
   @media (max-width : 1100px) {
@@ -214,7 +218,7 @@ export const baseCss = css`
     }
 
     .MuiButtonBase-root {
-      font-size: 5em !important;
+      font-size: 2em !important;
     }
 
     .MuiPaginationItem-root {

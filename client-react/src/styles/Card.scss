@@ -1,8 +1,69 @@
-.photo-item {
-  margin-bottom:20px;
+.h1-flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+
+  h1 {
+    width: 100%;
+  }
+
+  .doneBtn {
+    width: 150px;
+    height: 50px;
+  }
 }
 
-.App {
+.attractions-list {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.attraction-item {
+  border-radius: 15px !important;
+  max-width: 260px;
+}
+
+.card-image {
+  height: 200px;
+  width: 300px;
+}
+
+.attraction-item-content {
+  min-height: 200px !important;
+}
+
+.addBtn-position {
+  padding: 20px;
+}
+
+.addBtn {
+  font-size: 3em !important;
+  box-shadow: unset !important;
+}
+
+.dialog-component {
+  padding: 15px 0px !important;
+}
+
+@media (max-width : 1100px) {
+  .attractions-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .attraction-item {
+    border-radius: 15px !important;
+    max-width: 100%;
+  }
+
+  .attraction-item-content {
+    min-height: 100px !important;
+  }
+
+  .card-image {
+    height: 200px;
+    width: auto;
+  }
 }
