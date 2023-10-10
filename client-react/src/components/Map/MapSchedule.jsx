@@ -1,7 +1,3 @@
-// MUI Components
-import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
-
-import React from "react";
 import { MapContainer as Map, TileLayer, Marker, Popup } from "react-leaflet";
 // import from leaflet
 import L from 'leaflet';
@@ -19,7 +15,7 @@ import { globalData } from '../../GlobalData';
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
-export default function MapData() {
+export default function MapSchedule() {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
@@ -33,6 +29,8 @@ export default function MapData() {
       iconUrl: icon,
       shadowUrl: iconShadow
   });
+
+  const locations = 
 
   L.Marker.prototype.options.icon = DefaultIcon;
 
