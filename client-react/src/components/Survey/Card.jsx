@@ -99,7 +99,8 @@ export default function Suggestion() {
 
               <div className="h1-flex">
                 <h1>Nearby Attractions - {location}</h1>
-                <Button className="doneBtn" size="large" href="/user">Finish</Button>
+                <Button className="navBtn" size="large" onClick={() => window.history.back()}>Back</Button>
+                <Button className="navBtn" size="large" variant="contained" href="/user">Finish</Button>
               </div>
               <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click finish at the left.</span>
 
