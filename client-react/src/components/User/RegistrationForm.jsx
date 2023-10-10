@@ -17,9 +17,12 @@ export default function RegistrationForm() {
   const { userData, setUserData } = globalData();
 
   const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
     username: "",
     email: "",
     password: "",
+    avatar: ""
   });
 
   const navigate = useNavigate();
@@ -49,32 +52,53 @@ export default function RegistrationForm() {
           <div className="body">
             {/* Your codes start here */}
 
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        value={formData.username}
-        onChange={handleChange}
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      <button type="submit">Register</button>
-    </form>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  value={formData.username}
+                  onChange={handleChange}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="avatar"
+                  placeholder="avatar00.png"
+                  value={formData.avatar}
+                  onChange={handleChange}
+                />
+                <button type="submit">Register</button>
+              </form>
 
-    </div>
+          </div>
         </div>
       </div>
     </div>    
