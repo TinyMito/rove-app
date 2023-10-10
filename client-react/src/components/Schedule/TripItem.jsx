@@ -100,7 +100,8 @@ export const TripItem = ({
           <CardActions className="card-actions-schedule">               
             <IconButton 
               className="icon_buttons" aria-label="mapIcon" size="large"
-              onClick={() => navigate(`/map?lng=${trip.longitude}&lat=${trip.latitude}`)}
+              tripName={trip.name}
+              onClick={() => navigate(`/map?lng=${trip.longitude}&lat=${trip.latitude}&tripName=${trip.name}`)}
             >
               <MapOutlinedIcon />
             </IconButton>

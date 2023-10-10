@@ -27,6 +27,7 @@ export default function MapData() {
   const queryParams = new URLSearchParams(location.search);
   const latitude = parseFloat(queryParams.get("lat")) || 51.505;
   const longitude = parseFloat(queryParams.get("lng")) || -0.09;
+  const tripName = queryParams.get("tripName");
 
   let DefaultIcon = L.icon({
       iconUrl: icon,
@@ -57,7 +58,7 @@ export default function MapData() {
                     >
                     <Popup
                     icon={icon}                   
-                    >Selected Place</Popup>
+                    >{tripName}</Popup>
                   </Marker>
                 </Map>
               </div>
