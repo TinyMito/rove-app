@@ -31,7 +31,7 @@ export default function Navigation({isAuthenticated, userImg}) {
   };
 
   return (
-    <div className="Navigation">
+    <div className="navigation">
       <div className="navFlex">
         <Link className="navBtnStyle" to="/about"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
         {isAuthenticated || userData.id !== undefined ? (
