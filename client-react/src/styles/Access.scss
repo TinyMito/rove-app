@@ -1,0 +1,17 @@
+.avatar-selection {
+  height: 150px;
+  width: 150px;
+  margin: 5px;
+  border: 2px solid #9399B4;
+  border-radius: 15px;
+  &:hover {
+    border: 2px solid #9DD82E;
+  }
+}
+
+.avatar-selection-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
