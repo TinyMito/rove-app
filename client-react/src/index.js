@@ -12,6 +12,7 @@ import ScrollFix from "./ScrollFix";
 
 import { DataProvider } from './GlobalData'; // Add GlobalData
 
+import NotFoundPage from './components/404';
 import Application from './components/Application';
 import { Schedule } from './components/Schedule/Schedule';
 import Google from './components/Survey/Autocomplete';
@@ -26,6 +27,7 @@ import Modal from './components/Survey/Modal'
 import MapData from 'components/Map/MapData';
 import Access from 'components/User/Access';
 import About from 'components/About/About';
+import Team from 'components/Team/Team';
 
 const rootElement = document.getElementById('root'); // React ^18
 const root = createRoot(rootElement); // React ^18
@@ -37,6 +39,7 @@ root.render(
       <Global styles={baseCss} />
       <DataProvider>
         <Routes>
+          <Route path="/*" element={<NotFoundPage />} />
           <Route path="/" element={<Application />} />
           <Route path="/schedule/:id" element={<Schedule />} />
           <Route path="/google" element={<Google />} />
@@ -47,11 +50,10 @@ root.render(
           <Route path="/modal" element={<Modal />} />
           <Route path="/user" element={<User />} />
           <Route path="/dev" element={<Dev />} />
-          {/* <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegistrationForm />} /> */}
           <Route path="/map" element={<MapData />} />
           <Route path="/access" element={<Access />} />
           <Route path="/about" element={<About />} />
+          <Route path="/team" element={<Team />} />
         </Routes>
       </DataProvider>
     </BrowserRouter>
