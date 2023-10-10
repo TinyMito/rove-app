@@ -15,7 +15,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
-export default function Modal({ scheduleId, locationName, placeId , attractionId, photoUrl, attractionAddress, attractionName}) {
+export default function Modal({ scheduleId, userId, locationName, placeId, attractionId, photoUrl, attractionAddress, attractionName}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -77,7 +77,7 @@ export default function Modal({ scheduleId, locationName, placeId , attractionId
           place_id:modalAttractionId,
           place_name: attractionActualName,
           place_address: attractionAddressName,
-          user_id:1,
+          user_id: userId,
           schedule_id: scheduleId,
           date:formattedDate,
           start_time: formattedTime,
