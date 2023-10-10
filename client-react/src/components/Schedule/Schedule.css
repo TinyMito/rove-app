@@ -47,9 +47,17 @@
 .page-heading-schedule {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-end;
+  align-content: flex-end;
   color: #4078c0;
-  border-bottom: 5px solid black;
+  border-bottom: 0.5em solid #71B1F8;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 2.5em;
+}
+
+.schedule-current-date {
+  font-size: 2em;
 }
 
 .user-note-edit-schedule {
@@ -61,7 +69,7 @@
 
 .schedule-heading {
   display: flex;
-  justify-content: right; /* Use 'flex-end' instead of 'right' */
+  align-items: flex-end;
   align-items: right;
 }
 

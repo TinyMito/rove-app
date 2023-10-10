@@ -3,7 +3,12 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 
 import React from "react";
 import { MapContainer as Map, TileLayer, Marker, Popup } from "react-leaflet";
+// import from leaflet
+import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
 import "../../styles/MapData.css";
 import { useLocation } from "react-router-dom";
 
@@ -23,16 +28,22 @@ export default function MapData() {
   const latitude = parseFloat(queryParams.get("lat")) || 51.505;
   const longitude = parseFloat(queryParams.get("lng")) || -0.09;
 
+  let DefaultIcon = L.icon({
+      iconUrl: icon,
+      shadowUrl: iconShadow
+  });
+
+  L.Marker.prototype.options.icon = DefaultIcon;
+
   return (
     <div className="box"> 
       <div className="flex-row">
         <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
         <div className="flex-column">
           <div styles="padding: 0; margin: 0;">
-            {/* Your codes start here */}
-
               <div className="centered-square-map">
                 <Map
+                  id="map"
                   center={[latitude, longitude]}
                   zoom={13}
                   style={{ width: "100%", height: "100%" }}
@@ -41,13 +52,15 @@ export default function MapData() {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     maxZoom={19}
                   />
-                  <Marker position={[latitude, longitude]}>
-                    <Popup>Selected Place</Popup>
+                  <Marker 
+                    position={[latitude, longitude]}   
+                    >
+                    <Popup
+                    icon={icon}                   
+                    >Selected Place</Popup>
                   </Marker>
                 </Map>
               </div>
-
-            {/* Your codes end here */}
             </div>
         </div>
       </div>
