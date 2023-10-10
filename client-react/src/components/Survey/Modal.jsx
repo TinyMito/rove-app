@@ -7,14 +7,23 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DatePicker from 'react-datepicker';
-import { useState, useEffect } from 'react'; // Import useEffect
 import Alert from '@mui/material/Alert';
-import axios from 'axios';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+
+// Dropdown MUI
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 import '../../styles/Card.scss';
+
+import { useState, useEffect } from 'react'; // Import useEffect
+import axios from 'axios';
 
 export default function Modal({ scheduleStart, scheduleEnd, scheduleId, locationName, userId, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
   const [open, setOpen] = React.useState(false);
@@ -25,9 +34,30 @@ export default function Modal({ scheduleStart, scheduleEnd, scheduleId, location
   const [modalPlaceId, setModalPlaceId] = useState(placeId);
   const [modalAttractionId, setAttractionId] = useState(attractionId)
   const [modalPhotoUrl, setPhotoUrl] = useState(photoUrl)
-  const [attractionAddressName, setAttractionAddress] = useState
-  (attractionAddress)
+  const [attractionAddressName, setAttractionAddress] = useState(attractionAddress)
   const [attractionActualName, setAttractionName] = useState(attractionName)
+
+  // Dropdown State
+  const [scheduleSelect, setScheduleSelect] = React.useState('');
+  const [scheduleList, setScheduleList] = useState([]);
+
+  // Dropdown On Change
+  const handleChange = (event) => {
+    setScheduleSelect(event.target.value);
+  };
+
+  // Dropdown Data 
+  useEffect(() => {
+    axios.get(`/api/user/${userId}`)
+      .then((res) => {
+        const filteredSchedule = res.data.schedule.filter((item) => item.id === scheduleId);
+        console.log("Dropdown:", filteredSchedule)
+        setScheduleList(filteredSchedule);
+      })
+      .catch((err) => {
+        setScheduleList({ error: err.message });
+      });
+  }, [userId]);
 
   // Use useEffect to update state variables when props change
   useEffect(() => {
@@ -143,7 +173,30 @@ export default function Modal({ scheduleStart, scheduleEnd, scheduleId, location
         
         <DialogTitle>Trip Details</DialogTitle>
         <DialogContent sx={{minHeight: '450px', width: 'auto', borderRadius: '15px'}}>
+
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Select Schedule</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={scheduleSelect}
+                label="Schedule"
+                onChange={handleChange}
+              >
+                {scheduleList.map((scheduleItem, index) => (
+                  <MenuItem 
+                    key={index} 
+                    value={scheduleItem.id}>
+                    {scheduleItem.start_date} {scheduleItem.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+        
           <h3>{scheduleStart && (`For Schedule: ${scheduleStart} to ${scheduleEnd}`)}</h3>
+
           <div className="dialog-component">
           <DialogContentText>
             Select the date for this attraction!

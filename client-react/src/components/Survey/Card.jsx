@@ -14,6 +14,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
 
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../../styles/Card.scss';
 import Modal from './Modal';
@@ -38,6 +39,35 @@ export default function Suggestion() {
 
   const [placeData, setPlaceData] = useState(null);
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
+
+  // ScheduleId Data 
+  useEffect(() => {
+    axios.get(`/api/card/getscheduleid`)
+      .then((res) => {
+        const scheduleData = res.data.cardscheduleId[0];
+        const filteredScheduleByUserId = scheduleData.filter((item) => item.user_id === userData.id);
+        const filteredScheduleByGoogleId = filteredScheduleByUserId.filter(
+          (item) => item.google_place_id === id || item.google_destination_id === id
+        );
+        //console.log("Search:", id);
+        //console.log(scheduleData);
+        //console.log(filteredScheduleByUserId);
+        console.log(filteredScheduleByGoogleId);
+
+        const scheduleId = filteredScheduleByGoogleId[0]?.id;
+
+        if (userData.scheduleId === null || userData.scheduleId === undefined) {
+          console.log("Schedule ID was blank, tries to update useState!", scheduleId)
+          setUserData({ ...userData, scheduleId });
+        } else {
+          console.log("Schedule ID was found no need to update:", userData.scheduleId)
+        }
+
+      })
+      .catch((err) => {
+        setUserData({ error: err.message });
+      });
+  }, []);
 
   useEffect(() => {
     const fetchPlaceDetails = async () => {
