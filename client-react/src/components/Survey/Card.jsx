@@ -138,6 +138,7 @@ export default function Suggestion() {
                           photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} 
                           longitude={attraction.geometry.location.lng}
                           latitude={attraction.geometry.location.lat}
+                          scheduleStart={userData.scheduleStartDate}
                         />
 
                       </Card>

@@ -152,9 +152,6 @@ export default function AuthForm() {
                   <h1>Register Today!</h1>
 
                   <div className="info-box">
-                    <h3>
-                      Already have an account? <a onClick={toggleMode}>Login</a>
-                    </h3>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -244,7 +241,11 @@ export default function AuthForm() {
                     </FormControl>      
 
                     <Button onClick={handleSubmit} variant="text">Register</Button>
-
+                    
+                    <h3>
+                      Already have an account? <a onClick={toggleMode}>Login</a>
+                    </h3>
+                    
                   </div>
                 </>
               )}
