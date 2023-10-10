@@ -13,12 +13,13 @@ export default function Header({isAuthenticated, userName, slogan, date}) {
 
   const displaySlogan = slogan ? slogan : defaultSlogan;
   return (
-    <div className="Header">
+    <div className="header">
       <div>
         <h2 className="sloganStyle">Welcome {isAuthenticated || userData.id !== undefined ? `${userName}!` : "Traveller!"}</h2>
         <h1 className="sloganStyle">{displaySlogan}</h1>
         <h2 className="sloganStyle-schedule-date">{date}</h2>
       </div>
+      <img className="header-image" src="../../header.png"/>
     </div>
   );
 }
