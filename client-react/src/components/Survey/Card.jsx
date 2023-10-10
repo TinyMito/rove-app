@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
-import '../../styles/Card.css';
+import '../../styles/Card.scss';
 import Modal from './Modal';
+import { useAuthentication } from 'useAuthentication';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
@@ -12,6 +13,9 @@ import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
 export default function Suggestion() {
+  // Requires the user to be logged in
+  const isAuthenticated = useAuthentication();
+
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
@@ -71,9 +75,9 @@ export default function Suggestion() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+      <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header userName={userData.userName} />
+        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
           <div className="body">
             {/* Your codes start here */}
 
@@ -85,7 +89,7 @@ export default function Suggestion() {
               
               <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
            {/*      <Button sx={{ fontSize: '20px' }}> + </Button> */}
-           <Modal scheduleId={userData.scheduleId} locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
+           <Modal scheduleId={userData.scheduleId} userId={userData.id} locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
                 <CardMedia
                   component='img'
                   height='300'

@@ -4,7 +4,8 @@ import PlacesAutocomplete, {
   geocodeByAddress,
 } from 'react-places-autocomplete';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/Google.css';
+import '../../styles/Google.scss';
+import { useAuthentication } from 'useAuthentication';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
@@ -14,6 +15,9 @@ import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
 export default function GoogleAutocomplete() {
+  // Requires the user to be logged in
+  const isAuthenticated = useAuthentication();
+
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
@@ -84,9 +88,9 @@ const updateSchedule = async (scheduleId, destinationId) => {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+      <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header userName={userData.userName} />
+        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
           <div className="body">
             {/* Your codes start here */}
 

@@ -6,18 +6,22 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuthentication } from 'useAuthentication';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
 
 // User CSS
-import '../../styles/Duration.css'
+import '../../styles/Duration.scss'
 
 // Import Navigation & Header
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
 export default function Duration() {
+  // Requires the user to be logged in
+  const isAuthenticated = useAuthentication();
+
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
@@ -88,9 +92,9 @@ export default function Duration() {
   return (
     <div className="box"> 
       <div className="flex-row">
-        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+      <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
         <div className="flex-column">
-          <Header userName={userData.userName} />
+        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
           <div className="body">
             {/* Your codes start here */}
             
