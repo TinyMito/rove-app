@@ -26,7 +26,7 @@
 
 .clock-schedule-page:hover { 
   color: #9DD82E;
-  font-weight: bold;
+  /* font-weight: bold; */
   transform: scale(1.2)
 }
 
@@ -125,6 +125,21 @@
   font-weight: bold !important;
   /* font-size: 2em !important; */
   color: #71B1F8;
+}
+
+.navigate-schedule-all-items {
+  position:fixed;
+	width:7em;
+	height:7em;
+  /* display: inline-block; */
+  float:inline-start;
+  background-color: #71B1F8;
+  fill:white;
+  border: 3px solid white;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  z-index: 101;
 }
 
 @media (max-width: 1260px) {

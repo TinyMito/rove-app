@@ -7,12 +7,15 @@ import { Days } from './Days';
 import { ScheduleTimeLine } from "./ScheduleTimeLine";
 import './Schedule.css'; // Import the CSS file
 import { useAuthentication } from 'useAuthentication';
+import FloatButton from 'components/partials/FloatButton';
 
 // GLOBAL DATA: Import GlobalData function
 import { globalData } from '../../GlobalData';
-
+// Nav and Header
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
+
+//
 
 export const Schedule = () => {
   // Requires the user to be logged in
@@ -53,6 +56,7 @@ export const Schedule = () => {
         <div className="flex-column">
         <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} slogan={destination} date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'} />
           <div className="body">
+            <FloatButton scheduleId={id} />
             <title>{destination}</title>
             <div id="root"></div>
             <div className="page-heading-schedule">
