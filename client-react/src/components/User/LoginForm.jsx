@@ -26,7 +26,7 @@ import Header from '../partials/Header';
 
 export default function LoginForm() {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
-  const { userData, setUserData } = globalData();
+  const { userData, setUserData, fetchUserData } = globalData();
 
   // MUI Password Show Function
   const [showPassword, setShowPassword] = React.useState(false);
@@ -49,9 +49,12 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const response = await axios.post("/api/login", formData);
-      //console.log(response.data.token);
+
+      // Update the globa data
+      fetchUserData();
+
       // Redirect upon successful login
-      navigate("/");
+      navigate("/user");
     } catch (error) {
       console.error("Login failed:", error);
     }
