@@ -4,7 +4,7 @@ export const baseCss = css`
   /* -------------------------------- Base Styles */
   body {
     font-size: 13px;
-    color: #9399B4;
+    color: #2A2A2A;
     background-color: #E7F1FA;
     background-image: url('../background.png');
     background-repeat: repeat;
