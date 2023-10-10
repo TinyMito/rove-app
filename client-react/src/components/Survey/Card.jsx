@@ -68,6 +68,7 @@ export default function Suggestion() {
     fetchPlaceDetails();
   }, [id]);
 
+
   return (
     <div className="box"> 
       <div className="flex-row">
@@ -81,11 +82,12 @@ export default function Suggestion() {
       {nearbyAttractions.length > 0 ? (
         <div>
           <div className='attractions-list'>
-            {nearbyAttractions.slice(0,20).map((attraction, index) => (
-              
-              <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
+            {nearbyAttractions.slice(0,20).map((attraction, index) => {
+              return <Card sx={{ maxWidth: 345, m:1 }} key={index} className='attraction-item'> 
            {/*      <Button sx={{ fontSize: '20px' }}> + </Button> */}
-           <Modal scheduleId={userData.scheduleId} locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} />
+           <Modal scheduleId={userData.scheduleId} locationName={location} placeId={id} attractionId={attraction.place_id} attractionName={attraction.name} attractionAddress={attraction.vicinity} photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`}
+           longitude={attraction.geometry.location.lng}
+           latitude={attraction.geometry.location.lat} />
                 <CardMedia
                   component='img'
                   height='300'
@@ -102,7 +104,7 @@ export default function Suggestion() {
                   </Typography>
                 </CardContent>
               </Card>
-            ))}
+            })}
           </div>
         </div>
       ) : (

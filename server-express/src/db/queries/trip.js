@@ -17,6 +17,8 @@ const tripsQuery =
     T.date,
     T.start_time, 
     T.user_note AS user_note,
+    T.longitude,
+    T.latitude,
     T.attraction_photo_url,
     P.google_place_id,
     P.name AS name
@@ -115,7 +117,9 @@ const addTripQuery = async (tripData) => {
     schedule_id,
     date,
     start_time,
-    attraction_photo_url
+    attraction_photo_url,
+    longitude,
+    latitude
   } = tripData;
 
   console.log(tripData);
@@ -130,9 +134,11 @@ const addTripQuery = async (tripData) => {
     schedule_id,
     date,
     start_time,
-    attraction_photo_url
+    attraction_photo_url,
+    longitude,
+    latitude
     )
-  VALUES($1, $2, $3, $4, $5, $6)
+  VALUES($1, $2, $3, $4, $5, $6, $7, $8)
   RETURNING id;`;
 
   const values = [
@@ -141,7 +147,9 @@ const addTripQuery = async (tripData) => {
     schedule_id,
     date,
     start_time,
-    attraction_photo_url
+    attraction_photo_url,
+    longitude,
+    latitude
   ];
 
   const results = await db.query(queryString, values);
