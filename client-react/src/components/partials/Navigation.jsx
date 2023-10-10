@@ -17,13 +17,13 @@ export default function Navigation({isAuthenticated, userImg}) {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData, fetchUserData } = globalData();
   const navigate = useNavigate();
-
+  
   // Logout
   const handleLogout = () => {
     axios.post('/api/logout')
       .then((response) => {
         fetchUserData();
-        navigate("/access", { state: { isLoggedOut: true } });
+        navigate("/access", { state: { hasMessage: true, message: "You have successfully logged out!" } });
       })
       .catch((error) => {
         console.error('Logout failed:', error);
@@ -33,6 +33,7 @@ export default function Navigation({isAuthenticated, userImg}) {
   return (
     <div className="navigation">
       <div className="navFlex">
+        <div>
         <Link className="navBtnStyle" to="/about"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
         {isAuthenticated || userData.id !== undefined ? (
           <>
@@ -53,6 +54,8 @@ export default function Navigation({isAuthenticated, userImg}) {
           <>
           </>
           )}
+        </div>
+        <Link className="navBtnStyle userBtnStyle" to="/team"><i className="bi bi-bookmark-heart-fill"></i></Link>
       </div>
     </div>
   );

@@ -66,7 +66,7 @@ export default function AuthForm() {
 
   // Error Message or Message
   const [errorMessage, setErrorMessage] = useState("");
-  const message = location.state?.isLoggedOut;
+  const { hasMessage = false, message = "" } = location.state || {};
   const [isLoginMode, setIsLoginMode] = useState(true);
 
   // MUI Password Show Function
@@ -157,15 +157,15 @@ export default function AuthForm() {
   return (
     <div className="box">
       <div className="flex-row">
-        <Navigation loggedIn={userData.loggedIn} userId={userData.id} userImg={userData.userImg} />
+      <Navigation userImg={userData.userImg} />
         <div className="flex-column">
-          <Header userName={userData.userName} />
+        <Header userName={userData.userFirst} />
           <div className="body">
             {/* Your code starts here */}
 
-            {message || errorMessage ? (
+            {hasMessage || errorMessage ? (
               <span className="message">
-                {errorMessage ? errorMessage : "You have successfully logged out!"}
+                {errorMessage ? errorMessage : message}
               </span>
             ) : null}
 
