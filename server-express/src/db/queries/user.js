@@ -11,26 +11,24 @@ const dbQuery = function (query) {
   );
 };
 
-/* const userScheduleQuery =
-  `
-  SELECT DISTINCT ON (schedules.id, schedules.start_date, schedules.end_date)
-  schedules.id, schedules.start_date, schedules.end_date, schedules.user_id, 
-  users.first_name, users.last_name, users.profile_thumbnail_img, 
-  destinations.name
-  FROM schedules 
-  JOIN users ON users.id = schedules.user_id
-  JOIN destinations ON destinations.id = schedules.destination_id
-  WHERE schedules.user_id = $1
-  ORDER BY schedules.start_date;
-  `; */
-
   const userScheduleQuery =
   `
-  SELECT DISTINCT schedules.id, schedules.start_date, schedules.end_date, schedules.user_id, users.first_name, users.last_name, users.profile_thumbnail_img
-  FROM schedules
-  JOIN trips ON trips.schedule_id = schedules.id AND trips.user_id = schedules.user_id
-  JOIN users ON users.id = schedules.user_id
-  WHERE schedules.user_id = $1;
+  SELECT
+    s.user_id,
+    s.id,
+    s.start_date,
+    s.end_date,
+    d.name,
+    (SELECT t.attraction_photo_url
+    FROM trips AS t
+    WHERE t.schedule_id = s.id
+    ORDER BY t.schedule_id DESC
+    LIMIT 1
+    ) AS attraction_photo_url
+  FROM schedules AS s
+  JOIN destinations AS d ON d.id = s.destination_id
+  WHERE s.user_id = $1
+  ORDER BY s.start_date ASC;
   `;
 
 const getUserSchedule = (userId) => {
