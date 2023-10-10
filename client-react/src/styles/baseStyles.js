@@ -69,25 +69,26 @@ export const baseCss = css`
     width: 966px;
   }
 
-  .Navigation {
+  .navigation {
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
     width: 100px;
     background-color: #4B73DC;
   }
 
-  .Header {
-    padding: 3em 5em 0em 4em;
+  .header {
+    padding: 20px 0px 20px 40px;
     min-height: 200px;
     border-top-right-radius: 2em;
-    background: #4E97F5;
-    background-image: url("../header.png");
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: bottom;
-    background-size: 300px auto;
-    background-origin: border-box;
+    background: linear-gradient(135deg,#9661C2, #71B1F8);
     color: #FFF;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .header-image {
+    width: 330px;
   }
 
   /* -------------------------------- Modal Style */
@@ -122,11 +123,42 @@ export const baseCss = css`
     border-bottom: 5px solid #71B1F8;
   }
 
+  .message {
+    display: block;
+    padding: 15px 20px;
+    margin: 25px;
+    border: 2px solid #FFD700;
+    background-color: #FFFCF2;
+    color: #888;
+    font-size: 1.3em;
+    border-radius: 10px;
+  }
+
+  .message2 {
+    display: block;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 1px solid #71B1F8;
+    background-color: #E7F1FA;
+    color: #888;
+    font-size: 1.3em;
+    border-radius: 5px;
+  }
+
+  .Mui-disabled {
+    color: #888 !important;
+    background: #ccc !important;
+  }
+
+  .MuiButton-contained {
+    background-color: #9DD82E !important;
+  }
+
   .MuiButtonBase-root {
     /* font-size: 3em !important; */
     text-transform: none !important;
-    color: #9399B4 !important;
-    background: #FFF !important;
+    /* color: #9399B4; */
+    /* background: #FFF !important; */
     border-radius: 0.3em !important;
     box-shadow: rgba(147, 153, 180, 0.35) 0px 0px 10px !important;
   }
@@ -187,17 +219,21 @@ export const baseCss = css`
       min-width: 700px;
     }
 
-    .Navigation {
+    .navigation {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       min-width: 150px;
     }
   
-    .Header {
+    .header {
       border-top-right-radius: 0;
       width: auto;
       min-height: 320px;
-      background-size: 450px auto;
+    }
+
+    .header-image {
+      visibility: hidden;
+      width: 1px;
     }
 
     .body {

@@ -1,5 +1,6 @@
 // MUI Components
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
+import { Link } from "react-router-dom";
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -81,7 +82,7 @@ export default function User() {
               <div className="body">
                 <h2>Username: {userData.userName}</h2>
 
-                <div className="page-heading"><h1>Destination Suggestion</h1></div>
+                <div className="page-heading"><h1>Destination Recommendation</h1></div>
                 <div className="item-list">
                   {selectedTrips.map((item) => (
                     <TripSuggestion 
@@ -91,15 +92,65 @@ export default function User() {
                     />
                   ))}
                 </div>
-                <div className="page-heading"><h1>My Schedule</h1></div>
+                <div className="page-heading"><h1>My Schedules</h1></div>
+                  { schedules.length > 0 ? (
                   <div className="item-list">
-                    {schedules.map((item) => (
-                      <MyScheduleList 
-                        key={item.id} 
-                        schedule={item}
-                      />
-                    ))}
+                      {schedules.map((item) => (
+                        <>
+                          <MyScheduleList 
+                            key={item.id} 
+                            schedule={item}
+                          />
+                        </>
+                      ))}
+                      <div className="item-card">
+                        <div>
+                          <Link to={`/survey`}>
+                            <CardMedia
+                              component="img"
+                              className="item-card-image"
+                              alt="Add Schedule"
+                              image="travel.png"
+                              title="Add Schedule"
+                            />
+                            <div className="item-card-caption">
+                              <span className="caption-title">Add Schedule</span><br/>
+                              <span className="caption-date" style={{fontSize: '2.5em'}}><i className="bi bi-plus"></i></span>
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
                   </div>
+                  ) : (
+                    <>  
+                       <div style={{ textAlign: 'center' }}>
+                        <div className="message2">You haven't created any schedules yet.</div>
+                        {/* <Button size="large" href="/survey">Create Schedule</Button> */}
+                      </div>   
+                      <div className="item-list">
+                        <div className="item-card">
+                          <div>
+                            <Link to={`/survey`}>
+                              <CardMedia
+                                component="img"
+                                className="item-card-image"
+                                alt="Add Schedule"
+                                image="travel.png"
+                                title="Add Schedule"
+                              />
+                              <div className="item-card-caption">
+                                <span className="caption-title">Add Schedule</span><br/>
+                                <span className="caption-date" style={{fontSize: '2.5em'}}><i className="bi bi-plus"></i></span>
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
+
+                      </div>    
+                 
+                    </>
+                  )}
+
               </div>
           </div>
         </div>

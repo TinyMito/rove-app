@@ -8,9 +8,10 @@
     width: 100%;
   }
 
-  .doneBtn {
+  .navBtn {
     width: 150px;
     height: 50px;
+    margin: 5px;
   }
 }
 
@@ -21,7 +22,7 @@
 
 .attraction-item {
   border-radius: 15px !important;
-  max-width: 260px;
+  width: 260px;
 }
 
 .card-image {
@@ -30,7 +31,7 @@
 }
 
 .attraction-item-content {
-  min-height: 200px !important;
+  min-height: 180px !important;
 }
 
 .addBtn-position {

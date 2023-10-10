@@ -3,6 +3,9 @@ import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, us
 import { Link } from "react-router-dom";
 
 export default function MyScheduleList({schedule}) { 
+
+  const cleanImgUrl = schedule.attraction_photo_url ? schedule.attraction_photo_url : "./travel.png";
+
   return (
     <div className="item-card">
       <div>
@@ -11,7 +14,7 @@ export default function MyScheduleList({schedule}) {
             component="img"
             className="item-card-image"
             alt={schedule.name}
-            image='https://image.cnbcfm.com/api/v1/image/107178919-1673854215895-gettyimages-669463000-shutterstock_621020393.jpeg?v=1674003106'
+            image={cleanImgUrl}
             title={schedule.name}
           />
           <div className="item-card-caption">

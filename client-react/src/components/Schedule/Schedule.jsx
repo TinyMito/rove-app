@@ -28,12 +28,13 @@ export const Schedule = () => {
   const { id } = useParams();
   const { schedule, dates, handleSetDay, currentDay, totalDays, destination, googleDestinationId } = useSchedule({ id });
 
-  const handleNavigate = useCallback(() => {
-    navigate(`/card/${destination}/${googleDestinationId}`);
-  }, [destination, googleDestinationId]);
-
   const { schedule_id, start_date, end_date } = schedule || {};
   const { data, deleteTrip, handleFetchTrips, updateTrip } = useTimeLine({ id, date: dates[currentDay] });
+
+  const handleNavigate = useCallback(() => {
+    setUserData({ ...userData, scheduleId: schedule_id, scheduleStartDate: start_date, scheduleEndDate: end_date })
+    navigate(`/card/${destination}/${googleDestinationId}`);
+  }, [destination, googleDestinationId]);
 
   useEffect(() => {
     if (schedule && !userData.scheduleId) {

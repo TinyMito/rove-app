@@ -39,10 +39,16 @@ export default function GoogleAutocomplete() {
   const [address, setAddress] = useState('');
   const [locationInfo, setLocationInfo] = useState(null);
 
+  // Message + Disabled Button
+  const [entrySelected, setEntrySelected] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
   const handleSelect = async (value) => {
     const result = await geocodeByAddress(value);
     setAddress(value);
     setLocationInfo(result[0]);
+    setEntrySelected(true); // Set the entrySelected state to true when an entry is selected
+    setButtonDisabled(false); // Enable the submit button when an entry is selected
   };
 
   const placeId = locationInfo?.place_id
@@ -50,7 +56,7 @@ export default function GoogleAutocomplete() {
 
   const navigate = useNavigate();
 
-const handleButtonClick = () => {
+const handleButtonClick = async () => {
   //console.log("CODE:", placeId);
   //console.log("NAME:", locationName);
 
@@ -58,28 +64,26 @@ const handleButtonClick = () => {
     //console.log('Selected location info:', locationInfo);
 
     // Return a promise from the function
-    return axios
-      .post('/api/destination', {
-        google_destination_id: placeId,
-        name: locationName,
-      })
-      .then((response) => {
-        const destinationId = response.data.destinationId;
-        // Return the destinationId to be used in the next .then
-        return destinationId;
-      })
-      .then((destinationId) => {
-        if (placeId) {
-          // Now that we have the destinationId, we can call updateSchedule
-          updateSchedule(userData.scheduleId, destinationId);
-          navigate(`/card/${locationName}/${placeId}`);
-        } else {
-          navigate('/card');
-        }
-      })
-      .catch((error) => {
-        console.error('Error inserting destination:', error);
-      });
+    try {
+      const response = await axios
+        .post('/api/destination', {
+          google_destination_id: placeId,
+          name: locationName,
+        });
+      const destinationId = response.data.destinationId;
+      const destinationId_1 = destinationId;
+      if (placeId) {
+        // Now that we have the destinationId, we can call updateSchedule
+        updateSchedule(userData.scheduleId, destinationId_1);
+        navigate(`/card/${locationName}/${placeId}`);
+      } else {
+        navigate('/card');
+      }
+    } catch (error) {
+      console.error('Error inserting destination:', error);
+    }
+
+      setButtonDisabled(false);
   } else {
     return Promise.reject(new Error('Location info is missing.'));
   }
@@ -108,8 +112,12 @@ const updateSchedule = async (scheduleId, destinationId) => {
         <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
           <div className="body">
             {/* Your codes start here */}
-            <h1>Which city would you like to visit?</h1>
 
+            <div className="h1-flex">
+              <h1>Which city would you like to visit?</h1>
+              <Button className="navBtn" size="large" href="/survey">Start Over</Button>
+            </div>
+            
               <PlacesAutocomplete
                 value={address}
                 onChange={setAddress}
@@ -133,19 +141,19 @@ const updateSchedule = async (scheduleId, destinationId) => {
 
                       {loading && <div>Loading...</div>}
 
-                      {suggestions.map((suggestion) => {
+                      {suggestions.map((suggestion, index) => {
+                        const suggestionKey = `suggestion_${index}`;
                         const className = suggestion.active
                           ? 'suggestion-item--active'
                           : 'suggestion-item';
-                        const style = suggestion.active ? {} : {};
+
                         return (
                           <Button
-                            key={suggestion.id}
+                            key={suggestionKey}
                             size="large"
                             variant="contained"
                             {...getSuggestionItemProps(suggestion, {
-                              className,
-                              style,
+                              className
                             })}
                           >
                             {suggestion.description}
@@ -158,8 +166,14 @@ const updateSchedule = async (scheduleId, destinationId) => {
                 )}
 
               </PlacesAutocomplete>
+
+              {entrySelected ? null : (
+                <div className="message">
+                  Please select an entry.
+                </div>
+              )}
               
-              <Button fullWidth={true} size="large" onClick={handleButtonClick}>Submit</Button>
+              <Button fullWidth={true} size="large" onClick={handleButtonClick} disabled={buttonDisabled}>Submit</Button>
       
             {/* Your codes end here */}
             </div>

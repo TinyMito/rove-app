@@ -16,7 +16,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import '../../styles/Card.scss';
 
-export default function Modal({ scheduleId, locationName, userId, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
+export default function Modal({ scheduleStart, scheduleEnd, scheduleId, locationName, userId, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -72,7 +72,14 @@ export default function Modal({ scheduleId, locationName, userId, placeId , attr
   
         // Format the time as "HH:mm"
         const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-  
+        // Make a new date object for start of schedule
+        const schedStart = new Date(scheduleStart)
+
+        if (startDate < schedStart) {
+          console.error('Error Inserting Date. Make sure you have selected dates you have previously chosen!');
+          setShowAlert(true);
+          return;
+        }
         const tripData = {
           destination_id: modalPlaceId,
           destination_name:modalLocationName,
@@ -136,6 +143,7 @@ export default function Modal({ scheduleId, locationName, userId, placeId , attr
         
         <DialogTitle>Trip Details</DialogTitle>
         <DialogContent sx={{minHeight: '450px', width: 'auto', borderRadius: '15px'}}>
+          <h3>{scheduleStart && (`For Schedule: ${scheduleStart} to ${scheduleEnd}`)}</h3>
           <div className="dialog-component">
           <DialogContentText>
             Select the date for this attraction!
@@ -165,7 +173,7 @@ export default function Modal({ scheduleId, locationName, userId, placeId , attr
           <div className="dialog-component">
           {showAlert && (
             <Alert severity="error">
-              Please select both date and time.
+              Error! You must insert a valid date based on your selected trip date!
             </Alert>
           )}
           </div>

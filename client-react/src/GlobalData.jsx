@@ -11,11 +11,11 @@ export function DataProvider({ children }) {
     userName: null,
     userEmail: null,
     userImg: null,
-    loggedIn: false,
     scheduleId: null,
     scheduleStartDate: null,
     scheduleEndDate: null,
-    destinationId: null
+    destinationId: null,
+    googleApiKey: process.env.REACT_APP_API_KEY
   });
 
   useEffect(() => {
@@ -33,20 +33,13 @@ export function DataProvider({ children }) {
           userLast: response.data.userLast,
           userName: response.data.userAlias,
           userEmail: response.data.userEmail,
-          userImg: response.data.userProfile,
-          loggedIn: true, // Assuming successful login updates loggedIn
-          scheduleId: response.data.scheduleId,
-          scheduleStartDate: response.data.scheduleStartDate,
-          scheduleEndDate: response.data.scheduleEndDate,
-          destinationId: response.data.destinationId
+          userImg: response.data.userProfile
         });
       })
       .catch((error) => {
         console.error('Error getting user data:', error);
       });
   };
-
-  console.log('userData:', userData);
 
   return (
     <UserContext.Provider value={{ userData, setUserData, fetchUserData }}>

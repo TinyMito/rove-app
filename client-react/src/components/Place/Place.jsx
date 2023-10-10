@@ -39,7 +39,7 @@ export default function Place(props) {
 
   return (
     <div className={props.containerClassName || "body"}>
-      <Card sx={{ padding: "0px 20px" }}>
+      <Card sx={{ padding: "0px 20px", borderRadius: '20px' }}>
         <Grid container spacing={5}>
           <Grid item xs={12} md={8}>
             <Typography
