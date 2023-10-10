@@ -16,7 +16,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import '../../styles/Card.scss';
 
-export default function Modal({ scheduleStart, scheduleId, locationName, userId, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
+export default function Modal({ scheduleStart, scheduleEnd, scheduleId, locationName, userId, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -143,6 +143,7 @@ export default function Modal({ scheduleStart, scheduleId, locationName, userId,
         
         <DialogTitle>Trip Details</DialogTitle>
         <DialogContent sx={{minHeight: '450px', width: 'auto', borderRadius: '15px'}}>
+          <h3>{scheduleStart && (`For Schedule: ${scheduleStart} to ${scheduleEnd}`)}</h3>
           <div className="dialog-component">
           <DialogContentText>
             Select the date for this attraction!
