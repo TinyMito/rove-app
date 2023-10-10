@@ -87,9 +87,6 @@ export default function AuthForm() {
     avatar: "",
   });
 
-  const [isFormReady, setIsFormReady] = useState(false);
-  const [isRegisterFormReady, setIsRegisterFormReady] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -99,18 +96,20 @@ export default function AuthForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the passwords match
-    if (formData.password !== formData.passwordConfirmation) {
-      setErrorMessageBottom("Passwords do not match!");
-      return; // Exit the function without making the API call
-    }
+    if (!isLoginMode) {
+      // Check if the passwords match
+      if (formData.password !== formData.passwordConfirmation) {
+        setErrorMessageBottom("Passwords do not match!");
+        return; // Exit the function without making the API call
+      }
 
-    // Check if the avatar is selected
-    if (!isAvatarSelected) {
-      setErrorMessageBottom("Please select an avatar.");
-      return; // Prevent form submission
+      // Check if the avatar is selected
+      if (!isAvatarSelected) {
+        setErrorMessageBottom("Please select an avatar.");
+        return; // Prevent form submission
+      }
     }
-
+    
     // Remove passwordConfirmation state
     const registrationData = { ...formData };
     delete registrationData.passwordConfirmation;
