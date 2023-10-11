@@ -135,7 +135,7 @@ export default function Suggestion() {
                 <Button className="navBtn" size="large" onClick={() => window.history.back()}>Back</Button>
                 <Button className="navBtn" size="large" variant="contained" href="/user">Finish</Button>
               </div>
-              <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click finish at the left.</span>
+              <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click the finish button.</span>
 
               {nearbyAttractions.length > 0 ? (
 

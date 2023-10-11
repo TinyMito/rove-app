@@ -157,6 +157,66 @@ const addTripQuery = async (tripData) => {
 
 };
 
+/* ------------------------ A single trip coordinates ----------------------- */const singleLocationQuery = `
+  SELECT
+    T.id AS trip_id,
+    T.place_id AS place_id,
+    T.date AS date,
+    T.schedule_id, 
+    T.longitude,
+    T.latitude,
+    P.name AS name,
+    S.start_date As start_date,
+    S.end_date As end_date
+  FROM
+    trips T
+  JOIN
+    places P
+      ON T.place_id = P.id
+  JOIN
+    schedules S
+      ON T.schedule_id = S.id
+  WHERE
+    T.id = $1;`;
+
+const getATripCoordinates = ({ tripId }) => {
+  const query = {
+    string: singleLocationQuery,
+    params: [tripId]
+  };
+  return dbQuery(query);
+};
+
+/* ----------------------- Multiple trips coordinates ----------------------- */
+const multipleLocationsQuery =
+  `SELECT
+    T.id AS trip_id,
+    T.place_id AS place_id,
+    T.date AS date,
+    T.schedule_id, 
+    T.longitude,
+    T.latitude,
+    P.name AS name,
+    S.start_date As start_date,
+    S.end_date As end_date
+  FROM
+    trips T
+  JOIN
+    places P
+      ON T.place_id = P.id
+  JOIN
+    schedules S
+      ON T.schedule_id = S.id
+  WHERE
+    T.schedule_id = $1;`;
+
+const getAllTripsCoordinates = ({ scheduleId }) => {
+  const query = {
+    string: multipleLocationsQuery,
+    params: [scheduleId]
+  };
+  return dbQuery(query);
+};
 
 
 ////////////////////////////Exports////////////////////////////////
@@ -164,5 +224,7 @@ module.exports = {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
   addTripQuery,
-  updateTripTimeAndUserNote
+  updateTripTimeAndUserNote,
+  getATripCoordinates,
+  getAllTripsCoordinates
 };

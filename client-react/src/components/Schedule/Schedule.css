@@ -26,7 +26,7 @@
 
 .clock-schedule-page:hover { 
   color: #9DD82E;
-  font-weight: bold;
+  /* font-weight: bold; */
   transform: scale(1.2)
 }
 
@@ -50,10 +50,12 @@
   align-items: flex-end;
   align-content: flex-end;
   color: #4078c0;
-  border-bottom: 0.5em solid #71B1F8;
   padding-top: 1em;
   padding-bottom: 1em;
   margin-bottom: 2.5em;
+  background-color: whitesmoke;
+  border-radius: 20px;
+  padding: 2em;
 }
 
 .schedule-current-date {
@@ -123,12 +125,40 @@
 
 .trip_name {
   font-weight: bold !important;
-  /* font-size: 2em !important; */
   color: #71B1F8;
+}
+
+.navigate-schedule-all-items {
+  position: fixed !important;
+  margin-left: 65em;
+  margin-top: 13em;
+	width: 6em;
+	height: 6em;
+  background-color:  #4B73DC;
+  fill:white;
+  border: none;
+	border-radius:50px;
+	text-align: center;
+	box-shadow: 2px 2px 3px #2b3e6c;
+  z-index: 99;
+}
+
+.navigate-schedule-all-items:hover {
+  background-color: #9DD82E;
+}
+.float-map {
+  color: white;
+  font-size: 4em !important;
+  padding-top: 0.25em !important;
 }
 
 @media (max-width: 1260px) {
   .modal-place-container {
     max-width: 700px;
+  }
+
+  .navigate-schedule-all-items {
+    margin-left: 55em;
+    margin-top: 20em;
   }
 }

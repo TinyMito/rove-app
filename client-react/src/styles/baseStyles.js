@@ -93,6 +93,7 @@ export const baseCss = css`
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    justify-content: space-between;
     transition: all 0.3s ease;
   }
 

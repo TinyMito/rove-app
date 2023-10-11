@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-////////////////////////////Imports////////////////////////////////
+/* --------------------------------- Imports -------------------------------- */
 const {
   getTripsByScheduleIdNDate,
   deleteATripByTripId,
   addTripQuery,
-  updateTripTimeAndUserNote
+  updateTripTimeAndUserNote,
+  getATripCoordinates,
+  getAllTripsCoordinates
 } = require("../db/queries/trip");
 
-////////////////////////////Get all trips////////////////////////////////
+/* ------------------------------ Get all trips ----------------------------- */
 router.get("/", (req, res) => {
   const { date, id, scheduleId } = req.query;
   //console.log('date, scheduleId', date, scheduleId);
@@ -30,10 +32,38 @@ router.get("/", (req, res) => {
   }
 });
 
-////////////////////////////Delete a trip////////////////////////////////
+/* ----------------------------------- map ---------------------------------- */
+router.get("/map", (req, res) => {
+  const { tripId, scheduleId } = req.query;
+
+  if (tripId !== undefined) {
+    console.log('tripId', tripId);
+    getATripCoordinates({ tripId })
+      .then((response) => {
+        res.status(200);
+        res.json(response);
+      })
+      .catch((error) => {
+        console.log('error for tripRoutes', error);
+        res.status(500).json({ error: 'Internal server error' });
+      });
+  } else if (scheduleId !== undefined) {
+    getAllTripsCoordinates({ scheduleId })
+      .then((response) => {
+        res.status(200);
+        res.json(response);
+      })
+      .catch((error) => {
+        res.status(500).json({ error: 'Internal server error' });
+      });
+  } else {
+    console.log('error');
+  }
+});
+
+/* ------------------------------ Delete a trip ----------------------------- */
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  //console.log('id', id);
 
   deleteATripByTripId({ tripId: id })
     .then(() => {
@@ -41,21 +71,18 @@ router.delete("/:id", (req, res) => {
       res.json({});
     })
     .catch((error) => {
-      //console.error('Error fetching data for trip/:id:', error);
       res.status(500).json({ error: 'Internal server error' });
     });
 });
 
-////////////////////////////Update a trip////////////////////////////////
+/* ------------------------------ Update a trip ----------------------------- */
 router.put("/:id", (req, res) => {
 
-  //console.log('req.body', req.body);
   const { tripId, startTime, userNote } = req.body;
-  // res.json({ test: 'ok' });
+
   updateTripTimeAndUserNote({ tripId, startTime, userNote })
     .then((rows) => {
       res.status(200);
-      //console.log('updated trip', rows[0]);
       res.json(rows[0]);
     })
     .catch((error) => {
@@ -64,7 +91,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-////////////////////////////Add a trip////////////////////////////////
+/* ------------------------------- Add a trip ------------------------------- */
 router.post("/", (req, res) => {
   const { destination_id, destination_name, place_id, place_name, place_address, user_id, schedule_id, date, start_time, attraction_photo_url, longitude, latitude } = req.body;
 
@@ -82,8 +109,6 @@ router.post("/", (req, res) => {
     longitude,
     latitude
   };
-
-  //console.log('tripData', tripData);
 
   // Call the addTripQuery function to insert the new trip into the database
   addTripQuery(tripData)

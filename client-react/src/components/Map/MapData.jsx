@@ -28,7 +28,7 @@ export default function MapData() {
   const queryParams = new URLSearchParams(location.search);
   const latitude = parseFloat(queryParams.get("lat")) || 51.505;
   const longitude = parseFloat(queryParams.get("lng")) || -0.09;
-  const tripName = queryParams.get("tripName");
+  const tripname = queryParams.get("tripname");
 
   let DefaultIcon = L.icon({
       iconUrl: icon,
@@ -47,19 +47,27 @@ export default function MapData() {
                 <Map
                   id="map"
                   center={[latitude, longitude]}
-                  zoom={19}
+                  zoom={17}
                   style={{ width: "100%", height: "100%" }}
                 >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    maxZoom={17}
+                    maxZoom={19}
                   />
                   <Marker 
                     position={[latitude, longitude]}   
                     >
                     <Popup
-                    icon={icon}                   
-                    >{tripName}</Popup>
+                      icon={icon}
+                      className="popup-schedule"
+                      maxWidth={1000}
+                      closeButton={false}
+                      offset={[25, 0]}                   
+                    >
+                      <div className="popup-text">
+``                      {tripname}
+                      </div>
+                    </Popup>
                   </Marker>
                 </Map>
               </div>
