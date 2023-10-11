@@ -168,19 +168,21 @@ export default function AuthForm() {
                   <FormControl sx={{ m: 1 }} variant="outlined">
                     <TextField
                       required
-                      id="outlined-required"
+                      id="email"
                       label="Email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      autoComplete="email"
                     />
                   </FormControl>
 
                   <FormControl sx={{ m: 1 }} variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                    <InputLabel htmlFor="password">Password</InputLabel>
                     <OutlinedInput
                       required
-                      id="outlined-adornment-password"
+                      autoComplete="password"
+                      id="password"
                       type={showPassword ? 'text' : 'password'}
                       endAdornment={
                         <InputAdornment position="end">
@@ -189,6 +191,7 @@ export default function AuthForm() {
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
                             edge="end"
+                            sx={{boxShadow: 'unset !important', margin: '0px'}}
                           >
                             {showPassword ? <VisibilityOff /> : <Visibility />}
                           </IconButton>
@@ -237,11 +240,12 @@ export default function AuthForm() {
                     <FormControl sx={{ m: 1 }} variant="outlined">
                       <TextField
                         required
-                        id="outlined-required username"
+                        id="username"
                         label="Username"
                         name="username"
                         value={formData.username}
                         onChange={handleChange}
+                        autoComplete="username"
                       />
                     </FormControl>  
 
@@ -250,41 +254,45 @@ export default function AuthForm() {
                       <FormControl sx={{ m: 1 }} variant="outlined">
                         <TextField
                           required
-                          id="outlined-required firstname"
+                          id="firstname"
                           label="First Name"
                           name="firstname"
                           value={formData.firstname}
                           onChange={handleChange}
+                          autoComplete="given-name"
                         />
                       </FormControl>      
 
                       <FormControl sx={{ m: 1 }} variant="outlined">
                         <TextField
                           required
-                          id="outlined-required lastname"
+                          id="lastname"
                           label="Last Name"
                           name="lastname"
                           value={formData.lastname}
                           onChange={handleChange}
+                          autoComplete="family-name"
                         />
                       </FormControl>      
                     </div>
                     <FormControl sx={{ m: 1 }} variant="outlined">
                       <TextField
                         required
-                        id="outlined-required email"
+                        id="email"
                         label="Email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        autoComplete="email"
                       />
                     </FormControl>      
 
                     <FormControl sx={{ m: 1}} variant="outlined">
-                      <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                      <InputLabel htmlFor="password">Password</InputLabel>
                       <OutlinedInput
                         required
-                        id="outlined-adornment-password"
+                        autoComplete="off"
+                        id="password"
                         type={showPassword ? 'text' : 'password'}
                         endAdornment={
                           <InputAdornment position="end">
@@ -293,6 +301,7 @@ export default function AuthForm() {
                               onClick={handleClickShowPassword}
                               onMouseDown={handleMouseDownPassword}
                               edge="end"
+                              sx={{boxShadow: 'unset !important', margin: '0px'}}
                             >
                               {showPassword ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
@@ -306,10 +315,11 @@ export default function AuthForm() {
                     </FormControl>    
 
                     <FormControl sx={{ m: 1 }} variant="outlined">
-                      <InputLabel htmlFor="outlined-adornment-password-confirmation">Enter the Password Again</InputLabel>
+                      <InputLabel htmlFor="passwordConfirmation">Enter the Password Again</InputLabel>
                       <OutlinedInput
                         required
-                        id="outlined-adornment-password-confirmation"
+                        autoComplete="off"
+                        id="passwordConfirmation"
                         type={showPassword ? 'text' : 'password'}
                         endAdornment={
                           <InputAdornment position="end">
@@ -318,6 +328,7 @@ export default function AuthForm() {
                               onClick={handleClickShowPassword}
                               onMouseDown={handleMouseDownPassword}
                               edge="end"
+                              sx={{boxShadow: 'unset !important', margin: '0px'}}
                             >
                               {showPassword ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
@@ -338,9 +349,10 @@ export default function AuthForm() {
                     <FormControl sx={{ m: 1 }} variant="outlined">
                       <TextField
                         disabled     
+                        autoComplete="off"
                         sx={{margin: '0px 20px 50px 20px'}}
                         variant="filled"
-                        id="outlined-required avatar"
+                        id="avatar"
                         label="Avatar"
                         name="avatar"
                         value={formData.avatar}

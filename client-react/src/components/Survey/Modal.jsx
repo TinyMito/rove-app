@@ -232,6 +232,8 @@ export default function Modal({
                   Select a schedule:
                 </DialogContentText>
                 <Select
+                  id="schedulePicker"
+                  name="schedulePicker"
                   required={true}
                   value={scheduleSelect}
                   onChange={handleChange}
@@ -258,6 +260,8 @@ export default function Modal({
             </DialogContentText>
   
             <DatePicker
+              id="attractionDate"
+              name="attractionDate"
               selected={startDate}
               onChange={handleStartDateChange}
               selectsStart
@@ -271,6 +275,8 @@ export default function Modal({
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={['TimePicker']}>
                 <TimePicker
+                  id="attractionTime"
+                  name="attractionTime"
                   onChange={handleTimeChange}
                   format="HH:mm"
                 />

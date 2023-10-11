@@ -122,6 +122,8 @@ export default function Duration() {
                 <div className="date-picker-container">
                   <InputLabel htmlFor="outlined-adornment-password">Start Date:</InputLabel>
                   <DatePicker
+                    id="durationDateStart"
+                    name="durationDateStart"
                     selected={startDate}
                     onChange={handleStartDateChange}
                     selectsStart
@@ -134,6 +136,8 @@ export default function Duration() {
                 <div className="date-picker-container">
                   <InputLabel htmlFor="outlined-adornment-password">End Date:</InputLabel>
                   <DatePicker
+                    id="durationDateEnd"
+                    name="durationDateEnd"
                     selected={endDate}
                     onChange={handleEndDateChange}
                     selectsEnd
