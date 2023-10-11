@@ -22,6 +22,7 @@ export const baseCss = css`
     margin: 0;
     padding: 0.8em 0em;
     color: #71B1F8;
+    transition: all 0.3s ease;
   }
 
   h2 {
@@ -29,6 +30,7 @@ export const baseCss = css`
     margin: 0;
     padding: 0.3em 0em;
     color: #71B1F8;
+    transition: all 0.3s ease;
   }
 
   h3 {
@@ -36,6 +38,7 @@ export const baseCss = css`
     margin: 0;
     padding: 0.3em 0em;
     color: #71B1F8;
+    transition: all 0.3s ease;
   }
 
   /* -------------------------------- Layout Style */
@@ -45,6 +48,7 @@ export const baseCss = css`
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.3s ease;
   }
 
   .body {
@@ -52,6 +56,7 @@ export const baseCss = css`
     padding: 1em 3em;
     min-height: 800px;
     background-color: #fbfbfb;
+    transition: all 0.3s ease;
   }
 
   .flex-row {
@@ -60,6 +65,7 @@ export const baseCss = css`
     flex-grow: 1;
     border-radius: 2em;
     box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+    transition: all 0.3s ease;
   }
 
   .flex-column {
@@ -67,6 +73,7 @@ export const baseCss = css`
     flex-direction: column;
     flex-grow: 1;
     width: 966px;
+    transition: all 0.3s ease;
   }
 
   .navigation {
@@ -74,6 +81,7 @@ export const baseCss = css`
     border-bottom-left-radius: 2em;
     width: 100px;
     background-color: #4B73DC;
+    transition: all 0.3s ease;
   }
 
   .header {
@@ -85,10 +93,12 @@ export const baseCss = css`
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    transition: all 0.3s ease;
   }
 
   .header-image {
     width: 330px;
+    transition: all 0.3s ease;
   }
 
   /* -------------------------------- Modal Style */
@@ -167,6 +177,7 @@ export const baseCss = css`
     text-transform: none !important;
     color: #E7F1FA !important;
     background: #9DD82E !important;
+    transition: all 0.3s ease;
   }
 
   .MuiMenuItem-root {

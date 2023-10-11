@@ -80,29 +80,34 @@ export default function User() {
           <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
 
               <div className="body">
-                <h2>Username: {userData.userName}</h2>
-
-                <div className="page-heading"><h1>Destination Recommendation</h1></div>
+                <h1>Destination Recommendation</h1>
+                {/* <div className="page-heading"></div> */}
                 <div className="item-list">
-                  {selectedTrips.map((item) => (
-                    <TripSuggestion 
-                      key={item.id} 
-                      data={item}
-                      /* openModal={openModal} */
-                    />
-                  ))}
+                  {selectedTrips.map((item, index) => {
+                    const selectedTripsKey = `selectedTrips_${index}`;
+                    return (
+                      <TripSuggestion 
+                        key={selectedTripsKey} 
+                        data={item}
+                        /* openModal={openModal} */
+                      />                    
+                    );
+                   })}
                 </div>
-                <div className="page-heading"><h1>My Schedules</h1></div>
+                <h1>My Schedules</h1>
+                {/* <div className="page-heading"></div> */}
                   { schedules.length > 0 ? (
                   <div className="item-list">
-                      {schedules.map((item) => (
-                        <>
-                          <MyScheduleList 
-                            key={item.id} 
-                            schedule={item}
-                          />
-                        </>
-                      ))}
+                      {schedules.map((item, index) => {
+                        const scheduleKey = `schedule_${index}`;
+                        return (
+                          <div key={scheduleKey}>
+                            <MyScheduleList 
+                              schedule={item}
+                            />
+                          </div>                          
+                        );
+                      })}
                       <div className="item-card">
                         <div>
                           <Link to={`/survey`}>

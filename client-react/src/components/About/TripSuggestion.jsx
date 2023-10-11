@@ -18,7 +18,7 @@ export default function TripSuggestion({data, openModal}) {
             title={data.name}
           />
           <div className="item-card-caption">
-            <span className="caption-title">{data.name}</span><br/>
+            <div className="caption-title">{data.name}</div>
           </div>
         </Link>
       </div>

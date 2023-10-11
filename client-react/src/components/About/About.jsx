@@ -49,7 +49,7 @@ export default function User() {
     return array;
   }
 
-  const selectedTrips = randomPicker(suggestedTrips).slice(0,20);
+  const selectedTrips = randomPicker(suggestedTrips).slice(0,12);
 
   // Open Modal
   const openModal = (tripId) => {
@@ -74,13 +74,16 @@ export default function User() {
 
                 <h1>Explore Today!</h1>
                 <div className="item-list">
-                  {selectedTrips.map((item) => (
-                    <TripSuggestion 
-                      key={item.id} 
-                      data={item}
-                      /* openModal={openModal} */
-                    />
-                  ))}
+                  {selectedTrips.map((item, index) => {
+                    const selectedTripsKey = `selectedTrips_${index}`;
+                    return (
+                      <TripSuggestion 
+                        key={selectedTripsKey} 
+                        data={item}
+                        /* openModal={openModal} */
+                      />                    
+                    );
+                   })}
                 </div>
               </div>
           </div>
