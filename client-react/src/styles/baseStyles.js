@@ -6,7 +6,7 @@ export const baseCss = css`
     font-size: 13px;
     color: #2A2A2A;
     background-color: #E7F1FA;
-    background-image: url('../background.png');
+    background-image: url('../../background.png');
     background-repeat: repeat;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
