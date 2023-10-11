@@ -47,19 +47,27 @@ export default function MapData() {
                 <Map
                   id="map"
                   center={[latitude, longitude]}
-                  zoom={19}
+                  zoom={17}
                   style={{ width: "100%", height: "100%" }}
                 >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    maxZoom={17}
+                    maxZoom={19}
                   />
                   <Marker 
                     position={[latitude, longitude]}   
                     >
                     <Popup
-                    icon={icon}                   
-                    >{tripName}</Popup>
+                      icon={icon}
+                      className="popup-schedule"
+                      maxWidth={1000}
+                      closeButton={false}
+                      offset={[25, 0]}                   
+                    >
+                      <div className="popup-text">
+``                      {tripName}
+                      </div>
+                    </Popup>
                   </Marker>
                 </Map>
               </div>

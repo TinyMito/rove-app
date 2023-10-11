@@ -5,3 +5,13 @@
   width: 100%;
   height: 100vh;
 }
+
+.popup-text {
+  font-size:3em;
+  color: #71B1F8;
+  font-weight: 600;
+}
+
+.leaflet-marker-pane img {
+  width: 50px !important;
+}

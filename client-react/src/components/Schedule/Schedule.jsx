@@ -55,9 +55,13 @@ export const Schedule = () => {
       <div className="flex-row">
       <Navigation isAuthenticated={isAuthenticated} userImg={userData.userImg} />
         <div className="flex-column">
-        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} slogan={destination} date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'} />
+        <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} slogan={destination} date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}>
+        </Header>
+        <FloatButton 
+          className="main-float-button-schedule"
+          scheduleId={id} 
+        />
           <div className="body">
-            <FloatButton scheduleId={id} />
             <title>{destination}</title>
             <div id="root"></div>
             <div className="page-heading-schedule">

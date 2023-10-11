@@ -7,21 +7,26 @@ const dbQuery = function (query) {
   );
 };
 
-//////////////////////////Retrieve trips///////////////////////////
+/* ----------------------------- Retrieve trips ----------------------------- */
 const locationsQuery =
   `SELECT
     T.id AS trip_id,
     T.place_id AS place_id,
+    T.date AS date,
     T.schedule_id, 
     T.longitude,
     T.latitude,
-    T.attraction_photo_url,
-    P.name AS name
+    P.name AS name,
+    S.start_date As start_date,
+    S.end_date As end_date
   FROM
     trips T
   JOIN
     places P
       ON T.place_id = P.id
+  JOIN
+    schedules S
+      ON T.schedule_id = S.id
   WHERE
     T.schedule_id = $1;`;
 

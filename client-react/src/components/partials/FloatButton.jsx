@@ -1,28 +1,22 @@
 import { useCallback }from 'react';
-import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import { useNavigate } from 'react-router-dom';
 
-
-export default function FloatButton(id) {
+export default function FloatButton({scheduleId}) {
 
   const navigate = useNavigate();
   const handleNavigate =useCallback(() => {
-    navigate(`/map/${id}`)
+    navigate(`/map/${scheduleId}`)
   })
   return (
-    <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <Fab 
-        color="primary" aria-label="add"
-        class="navigate-schedule-all-items"
+      <div
+        className="navigate-schedule-all-items"
+        sx={{borderRight: '90px !important'}}
+        onClick={handleNavigate}
       >
         <MapOutlinedIcon
-          class="float-map"
-          onClick={handleNavigate}
-          sx={{color:'white', fontSize: '5em'}}
+          className="float-map"
         />
-      </Fab>
-    </Box>
+      </div>
   );
 }
