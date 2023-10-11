@@ -66,11 +66,11 @@ export default function MapSchedule() {
                   {trips.map((trip) => {
                     const latitude = parseFloat(trip.latitude)
                     const longitude = parseFloat(trip.longitude)
-                    const tripName = trip.name
+                    const tripname = trip.name
 
                     return (
                       <Marker 
-                        key={tripName}
+                        key={tripname}
                         position={[latitude, longitude]}   
                         >
                         <Popup
@@ -82,7 +82,7 @@ export default function MapSchedule() {
                           <div 
                             className="popup-text"                         
                           >
-                            {tripName}
+                            {tripname}
                           </div>
                         </Popup>
                       </Marker>

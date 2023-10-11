@@ -28,7 +28,7 @@ export default function MapData() {
   const queryParams = new URLSearchParams(location.search);
   const latitude = parseFloat(queryParams.get("lat")) || 51.505;
   const longitude = parseFloat(queryParams.get("lng")) || -0.09;
-  const tripName = queryParams.get("tripName");
+  const tripname = queryParams.get("tripname");
 
   let DefaultIcon = L.icon({
       iconUrl: icon,
@@ -65,7 +65,7 @@ export default function MapData() {
                       offset={[25, 0]}                   
                     >
                       <div className="popup-text">
-``                      {tripName}
+``                      {tripname}
                       </div>
                     </Popup>
                   </Marker>
