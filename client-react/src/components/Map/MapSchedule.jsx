@@ -1,4 +1,6 @@
-import { MapContainer as Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { useState, useEffect, useMemo } from 'react';
+import { MapContainer as Map, LayersControl, FeatureGroup, TileLayer, Marker, Popup } from "react-leaflet";
+import { useParams } from 'react-router-dom';
 // import from leaflet
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
@@ -15,24 +17,34 @@ import { globalData } from '../../GlobalData';
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
-export default function MapSchedule() {
-  // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
-  const { userData, setUserData } = globalData();
+import { useMap } from './useMap';
 
+export default function MapSchedule() {
+
+  const { userData, setUserData } = globalData();
+  const { id } = useParams();
+  const { trips } = useMap({ id });
+
+  const [center, setCenter] = useState([47.6067006, -122.3325009]);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const latitude = parseFloat(queryParams.get("lat")) || 51.505;
-  const longitude = parseFloat(queryParams.get("lng")) || -0.09;
-  const tripName = queryParams.get("tripName");
 
   let DefaultIcon = L.icon({
       iconUrl: icon,
       shadowUrl: iconShadow
   });
 
-  const locations = 
-
   L.Marker.prototype.options.icon = DefaultIcon;
+
+  const centers = useMemo(() => {
+    return trips.map((trip) => 
+      [trip.latitude, trip.longitude]
+    )
+  }, [trips]);
+
+  useEffect(() => { 
+    setCenter(centers[0]);
+  }, [centers[0]]);
 
   return (
     <div className="box"> 
@@ -43,21 +55,40 @@ export default function MapSchedule() {
               <div className="centered-square-map">
                 <Map
                   id="map"
-                  center={[latitude, longitude]}
-                  zoom={19}
+                  center={center}
+                  zoom={15}
                   style={{ width: "100%", height: "100%" }}
                 >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    maxZoom={17}
+                    maxZoom={19}
                   />
-                  <Marker 
-                    position={[latitude, longitude]}   
-                    >
-                    <Popup
-                    icon={icon}                   
-                    >{tripName}</Popup>
-                  </Marker>
+                  {trips.map((trip) => {
+                    const latitude = parseFloat(trip.latitude)
+                    const longitude = parseFloat(trip.longitude)
+                    const tripname = trip.name
+
+                    return (
+                      <Marker 
+                        key={tripname}
+                        position={[latitude, longitude]}   
+                        >
+                        <Popup
+                          icon={icon}
+                          className="popup-schedule"                            maxWidth={1000} 
+                          closeButton={false}   
+                          offset={[25, 0]}
+                        >
+                          <div 
+                            className="popup-text"                         
+                          >
+                            {tripname}
+                          </div>
+                        </Popup>
+                      </Marker>
+                    )
+                   })
+                  }
                 </Map>
               </div>
             </div>
