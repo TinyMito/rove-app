@@ -20,7 +20,7 @@ export const baseCss = css`
   h1 {
     font-size: 2.5em;
     margin: 0;
-    padding: 0.8em 0em;
+    padding: 0.2em 0.2em 0.8em 0.2em;
     color: #71B1F8;
     transition: all 0.3s ease;
   }
@@ -53,7 +53,7 @@ export const baseCss = css`
 
   .body {
     border-bottom-right-radius: 2em;
-    padding: 1em 3em;
+    padding: 25px;
     min-height: 800px;
     background-color: #fbfbfb;
     transition: all 0.3s ease;
@@ -125,6 +125,22 @@ export const baseCss = css`
   }
 
   /* -------------------------------- Elements */
+
+  .box-design-01 {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+  }
+
+  .box-design-02 {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+  }
 
   .page-heading {
     display: flex;

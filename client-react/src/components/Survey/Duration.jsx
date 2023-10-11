@@ -117,6 +117,7 @@ export default function Duration() {
 
             <h1>When are you traveling?</h1>
             
+            <div className="box-design-02">
               <div className="display-flow">
 
                 <div className="date-picker-container">
@@ -149,6 +150,7 @@ export default function Duration() {
                 </div>
 
               </div>
+              
 
               <div style={{ textAlign: 'center', padding: '25px' }}>
                 <h2>Number of Days: {calculateTripDuration()}</h2>
@@ -163,7 +165,7 @@ export default function Duration() {
                   Please select both start and end dates.
                 </div>
               )}
-              
+              </div>
 
             {/* Your codes end here */}
             </div>

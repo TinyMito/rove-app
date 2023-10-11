@@ -71,7 +71,6 @@ export default function User() {
           <Header userName={userData.userFirst} />
 
               <div className="body">
-
                 <h1>Explore Today!</h1>
                 <div className="item-list">
                   {selectedTrips.map((item, index) => {

@@ -118,7 +118,9 @@ const updateSchedule = async (scheduleId, destinationId) => {
               <Button className="navBtn" size="large" href="/survey">Start Over</Button>
             </div>
             
+            <div className="box-design-02">
               <PlacesAutocomplete
+                className="autocomplete-box"
                 value={address}
                 onChange={setAddress}
                 onSelect={handleSelect}
@@ -175,6 +177,7 @@ const updateSchedule = async (scheduleId, destinationId) => {
               
               <Button fullWidth={true} size="large" onClick={handleButtonClick} disabled={buttonDisabled}>Submit</Button>
       
+            </div>
             {/* Your codes end here */}
             </div>
         </div>

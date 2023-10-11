@@ -1,7 +1,12 @@
+.display-flow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /* Style the container for each date picker */
 .date-picker-container {
-  width: 100%;
-  padding: 20px 0px;
+  padding: 0px;
 }
 
 /* Style the label */
@@ -17,7 +22,6 @@
   border-radius: 5px;
   font-size: 16px;
 }
-
 
 /* Style the calendar header */
 .react-datepicker__header {
@@ -61,10 +65,7 @@
   color: #E7F1FA;
 }
 
-.display-flow {
-  display: flex;
-  flex-direction: row;
-}
+
 
 @media (max-width : 1100px) {
   .display-flow {
