@@ -37,6 +37,9 @@ export default function Suggestion() {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
+  // Get the list of unique schedule IDs if the single schedule ID is null
+  const [uniqueIds, setUniqueIds] = useState([]);
+
   const [placeData, setPlaceData] = useState(null);
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
 
@@ -49,18 +52,17 @@ export default function Suggestion() {
         const filteredScheduleByGoogleId = filteredScheduleByUserId.filter(
           (item) => item.google_place_id === id || item.google_destination_id === id
         );
-        //console.log("Search:", id);
-        //console.log(scheduleData);
-        //console.log(filteredScheduleByUserId);
-        console.log(filteredScheduleByGoogleId);
 
-        const scheduleId = filteredScheduleByGoogleId;
+        const uniqueIds = Array.from(new Set(filteredScheduleByGoogleId.map(item => item.id)));
 
         if (userData.scheduleId === null || userData.scheduleId === undefined) {
-          console.log("Schedule ID was blank, tries to update useState!", scheduleId)
-          //setUserData({ ...userData, scheduleId });
+          // If the single schedule ID is null, means user has to choose from dropdown list.
+          //console.log("Schedule ID was null, search found the following schedules:", uniqueIds);
+          setUniqueIds(uniqueIds);
         } else {
-          console.log("Schedule ID was found no need to update:", userData.scheduleId)
+          // Single schedule ID detected, user doesn't need to use dropdown list.
+          //console.log("Single Schedule ID was found and lock to it:", userData.scheduleId);
+          setUniqueIds([userData.scheduleId])
         }
 
       })
@@ -160,7 +162,10 @@ export default function Suggestion() {
                           </Typography>
                         </CardContent>
                         <Modal 
-                          scheduleId={userData.scheduleId} 
+                          userData={userData}
+                          setUserData={setUserData}
+                          scheduleId={userData.scheduleId}
+                          uniqueIds={uniqueIds}
                           userId={userData.id} 
                           locationName={location} 
                           placeId={id} 

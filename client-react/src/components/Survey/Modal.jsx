@@ -25,7 +25,23 @@ import '../../styles/Card.scss';
 import { useState, useEffect } from 'react'; // Import useEffect
 import axios from 'axios';
 
-export default function Modal({ scheduleStart, scheduleEnd, scheduleId, locationName, userId, placeId , attractionId, photoUrl, attractionAddress, attractionName, longitude, latitude}) {
+export default function Modal({ 
+  userData,
+  setUserData,
+  scheduleStart, 
+  scheduleEnd, 
+  scheduleId,
+  uniqueIds,
+  locationName, 
+  userId, 
+  placeId, 
+  attractionId, 
+  photoUrl, 
+  attractionAddress, 
+  attractionName, 
+  longitude, 
+  latitude
+}) {
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -40,6 +56,7 @@ export default function Modal({ scheduleStart, scheduleEnd, scheduleId, location
   // Dropdown State
   const [scheduleSelect, setScheduleSelect] = React.useState('');
   const [scheduleList, setScheduleList] = useState([]);
+  const [noSchedules, setNoSchedules] = useState(false);
 
   // Dropdown On Change
   const handleChange = (event) => {
@@ -50,13 +67,23 @@ export default function Modal({ scheduleStart, scheduleEnd, scheduleId, location
   useEffect(() => {
     axios.get(`/api/user/${userId}`)
       .then((res) => {
-        const filteredSchedule = res.data.schedule.filter((item) => item.id === scheduleId);
+        const filteredSchedule = res.data.schedule.filter((item) => uniqueIds.includes(item.id));
         setScheduleList(filteredSchedule);
+
+        // Check if there's only one item in scheduleList and automatically select it
+        if (filteredSchedule.length === 1) {
+          setScheduleSelect(filteredSchedule[0].id);
+        }
+
+        // If there are no schedules available set true
+        if (filteredSchedule.length === 0) {
+          setNoSchedules(true);
+        }
       })
       .catch((err) => {
         setScheduleList({ error: err.message });
       });
-  }, [userId]);
+  }, [userId, uniqueIds]);
 
   // Use useEffect to update state variables when props change
   useEffect(() => {
@@ -116,7 +143,7 @@ export default function Modal({ scheduleStart, scheduleEnd, scheduleId, location
           place_name: attractionActualName,
           place_address: attractionAddressName,
           user_id: userId,
-          schedule_id: scheduleId,
+          schedule_id: scheduleSelect,
           date:formattedDate,
           start_time: formattedTime,
           attraction_photo_url: modalPhotoUrl,
@@ -168,80 +195,100 @@ export default function Modal({ scheduleStart, scheduleEnd, scheduleId, location
         fullWidth={true}
         maxWidth="sm"
         onClose={handleClose}
+        sx={{overflow: 'visible !important'}}
       >
         
-        <DialogTitle>Trip Details</DialogTitle>
-        <DialogContent sx={{minHeight: '450px', width: 'auto', borderRadius: '15px'}}>
-
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Select Schedule</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={scheduleSelect}
-                label="Schedule"
-                onChange={handleChange}
-              >
-                {scheduleList.map((scheduleItem, index) => (
-                  <MenuItem 
-                    key={index} 
-                    value={scheduleItem.id}>
-                    {scheduleItem.start_date} {scheduleItem.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
-        
-          <h3>{scheduleStart && (`For Schedule: ${scheduleStart} to ${scheduleEnd}`)}</h3>
-
-          <div className="dialog-component">
-          <DialogContentText>
-            Select the date for this attraction!
-          </DialogContentText>
-
-          <DatePicker
-            selected={startDate}
-            onChange={handleStartDateChange}
-            selectsStart
-            startDate={startDate}
-            className="material-ui-datepicker"
-          />
-        </div>
-        <div className="dialog-component">
-          <DialogContentText>Select the time for this attraction!</DialogContentText>
-
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['TimePicker']}>
-              <TimePicker
-                label="Select the time!"
-                onChange={handleTimeChange}
-                format="HH:mm"
-              />
-            </DemoContainer>
-          </LocalizationProvider>
+        {noSchedules ? (
+          <>
+          <DialogTitle>Do you have a schedule?</DialogTitle>
+          <DialogContent sx={{minHeight: '50px', width: 'auto', borderRadius: '15px'}}>
+            <DialogContentText>
+              You do not have any available schedules for these attractions.<br/>Please create a schedule first!
+            </DialogContentText>
+            <DialogActions>
+              <Button size="large" href="/survey">Click here to create a schedule!</Button>
+            </DialogActions>
+          </DialogContent>
+          </>
+        ) : (
+          <>
+          <DialogTitle>Trip Details</DialogTitle>
+          <DialogContent sx={{minHeight: '450px', width: 'auto', borderRadius: '15px'}}>
+  
+            <Box sx={{ minWidth: 120 }}>
+              <FormControl fullWidth>
+                <DialogContentText>
+                  Select a schedule:
+                </DialogContentText>
+                <Select
+                  required={true}
+                  value={scheduleSelect}
+                  onChange={handleChange}
+                  disabled={scheduleList.length === 1} // Disable if single object
+                >
+                  {scheduleList.map((scheduleItem, index) => (
+                    <MenuItem 
+                      key={index} 
+                      sx={{boxShadow: 'none !important', fontSize: '1.3em !important'}}
+                      size="large"
+                      value={scheduleItem.id}>
+                      ( {scheduleItem.start_date} - {scheduleItem.end_date} ) {scheduleItem.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
+          
+            {/* <h3>{scheduleStart && (`For Schedule: ${scheduleStart} to ${scheduleEnd}`)}</h3> */}
+  
+            <div className="dialog-component">
+            <DialogContentText>
+              Select the date for this attraction:
+            </DialogContentText>
+  
+            <DatePicker
+              selected={startDate}
+              onChange={handleStartDateChange}
+              selectsStart
+              startDate={startDate}
+              className="material-ui-datepicker"
+            />
           </div>
           <div className="dialog-component">
-          {showAlert && (
-            <Alert severity="error">
-              Error! You must insert a valid date based on your selected trip date!
-            </Alert>
-          )}
-          </div>
-
-        </DialogContent>
-        <DialogActions>
-          <Button size="large" onClick={handleCancel}>Cancel</Button>
-          <Button
-            size="large"
-            onClick={handleSubmit}
-            disabled={isConfirmDisabled()}
-          >
-            Confirm
-          </Button>
-        </DialogActions>
+            <DialogContentText>Select the time for this attraction:</DialogContentText>
+  
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={['TimePicker']}>
+                <TimePicker
+                  onChange={handleTimeChange}
+                  format="HH:mm"
+                />
+              </DemoContainer>
+            </LocalizationProvider>
+            </div>
+            <div className="dialog-component">
+            {showAlert && (
+              <Alert severity="error">
+                Error! You must insert a valid date based on your selected trip date!
+              </Alert>
+            )}
+            </div>
+  
+          </DialogContent>
+          <DialogActions>
+            <Button size="large" onClick={handleCancel}>Cancel</Button>
+            <Button
+              size="large"
+              onClick={handleSubmit}
+              disabled={isConfirmDisabled() || scheduleSelect === ''}
+            >
+              Confirm
+            </Button>
+          </DialogActions>
+          </>
+        )}
       </Dialog>
+      
     </div>
   );
 }

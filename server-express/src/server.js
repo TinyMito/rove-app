@@ -44,11 +44,9 @@ app.use(express.static(public));
 app.get('/api/check-auth', (req, res) => {
   if (req.session.userId) {
     // User is authenticated
-    console.log("hi")
     res.status(200).json({ isAuthenticated: true });
   } else {
     // User is not authenticated
-    console.log("bye")
     res.status(200).json({ isAuthenticated: false });
   }
 });

@@ -97,7 +97,7 @@ const updateSchedule = async (scheduleId, destinationId) => {
       destinationId,
     })
     .then((response) => {
-      console.log('Schedule updated with ID:', response.data);
+      //console.log('Schedule updated with ID:', response.data);
     })
     .catch((error) => {
       console.error('Error updating schedule:', error);

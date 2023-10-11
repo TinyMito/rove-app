@@ -9,7 +9,7 @@ const {
 // "map/:id (scheduleid)"
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  console.log('id', id);
+  //console.log('id', id);
   try {
 
     const markersLocations = await getMarkersByScheduleId({ id });

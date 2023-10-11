@@ -89,6 +89,8 @@ export default function User() {
                       <TripSuggestion 
                         key={selectedTripsKey} 
                         data={item}
+                        userData={userData}
+                        setUserData={setUserData}
                         /* openModal={openModal} */
                       />                    
                     );
