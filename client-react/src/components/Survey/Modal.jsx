@@ -234,6 +234,7 @@ export default function Modal({
                 <Select
                   id="schedulePicker"
                   name="schedulePicker"
+                  autoComplete="off"
                   required={true}
                   value={scheduleSelect}
                   onChange={handleChange}
@@ -267,6 +268,7 @@ export default function Modal({
               selectsStart
               startDate={startDate}
               className="material-ui-datepicker"
+              autoComplete="off"
             />
           </div>
           <div className="dialog-component">
@@ -279,6 +281,7 @@ export default function Modal({
                   name="attractionTime"
                   onChange={handleTimeChange}
                   format="HH:mm"
+                  autoComplete="off"
                 />
               </DemoContainer>
             </LocalizationProvider>
