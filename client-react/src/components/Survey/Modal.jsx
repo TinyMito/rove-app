@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -42,6 +43,8 @@ export default function Modal({
   longitude, 
   latitude
 }) {
+  const navigate = useNavigate();
+
   const [open, setOpen] = React.useState(false);
   const [startDate, setStartDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -71,6 +74,7 @@ export default function Modal({
         setScheduleList(filteredSchedule);
 
         // Check if there's only one item in scheduleList and automatically select it
+        console.log("Receiving Schedule IDs", filteredSchedule)
         if (filteredSchedule.length === 1) {
           setScheduleSelect(filteredSchedule[0].id);
         }
@@ -78,12 +82,14 @@ export default function Modal({
         // If there are no schedules available set true
         if (filteredSchedule.length === 0) {
           setNoSchedules(true);
+        } else {
+          setNoSchedules(false);
         }
       })
       .catch((err) => {
         setScheduleList({ error: err.message });
       });
-  }, [userId, uniqueIds]);
+  }, [uniqueIds]);
 
   // Use useEffect to update state variables when props change
   useEffect(() => {
@@ -107,9 +113,14 @@ export default function Modal({
     setOpen(true);
   };
 
+  const handleCreate = () => {
+    navigate('/survey');
+  };
+
   const handleCancel = () => {
     setOpen(false);
   };
+
   const handleSubmit = async () => {
     //console.log('Submitting form...');
     if (startDate !== null && selectedTime !== null) {
@@ -276,6 +287,7 @@ export default function Modal({
   
           </DialogContent>
           <DialogActions>
+            <Button size="large" onClick={handleCreate}>New Schedule</Button>
             <Button size="large" onClick={handleCancel}>Cancel</Button>
             <Button
               size="large"

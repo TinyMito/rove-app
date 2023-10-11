@@ -7,7 +7,7 @@ export default function TripSuggestion({data, userData, setUserData, openModal})
   const cleanImgUrl = data.photo_url ? data.photo_url : "./travel.png";
 
   const clearScheduleId = () => {
-    setUserData({ ...userData, scheduleId: null });
+    setUserData({ ...userData, scheduleId: undefined });
   }
 
   return (
