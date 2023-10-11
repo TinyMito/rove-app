@@ -20,7 +20,7 @@ export const baseCss = css`
   h1 {
     font-size: 2.5em;
     margin: 0;
-    padding: 0.2em 0.2em 0.8em 0.2em;
+    padding: 0em 0em 0.8em 0em;
     color: #71B1F8;
     transition: all 0.3s ease;
   }
@@ -28,7 +28,7 @@ export const baseCss = css`
   h2 {
     font-size: 1.75em;
     margin: 0;
-    padding: 0.3em 0em;
+    padding: 0em 0em 0.8em 0em;
     color: #71B1F8;
     transition: all 0.3s ease;
   }
@@ -36,7 +36,7 @@ export const baseCss = css`
   h3 {
     font-size: 1.25em;
     margin: 0;
-    padding: 0.3em 0em;
+    padding: 0em 0em 0.8em 0em;
     color: #71B1F8;
     transition: all 0.3s ease;
   }
@@ -127,7 +127,7 @@ export const baseCss = css`
   /* -------------------------------- Elements */
 
   .box-design-01 {
-    padding: 10px;
+    padding: 17px;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
