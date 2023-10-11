@@ -44,11 +44,9 @@ app.use(express.static(public));
 app.get('/api/check-auth', (req, res) => {
   if (req.session.userId) {
     // User is authenticated
-    console.log("hi")
     res.status(200).json({ isAuthenticated: true });
   } else {
     // User is not authenticated
-    console.log("bye")
     res.status(200).json({ isAuthenticated: false });
   }
 });
@@ -89,6 +87,8 @@ app.use("/api/login", require("./routes/loginRoutes"));
 app.use("/api/register", require("./routes/registrationRoutes"));
 app.use("/api/destination", require("./routes/destinationRoutes"));
 app.use("/api/map", require("./routes/mapRoutes.js"));
+app.use("/api/card", require("./routes/cardRoutes.js"));
+app.use("/api/google", require("./routes/googleApi.js")); // Future
 
 app.use(function (req, res) {  res.status(404);
 });

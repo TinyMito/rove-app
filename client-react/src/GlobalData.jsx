@@ -5,16 +5,16 @@ const UserContext = createContext();
 
 export function DataProvider({ children }) {
   const [userData, setUserData] = useState({
-    id: null,
-    userFirst: null,
-    userLast: null,
-    userName: null,
-    userEmail: null,
-    userImg: null,
-    scheduleId: null,
-    scheduleStartDate: null,
-    scheduleEndDate: null,
-    destinationId: null,
+    id: undefined,
+    userFirst: undefined,
+    userLast: undefined,
+    userName: undefined,
+    userEmail: undefined,
+    userImg: undefined,
+    scheduleId: undefined,
+    scheduleStartDate: undefined,
+    scheduleEndDate: undefined,
+    destinationId: undefined,
     googleApiKey: process.env.REACT_APP_API_KEY
   });
 

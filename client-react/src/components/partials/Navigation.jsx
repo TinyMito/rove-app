@@ -34,18 +34,18 @@ export default function Navigation({isAuthenticated, userImg}) {
     <div className="navigation">
       <div className="navFlex">
         <div>
-        <Link className="navBtnStyle" to="/about"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
+        <Link className="appBtnStyle" to="/about"><img className="appIconStyle" src={appIcon} alt="Logo" /></Link>
         {isAuthenticated || userData.id !== undefined ? (
           <>
-            <Link className="navBtnStyle userBtnStyle" to={`/user`}><img className="userIconStyle" src={`/${userImg}`} alt="Avatar" /></Link>
+            <Link className="userBtnStyle spaceBtnStyle" to={`/user`}><img className="userIconStyle" src={`/${userImg}`} alt="Avatar" /></Link>
           </>
         ) : (
           <>
-            <Link className="navBtnStyle userBtnStyle" to={`/access`} ><i className="bi bi-person-circle" ></i></Link>
+            <Link className="userBtnStyle spaceBtnStyle" to={`/access`} ><i className="bi bi-person-circle" ></i></Link>
           </>
         )}
         <Link className="navBtnStyle" to="/survey"><i className="bi bi-calendar-week"></i></Link>
-        <Link className="navBtnStyle userBtnStyle" to="/map"><i className="bi bi-geo-alt"></i></Link>
+        <Link className="navBtnStyle spaceBtnStyle" to="/map"><i className="bi bi-geo-alt"></i></Link>
         {isAuthenticated || userData.id !== undefined ? (
           <>
             <Link className="navBtnStyle" onClick={() => handleLogout()}><i className="bi bi-box-arrow-left"></i></Link>
@@ -55,7 +55,7 @@ export default function Navigation({isAuthenticated, userImg}) {
           </>
           )}
         </div>
-        <Link className="navBtnStyle userBtnStyle" to="/team"><i className="bi bi-bookmark-heart-fill"></i></Link>
+        <Link className="navBtnStyle spaceBtnStyle" to="/team"><i className="bi bi-bookmark-heart-fill"></i></Link>
       </div>
     </div>
   );

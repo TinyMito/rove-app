@@ -80,29 +80,39 @@ export default function User() {
           <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} />
 
               <div className="body">
-                <h2>Username: {userData.userName}</h2>
 
-                <div className="page-heading"><h1>Destination Recommendation</h1></div>
-                <div className="item-list">
-                  {selectedTrips.map((item) => (
-                    <TripSuggestion 
-                      key={item.id} 
-                      data={item}
-                      /* openModal={openModal} */
-                    />
-                  ))}
+                <div className="box-design-01">
+                <h1>Your next travel stop!</h1>
+                  <div className="item-list">
+                    {selectedTrips.map((item, index) => {
+                      const selectedTripsKey = `selectedTrips_${index}`;
+                      return (
+                        <TripSuggestion 
+                          key={selectedTripsKey} 
+                          data={item}
+                          userData={userData}
+                          setUserData={setUserData}
+                          /* openModal={openModal} */
+                        />                    
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className="page-heading"><h1>My Schedules</h1></div>
+
+                <div className="box-design-01">
+                <h1>My Schedules</h1>
                   { schedules.length > 0 ? (
                   <div className="item-list">
-                      {schedules.map((item) => (
-                        <>
-                          <MyScheduleList 
-                            key={item.id} 
-                            schedule={item}
-                          />
-                        </>
-                      ))}
+                      {schedules.map((item, index) => {
+                        const scheduleKey = `schedule_${index}`;
+                        return (
+                          <div key={scheduleKey}>
+                            <MyScheduleList 
+                              schedule={item}
+                            />
+                          </div>                          
+                        );
+                      })}
                       <div className="item-card">
                         <div>
                           <Link to={`/survey`}>
@@ -121,6 +131,7 @@ export default function User() {
                         </div>
                       </div>
                   </div>
+                  
                   ) : (
                     <>  
                        <div style={{ textAlign: 'center' }}>
@@ -151,6 +162,7 @@ export default function User() {
                     </>
                   )}
 
+              </div>
               </div>
           </div>
         </div>

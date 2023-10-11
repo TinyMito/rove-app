@@ -18,9 +18,9 @@ export default function MyScheduleList({schedule}) {
             title={schedule.name}
           />
           <div className="item-card-caption">
-            <span className="caption-title">{schedule.name}</span><br/>
-            <span className="caption-date"><i className="bi bi-airplane"></i> {schedule.start_date}</span><br/>
-            <span className="caption-date"><i className="bi bi-arrow-return-right"></i> {schedule.end_date}</span>
+            <div className="caption-title">{schedule.name}</div>
+            <div className="caption-date">{schedule.start_date}</div>
+            <div className="caption-date">{schedule.end_date}</div>
           </div>
         </Link>
       </div>

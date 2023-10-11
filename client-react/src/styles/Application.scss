@@ -48,7 +48,7 @@
   padding: 50px 200px;
   font-size: 2em;
   color: #4B73DC;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   &:hover {
     color: #9DD82E;
   }
@@ -64,8 +64,7 @@
   border-radius: 17px;
   text-decoration: none;
   box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
-  transition: color 0.3s ease, background-color 0.3s ease;
-
+  transition: all 0.3s ease;
   &:hover {
     background-color: #4B73DC;
     color: #E7F1FA;

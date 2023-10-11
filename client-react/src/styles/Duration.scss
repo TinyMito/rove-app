@@ -1,7 +1,12 @@
+.display-flow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /* Style the container for each date picker */
 .date-picker-container {
-  width: 100%;
-  padding: 20px 0px;
+  padding: 0px;
 }
 
 /* Style the label */
@@ -14,10 +19,9 @@
   min-width: 350px;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 16px;
 }
-
 
 /* Style the calendar header */
 .react-datepicker__header {
@@ -28,8 +32,8 @@
 .react-datepicker__day {
   font-size: 16px;
   color: #000;
-  border-radius: 100%;
-  padding: 13px;
+  border-radius: 50px;
+  padding: 4px;
   margin: 2px;
   cursor: pointer;
 }
@@ -61,10 +65,7 @@
   color: #E7F1FA;
 }
 
-.display-flow {
-  display: flex;
-  flex-direction: row;
-}
+
 
 @media (max-width : 1100px) {
   .display-flow {

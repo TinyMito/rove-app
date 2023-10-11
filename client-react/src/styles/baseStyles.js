@@ -6,7 +6,7 @@ export const baseCss = css`
     font-size: 13px;
     color: #2A2A2A;
     background-color: #E7F1FA;
-    background-image: url('../background.png');
+    background-image: url('../../background.png');
     background-repeat: repeat;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -20,8 +20,9 @@ export const baseCss = css`
   h1 {
     font-size: 2.5em;
     margin: 0;
-    padding: 0.8em 0em;
+    padding: 0.2em 0.2em 0.8em 0.2em;
     color: #71B1F8;
+    transition: all 0.3s ease;
   }
 
   h2 {
@@ -29,6 +30,7 @@ export const baseCss = css`
     margin: 0;
     padding: 0.3em 0em;
     color: #71B1F8;
+    transition: all 0.3s ease;
   }
 
   h3 {
@@ -36,6 +38,7 @@ export const baseCss = css`
     margin: 0;
     padding: 0.3em 0em;
     color: #71B1F8;
+    transition: all 0.3s ease;
   }
 
   /* -------------------------------- Layout Style */
@@ -45,13 +48,15 @@ export const baseCss = css`
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.3s ease;
   }
 
   .body {
     border-bottom-right-radius: 2em;
-    padding: 1em 3em;
+    padding: 25px;
     min-height: 800px;
     background-color: #fbfbfb;
+    transition: all 0.3s ease;
   }
 
   .flex-row {
@@ -60,6 +65,7 @@ export const baseCss = css`
     flex-grow: 1;
     border-radius: 2em;
     box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+    transition: all 0.3s ease;
   }
 
   .flex-column {
@@ -67,6 +73,7 @@ export const baseCss = css`
     flex-direction: column;
     flex-grow: 1;
     width: 966px;
+    transition: all 0.3s ease;
   }
 
   .navigation {
@@ -74,6 +81,7 @@ export const baseCss = css`
     border-bottom-left-radius: 2em;
     width: 100px;
     background-color: #4B73DC;
+    transition: all 0.3s ease;
   }
 
   .header {
@@ -86,10 +94,12 @@ export const baseCss = css`
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
+    transition: all 0.3s ease;
   }
 
   .header-image {
     width: 330px;
+    transition: all 0.3s ease;
   }
 
   /* -------------------------------- Modal Style */
@@ -115,6 +125,22 @@ export const baseCss = css`
   }
 
   /* -------------------------------- Elements */
+
+  .box-design-01 {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+  }
+
+  .box-design-02 {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+  }
 
   .page-heading {
     display: flex;
@@ -168,6 +194,7 @@ export const baseCss = css`
     text-transform: none !important;
     color: #E7F1FA !important;
     background: #9DD82E !important;
+    transition: all 0.3s ease;
   }
 
   .MuiMenuItem-root {

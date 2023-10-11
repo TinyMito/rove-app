@@ -14,6 +14,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
 
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../../styles/Card.scss';
 import Modal from './Modal';
@@ -36,8 +37,39 @@ export default function Suggestion() {
   // GLOBAL DATA: Add the useState const from globalData, ie. userData.id, userData.firstname etc
   const { userData, setUserData } = globalData();
 
+  // Get the list of unique schedule IDs if the single schedule ID is null
+  const [uniqueIds, setUniqueIds] = useState([]);
+
   const [placeData, setPlaceData] = useState(null);
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
+
+  // ScheduleId Data 
+  useEffect(() => {
+    axios.get(`/api/card/getscheduleid`)
+      .then((res) => {
+        const scheduleData = res.data.cardscheduleId[0];
+        const filteredScheduleByUserId = scheduleData.filter((item) => item.user_id === userData.id);
+        const filteredScheduleByGoogleId = filteredScheduleByUserId.filter(
+          (item) => item.google_place_id === id || item.google_destination_id === id
+        );
+
+        const uniqueIds = Array.from(new Set(filteredScheduleByGoogleId.map(item => item.id)));
+
+        if (userData.scheduleId === null || userData.scheduleId === undefined) {
+          // If the single schedule ID is null, means user has to choose from dropdown list.
+          //console.log("Schedule ID was null, search found the following schedules:", uniqueIds);
+          setUniqueIds(uniqueIds);
+        } else {
+          // Single schedule ID detected, user doesn't need to use dropdown list.
+          //console.log("Single Schedule ID was found and lock to it:", userData.scheduleId);
+          setUniqueIds([userData.scheduleId])
+        }
+
+      })
+      .catch((err) => {
+        setUserData({ error: err.message });
+      });
+  }, []);
 
   useEffect(() => {
     const fetchPlaceDetails = async () => {
@@ -103,6 +135,8 @@ export default function Suggestion() {
                 <Button className="navBtn" size="large" onClick={() => window.history.back()}>Back</Button>
                 <Button className="navBtn" size="large" variant="contained" href="/user">Finish</Button>
               </div>
+
+              <div className="box-design-01">
               <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click the finish button.</span>
 
               {nearbyAttractions.length > 0 ? (
@@ -130,7 +164,10 @@ export default function Suggestion() {
                           </Typography>
                         </CardContent>
                         <Modal 
-                          scheduleId={userData.scheduleId} 
+                          userData={userData}
+                          setUserData={setUserData}
+                          scheduleId={userData.scheduleId}
+                          uniqueIds={uniqueIds}
                           userId={userData.id} 
                           locationName={location} 
                           placeId={id} 
@@ -152,6 +189,8 @@ export default function Suggestion() {
               ) : (
                 <h1>No nearby attractions found.</h1>
               )}
+
+              </div>
       
             {/* Your codes end here */}
             </div>
