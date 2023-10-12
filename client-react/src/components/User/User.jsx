@@ -81,8 +81,8 @@ export default function User() {
 
               <div className="body">
 
+              <h1>Your next travel stop!</h1>
                 <div className="box-design-01">
-                <h1>Your next travel stop!</h1>
                   <div className="item-list">
                     {selectedTrips.map((item, index) => {
                       const selectedTripsKey = `selectedTrips_${index}`;
@@ -98,9 +98,9 @@ export default function User() {
                     })}
                   </div>
                 </div>
-
-                <div className="box-design-01">
+                
                 <h1>My Schedules</h1>
+                <div className="box-design-01">
                   { schedules.length > 0 ? (
                   <div className="item-list">
                       {schedules.map((item, index) => {

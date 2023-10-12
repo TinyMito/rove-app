@@ -18,9 +18,9 @@ export const baseCss = css`
   }
   
   h1 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     margin: 0;
-    padding: 0em 0em 0.8em 0em;
+    padding: 0.5em 0em 0.5em 0em;
     color: #71B1F8;
     transition: all 0.3s ease;
   }
@@ -53,7 +53,7 @@ export const baseCss = css`
 
   .body {
     border-bottom-right-radius: 2em;
-    padding: 25px;
+    padding: 10px 25px;
     min-height: 800px;
     background-color: #fbfbfb;
     transition: all 0.3s ease;
