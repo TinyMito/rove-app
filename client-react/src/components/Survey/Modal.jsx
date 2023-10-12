@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -193,12 +195,27 @@ export default function Modal({
     return startDate === null || selectedTime === null;
   };
 
+  // Tooltip
+  const LightTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+    ))(({ theme }) => ({
+      [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: '#fff',
+        color: '#9399B4',
+        boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.3)',
+        fontSize: '1.5em',
+        borderRadius: '7px'
+      },
+  }));
+
   return (
     <div>
       <div className="addBtn-position">
-        <Button className="addBtn" size="large" fullWidth={true} variant="text" onClick={handleClickOpen}>
-          <i className="bi bi-calendar-plus"></i>
-        </Button>
+        <LightTooltip title="Add to Schedule">
+          <Button className="addBtn" size="large" fullWidth={true} variant="text" onClick={handleClickOpen}>
+            <i className="bi bi-calendar-plus"></i>
+          </Button>
+        </LightTooltip>
       </div>
 
       <Dialog
