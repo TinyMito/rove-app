@@ -121,12 +121,12 @@
 }
 
 .schedule-card-wrapper { 
-  padding: 20px 0px;
+  padding: 0px 0px;
 
-  ul, li {
+  /* ul, li {
     padding: 0;
     margin: 0;
-  }
+  } */
 
   .MuiStack-root {
     padding: 0;
