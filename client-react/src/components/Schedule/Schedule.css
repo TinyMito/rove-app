@@ -115,7 +115,6 @@
 
 .user-note-display-schedule {
   font-size: 1.4em !important;
-  display: flex;
   padding-top: 0.5em;
   color:#6e6f72;
 }
@@ -149,8 +148,7 @@
   }
 
   .MuiTextField-root {
-    min-width: unset !important;
-    width: 100px !important;
+    min-width: 100px !important;
   }
 
   .MuiCardMedia-media {
@@ -171,6 +169,11 @@
     font-size: 0.8em !important;
     height: 20px;
     width: 100%;
+
+  }
+
+  .MuiInputBase-inputMultiline {
+    height: unset !important;
   }
 
   /* .MuiButtonBase-root {
