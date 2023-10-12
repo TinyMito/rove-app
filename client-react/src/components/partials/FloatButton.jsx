@@ -14,7 +14,7 @@ export default function FloatButton({scheduleId}) {
         className="float-button"
         onClick={handleNavigate}
       >
-        <div className="float-icon"><i className="bi bi-pin-map"></i>Schedules on Map</div>
+        <div className="float-icon"><i className="bi bi-pin-map"></i>Open Schedule Map</div>
       </div>
     </div>
   );
