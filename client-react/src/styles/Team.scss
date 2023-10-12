@@ -1,0 +1,103 @@
+.about {
+  padding: 0 !important;
+  border-top-right-radius: 2em;
+}
+
+.about-box-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 400px;
+  width: auto;
+  background-color: #9661C2;
+  z-index: 2;
+  border-top-right-radius: 2em;
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+}
+
+.about-box-two {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 400px;
+  width: auto;
+  background-image: linear-gradient(15deg,#9bc8ef 0%,#eac9f5 70%);
+  z-index: 2;
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+}
+
+.about-box-three {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 400px;
+  width: auto;
+  background-color: #71B1F8;
+  z-index: 2;
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+}
+
+.about-box-four {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 400px;
+  width: auto;
+  background-color: #9DD82E;
+  z-index: 2;
+  box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
+  border-bottom-right-radius: 2em;
+}
+
+// Elements
+.about-title {
+  font-size: 4em;
+  font-weight: bold;
+  text-align: left;
+  padding: 20px;
+  background-image: linear-gradient(135deg,#dfbcfc 0%,#cc9cf4 70%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: normal;
+  text-shadow: rgba(80, 80, 80, 0.4) 0px 2px 20px;
+}
+
+.about-logo {
+  margin: 20px;
+  height: 256px;
+  width: 256px;
+  border-radius: 4.5em;
+  box-shadow: rgba(80, 80, 80, 0.5) 0px 2px 15px;
+}
+
+.about-slogan {
+  position: relative;
+  font-size: 5em;
+  font-weight: bold;
+  text-align: left;
+  padding: 40px;
+  background-image: linear-gradient(135deg,#71B1F8 0%,#4B73DC 70%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: normal;
+}
+
+.about-end {
+  font-size: 4em;
+  font-weight: bold;
+  text-align: left;
+  padding: 20px;
+  background-image: linear-gradient(15deg,#a6ff00 0%,#daff95 70%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: normal;
+  text-shadow: rgba(80, 80, 80, 0.1) 0px 2px 20px;
+}

@@ -1,5 +1,12 @@
 // MUI Components
 import { Card, CardActions, CardContent, CardMedia, Button, Grid, Typography, useMediaQuery, Rating } from '@mui/material';
+import { Link } from "react-router-dom";
+import '../../styles/Team.scss';
+import appIcon from '../../assets/images/logo.png';
+import kevin from '../../assets/images/kevin.jpg';
+import eunsoo from '../../assets/images/eunsoo.png';
+import raymond from '../../assets/images/raymond.png';
+import ahmed from '../../assets/images/ahmed.png';
 
 // Axios, useEffect, useState, useParams
 import axios from 'axios';
@@ -27,31 +34,98 @@ export default function Dev() {
       <div className="flex-row">
       <Navigation userImg={userData.userImg} />
         <div className="flex-column">
-        <Header userName={userData.userFirst} />
+        {/* <Header userName={userData.userFirst} /> */}
           <div className="body about">
             {/* Your codes start here */}
 
-            <h1>About Rove!</h1>
-
-            <div className="box-design-03">
-              <span><strong>Endless Inspiration:</strong> Dive into a curated collection of stunning destinations and travel experiences that will awaken your passion for adventure.</span>
-              <span><strong>Effortless Planning:</strong> Easily bookmark your favorite destinations, create personalized travel itineraries, and access invaluable travel tips to plan your dream trip with ease.</span>
-              <span><strong>Confidence in Travel:</strong> Stay informed with up-to-date travel information, visa requirements, safety tips, and local insights, ensuring your journeys are as seamless as they are memorable.</span>
-
-
-
-              <p>Made by Developers,</p>
-              <p>Team Rove</p>
-
-              <p>Meet the minds behind the magic:</p>
-
-              <ul>
-                <li>Kevin (<a href="https://github.com/TinyMito" target="_blank">GitHub</a>)</li>
-                <li>Euso (<a href="https://github.com/eunsookim1" target="_blank">GitHub</a>)</li>
-                <li>Ray (<a href="https://github.com/raylin98" target="_blank">GitHub</a>)</li>
-                <li>Admeh (<a href="https://github.com/Alhajahmed" target="_blank">GitHub</a>)</li>
-              </ul>
-            </div>
+            <section className="about-box-one">
+              <div className="about-title">
+                <div>Meet the minds behind the magic!</div>
+              </div>
+            </section>
+            <section className="about-box-two">
+              <div className="item-card">
+                <div>
+                  <Link to="https://github.com/TinyMito" target="_blank">
+                    <CardMedia
+                      component="img"
+                      className="item-card-image"
+                      alt="Kevin Ip"
+                      image={kevin}
+                      title="Kevin Ip"
+                    />
+                    <div className="item-card-caption">
+                      <div className="caption-title">Kevin Ip</div>
+                      <div className="caption-date">Developer</div>
+                      <div className="caption-date">& Designer</div>
+                    </div>
+                  </Link>  
+                </div>
+              </div>
+              <div className="item-card">
+                <div>
+                  <Link to="https://github.com/eunsookim1" target="_blank">
+                    <CardMedia
+                      component="img"
+                      className="item-card-image"
+                      alt="EunSoo Kim"
+                      image={eunsoo}
+                      title="EunSoo Kim"
+                    />
+                    <div className="item-card-caption">
+                      <div className="caption-title">EunSoo Kim</div>
+                      <div className="caption-date">Developer</div>
+                      <div className="caption-date"></div>
+                    </div>
+                  </Link>  
+                </div>
+              </div>
+              <div className="item-card">
+                <div>
+                  <Link to="https://github.com/raylin98" target="_blank">
+                    <CardMedia
+                      component="img"
+                      className="item-card-image"
+                      alt="Raymond Lin"
+                      image={raymond}
+                      title="Raymond Lin"
+                    />
+                    <div className="item-card-caption">
+                      <div className="caption-title">Raymond Lin</div>
+                      <div className="caption-date">Developer</div>
+                      <div className="caption-date"></div>
+                    </div>
+                  </Link>  
+                </div>
+              </div>
+              <div className="item-card">
+                <div>
+                  <Link to="https://github.com/Alhajahmed" target="_blank">
+                    <CardMedia
+                      component="img"
+                      className="item-card-image"
+                      alt="Ahmed Alhajahmed"
+                      image={ahmed}
+                      title="Ahmed Alhajahmed"
+                    />
+                    <div className="item-card-caption">
+                      <div className="caption-title">Ahmed Alhajahmed</div>
+                      <div className="caption-date">Developer</div>
+                      <div className="caption-date"></div>
+                    </div>
+                  </Link>  
+                </div>
+              </div>
+            </section>
+            <section className="about-box-three">
+              <img className="about-logo" src={appIcon}/>
+              <div className="about-slogan">Explore!</div>
+            </section>
+            <section className="about-box-four">
+              <div className="about-end">
+                Thank you for using Rove!
+              </div>
+            </section>
 
             {/* Your codes end here */}
           </div>
