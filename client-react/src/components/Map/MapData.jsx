@@ -26,9 +26,9 @@ export default function MapData() {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const latitude = parseFloat(queryParams.get("lat")) || 51.505;
-  const longitude = parseFloat(queryParams.get("lng")) || -0.09;
-  const tripname = queryParams.get("tripname");
+  const latitude = parseFloat(queryParams.get("lat")) || 43.65;
+  const longitude = parseFloat(queryParams.get("lng")) || -79.40;
+  const tripname = queryParams.get("tripname") || "Hello World!";
 
   let DefaultIcon = L.icon({
     iconUrl: require('assets/images/pin.png'),
@@ -57,7 +57,7 @@ export default function MapData() {
                 >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    maxZoom={19}
+                    maxZoom={20}
                   />
                   <Marker 
                     position={[latitude, longitude]}   

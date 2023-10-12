@@ -16,8 +16,7 @@ import { globalData } from '../../GlobalData';
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
-export default function MapSchedule({ trips, center}) {
-
+export default function MapSchedule({ trips, center }) {
   const { userData, setUserData } = globalData();
   const location = useLocation();
  
@@ -62,8 +61,9 @@ export default function MapSchedule({ trips, center}) {
                         >
                         <Popup
                           icon={icon}
-                          className="popup-schedule"                            maxWidth={1000} 
-                          closeButton={false}   
+                          className="popup-schedule"
+                          maxWidth={1000}
+                          closeButton={false}
                           offset={[25, 0]}
                         >
                           <div 
