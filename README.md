@@ -12,10 +12,10 @@ Meet Rove, your passport to endless travel inspiration – discover, bookmark, a
 * MaterialUI
 
 ## Team Members GitHub Links
-* Kevin https://github.com/TinyMito 
-* EunSoo https://github.com/eunsookim1 
-* Raymond https://github.com/raylin98 
-* Ahmed https://github.com/Alhajahmed 
+* [Kevin](https://github.com/TinyMito) 
+* [EunSoo](https://github.com/eunsookim1) 
+* [Raymond](https://github.com/raylin98) 
+* [Ahmed](https://github.com/Alhajahmed)
 
 ## Screenshot
 ![20231012_001246](https://github.com/TinyMito/final-project/assets/75095713/ed1835b6-09cf-40ff-9072-a66563526ae8)
