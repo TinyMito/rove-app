@@ -31,7 +31,9 @@ CREATE TABLE places (
   google_place_id VARCHAR(255),
   destination_id INTEGER REFERENCES destinations(id),
   name TEXT,
-  photo_url VARCHAR(1000)
+  photo_url VARCHAR(1000),
+  longitude NUMERIC DEFAULT NULL,
+  latitude NUMERIC DEFAULT NULL
 );
 
 CREATE TABLE schedules (
@@ -51,8 +53,8 @@ CREATE TABLE trips (
   start_time VARCHAR(5),
   attraction_photo_url VARCHAR(1000), -- places photo
   user_note TEXT DEFAULT 'This is your note section',
-  longitude NUMERIC, 
-  latitude NUMERIC
+  latitude NUMERIC,
+  longitude NUMERIC
 );
 
 /* CREATE TABLE mockplaces (
