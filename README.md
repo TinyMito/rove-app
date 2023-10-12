@@ -18,15 +18,15 @@ Meet Rove, your passport to endless travel inspiration – discover, bookmark, a
 * [Ahmed](https://github.com/Alhajahmed)
 
 ## Screenshot
-![20231012_001246](https://github.com/TinyMito/final-project/assets/75095713/ed1835b6-09cf-40ff-9072-a66563526ae8)
-![20231012_001244](https://github.com/TinyMito/final-project/assets/75095713/363bc837-402e-4743-b0e2-e91f0804c798)
-![20231012_001247](https://github.com/TinyMito/final-project/assets/75095713/7e79fea0-1c68-4a0a-b0b5-24afcb5e2f7e)
+![20231012_001246](https://github.com/TinyMito/rove-app/assets/75095713/ed1835b6-09cf-40ff-9072-a66563526ae8)
+![20231012_001244](https://github.com/TinyMito/rove-app/assets/75095713/363bc837-402e-4743-b0e2-e91f0804c798)
+![20231012_001247](https://github.com/TinyMito/rove-app/assets/75095713/7e79fea0-1c68-4a0a-b0b5-24afcb5e2f7e)
 
 ## Colour Palette
-<img width="720" alt="Rove" src="https://github.com/TinyMito/final-project/assets/75095713/84adb162-4ab4-4b63-a78f-bf2213eb7f43">
+<img width="720" alt="Rove" src="https://github.com/TinyMito/rove-app/assets/75095713/84adb162-4ab4-4b63-a78f-bf2213eb7f43">
 
 ## App Logo
-![logo](https://github.com/TinyMito/final-project/assets/75095713/901fab2a-c393-4c79-a833-287d20e1b3d2)
+![logo](https://github.com/TinyMito/rove-app/assets/75095713/901fab2a-c393-4c79-a833-287d20e1b3d2)
 
 # Setup
 ## Node ^20
@@ -39,7 +39,7 @@ nvm alias default ^20
 ## Clone Project
 Do git clone this project to your directory:
 ```
-git clone git@github.com:TinyMito/final-project.git
+git clone git@github.com:TinyMito/rove-app.git
 ```
 
 ## Install Project
