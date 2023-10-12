@@ -115,13 +115,12 @@
 
 .user-note-display-schedule {
   font-size: 1.4em !important;
-  display: flex;
   padding-top: 0.5em;
   color:#6e6f72;
 }
 
 .schedule-card-wrapper { 
-  padding: 0px 0px;
+  padding: 0px;
 
   /* ul, li {
     padding: 0;
@@ -149,8 +148,7 @@
   }
 
   .MuiTextField-root {
-    min-width: unset !important;
-    width: 100px !important;
+    min-width: 100px !important;
   }
 
   .MuiCardMedia-media {
@@ -169,8 +167,12 @@
   .MuiInputBase-input {
     padding: 15px 0px 15px 10px !important;
     font-size: 0.8em !important;
-    height: 20px;
+    height: 20px; 
     width: 100%;
+  }
+
+  .MuiInputBase-inputMultiline {
+    height: unset !important;
   }
 
   /* .MuiButtonBase-root {
