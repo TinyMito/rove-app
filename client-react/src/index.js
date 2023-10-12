@@ -55,6 +55,9 @@ root.render(
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
         </Routes>
+        <footer style={{display: 'block', width: 'auto', textAlign: 'center', padding: '50px', color: '#555', fontSize: '1.2em'}}>
+          © 2023 Rove, A Lighthouse Labs' final project by Kevin Ip, EunSoo Kim, Raymond Lin and Ahmed Alhajahmed.
+        </footer>
       </DataProvider>
     </BrowserRouter>
   </StrictMode>

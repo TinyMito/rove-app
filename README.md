@@ -54,11 +54,14 @@ cd server-express && npm install && cd ../client-react && npm install && cd ../
 ## Google API Key is Required
 [See here on how to get your personal Google Maps API key](https://developers.google.com/maps/documentation/embed/get-api-key)
 
+**CORS issues will be fixed in the future update!**
+
 1. Copy the `.env.example` and rename it to `.env`.
 2. Copy and Paste your API Key into `REACT_APP_API_KEY=`.
 3. Start the server-express `cd server-express && npm run local`. 
 4. Start the client-react `cd client-react && npm start`.
-4. Navigate to [localhost:3000](http://localhost:3000/).
+5. Please install CORS Extension [FireFox](https://addons.mozilla.org/en-CA/firefox/addon/cors-unblock/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser) / [Chrome](https://chrome.google.com/webstore/detail/csp-unblock/lkbelpgpclajeekijigjffllhigbhobd) / [Edge](https://microsoftedge.microsoft.com/addons/detail/csp-unblock/ddjfnijclkbmemjealgjknemhhljclbo)
+6. Navigate to [localhost:3000](http://localhost:3000/).
 
 ## Sources
 * [React & Express Templates](https://github.com/gary-jipp/shell-react-express)
@@ -66,3 +69,9 @@ cd server-express && npm install && cd ../client-react && npm install && cd ../
 
 # Notes
 A Lighthouse Labs's Student Final Project.
+
+## Stretched 
+- Mobile Optimization.
+- Rework backend for Mobile compliance.
+- Rework Style Strutures.
+- Rework Google API integration to avoid CORS issues.

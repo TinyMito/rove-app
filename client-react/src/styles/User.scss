@@ -12,6 +12,11 @@
   border-radius: 10px;
   box-shadow: rgba(80, 80, 80, 0.4) 0px 2px 15px;
   background-color: #fff;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .item-card a {

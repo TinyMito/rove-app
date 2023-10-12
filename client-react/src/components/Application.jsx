@@ -78,8 +78,7 @@ export default function Home() {
       </section >
       <footer className="box-footer">
         © 2023 Rove<br/>
-        A Lighthouse Labs's final project by students:
-        Kevin, EunSoo, Raymond and Ahmed
+        A Lighthouse Labs' final project by Kevin Ip, EunSoo Kim, Raymond Lin and Ahmed Alhajahmed.
       </footer>
     </div>
   );
