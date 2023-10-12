@@ -123,7 +123,7 @@ export default function Dev() {
             </section>
             <section className="about-box-four">
               <div className="about-end">
-                Thank you for using Rove!
+                Embark on Your next epic journey with Rove!
               </div>
             </section>
 
