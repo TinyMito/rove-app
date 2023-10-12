@@ -167,9 +167,8 @@
   .MuiInputBase-input {
     padding: 15px 0px 15px 10px !important;
     font-size: 0.8em !important;
-    height: 20px;
+    height: 20px; 
     width: 100%;
-
   }
 
   .MuiInputBase-inputMultiline {
