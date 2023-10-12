@@ -5,9 +5,11 @@
 }
 .card_schedule {
   border-radius: 20px !important;
+  transition: all 0.3s ease;
 }
 
 .card_schedule:hover {
+  transition: all 0.3s ease;
   transform: scale(1.005)
 }
 
@@ -22,6 +24,7 @@
 .clock-schedule-page {
   padding-left: 2px;
   color:#71B1F8;
+  transition: all 0.3s ease;
 }
 
 .clock-schedule-page:hover { 
@@ -33,6 +36,7 @@
 .edit-trip-usernote {
   padding-left: 2px;
   color:#71B1F8;
+  transition: all 0.3s ease;
 }
 
 .edit-trip-usernote:hover {
@@ -47,20 +51,31 @@
 .page-heading-schedule {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  align-content: flex-end;
+  align-items: center;
   color: #4078c0;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  margin-top: 2.5em;
   margin-bottom: 2.5em;
   background-color: whitesmoke;
   border-radius: 20px;
-  padding: 2em;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  padding: 1.5em;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15); */
+}
+
+.schedule-heading {
+  display: flex;
+  align-items: center;
 }
 
 .schedule-current-date {
   font-size: 2em;
+  font-weight: bold;
+}
+
+.schedule-heading-day {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 0px 10px 0px 0px
 }
 
 .user-note-edit-schedule {
@@ -68,12 +83,6 @@
   flex-direction: row;
   align-items: center;
   color: #4B73DC;
-}
-
-.schedule-heading {
-  display: flex;
-  align-items: flex-end;
-  align-items: right;
 }
 
 .timepicker-clock-schedule {
@@ -129,28 +138,36 @@
   color: #71B1F8;
 }
 
-.navigate-schedule-all-items {
-  position: fixed !important;
-  margin-left: 65em;
-  margin-top: 13em;
-	width: 6em;
-	height: 6em;
-  background-color:  #4B73DC;
-  fill:white;
-  border: none;
-	border-radius:50px;
-	text-align: center;
-	box-shadow: 2px 2px 3px #2b3e6c;
-  z-index: 99;
+.float-flex {
+  display: flex;
+  justify-content: center;
 }
 
-.navigate-schedule-all-items:hover {
+.float-button {
+  display: block;
+  position: absolute;
+  top: 270px;
+  padding: 15px 20px;
+  border: 3px solid #fff;
+  border-radius: 15px;
+  background-color: #fff;
+  color: #9399B4;
+  box-shadow: rgba(80, 80, 80, 0.15) 0px 2px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+} 
+
+.float-button:hover {
   background-color: #9DD82E;
+  color: #fff;
 }
-.float-map {
-  color: white;
-  font-size: 4em !important;
-  padding-top: 0.25em !important;
+
+.float-icon {
+  font-size: 1.5em;
+}
+
+.float-icon i {
+  margin-right: 10px;
 }
 
 @media (max-width: 1260px) {
@@ -158,8 +175,7 @@
     max-width: 700px;
   }
 
-  .navigate-schedule-all-items {
-    margin-left: 55em;
-    margin-top: 20em;
-  }
+  .float-button {
+    top: 330px;
+  } 
 }

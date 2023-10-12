@@ -163,24 +163,23 @@ export default function Suggestion() {
                           
                           </Typography>
                         </CardContent>
-                        <Modal 
-                          userData={userData}
-                          setUserData={setUserData}
-                          scheduleId={userData.scheduleId}
-                          uniqueIds={uniqueIds}
-                          userId={userData.id} 
-                          locationName={location} 
-                          placeId={id} 
-                          attractionId={attraction.place_id} 
-                          attractionName={attraction.name} 
-                          attractionAddress={attraction.vicinity} 
-                          photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} 
-                          longitude={attraction.geometry.location.lng}
-                          latitude={attraction.geometry.location.lat}
-                          scheduleStart={userData.scheduleStartDate}
-                          scheduleEnd={userData.scheduleEndDate}
-                        />
-
+                      <Modal 
+                        userData={userData}
+                        setUserData={setUserData}
+                        scheduleId={userData.scheduleId}
+                        uniqueIds={uniqueIds}
+                        userId={userData.id} 
+                        locationName={location} 
+                        placeId={id} 
+                        attractionId={attraction.place_id} 
+                        attractionName={attraction.name} 
+                        attractionAddress={attraction.vicinity} 
+                        photoUrl={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${attraction.photos?.[0]?.photo_reference}&key=${apiKey}`} 
+                        longitude={attraction.geometry.location.lng}
+                        latitude={attraction.geometry.location.lat}
+                        scheduleStart={userData.scheduleStartDate}
+                        scheduleEnd={userData.scheduleEndDate}
+                      />
                       </Card>
                     ))}
                   </div>

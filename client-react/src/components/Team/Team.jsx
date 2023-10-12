@@ -33,25 +33,25 @@ export default function Dev() {
 
             <h1>About Rove!</h1>
 
-  
-            <span><strong>Endless Inspiration:</strong> Dive into a curated collection of stunning destinations and travel experiences that will awaken your passion for adventure.</span>
-            <span><strong>Effortless Planning:</strong> Easily bookmark your favorite destinations, create personalized travel itineraries, and access invaluable travel tips to plan your dream trip with ease.</span>
-            <span><strong>Confidence in Travel:</strong> Stay informed with up-to-date travel information, visa requirements, safety tips, and local insights, ensuring your journeys are as seamless as they are memorable.</span>
+            <div className="box-design-03">
+              <span><strong>Endless Inspiration:</strong> Dive into a curated collection of stunning destinations and travel experiences that will awaken your passion for adventure.</span>
+              <span><strong>Effortless Planning:</strong> Easily bookmark your favorite destinations, create personalized travel itineraries, and access invaluable travel tips to plan your dream trip with ease.</span>
+              <span><strong>Confidence in Travel:</strong> Stay informed with up-to-date travel information, visa requirements, safety tips, and local insights, ensuring your journeys are as seamless as they are memorable.</span>
 
 
 
-            <p>Made by Developers,</p>
-            <p>Team Rove</p>
+              <p>Made by Developers,</p>
+              <p>Team Rove</p>
 
-            <p>Meet the minds behind the magic:</p>
+              <p>Meet the minds behind the magic:</p>
 
-            <ul>
-              <li>Kevin (<a href="https://github.com/TinyMito" target="_blank">GitHub</a>)</li>
-              <li>Euso (<a href="https://github.com/eunsookim1" target="_blank">GitHub</a>)</li>
-              <li>Ray (<a href="https://github.com/raylin98" target="_blank">GitHub</a>)</li>
-              <li>Admeh (<a href="https://github.com/Alhajahmed" target="_blank">GitHub</a>)</li>
-            </ul>
-
+              <ul>
+                <li>Kevin (<a href="https://github.com/TinyMito" target="_blank">GitHub</a>)</li>
+                <li>Euso (<a href="https://github.com/eunsookim1" target="_blank">GitHub</a>)</li>
+                <li>Ray (<a href="https://github.com/raylin98" target="_blank">GitHub</a>)</li>
+                <li>Admeh (<a href="https://github.com/Alhajahmed" target="_blank">GitHub</a>)</li>
+              </ul>
+            </div>
 
             {/* Your codes end here */}
           </div>

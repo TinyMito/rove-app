@@ -161,8 +161,15 @@ export default function AuthForm() {
 
               {isLoginMode ? (
                 <>
-                  <h1>Login</h1>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <h1>Login</h1>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
+                    <h3>Don't have an account?</h3>
+                    <Button sx={{margin: '20px', padding: '10px'}} size="large" onClick={toggleMode}>Register Here!</Button>  
+                    </div>
+                  </div>
 
+                  <div className="box-design-02">
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
 
                   <FormControl sx={{ m: 1 }} variant="outlined">
@@ -217,22 +224,22 @@ export default function AuthForm() {
                   >Login</Button>
 
                   </div>
+                  </div>
 
-                  <h3>
-                    Don't have an account? 
-                    <Button sx={{margin: '20px', padding: '10px'}} size="large" onClick={toggleMode}>Click here to register today!</Button>
-                  </h3>
 
                 </>
               ) : (
                 <>
-                  <h1>Register Today!</h1>
 
-                  <h3>
-                    Already have an account?
-                    <Button sx={{margin: '20px', padding: '10px'}} size="large" onClick={toggleMode}>Click here to login!</Button>
-                  </h3>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <h1>Register Today!</h1>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
+                      <h3>Already have an account?</h3>
+                      <Button sx={{margin: '20px', padding: '10px'}} size="large" onClick={toggleMode}>Login Here!</Button>
+                    </div>
+                  </div>
 
+                  <div className="box-design-02">
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
 
                   <h3>Your Public Username</h3>
@@ -341,7 +348,7 @@ export default function AuthForm() {
                       />
                     </FormControl>
 
-                    <h3>Select Avatar</h3>
+                    <h3>Avatar</h3>
                     <Button onClick={handleOpenAvatarDialog} variant="outlined" sx={{margin: '20px', padding: '10px'}}>
                       Select your avatar
                     </Button>
@@ -395,6 +402,10 @@ export default function AuthForm() {
                     <Button onClick={handleSubmit} variant="text" sx={{margin: '20px', padding: '10px'}}>Register</Button>
 
                   </div>
+                  
+                  </div>
+
+
                 </>
               )}
 

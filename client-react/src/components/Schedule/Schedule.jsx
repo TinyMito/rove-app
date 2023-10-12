@@ -1,5 +1,7 @@
 import { useEffect, useCallback } from 'react';
 import { Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTimeLine } from './useTimeLine';
 import { useSchedule } from './useSchedule';
@@ -50,6 +52,19 @@ export const Schedule = () => {
     } 
   }, [schedule, userData.scheduleId]);
 
+  // Tooltip
+  const LightTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+    ))(({ theme }) => ({
+      [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: '#fff',
+        color: '#9399B4',
+        boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.3)',
+        fontSize: '1.5em',
+        borderRadius: '7px'
+      },
+  }));
+
   return (
     <div className="box"> 
       <div className="flex-row">
@@ -57,17 +72,15 @@ export const Schedule = () => {
         <div className="flex-column">
         <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} slogan={destination} date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}>
         </Header>
-        <FloatButton 
-          className="main-float-button-schedule"
-          scheduleId={id} 
-        />
+        <FloatButton scheduleId={id} />
           <div className="body">
             <title>{destination}</title>
             <div id="root"></div>
+
             <div className="page-heading-schedule">
-              <h2 className="schedule-current-date">{dates[currentDay]}</h2>
+              <div className="schedule-current-date">{dates[currentDay]}</div>
               <div className="schedule-heading">
-                <h2 style={{ marginRight: '0.5em', fontSize: '2em' }}>DAY:</h2>
+                <div className="schedule-heading-day">DAY <i className="bi bi-arrow-right-short"></i> </div>
                 <Days
                   className="schedule-pagination"
                   daysCount={totalDays}
@@ -76,14 +89,17 @@ export const Schedule = () => {
                 />
               </div>
             </div>
+
             <section className="itinerary-day">
-              <Button 
-              fullWidth={true} 
-              sx={{ fontSize: '50px' }}
-              onClick={handleNavigate}
-              size="small">
-                <i className="bi bi-plus"></i>
-              </Button>
+              <LightTooltip title="Add Attractions">
+                <Button 
+                fullWidth={true} 
+                sx={{ fontSize: '50px' }}
+                onClick={handleNavigate}
+                size="small">
+                  <i className="bi bi-plus"></i>
+                </Button>
+              </LightTooltip>
               <div className="schedule-card-wrapper">
                 <ScheduleTimeLine
                   data={data}

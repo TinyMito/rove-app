@@ -20,6 +20,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { styled } from '@mui/material/styles';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 
 // Timpicker
 import TimePicker from './TimePicker';
@@ -48,6 +50,19 @@ export const TripItem = ({
   }
 
   const navigate = useNavigate();
+
+  // Tooltip
+  const LightTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+    ))(({ theme }) => ({
+      [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: '#fff',
+        color: '#9399B4',
+        boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.3)',
+        fontSize: '1.5em',
+        borderRadius: '7px'
+      },
+  }));
 
   return (
     <TimelineItem 
@@ -97,7 +112,8 @@ export const TripItem = ({
             </Typography>
           </CardContent>
 
-          <CardActions className="card-actions-schedule">               
+          <CardActions className="card-actions-schedule">  
+          <LightTooltip title="Open Map">             
             <IconButton 
               className="icon_buttons" aria-label="mapIcon" size="large"
               tripname={trip.name}
@@ -105,6 +121,8 @@ export const TripItem = ({
             >
               <MapOutlinedIcon />
             </IconButton>
+            </LightTooltip>
+            <LightTooltip title="Delete">
             <IconButton 
               className="icon_buttons" 
               aria-label="delete" 
@@ -115,6 +133,7 @@ export const TripItem = ({
             >
               <DeleteIcon/>
             </IconButton>
+            </LightTooltip>
             
           </CardActions>
         </Card>

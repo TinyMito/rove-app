@@ -9,14 +9,13 @@ export default function FloatButton({scheduleId}) {
     navigate(`/map/${scheduleId}`)
   })
   return (
+    <div className="float-flex">
       <div
-        className="navigate-schedule-all-items"
-        sx={{borderRight: '90px !important'}}
+        className="float-button"
         onClick={handleNavigate}
       >
-        <MapOutlinedIcon
-          className="float-map"
-        />
+        <div className="float-icon"><i className="bi bi-pin-map"></i>Open Schedule Map</div>
       </div>
+    </div>
   );
 }
