@@ -57,10 +57,7 @@ export const Schedule = () => {
         <div className="flex-column">
         <Header isAuthenticated={isAuthenticated} userName={userData.userFirst} slogan={destination} date={start_date ? `${start_date} ~ ${end_date}` :  'Loading...'}>
         </Header>
-        <FloatButton 
-          className="main-float-button-schedule"
-          scheduleId={id} 
-        />
+        <FloatButton scheduleId={id} />
           <div className="body">
             <title>{destination}</title>
             <div id="root"></div>
