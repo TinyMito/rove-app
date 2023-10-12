@@ -24,10 +24,11 @@ export default function MapSchedule({ trips, center}) {
   let DefaultIcon = L.icon({
     iconUrl: require('assets/images/pin.png'),
     shadowUrl: undefined,
-    iconSize:     [100, 100],
+    iconSize:     [60, 60],
     shadowSize:   [0, 0], 
-    iconAnchor:   [50, 100],
+    iconAnchor:   [30, 60],
     shadowAnchor: [0, 0],
+    popupAnchor:  [-25, -60]
   });
 
   L.Marker.prototype.options.icon = DefaultIcon;
