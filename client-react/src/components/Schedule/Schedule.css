@@ -1,8 +1,3 @@
-.time-display-schedule-trip {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
 .card_schedule {
   border-radius: 20px !important;
   transition: all 0.3s ease;
@@ -30,7 +25,8 @@
 .clock-schedule-page:hover { 
   color: #9DD82E;
   /* font-weight: bold; */
-  transform: scale(1.2)
+  transform: scale(1.2);
+  transition: all 0.3s ease;
 }
 
 .edit-trip-usernote {
@@ -42,6 +38,7 @@
 .edit-trip-usernote:hover {
   transform: scale(1.5);
   color: #9DD82E;
+  transition: all 0.3s ease;
 }
 
 .usernote-schedule-page {
@@ -106,14 +103,14 @@
 
 .timepicker-container {
   border:none !important;
-  background-color: red !important;
 }
 
-.timepicker-clock-schedule {
-  /* background-color: red; */
-  width: 2em !important;
-  /* border-radius: 25px; */
-  background-color: white;
+.time-display-schedule-trip {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 100px;
+  padding: 0px 10px 0px 0px;
 }
 
 .user-note-display-schedule {
@@ -123,14 +120,68 @@
   color:#6e6f72;
 }
 
-.schedule-card-wrapper {
-  margin-left: 0.1em;
-  padding-right: -1em;
-  margin-right: -3.7em;
-}
+.schedule-card-wrapper { 
+  padding: 20px 0px;
 
-.css-66dh3a-MuiInputBase-input-MuiInput-input {
-  color:#6e6f72 !important;
+  ul, li {
+    padding: 0;
+    margin: 0;
+  }
+
+  .MuiStack-root {
+    padding: 0;
+    margin: 0;
+  }
+
+  .MuiTimeline-root {
+    padding: 0;
+  }
+
+  .MuiTimelineContent-root {
+    padding: 10px 0px 25px 20px !important;
+  }
+
+  .MuiTimelineOppositeContent-root {
+    flex: 0 !important;
+    padding: 0 !important;
+    margin: 0px 10px 0px 0px !important;
+    width: 100px !important;
+  }
+
+  .MuiTextField-root {
+    min-width: unset !important;
+    width: 100px !important;
+  }
+
+  .MuiCardMedia-media {
+    max-height: 500px;
+  }
+
+  .MuiFormLabel-root {
+    padding: 0;
+    font-size: 0.6em;
+  }
+
+  .MuiInputAdornment-root {
+    margin: 0;
+  }
+
+  .MuiInputBase-input {
+    padding: 15px 0px 15px 10px !important;
+    font-size: 0.8em !important;
+    height: 20px;
+    width: 100%;
+  }
+
+  /* .MuiButtonBase-root {
+    box-shadow: unset !important;
+
+    &:hover {
+      color: #9DD82E !important;
+      background-color: unset !important;
+    }
+  } */
+
 }
 
 .trip_name {

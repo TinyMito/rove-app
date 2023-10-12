@@ -225,15 +225,7 @@ export const baseCss = css`
     width: 50px !important;
     box-shadow: rgba(147, 153, 180, 0.35) 0px 0px 7px !important;
   }
-
-  .MuiTimeline-root {
-    margin-left: -7em !important;
-  }
-
-  .MuiTimelineContent-root {
-    padding: 2em !important;
-  }
-
+  
   .MuiPaper-rounded {
     border-radius: 20px;
   }
