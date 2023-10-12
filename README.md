@@ -1,5 +1,4 @@
 # Rove
-## Description
 Meet Rove, your passport to endless travel inspiration – discover, bookmark, and explore your dream destinations effortlessly.
 
 ## Tech stack
@@ -14,7 +13,7 @@ Meet Rove, your passport to endless travel inspiration – discover, bookmark, a
 
 ## Team Members
 Name | GitHub 
--- | -- | -- |
+-- | -- |
 Kevin | https://github.com/TinyMito 
 EunSoo | https://github.com/eunsookim1 
 Raymond | https://github.com/raylin98 
@@ -53,17 +52,17 @@ cd server-express && npm install && cd ../client-react && npm install && cd ../
 ```
 
 ## Google API Key is Required
-[See here on how to get your personal Google API key](https://developers.google.com/maps/documentation/embed/get-api-key)
+[See here on how to get your personal Google Maps API key](https://developers.google.com/maps/documentation/embed/get-api-key)
 
 1. Copy the `.env.example` and rename it to `.env`.
 2. Copy and Paste your API Key into `REACT_APP_API_KEY=`.
-3. Start the server-express `cd server-express && npm run local` and then the client-react `cd client-react && npm start`.
-4. Navigate to [localhost](http://localhost:3000/).
+3. Start the server-express `cd server-express && npm run local`. 
+4. Start the client-react `cd client-react && npm start`.
+4. Navigate to [localhost:3000](http://localhost:3000/).
 
 ## Sources
 * [React & Express Templates](https://github.com/gary-jipp/shell-react-express)
 * [Avatar & Illutration](https://www.frebers.com/download/travelling-illustration-download)
-* [Shell React Express](https://github.com/gary-jipp/shell-react-express)
 
-# Note
+# Notes
 A Lighthouse Labs's Student Final Project.
