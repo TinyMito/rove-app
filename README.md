@@ -11,13 +11,11 @@ Meet Rove, your passport to endless travel inspiration – discover, bookmark, a
 * BootStrap
 * MaterialUI
 
-## Team Members
-Name | GitHub 
--- | -- |
-Kevin | https://github.com/TinyMito 
-EunSoo | https://github.com/eunsookim1 
-Raymond | https://github.com/raylin98 
-Ahmed | https://github.com/Alhajahmed 
+## Team Members GitHub Links
+* Kevin https://github.com/TinyMito 
+* EunSoo https://github.com/eunsookim1 
+* Raymond https://github.com/raylin98 
+* Ahmed https://github.com/Alhajahmed 
 
 ## Screenshot
 
