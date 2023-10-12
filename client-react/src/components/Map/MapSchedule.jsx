@@ -1,6 +1,5 @@
-import { useState, useEffect, useMemo } from 'react';
-import { MapContainer as Map, LayersControl, FeatureGroup, TileLayer, Marker, Popup } from "react-leaflet";
-import { useParams } from 'react-router-dom';
+import { MapContainer as Map, useMap, LayersControl, FeatureGroup, TileLayer, Marker, Popup } from "react-leaflet";
+
 // import from leaflet
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
@@ -17,34 +16,17 @@ import { globalData } from '../../GlobalData';
 import Navigation from '../partials/Navigation';
 import Header from '../partials/Header';
 
-import { useMap } from './useMap';
-
-export default function MapSchedule() {
+export default function MapSchedule({ trips, center}) {
 
   const { userData, setUserData } = globalData();
-  const { id } = useParams();
-  const { trips } = useMap({ id });
-
-  const [center, setCenter] = useState([47.6067006, -122.3325009]);
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-
+ 
   let DefaultIcon = L.icon({
       iconUrl: icon,
       shadowUrl: iconShadow
   });
 
   L.Marker.prototype.options.icon = DefaultIcon;
-
-  const centers = useMemo(() => {
-    return trips.map((trip) => 
-      [trip.latitude, trip.longitude]
-    )
-  }, [trips]);
-
-  useEffect(() => { 
-    setCenter(centers[0]);
-  }, [centers[0]]);
 
   return (
     <div className="box"> 
