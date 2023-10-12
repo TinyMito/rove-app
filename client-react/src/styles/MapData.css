@@ -13,10 +13,6 @@
   font-weight: 600;
 }
 
-.leaflet-marker-pane img {
-  width: 40px !important;
-}
-
 #map {
   border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;

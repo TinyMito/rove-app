@@ -31,8 +31,13 @@ export default function MapData() {
   const tripname = queryParams.get("tripname");
 
   let DefaultIcon = L.icon({
-      iconUrl: icon,
-      shadowUrl: iconShadow
+    iconUrl: require('assets/images/pin.png'),
+    shadowUrl: undefined,
+    iconSize:     [100, 100],
+    shadowSize:   [0, 0], 
+    iconAnchor:   [50, 100],
+    shadowAnchor: [0, 0],
+    popupAnchor:  [-25, -100],
   });
 
   L.Marker.prototype.options.icon = DefaultIcon;
