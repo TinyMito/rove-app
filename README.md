@@ -18,7 +18,7 @@ Meet Rove, your passport to endless travel inspiration – discover, bookmark, a
 * Ahmed https://github.com/Alhajahmed 
 
 ## Screenshot
-![20231012_001242](https://github.com/TinyMito/final-project/assets/75095713/e49c22e6-2777-4f60-ae92-b04183598d9f)
+![20231012_001245](https://github.com/TinyMito/final-project/assets/75095713/88792acd-1fca-4b03-88ca-43b848c1989c)
 ![20231012_001243](https://github.com/TinyMito/final-project/assets/75095713/57d9efce-aaa9-44eb-99f3-d89c66f6b8a4)
 ![20231012_001244](https://github.com/TinyMito/final-project/assets/75095713/363bc837-402e-4743-b0e2-e91f0804c798)
 
