@@ -11,7 +11,7 @@ router.get("/place/:id", async (req, res) => {
       res.send(response.data);
   })
   .catch(function (error) {
-      console.log(error);
+      //console.log(error);
   });
 });
 

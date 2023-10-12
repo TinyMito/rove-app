@@ -76,7 +76,7 @@ export default function Modal({
         setScheduleList(filteredSchedule);
 
         // Check if there's only one item in scheduleList and automatically select it
-        console.log("Receiving Schedule IDs", filteredSchedule)
+        //console.log("Receiving Schedule IDs", filteredSchedule)
         if (filteredSchedule.length === 1) {
           setScheduleSelect(filteredSchedule[0].id);
         }

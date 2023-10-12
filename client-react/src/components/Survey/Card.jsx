@@ -137,10 +137,10 @@ export default function Suggestion() {
               </div>
 
               <div className="box-design-01">
-              <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click the finish button.</span>
 
               {nearbyAttractions.length > 0 ? (
-
+                <>
+              <span style={{display: 'block', fontSize: '1.2em', padding: '20px'}}>Once you're done adding, please click the finish button.</span>
                 <div>
                   <div className='attractions-list'>
                     {nearbyAttractions.slice(0,20).map((attraction, index) => (
@@ -184,13 +184,13 @@ export default function Suggestion() {
                     ))}
                   </div>
                 </div>
-                
+                </>
               ) : (
-                <h1>No nearby attractions found.</h1>
+                <div className="message">Sorry! No nearby attractions found. Please click back button and try again.</div>
               )}
 
               </div>
-      
+
             {/* Your codes end here */}
             </div>
         </div>

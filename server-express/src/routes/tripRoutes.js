@@ -37,7 +37,7 @@ router.get("/map", (req, res) => {
   const { tripId, scheduleId } = req.query;
 
   if (tripId !== undefined) {
-    console.log('tripId', tripId);
+    //console.log('tripId', tripId);
     getATripCoordinates({ tripId })
       .then((response) => {
         res.status(200);
