@@ -65,7 +65,7 @@ export default function MapData() {
                       offset={[25, 0]}                   
                     >
                       <div className="popup-text">
-``                      {tripname}
+                        {tripname}
                       </div>
                     </Popup>
                   </Marker>
