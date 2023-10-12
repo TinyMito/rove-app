@@ -1,7 +1,7 @@
 # Rove
 Meet Rove, your passport to endless travel inspiration – discover, bookmark, and explore your dream destinations effortlessly.
 
-## Tech stack
+## Tech Stack
 * React 
 * PostgresSQL
 * ExpressJS
