@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
-export const useMap = ({ id }) => {
+export const useMapSchedule = ({ id }) => {
 
   const [trips, setTrips] = useState([]);
+  const [centerCoord, setCenterCoord] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:8080/api/trip/map?scheduleId=${id}`)
@@ -12,9 +13,9 @@ export const useMap = ({ id }) => {
       })
       .then((response) => {
         setTrips(response);
+        setCenterCoord([parseFloat(response[0].latitude), parseFloat(response[0].longitude)]);
       });
   }, [id]);
 
-
-  return { trips };
+  return { trips, centerCoord };
 };
