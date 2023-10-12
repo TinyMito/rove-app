@@ -47,20 +47,32 @@
 .page-heading-schedule {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  align-content: flex-end;
+  align-items: center;
   color: #4078c0;
   padding-top: 1em;
   padding-bottom: 1em;
   margin-bottom: 2.5em;
   background-color: whitesmoke;
   border-radius: 20px;
-  padding: 2em;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  padding: 1.5em;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15); */
+}
+
+.schedule-heading {
+  display: flex;
+  align-items: center;
 }
 
 .schedule-current-date {
   font-size: 2em;
+  font-weight: bold;
+}
+
+.schedule-heading-day {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 0px 10px 0px 0px
 }
 
 .user-note-edit-schedule {
@@ -70,11 +82,7 @@
   color: #4B73DC;
 }
 
-.schedule-heading {
-  display: flex;
-  align-items: flex-end;
-  align-items: right;
-}
+
 
 .timepicker-clock-schedule {
   font-size: 1em !important; 

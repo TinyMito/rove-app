@@ -64,10 +64,11 @@ export const Schedule = () => {
           <div className="body">
             <title>{destination}</title>
             <div id="root"></div>
+
             <div className="page-heading-schedule">
-              <h2 className="schedule-current-date">{dates[currentDay]}</h2>
+              <div className="schedule-current-date">{dates[currentDay]}</div>
               <div className="schedule-heading">
-                <h2 style={{ marginRight: '0.5em', fontSize: '2em' }}>DAY:</h2>
+                <div className="schedule-heading-day">DAY <i className="bi bi-arrow-right-short"></i> </div>
                 <Days
                   className="schedule-pagination"
                   daysCount={totalDays}
@@ -76,6 +77,7 @@ export const Schedule = () => {
                 />
               </div>
             </div>
+
             <section className="itinerary-day">
               <Button 
               fullWidth={true} 

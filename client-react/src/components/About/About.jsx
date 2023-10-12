@@ -71,7 +71,9 @@ export default function User() {
           <Header userName={userData.userFirst} />
 
               <div className="body">
+
                 <h1>Explore Today!</h1>
+                <div className="box-design-03">
                 <div className="item-list">
                   {selectedTrips.map((item, index) => {
                     const selectedTripsKey = `selectedTrips_${index}`;
@@ -85,6 +87,7 @@ export default function User() {
                       />                    
                     );
                    })}
+                </div>
                 </div>
               </div>
           </div>
