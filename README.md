@@ -79,7 +79,7 @@ cd server-express && npm install && cd ../client-react && npm install && cd ../
 # Notes
 A Lighthouse Labs's Student Final Project.
 
-App is entirely base on user data. We setup the initial database seed to kick start with data (Who's first chichen or egg?).
+App is entirely base on user data. We setup the initial database seed to kick start with data (Who's first chicken or egg?).
 
 ## Stretched 
 - Mobile Optimization.
